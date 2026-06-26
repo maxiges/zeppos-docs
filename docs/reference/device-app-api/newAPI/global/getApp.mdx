@@ -1,14 +1,28 @@
 # getApp
 
-> Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::note
+Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 Get the app instance object.
+
+`getApp()` allows you to access the singleton application instance registered via `App()`. This is essential for managing global state and sharing data between different pages of your Mini Program.
 
 ## Type
 
 ```ts
 function getApp(): Result
 ```
+
+## Explanation
+
+The `App()` constructor registers the lifecycle and global state of your application. Since `getApp()` returns the instance, you can use it to:
+
+- Access `globalData` defined in `App()`.
+- Share variables between pages (e.g., user settings, temporary state).
+- Invoke methods defined in the `App` instance (though rarely used).
+
+**Important Note:** The properties defined in your `App()` constructor are accessible via the `_options` property of the returned app instance.
 
 ## Parameters
 
@@ -24,22 +38,66 @@ function getApp(): Result
 | ---------- | ------------------- | ------------------------------------- | --------- |
 | globalData | <code>object</code> | mounted data objects on app instances | 2.0       |
 
+## Usage Examples
+
+| Scenario               | Code Pattern                                               | Description                   |
+| :--------------------- | :--------------------------------------------------------- | :---------------------------- |
+| **Basic Access**       | `const app = getApp();`                                    | Retrieve the app instance.    |
+| **Read Global Data**   | `const data = getApp()._options.globalData.key;`           | Get value from `globalData`.  |
+| **Update Global Data** | `getApp()._options.globalData.key = 'new';`                | Modify value in `globalData`. |
+| **Dynamic Key**        | `const k = 'user'; getApp()._options.globalData[k] = val;` | Dynamic access.               |
+
 ## Example
 
-```js
+import Tabs from '@theme/Tabs'
+import TabItem from '@theme/TabItem'
+
+<Tabs>
+  <TabItem value="apple" label="Example 1" default>
+  
+```js title="app.js"
 App({
   globalData: {
-    text: 'Hello Zepp OS',
+    userName: 'Runner',
+    theme: 'dark'
   },
   onCreate() {
-    console.log('onCreate')
-    console.log(this.globalData.text)
-  },
-  onDestroy() {
-    console.log('onDestroy')
-  },
+    console.log('App Created')
+  }
 })
-
-const app = getApp()
-console.log(app._options.globalData.text)
 ```
+
+```js title="page/index.js"
+// Retrieving data
+const app = getApp()
+console.log(app._options.globalData.userName) // Output: 'Runner'
+
+// Updating data from another page
+app._options.globalData.theme = 'light'
+console.log(app._options.globalData.theme) // Output: 'light'
+```
+
+  </TabItem>
+  <TabItem value="orange" label="Example 2">
+
+```js title="app.js"
+App({
+  globalData: {
+    userSettings: {
+      notifications: true,
+      sound: 50
+    }
+  }
+})
+```
+
+```js title="page/settings.js"
+// Modifying nested object
+const app = getApp()
+app._options.globalData.userSettings.sound = 100
+console.log(app._options.globalData.userSettings.sound) // Output: 100
+```
+
+  </TabItem>
+
+</Tabs>

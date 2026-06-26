@@ -5,8 +5,9 @@ sidebar_label: Media Multimedia
 
 import useBaseUrl from '@docusaurus/useBaseUrl'
 
-> Supported since API_LEVEL `3.0`. For API compatibility, please refer to [API_LEVEL](../../../guides/framework/device/compatibility.md).
-
+:::note
+Start from API_LEVEL `3.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 The Media multimedia module includes a player and recorder with the capability to record and play audio.
 
 ## create
@@ -19,10 +20,10 @@ Pass the creation type to create a Player object or a Record object
 create(id: number): Player | Record
 ```
 
-| id Value       | Description   |
-| -------------- | ------------- |
-| `id.PLAYER`    | Player        |
-| `id.RECORDER`  | Recorder      |
+| id Value      | Description |
+| ------------- | ----------- |
+| `id.PLAYER`   | Player      |
+| `id.RECORDER` | Recorder    |
 
 ```js
 import { create, id } from '@zos/media'
@@ -74,8 +75,8 @@ The source value supports `player.source.FILE`
 
 `player.source.FILE` plays a specified file, supporting `MP3` format and `OPUS` format recorded using the audio API. The corresponding obj parameter type is as follows
 
-| Property | Description                                                                                                                               | Required | Type     |
-| -------- | ----------------------------------------------------------------------------------------------------------------------------------------- | -------- | -------- |
+| Property | Description                                                                                                                                             | Required | Type     |
+| -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | -------- |
 | file     | File path, relative to the mini app assets directory by default. Can use data:// to point to the mini app data directory to play downloaded audio files | Yes      | `string` |
 
 ### prepare
@@ -149,11 +150,11 @@ Gets the title, artist, and duration information of the currently playing media 
 getMediaInfo(): MediaInfo
 ```
 
-| Property | Description                                     | Type                        |
-| -------- | ----------------------------------------------- | --------------------------- |
-| title    | File name, available after `setSource()`         | <code>string&#124;undefined</code> |
-| artist   | Artist, available after `setSource()`            | <code>string&#124;undefined</code> |
-| duration | File duration, player must be in `PREPARED` state to get the value | `number` |
+| Property | Description                                                        | Type                               |
+| -------- | ------------------------------------------------------------------ | ---------------------------------- |
+| title    | File name, available after `setSource()`                           | <code>string&#124;undefined</code> |
+| artist   | Artist, available after `setSource()`                              | <code>string&#124;undefined</code> |
+| duration | File duration, player must be in `PREPARED` state to get the value | `number`                           |
 
 ### release
 
@@ -192,39 +193,35 @@ seek(percentage: number): boolean
 
 Event types supported by the player for listening
 
-| Event Value              | Description                                                                                               |
-| ------------------------ | --------------------------------------------------------------------------------------------------------- |
-| `player.event.PREPARE`   | `prepare()` will trigger this event, callback function `function(result)`, `result` is `boolean` type, indicating success |
-| `player.event.COMPLETE`  | After audio starts playing normally, when the audio file or audio data playback ends, you can listen to the `COMPLETE` event |
-| `player.event.PLAY`      | `start()` and `seek()` will trigger this event, callback function `function(result)`, `result` is `boolean` type, indicating success |
-| `player.event.STOP`      | `stop()` stops playback                                                                                   |
-| `player.event.PAUSE`     | Playback paused, triggered by calling `pause()`, or triggered due to system resource conflicts          |
-| `player.event.PROGRESS`  | Updates playback progress (every second) during playback                                                  |
+| Event Value             | Description                                                                                                                          |
+| ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
+| `player.event.PREPARE`  | `prepare()` will trigger this event, callback function `function(result)`, `result` is `boolean` type, indicating success            |
+| `player.event.COMPLETE` | After audio starts playing normally, when the audio file or audio data playback ends, you can listen to the `COMPLETE` event         |
+| `player.event.PLAY`     | `start()` and `seek()` will trigger this event, callback function `function(result)`, `result` is `boolean` type, indicating success |
+| `player.event.STOP`     | `stop()` stops playback                                                                                                              |
+| `player.event.PAUSE`    | Playback paused, triggered by calling `pause()`, or triggered due to system resource conflicts                                       |
+| `player.event.PROGRESS` | Updates playback progress (every second) during playback                                                                             |
 
 ### player.state
 
 Player state enumeration
 
-| State Value                   | Description                                                                 |
-| ----------------------------- | --------------------------------------------------------------------------- |
-| `player.state.IDLE`           | Initial state                                                               |
-| `player.state.INITIALIZED`    | State after `setSource`                                                     |
-| `player.state.PREPARING`      | Intermediate state, after `prepare` is called, before `PREPARED` state      |
-| `player.state.PREPARED`      | State after successful `prepare`                                            |
-| `player.state.STARTED`       | State after starting playback, deprecated, use `PLAY` instead                |
-| `player.state.STARTING`       | Intermediate state, starting playback processing                            |
-| `player.state.PLAY`          | State after starting playback                                               |
-| `player.state.PAUSED`        | State when playback is paused                                                |
-| `player.state.STOPPED`       | State after stopping playback                                                |
-| `player.state.RESUMING`      | Intermediate state, resuming playback processing, becomes `PLAY` state after resume |
+| State Value                | Description                                                                         |
+| -------------------------- | ----------------------------------------------------------------------------------- |
+| `player.state.IDLE`        | Initial state                                                                       |
+| `player.state.INITIALIZED` | State after `setSource`                                                             |
+| `player.state.PREPARING`   | Intermediate state, after `prepare` is called, before `PREPARED` state              |
+| `player.state.PREPARED`    | State after successful `prepare`                                                    |
+| `player.state.STARTED`     | State after starting playback, deprecated, use `PLAY` instead                       |
+| `player.state.STARTING`    | Intermediate state, starting playback processing                                    |
+| `player.state.PLAY`        | State after starting playback                                                       |
+| `player.state.PAUSED`      | State when playback is paused                                                       |
+| `player.state.STOPPED`     | State after stopping playback                                                       |
+| `player.state.RESUMING`    | Intermediate state, resuming playback processing, becomes `PLAY` state after resume |
 
 ### Player Event and State Transition Diagram
 
-<img
-  src={useBaseUrl('/img/api/media_player_state.jpg')}
-  width="100%"
-  title="media_player_state"
-/>
+<img src={useBaseUrl('/img/api/media_player_state.jpg')} width="100%" title="media_player_state" />
 
 ## Record Interface
 
@@ -238,14 +235,14 @@ setFormat(codec: number, param: object): void
 
 Refer to codec values for codec
 
-| codec Value   | Description          |
-| ------------- | -------------------- |
-| `codec.OPUS`  | Opus encoding type   |
+| codec Value  | Description        |
+| ------------ | ------------------ |
+| `codec.OPUS` | Opus encoding type |
 
 param type
 
-| Property    | Description                                                                                                    | Required | Type     |
-| ----------- | -------------------------------------------------------------------------------------------------------------- | -------- | -------- |
+| Property    | Description                                                                                                                                | Required | Type     |
+| ----------- | ------------------------------------------------------------------------------------------------------------------------------------------ | -------- | -------- |
 | target_file | When recording to a file, specify the path to save the audio, supports the mini app's `data` directory, such as: `data://record_file.opus` | Yes      | `string` |
 
 ## Code Examples

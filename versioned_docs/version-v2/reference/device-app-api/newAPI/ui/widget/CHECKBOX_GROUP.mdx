@@ -3,8 +3,9 @@ title: CHECKBOX_GROUP
 sidebar_label: CHECKBOX_GROUP
 ---
 
-> Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](../../../../../guides/framework/device/compatibility.md).
-
+:::note
+Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 ![check_group_sample](/img/api/check_group_sample.jpg)
 
 Used to select a single result among multiple options. Each individual option needs to be created using `STATE_BUTTON`.
@@ -22,15 +23,15 @@ const stateButton = createWidget(widget.STATE_BUTTON, stateButtonParam)
 
 ### checkboxGroupParam: object
 
-| Properties   | Description                             | Required | Type        |
-| ------------ | --------------------------------------- | -------- | ----------- |
+| Properties   | Description                          | Required | Type        |
+| ------------ | ------------------------------------ | -------- | ----------- |
 | x            | The x-coordinate of widgets.         | YES      | `number`    |
 | y            | The y-coordinate of widgets.         | YES      | `number`    |
 | w            | The width of widgets.                | YES      | `number`    |
 | h            | The height of widgets.               | YES      | `number`    |
 | select_src   | The selected image of the widgets.   | YES      | `string`    |
 | unselect_src | The unselected image of the widgets. | YES      | `string`    |
-| check_func   | Callback when button state changes.     | NO       | `CheckFunc` |
+| check_func   | Callback when button state changes.  | NO       | `CheckFunc` |
 
 ### CheckFunc: function
 
@@ -40,14 +41,14 @@ const stateButton = createWidget(widget.STATE_BUTTON, stateButtonParam)
 
 | Parameters    | Description                     | Type            |
 | ------------- | ------------------------------- | --------------- |
-| checkboxGroup | The instance of checkboxGroup.      | `CheckboxGroup` |
+| checkboxGroup | The instance of checkboxGroup.  | `CheckboxGroup` |
 | index         | Subview index for state changes | `number`        |
 | checked       | Check or not                    | `boolean`       |
 
 ### StateButton
 
-| Properties | Required | Type     | Notes                                                                    |
-| ---------- | -------- | -------- | ------------------------------------------------------------------------ |
+| Properties | Required | Type     | Notes                                                                 |
+| ---------- | -------- | -------- | --------------------------------------------------------------------- |
 | x          | YES      | `number` | The x-coordinate of widgets. Coordinates relative to `checkboxGroup`. |
 | y          | YES      | `number` | The y-coordinate of widgets. Coordinates relative to `checkboxGroup`. |
 | w          | YES      | `number` | The width of widgets.                                                 |
@@ -59,11 +60,11 @@ The widget must be initialized once with `prop.INIT` to render the view
 
 ### Prop Properties
 
-| Properties            | Supports get/set | Type                                     | Notes                                                                   |
-| --------------------- | ---------------- | ---------------------------------------- | ----------------------------------------------------------------------- |
-| `prop.INIT`      | set              | `object`                                 | Initialize the widget and set the default checkbox                   |
+| Properties       | Supports get/set | Type                                     | Notes                                                             |
+| ---------------- | ---------------- | ---------------------------------------- | ----------------------------------------------------------------- |
+| `prop.INIT`      | set              | `object`                                 | Initialize the widget and set the default checkbox                |
 | `prop.CHECKED`   | set/get          | `object`(Returns the bool type when get) | Set selected sub-widget.Get the selected state of the sub-widget. |
-| `prop.UNCHECKED` | set              | `object`                                 | Set unchecked sub-widget.                                            |
+| `prop.UNCHECKED` | set              | `object`                                 | Set unchecked sub-widget.                                         |
 
 ## Code example
 

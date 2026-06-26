@@ -3,7 +3,9 @@ title: KEYBOARD
 sidebar_label: KEYBOARD
 ---
 
-> Start from API_LEVEL `3.0`. Please refer to [API_LEVEL](../../../../../guides/framework/device/compatibility.md)。
+:::note
+Start from API_LEVEL `3.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::
 
 ## Create UI widget
 
@@ -276,6 +278,7 @@ keyboard.setProperty(prop.ADD_KEY, {
   value: 11
 })
 ```
+
 ## Additional Examples
 
 ### Example 1
@@ -289,10 +292,9 @@ let keyboardLock = createWidget(widget.KEYBOARD, {
     { cntr_coord_style: true, id: 0, x: 8, y: '35vh', text: 'H', value: 1 },
     { id: 1, x: 90, y: 150, text: 'E', value: 2 },
     { id: 20, x: 180, y: 150, text: 'L', value: 3 },
-    { id: 3, x: 270, y: 150, text: 'L', value: 4 },
-  ],
+    { id: 3, x: 270, y: 150, text: 'L', value: 4 }
+  ]
 })
 
 keyboardLock.setProperty(prop.TEXT, 'hello rose !')
 ```
-

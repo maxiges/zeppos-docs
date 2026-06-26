@@ -1,6 +1,8 @@
 # AppWidget
 
-> Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::note
+Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 Register AppWidget, specify the lifecycle callback for the current AppWidget, etc. Each AppWidget file must call the `AppWidget()` constructor only once.
 
@@ -34,7 +36,7 @@ function AppWidget(option: Option): Result
 ```js title="appWidget.js"
 AppWidget({
   state: {
-    text: 'Hello Zepp OS',
+    text: 'Hello Zepp OS'
   },
   onInit() {
     console.log('onInit')
@@ -42,6 +44,6 @@ AppWidget({
   build() {
     console.log('build')
     console.log(this.state.text)
-  },
+  }
 })
 ```

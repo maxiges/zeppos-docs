@@ -21,7 +21,9 @@ import { exit } from '@zos/app-service'
 exit()
 ```
 
-> Start from API_LEVEL `3.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::note
+Start from API_LEVEL `3.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::
 
 Called in The App Service, it will exit the service and will not affect the foreground page.
 
@@ -38,7 +40,6 @@ function exit(): void
 ## Example
 
 ```js
-
 exit()
 ```
 
@@ -66,7 +67,9 @@ const serviceList = getAllAppServices()
 console.log(serviceList)
 ```
 
-> Start from API_LEVEL `3.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::note
+Start from API_LEVEL `3.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::
 
 Get the list of running App services, used to query the service status.
 
@@ -84,14 +87,13 @@ function getAllAppServices(): Result
 
 ### Result
 
-| Type                               | Description                                    |
-| ---------------------------------- | ---------------------------------------------- |
+| Type            | Description                                    |
+| --------------- | ---------------------------------------------- |
 | `Array<string>` | Get the list of currently running App services |
 
 ## Example
 
 ```js
-
 const serviceList = getAllAppServices()
 console.log(serviceList)
 ```
@@ -117,7 +119,9 @@ import { start } from '@zos/app-service'
 import { start } from '@zos/app-service'
 ```
 
-> Start from API_LEVEL `3.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::note
+Start from API_LEVEL `3.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::
 
 Start the specified App service, return the result through the callback function.
 
@@ -135,30 +139,30 @@ function start(option: Option): Result
 
 ### Option
 
-| Property      | Type                                                      | Required | DefaultValue      | Description                                                                                                                                                                                                          | API_LEVEL |
-| ------------- | --------------------------------------------------------- | -------- | ----------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- |
-| file          | `string`                                       | Y        | -                 | The App Service js file must be the one configured in the module app-service in app.json                                                                                                                             | 3.0       |
-| param         | `string`                                       | N        | -                 | Parameters passed in when the js file is loaded by the backend service                                                                                                                                               | 3.0       |
-| complete_func | `(callbackOption: CallbackOption) => void` | Y        | -                 | Callback function for the completion of the backend service start                                                                                                                                                    | 3.0       |
-| reload        | `boolean`                                      | N        | `true` | Whether to persist and automatically restart following system running state changes. System state changes include: system restart, power saving mode entry/exit, system language changes, Mini Program updates, etc. | 4.0       |
+| Property      | Type                                       | Required | DefaultValue | Description                                                                                                                                                                                                          | API_LEVEL |
+| ------------- | ------------------------------------------ | -------- | ------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- |
+| file          | `string`                                   | Y        | -            | The App Service js file must be the one configured in the module app-service in app.json                                                                                                                             | 3.0       |
+| param         | `string`                                   | N        | -            | Parameters passed in when the js file is loaded by the backend service                                                                                                                                               | 3.0       |
+| complete_func | `(callbackOption: CallbackOption) => void` | Y        | -            | Callback function for the completion of the backend service start                                                                                                                                                    | 3.0       |
+| reload        | `boolean`                                  | N        | `true`       | Whether to persist and automatically restart following system running state changes. System state changes include: system restart, power saving mode entry/exit, system language changes, Mini Program updates, etc. | 4.0       |
 
 ### CallbackOption
 
-| Property | Type                 | Description                                                           | API_LEVEL |
-| -------- | -------------------- | --------------------------------------------------------------------- | --------- |
+| Property | Type      | Description                                                           | API_LEVEL |
+| -------- | --------- | --------------------------------------------------------------------- | --------- |
 | file     | `string`  | App service js file, same as `start` incoming parameters              | 3.0       |
 | result   | `boolean` | App service start result, `true` means success, `false` means failure | 3.0       |
 
 ### Result
 
-| Type                 | Description                                                                                                                                                       |
-| -------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Type      | Description                                                                                                                                                       |
+| --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `boolean` | If the return value is `0`, it indicates that the device application service has been successfully started; for the meanings of other values, refer to ERROR_CODE |
 
 ### ERROR_CODE
 
-| Value | Type                | Description                                         | API_LEVEL |
-| ----- | ------------------- | --------------------------------------------------- | --------- |
+| Value | Type     | Description                                         | API_LEVEL |
+| ----- | -------- | --------------------------------------------------- | --------- |
 | 0     | `number` | Success                                             | 3.0       |
 | 1     | `number` | Parameter error                                     | 3.0       |
 | 2     | `number` | Service Status Error                                | 3.0       |
@@ -196,7 +200,9 @@ import { stop } from '@zos/app-service'
 import { stop } from '@zos/app-service'
 ```
 
-> Start from API_LEVEL `3.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::note
+Start from API_LEVEL `3.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::
 
 Shutdown the specified backend service, called asynchronously, with the shutdown result returned via a callback function.
 
@@ -214,22 +220,22 @@ function stop(option: Option): Result
 
 ### Option
 
-| Property      | Type                                                      | Required | DefaultValue | Description                                                                          | API_LEVEL |
-| ------------- | --------------------------------------------------------- | -------- | ------------ | ------------------------------------------------------------------------------------ | --------- |
-| file          | `string`                                       | Y        | -            | The App Service js file must be the one configured in the service module in app.json | 3.0       |
+| Property      | Type                                       | Required | DefaultValue | Description                                                                          | API_LEVEL |
+| ------------- | ------------------------------------------ | -------- | ------------ | ------------------------------------------------------------------------------------ | --------- |
+| file          | `string`                                   | Y        | -            | The App Service js file must be the one configured in the service module in app.json | 3.0       |
 | complete_func | `(callbackOption: CallbackOption) => void` | Y        | -            | Callback function for the completion of the backend service stop                     | 3.0       |
 
 ### CallbackOption
 
-| Property | Type                 | Description                                                          | API_LEVEL |
-| -------- | -------------------- | -------------------------------------------------------------------- | --------- |
+| Property | Type      | Description                                                          | API_LEVEL |
+| -------- | --------- | -------------------------------------------------------------------- | --------- |
 | file     | `string`  | App service js file, same as `stop` incoming parameters              | 3.0       |
 | result   | `boolean` | App service stop result, `true` means success, `false` means failure | 3.0       |
 
 ### Result
 
-| Type                 | Description                                                |
-| -------------------- | ---------------------------------------------------------- |
+| Type      | Description                                                |
+| --------- | ---------------------------------------------------------- |
 | `boolean` | If `0` is returned, The App Service is closed successfully |
 
 ## Example
@@ -239,4 +245,3 @@ function stop(option: Option): Result
 ```
 
 ---
-

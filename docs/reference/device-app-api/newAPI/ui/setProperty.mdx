@@ -3,7 +3,9 @@ title: widget.setProperty(propertyId, val)
 sidebar_label: setProperty
 ---
 
-> Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::note
+Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 Set the properties of the UI widget.
 
@@ -26,10 +28,10 @@ List the properties commonly supported by the widgets.
 
 | Properties | Description                                                                                                                                                                                | Type      |
 | ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------- |
-| x          | The x-axis coordinate of the widget.                                                                                                                                                    | `number`  |
-| y          | The y-axis coordinate of the widget.                                                                                                                                                    | `number`  |
-| w          | The width of the widget.                                                                                                                                                                | `number`  |
-| h          | The height of the widget.                                                                                                                                                               | `number`  |
+| x          | The x-axis coordinate of the widget.                                                                                                                                                       | `number`  |
+| y          | The y-axis coordinate of the widget.                                                                                                                                                       | `number`  |
+| w          | The width of the widget.                                                                                                                                                                   | `number`  |
+| h          | The height of the widget.                                                                                                                                                                  | `number`  |
 | VISIBLE    | Whether the widget is visible or not, `true` is visible, `false` is not, this property does not support `setProperty(prop.MORE, {})`, only `setProperty` sets the `VISIBLE` property alone | `boolean` |
 | DATASET    | Developer-defined properties of the widget, obtained via `widget.getProperty(prop.DATASET)`                                                                                                | `any`     |
 

@@ -10,7 +10,9 @@ Widget animation APIs.
 import { createWidget, widget, align, text_style, prop, anim_status } from '@zos/ui'
 ```
 
-> Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::note
+Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 [Image: widget_anim]
 
@@ -47,7 +49,7 @@ The properties that support setting animations are
 | anim_fps           | `number`             | Animation frame rate, default `25`                                                                                                                                         | 2.0       |
 | anim_auto_start    | `number`             | If or not the animation plays automatically, default `1`, `0`: don't play automatically; `1`: play automatically                                                           | 2.0       |
 | anim_auto_destroy  | `number`             | If or not the animation is automatically destroyed, default `1`, `0`: not automatically destroyed; `1`: automatically destroyed                                            | 2.0       |
-| anim_repeat        | `number`             | Animation loop, default `0`, `-1`: infinite loop; `0`: play once; or specify the number of times to play directly                                                    | 2.0       |
+| anim_repeat        | `number`             | Animation loop, default `0`, `-1`: infinite loop; `0`: play once; or specify the number of times to play directly                                                          | 2.0       |
 | anim_frame_func    | `() => void`         | Callback function for each frame of animation playback                                                                                                                     | 2.0       |
 | anim_complete_func | `() => void`         | End of animation callback function                                                                                                                                         | 2.0       |
 | anim_repeat_func   | `() => void`         | The animation plays the callback function of each loop, which takes effect when `anim_repeat` is greater than '0'                                                          | 3.6       |
@@ -68,7 +70,6 @@ The properties that support setting animations are
 ## Code example
 
 ```js
-
 Page({
   build() {
     const textWidget = createWidget(widget.TEXT, {
@@ -121,4 +122,3 @@ Page({
 ```
 
 ---
-

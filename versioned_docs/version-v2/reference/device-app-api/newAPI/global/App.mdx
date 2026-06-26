@@ -1,6 +1,8 @@
 # App
 
-> Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::note
+Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 Register the Mini Program, specifying the Mini Program's lifecycle callbacks, etc. `App()` must be called in `app.js`, and can only be called once.
 
@@ -31,7 +33,7 @@ function App(option: Option): Result
 ```js title="app.js"
 App({
   globalData: {
-    text: 'Hello Zepp OS',
+    text: 'Hello Zepp OS'
   },
   onCreate() {
     console.log('onCreate')
@@ -39,6 +41,6 @@ App({
   },
   onDestroy() {
     console.log('onDestroy')
-  },
+  }
 })
 ```

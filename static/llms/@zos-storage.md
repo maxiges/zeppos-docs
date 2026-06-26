@@ -27,7 +27,9 @@ localStorage.removeItem('test')
 localStorage.clear()
 ```
 
-> Start from API_LEVEL `3.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::note
+Start from API_LEVEL `3.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::
 
 Locally stored key-value pairs, data cleared after Mini Program uninstallation.
 
@@ -72,7 +74,6 @@ clear(): void
 ## Example
 
 ```js
-
 const localStorage = new LocalStorage()
 localStorage.setItem('test', 'test value')
 const val = localStorage.getItem('test')
@@ -109,7 +110,9 @@ sessionStorage.removeItem('test')
 sessionStorage.clear()
 ```
 
-> Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::note
+Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 Key-value pairs are stored and data is cleared after exiting the Mini Program.
 
@@ -150,7 +153,6 @@ clear(): void
 ## Example
 
 ```js
-
 const sessionStorage = new SessionStorage()
 sessionStorage.setItem('test', 'test value')
 const val = sessionStorage.getItem('test')
@@ -161,4 +163,3 @@ sessionStorage.clear()
 ```
 
 ---
-

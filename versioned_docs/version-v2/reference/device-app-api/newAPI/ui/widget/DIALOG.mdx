@@ -3,8 +3,9 @@ title: DIALOG
 sidebar_label: DIALOG
 ---
 
-> Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](../../../../../guides/framework/device/compatibility.md).
-
+:::note
+Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 :::caution
 This widget has been discontinued. It is recommended to replace it with the more powerful [@zos/interaction createModal API](../../interaction/createModal.mdx)
 :::
@@ -28,7 +29,7 @@ const dialog = createWidget(widget.DIALOG, Param)
 | Properties           | Description                                            | Required | Type                       |
 | -------------------- | ------------------------------------------------------ | -------- | -------------------------- |
 | text                 | Contents of dialog.                                    | YES      | `string`                   |
-| content_text_size    | The text size of the dialog content.                  | NO       | `number`                   |
+| content_text_size    | The text size of the dialog content.                   | NO       | `number`                   |
 | content_text_color   | The text color of the dialog content.                  | NO       | `number`                   |
 | content_bg_color     | The background color of the dialog content.            | NO       | `number`                   |
 | content_text_align_h | Alignment of dialog content text.(horizontal axis)     | NO       | `string`                   |
@@ -59,9 +60,9 @@ const dialog = createWidget(widget.DIALOG, Param)
 
 ### prop Properties
 
-| Properties     | Support get/set | Type      | Notes                      |
-| -------------- | --------------- | --------- | -------------------------- |
-| prop.SHOW | set             | `boolean` | dialog whether to display. |
+| Properties | Support get/set | Type      | Notes                      |
+| ---------- | --------------- | --------- | -------------------------- |
+| prop.SHOW  | set             | `boolean` | dialog whether to display. |
 
 ## Code example
 

@@ -1,6 +1,8 @@
 # setScrollLock
 
-> Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::note
+Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 Set the current page scrolling position to be locked, i.e. the screen position will not change with the gesture swipe. After calling this API to perform the unlock operation, the page scrolling mode will be set to free scrolling mode.
 
@@ -24,6 +26,6 @@ function setScrollLock(option: Option): void
 import { setScrollLock } from '@zos/page'
 
 setScrollLock({
-  lock: true,
+  lock: true
 })
 ```

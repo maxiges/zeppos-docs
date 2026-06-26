@@ -3,8 +3,9 @@ title: SLIDE_SWITCH
 sidebar_label: SLIDE_SWITCH
 ---
 
-> Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](../../../../../guides/framework/device/compatibility.md).
-
+:::note
+Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 ![slide_switch_sample](/img/api/slide_switch_sample.jpg)
 
 Used to switch between open and closed states.
@@ -21,20 +22,20 @@ const slideSwitch = createWidget(widget.SLIDE_SWITCH, Param)
 
 ### Param: object
 
-| Properties          | Description                                                          | Required | Type                |
-| ------------------- | -------------------------------------------------------------------- | -------- | ------------------- |
-| x                   | The x-axis coordinate of the widget.                              | YES      | `number`            |
-| y                   | The y-axis coordinate of the widget.                              | YES      | `number`            |
-| w                   | The width of the widget.                                          | YES      | `number`            |
-| h                   | The height of the widget.                                         | YES      | `number`            |
-| select_bg           | The selected background.                                             | YES      | `string`            |
-| un_select_bg        | Unselected background.                                               | YES      | `string`            |
-| slide_src           | Switch button.                                                       | YES      | `string`            |
+| Properties          | Description                                                     | Required | Type                |
+| ------------------- | --------------------------------------------------------------- | -------- | ------------------- |
+| x                   | The x-axis coordinate of the widget.                            | YES      | `number`            |
+| y                   | The y-axis coordinate of the widget.                            | YES      | `number`            |
+| w                   | The width of the widget.                                        | YES      | `number`            |
+| h                   | The height of the widget.                                       | YES      | `number`            |
+| select_bg           | The selected background.                                        | YES      | `string`            |
+| un_select_bg        | Unselected background.                                          | YES      | `string`            |
+| slide_src           | Switch button.                                                  | YES      | `string`            |
 | slide_select_x      | Relative coordinates.The selected state of the switch button.   | YES      | `number`            |
 | slide_un_select_x   | Relative coordinates.The unselected state of the switch button. | YES      | `number`            |
-| slide_y             | Relative coordinates.The y-axis offset of the switch button.   | NO       | `number`            |
-| checked_change_func | Callback on state change.                                            | NO       | `CheckedChangeFunc` |
-| checked             | Default switch state.                                                | NO       | `boolean`           |
+| slide_y             | Relative coordinates.The y-axis offset of the switch button.    | NO       | `number`            |
+| checked_change_func | Callback on state change.                                       | NO       | `CheckedChangeFunc` |
+| checked             | Default switch state.                                           | NO       | `boolean`           |
 
 ### CheckedChangeFunc: function
 
@@ -49,8 +50,8 @@ const slideSwitch = createWidget(widget.SLIDE_SWITCH, Param)
 
 ### Prop Properties
 
-| properties          | description                       | support get/set | types                                    |
-| ------------------- | --------------------------------- | --------------- | ---------------------------------------- |
+| properties     | description                       | support get/set | types                                    |
+| -------------- | --------------------------------- | --------------- | ---------------------------------------- |
 | `prop.CHECKED` | Set switch state.Get switch state | set/get         | `boolean` returns bool type when you get |
 
 ## Code example

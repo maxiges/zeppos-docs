@@ -3,7 +3,9 @@ title: PAGE_INDICATOR
 sidebar_label: PAGE_INDICATOR
 ---
 
-> Start from API_LEVEL `2.1` . Please refer to [API_LEVEL](../../../../../guides/framework/device/compatibility.md).
+:::note
+Start from API_LEVEL `2.1` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 When a page is set to Swiper scroll mode using the `@zos/page setScrollMode` method, an indicator control is created on the page to indicate the total number of pages and to indicate which page is currently stopped.
 
@@ -19,23 +21,23 @@ const pageIndicator = createWidget(widget.PAGE_INDICATOR, Param)
 
 ### Param: object
 
-| Properties   | Description                                                                                                                                                  | Required | Type      | API_LEVEL |
-| ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------- | --------- | --------- |
-| x            | The x-axis coordinate of the widget.                                                                                                                         | YES      | `number`  | 2.1       |
-| y            | The y-axis coordinate of the widget.                                                                                                                         | YES      | `number`  | 2.1       |
-| w            | The width of the widget.                                                                                                                                     | YES      | `number`  | 2.1       |
-| h            | The height of the widget.                                                                                                                                    | YES      | `number`  | 2.1       |
-| align_h      | The alignment of the horizontal axis (see ALIGN for values).                                                                                                 | NO       | `ALIGN`   | 2.1       |
-| h_space      | Horizontal spacing                                                                                                                                           | NO       | `number`  | 2.1       |
-| v_space      | Vertical spacing                                                                                                                                             | NO       | `number`  | 3.0       |
-| select_src   | Indicator current page highlight image path, resource storage path reference [Folder Structure](../../../../../guides/architecture/folder-structure.mdx)     | YES      | `string`  | 2.1       |
-| unselect_src | Indicator non-current page highlight image path, resource storage path reference [Folder Structure](../../../../../guides/architecture/folder-structure.mdx) | YES      | `string`  | 2.1       |
-| horizontal   | Horizontal or not, default is `true`, set `false` for vertical layout                                                                                        | NO       | `boolean` | 3.0       |
-| use_color    | Whether to use colors to configure indicator dots                             | NO       | `boolean` | 4.0       |
-| select_color | Selected color configuration                                                  | NO       | `number`  | 4.0       |
-| unselect_color | Unselected color configuration                                             | NO       | `number`  | 4.0       |
-| element_height | Width of the page indicator element                                         | NO       | `number`  | 4.0       |
-| element_radius | Height of the page indicator element                                        | NO       | `number`  | 4.0       |
+| Properties     | Description                                                                                                                                                  | Required | Type      | API_LEVEL |
+| -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------- | --------- | --------- |
+| x              | The x-axis coordinate of the widget.                                                                                                                         | YES      | `number`  | 2.1       |
+| y              | The y-axis coordinate of the widget.                                                                                                                         | YES      | `number`  | 2.1       |
+| w              | The width of the widget.                                                                                                                                     | YES      | `number`  | 2.1       |
+| h              | The height of the widget.                                                                                                                                    | YES      | `number`  | 2.1       |
+| align_h        | The alignment of the horizontal axis (see ALIGN for values).                                                                                                 | NO       | `ALIGN`   | 2.1       |
+| h_space        | Horizontal spacing                                                                                                                                           | NO       | `number`  | 2.1       |
+| v_space        | Vertical spacing                                                                                                                                             | NO       | `number`  | 3.0       |
+| select_src     | Indicator current page highlight image path, resource storage path reference [Folder Structure](../../../../../guides/architecture/folder-structure.mdx)     | YES      | `string`  | 2.1       |
+| unselect_src   | Indicator non-current page highlight image path, resource storage path reference [Folder Structure](../../../../../guides/architecture/folder-structure.mdx) | YES      | `string`  | 2.1       |
+| horizontal     | Horizontal or not, default is `true`, set `false` for vertical layout                                                                                        | NO       | `boolean` | 3.0       |
+| use_color      | Whether to use colors to configure indicator dots                                                                                                            | NO       | `boolean` | 4.0       |
+| select_color   | Selected color configuration                                                                                                                                 | NO       | `number`  | 4.0       |
+| unselect_color | Unselected color configuration                                                                                                                               | NO       | `number`  | 4.0       |
+| element_height | Width of the page indicator element                                                                                                                          | NO       | `number`  | 4.0       |
+| element_radius | Height of the page indicator element                                                                                                                         | NO       | `number`  | 4.0       |
 
 ### ALIGN alignment
 
@@ -93,6 +95,7 @@ Page({
   }
 })
 ```
+
 ## Additional Examples
 
 ### Example 1
@@ -110,8 +113,8 @@ setScrollMode({
   options: {
     count: pageCount,
     height: vertical ? pageSize : undefined,
-    width: vertical ? undefined : pageSize,
-  },
+    width: vertical ? undefined : pageSize
+  }
 })
 
 createWidget(widget.PAGE_INDICATOR, {
@@ -122,7 +125,7 @@ createWidget(widget.PAGE_INDICATOR, {
   align_h: align.CENTER_H,
   h_space: 8,
   select_src: 'images/test/select/select.png',
-  unselect_src: 'images/test/select/unselect.png',
+  unselect_src: 'images/test/select/unselect.png'
 })
 
 for (let i = 0; i < pageCount; i += 1) {
@@ -137,8 +140,7 @@ for (let i = 0; i < pageCount; i += 1) {
     text_size: 35,
     color: 0xffffff,
     align_h: align.CENTER_H,
-    text: `PAGE ${i}`,
+    text: `PAGE ${i}`
   })
 }
 ```
-

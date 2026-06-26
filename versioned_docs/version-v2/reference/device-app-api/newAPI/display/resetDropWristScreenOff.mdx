@@ -1,6 +1,8 @@
 # resetDropWristScreenOff
 
-> Start from API_LEVEL `2.1` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::note
+Start from API_LEVEL `2.1` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 Resume wrist drop resting behavior.
 
@@ -24,7 +26,7 @@ function resetDropWristScreenOff(): Result
 import { pauseDropWristScreenOff, resetDropWristScreenOff } from '@zos/display'
 
 pauseDropWristScreenOff({
-  duration: 0,
+  duration: 0
 })
 
 setTimeout(() => {

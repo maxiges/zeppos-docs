@@ -1,6 +1,8 @@
 # SecondaryWidget
 
-> Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::note
+Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 Register SecondaryWidget, specify the lifecycle callback for the current SecondaryWidget, etc. Each SecondaryWidget file must call the `SecondaryWidget()` constructor only once.
 
@@ -34,7 +36,7 @@ function SecondaryWidget(option: Option): Result
 ```js title="secondaryWidget.js"
 SecondaryWidget({
   state: {
-    text: 'Hello Zepp OS',
+    text: 'Hello Zepp OS'
   },
   onInit() {
     console.log('onInit')
@@ -42,6 +44,6 @@ SecondaryWidget({
   build() {
     console.log('build')
     console.log(this.state.text)
-  },
+  }
 })
 ```

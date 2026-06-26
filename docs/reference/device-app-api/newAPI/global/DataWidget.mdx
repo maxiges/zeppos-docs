@@ -1,7 +1,8 @@
 # DataWidget
 
-> Start from API_LEVEL `3.6` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
-
+:::note
+Start from API_LEVEL `3.6` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 Register DataWidget, specify the lifecycle callback for the current DataWidget, etc. Each DataWidget file must call the `DataWidget()` constructor only once.
 
 ## Type
@@ -34,7 +35,7 @@ function DataWidget(option: Option): Result
 ```js title="DataWidget.js"
 DataWidget({
   state: {
-    text: 'Hello Zepp OS',
+    text: 'Hello Zepp OS'
   },
   onInit() {
     console.log('onInit')
@@ -42,6 +43,6 @@ DataWidget({
   build() {
     console.log('build')
     console.log(this.state.text)
-  },
+  }
 })
 ```

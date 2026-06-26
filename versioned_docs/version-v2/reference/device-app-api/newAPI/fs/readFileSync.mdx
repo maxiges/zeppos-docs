@@ -1,6 +1,8 @@
 # readFileSync
 
-> Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::note
+Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 Returns the entire contents of the specified file in the `/data` directory of the Mini Program.
 
@@ -37,13 +39,13 @@ function readFileSync(option: Option): Result
 import { readFileSync } from '@zos/fs'
 
 const contentBuffer = readFileSync({
-  path: 'test.txt',
+  path: 'test.txt'
 })
 
 const contentString = readFileSync({
   path: 'test.txt',
   options: {
-    encoding: 'utf8',
-  },
+    encoding: 'utf8'
+  }
 })
 ```

@@ -1,6 +1,8 @@
 # rmSync
 
-> Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::note
+Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 Synchronously delete files in the `/data` directory of the Mini Program.
 
@@ -36,7 +38,7 @@ function rmSync(path: string): Result
 import { rmSync } from '@zos/fs'
 
 const result = rmSync({
-  path: 'test.txt',
+  path: 'test.txt'
 })
 
 if (result === 0) {

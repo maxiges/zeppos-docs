@@ -1,6 +1,8 @@
 # offGesture
 
-> Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::note
+Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 Cancel the `onGesture` registration to listen for user gesture events.
 
@@ -24,7 +26,7 @@ const gestureCallback = (event) => {
 }
 
 onGesture({
-  callback: gestureCallback,
+  callback: gestureCallback
 })
 
 offGesture()

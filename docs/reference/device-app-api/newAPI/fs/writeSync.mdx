@@ -1,6 +1,8 @@
 # writeSync
 
-> Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::note
+Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 Synchronously write ArrayBuffer to the file specified by fd.
 
@@ -41,12 +43,12 @@ import { openSync, writeSync, O_RDWR, O_CREAT } from '@zos/fs'
 
 const fd = openSync({
   path: 'test.txt',
-  flag: O_RDWR | O_CREAT,
+  flag: O_RDWR | O_CREAT
 })
 
 const buffer = new ArrayBuffer(4)
 const result = writeSync({
   fd,
-  buffer,
+  buffer
 })
 ```

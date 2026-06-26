@@ -19,7 +19,9 @@ import { getText } from '@zos/i18n'
 getText('name')
 ```
 
-> Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::note
+Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 Get the corresponding string from the internationalization resource file (.po) based on the internationalization key.
 
@@ -33,22 +35,20 @@ function getText(key: Key): Result
 
 ### Key
 
-| Type                | Description              |
-| ------------------- | ------------------------ |
+| Type     | Description              |
+| -------- | ------------------------ |
 | `string` | Internationalization key |
 
 ### Result
 
-| Type                | Description                                           |
-| ------------------- | ----------------------------------------------------- |
+| Type     | Description                                           |
+| -------- | ----------------------------------------------------- |
 | `string` | The string corresponding to the internationalized key |
 
 ## Example
 
 ```js
-
 getText('name')
 ```
 
 ---
-

@@ -3,8 +3,9 @@ title: QRCODE
 sidebar_label: QRCODE
 ---
 
-> Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](../../../../../guides/framework/device/compatibility.md).
-
+:::note
+Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 The QRCODE widget consists of a QR code and a background (white).
 
 ![qrcode_sample](/img/api/qrcode_sample.jpg)
@@ -36,7 +37,10 @@ const qrcode = createWidget(widget.QRCODE, Param)
 
 ## Supported Property Access List
 
-| Property | setProperty | getProperty | [setter](../gettersetter.mdx) | [getter](../gettersetter.mdx) |
+<details>
+<summary>Click to view property support table</summary>
+
+| Property  | setProperty | getProperty | [setter](../gettersetter.mdx) | [getter](../gettersetter.mdx) |
 | --------- | ----------- | ----------- | ----------------------------- | ----------------------------- |
 | x         | Y           | Y           | Y                             | Y                             |
 | y         | Y           | Y           | Y                             | Y                             |
@@ -48,6 +52,8 @@ const qrcode = createWidget(widget.QRCODE, Param)
 | bg_h      | N           | N           | N                             | N                             |
 | bg_radius | N           | N           | N                             | N                             |
 | content   | N           | N           | N                             | N                             |
+
+</details>
 
 ## Code example
 
@@ -70,6 +76,7 @@ Page({
   }
 })
 ```
+
 ## Additional Examples
 
 ### Example 1
@@ -86,7 +93,6 @@ createWidget(widget.QRCODE, {
   bg_y: 104,
   bg_w: 320,
   bg_h: 320,
-  content: 'zepp/url/@my:long page2',
+  content: 'zepp/url/@my:long page2'
 })
 ```
-

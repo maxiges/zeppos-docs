@@ -1,7 +1,8 @@
 # AppService
 
-> Start from API_LEVEL `3.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
-
+:::note
+Start from API_LEVEL `3.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 Register an App Service in the Mini Program, specify the lifecycle callback for the current App Service, etc. Each App Service file must call the `AppService()` constructor only once.
 
 :::info
@@ -35,10 +36,10 @@ function AppService(option: Option): Result
 ```js title="appService.js"
 AppService({
   state: {
-    text: 'Hello Zepp OS',
+    text: 'Hello Zepp OS'
   },
   onInit() {
     console.log('onInit')
-  },
+  }
 })
 ```

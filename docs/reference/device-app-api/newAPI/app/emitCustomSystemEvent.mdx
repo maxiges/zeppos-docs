@@ -1,6 +1,8 @@
 # emitCustomSystemEvent
 
-> Start from API_LEVEL `3.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::note
+Start from API_LEVEL `3.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 The Mini Program can customize the system events and can actively dispatch the custom system events.
 
@@ -26,6 +28,6 @@ import { emitCustomSystemEvent } from '@zos/app'
 
 emitCustomSystemEvent({
   eventName: 'event:customize.test',
-  eventParam: 'eventName=event:customize.test&type=0',
+  eventParam: 'eventName=event:customize.test&type=0'
 })
 ```

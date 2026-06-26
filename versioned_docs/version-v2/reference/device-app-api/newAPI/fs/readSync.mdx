@@ -1,6 +1,8 @@
 # readSync
 
-> Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::note
+Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 Synchronously reads the content from the file specified by the file handle into the given `ArrayBuffer`..
 
@@ -41,13 +43,13 @@ import { openSync, readSync, O_RDONLY } from '@zos/fs'
 
 const fd = openSync({
   path: 'test.txt',
-  flag: O_RDONLY,
+  flag: O_RDONLY
 })
 
 const buffer = new ArrayBuffer(4)
 const result = readSync({
   fd,
-  buffer,
+  buffer
 })
 
 if (result === 0) {

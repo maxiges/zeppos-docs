@@ -10,7 +10,9 @@ General UI methods, page-level helpers, layout helpers, dialogs, toast, keyboard
 import { createWidget, widget, event } from '@zos/ui'
 ```
 
-> Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::note
+Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 Register a listener to the UI widget and the given callback function will be executed when the specified event is triggered.
 
@@ -22,15 +24,15 @@ Register a listener to the UI widget and the given callback function will be exe
 
 ## Parameters
 
-| Parameter | Description                                         |   Type    |
-| --------- | --------------------------------------------------- | --------- |
+| Parameter | Description                                                | Type      |
+| --------- | ---------------------------------------------------------- | --------- |
 | eventId   | Event type. (e.g., `event.MOVE`, `event.CLICK_DOWN`, etc.) | `EventId` |
-| event     | Event details, refer to different events.           | `object` |
+| event     | Event details, refer to different events.                  | `object`  |
 
 ### EventId
 
-| Value                   | Description |
-| ----------------------- | ----------- |
+| Value              | Description |
+| ------------------ | ----------- |
 | `event.MOVE`       | Slide       |
 | `event.CLICK_DOWN` | Press       |
 | `event.CLICK_UP`   | Lift up     |
@@ -40,7 +42,6 @@ Register a listener to the UI widget and the given callback function will be exe
 ## Code example
 
 ```js
-
 const img_bkg = createWidget(widget.IMG)
 
 img_bkg.addEventListener(event.CLICK_DOWN, function (info) {
@@ -59,7 +60,9 @@ img_bkg.addEventListener(event.CLICK_DOWN, function (info) {
 import { createWidget, widget, event } from '@zos/ui'
 ```
 
-> Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::note
+Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 Remove event listeners registered by the UI widget using the `widget.addEventListener` method.
 
@@ -71,10 +74,10 @@ Remove event listeners registered by the UI widget using the `widget.addEventLis
 
 ## Parameters
 
-| Parameter | Description                                |    Type    |
-| --------- | ------------------------------------------ | ---------- |
-| eventId   | Event type (e.g., swipe, press, lift, etc.)| `number` |
-| callback  | The callback function to register.         | `function` |
+| Parameter | Description                                 | Type       |
+| --------- | ------------------------------------------- | ---------- |
+| eventId   | Event type (e.g., swipe, press, lift, etc.) | `number`   |
+| callback  | The callback function to register.          | `function` |
 
 ### EventId
 
@@ -83,7 +86,6 @@ Refer to the `EventId` of `addEventListener`.
 ## Code example
 
 ```js
-
 const img_bkg = createWidget(widget.IMG)
 const listenerFunc = (info) => {
   console.log(info.x)
@@ -103,7 +105,9 @@ img_bkg.removeEventListener(event.CLICK_DOWN, listenerFunc)
 import { createWidget, widget, prop, align } from '@zos/ui'
 ```
 
-> Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::note
+Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 Set the properties of the UI widget.
 
@@ -126,17 +130,16 @@ List the properties commonly supported by the widgets.
 
 | Properties | Description                                                                                                                                                                                | Type      |
 | ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------- |
-| x          | The x-axis coordinate of the widget.                                                                                                                                                    | `number`  |
-| y          | The y-axis coordinate of the widget.                                                                                                                                                    | `number`  |
-| w          | The width of the widget.                                                                                                                                                                | `number`  |
-| h          | The height of the widget.                                                                                                                                                               | `number`  |
+| x          | The x-axis coordinate of the widget.                                                                                                                                                       | `number`  |
+| y          | The y-axis coordinate of the widget.                                                                                                                                                       | `number`  |
+| w          | The width of the widget.                                                                                                                                                                   | `number`  |
+| h          | The height of the widget.                                                                                                                                                                  | `number`  |
 | VISIBLE    | Whether the widget is visible or not, `true` is visible, `false` is not, this property does not support `setProperty(prop.MORE, {})`, only `setProperty` sets the `VISIBLE` property alone | `boolean` |
 | DATASET    | Developer-defined properties of the widget, obtained via `widget.getProperty(prop.DATASET)`                                                                                                | `any`     |
 
 ## Code example
 
 ```js
-
 const button = createWidget(widget.BUTTON, Param)
 button.setProperty(prop.VISIBLE, false)
 
@@ -168,26 +171,27 @@ const dataset = text.getProperty(prop.DATASET)
 import { createWidget, widget, prop } from '@zos/ui'
 ```
 
-> Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::note
+Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 Get the UI widget properties, use `widget.getProperty(prop.MORE, {})` to get all the properties of the widget.
 
 ## Type
 
 ```ts
-(key: any) => result
+;(key: any) => result
 ```
 
 ## Parameters
 
-| Parameter | Description            | Type |
+| Parameter | Description            | Type  |
 | --------- | ---------------------- | ----- |
 | key       | The value of property. | `any` |
 
 ## Code example
 
 ```js
-
 const img_bkg = createWidget(widget.IMG)
 const img_prop = img_bkg.getProperty(prop.MORE, {})
 const { angle, w, h } = img_prop
@@ -200,7 +204,6 @@ const imgHeight = img_bkg.getProperty(prop.H)
 > At this stage, some widgets do not support property acquisition, it is recommended to try to get first, if you can not get the value, you can refer to the following code snippet, manually maintain a variable in the current page to record the corresponding property changes
 
 ```js
-
 Page({
   state: {
     buttonY: 0
@@ -209,7 +212,7 @@ Page({
     this.state.buttonY = 300
 
     createWidget(widget.BUTTON, {
-      y: this.state.buttonY,
+      y: this.state.buttonY
       // ...
     })
 
@@ -223,42 +226,48 @@ Page({
 ---
 
 ## getType
-> Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+
+:::note
+Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 Get the UI widget type.
 
 ## Type
 
 ```ts
-() => result
+;() => result
 ```
 
 ## Parameters
 
 ### result
 
-| Description            |   Type   |
-| ---------------------- | -------- |
+| Description                                                    | Type     |
+| -------------------------------------------------------------- | -------- |
 | The type of UI widget. Refer to `WIDGET_ID` in `createWidget`. | `number` |
 
 ---
 
 ## getId
-> Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+
+:::note
+Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 Get the unique ID of the widget.
 
 ## Type
 
 ```ts
-() => result
+;() => result
 ```
 
 ## Parameters
 
 ### result
 
-| Description |   Type   |
+| Description | Type     |
 | ----------- | -------- |
 | unique ID   | `number` |
 
@@ -272,7 +281,9 @@ Get the unique ID of the widget.
 import { createWidget, widget, text_style, align } from '@zos/ui'
 ```
 
-> Start from API_LEVEL `2.1` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::note
+Start from API_LEVEL `2.1` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 Set the opacity of the widget.
 
@@ -288,14 +299,13 @@ Set the opacity of the widget.
 
 ### val
 
-| Description                                          | Type     |
-| --------------------------------------------- | -------- |
+| Description                                                        | Type     |
+| ------------------------------------------------------------------ | -------- |
 | Transparency, 0 - 255, default value is 255 for opaque, 0 for full | `number` |
 
 ## Code example
 
 ```js
-
 const text = createWidget(widget.TEXT, {
   x: 96,
   y: 120,
@@ -322,7 +332,9 @@ text.setAlpha(80)
 import { createWidget, widget, prop } from '@zos/ui'
 ```
 
-> Supported since API_LEVEL `4.0`. For API compatibility, please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::note
+Start from API_LEVEL `4.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 Starting from API_LEVEL 4.0, Zepp OS supports direct access and modification of widget properties through getter/setter features, making property read/write operations more concise and intuitive.
 
@@ -357,7 +369,6 @@ textWidget.text = 'Hello Zepp OS'
 Here's a complete example demonstrating the getter/setter features using a TEXT widget:
 
 ```js
-
 Page({
   build() {
     // Create TEXT widget
@@ -406,25 +417,25 @@ Different widgets may support different properties through getter/setter access.
 Here's an example of the property list supported by the `TEXT` widget:
 
 | Property Name | setProperty | setProperty | setter | getter |
-| ----------- | ----------- | ----------- | ------ | ------ |
-| x           | Y           | Y           | Y      | Y      |
-| y           | Y           | Y           | Y      | Y      |
-| w           | Y           | Y           | Y      | Y      |
-| h           | Y           | Y           | Y      | Y      |
-| color       | Y           | Y           | Y      | Y      |
-| align_h     | Y           | Y           | Y      | Y      |
-| align_v     | Y           | Y           | Y      | Y      |
-| text        | Y           | Y           | Y      | Y      |
-| text_size   | Y           | Y           | Y      | Y      |
-| font        | Y           | Y           | Y      | Y      |
-| text_style  | Y           | Y           | Y      | Y      |
-| line_space  | Y           | Y           | Y      | Y      |
-| char_space  | Y           | Y           | Y      | Y      |
-| text_i18n   | N           | N           | Y      | Y      |
-| start_angle | N           | N           | N      | N      |
-| end_angle   | N           | N           | N      | N      |
-| mode        | N           | N           | N      | N      |
-| radius      | N           | N           | N      | N      |
+| ------------- | ----------- | ----------- | ------ | ------ |
+| x             | Y           | Y           | Y      | Y      |
+| y             | Y           | Y           | Y      | Y      |
+| w             | Y           | Y           | Y      | Y      |
+| h             | Y           | Y           | Y      | Y      |
+| color         | Y           | Y           | Y      | Y      |
+| align_h       | Y           | Y           | Y      | Y      |
+| align_v       | Y           | Y           | Y      | Y      |
+| text          | Y           | Y           | Y      | Y      |
+| text_size     | Y           | Y           | Y      | Y      |
+| font          | Y           | Y           | Y      | Y      |
+| text_style    | Y           | Y           | Y      | Y      |
+| line_space    | Y           | Y           | Y      | Y      |
+| char_space    | Y           | Y           | Y      | Y      |
+| text_i18n     | N           | N           | Y      | Y      |
+| start_angle   | N           | N           | N      | N      |
+| end_angle     | N           | N           | N      | N      |
+| mode          | N           | N           | N      | N      |
+| radius        | N           | N           | N      | N      |
 
 - Y: Indicates the property access method is supported
 - N: Indicates the property access method is not supported
@@ -445,7 +456,9 @@ Here's an example of the property list supported by the `TEXT` widget:
 import { createWidget, widget, align, text_style } from '@zos/ui'
 ```
 
-> Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::note
+Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 Create UI widgets.
 
@@ -482,7 +495,6 @@ Create UI widgets.
 > Reference to a widget example.
 
 ```js
-
 Page({
   build() {
     const textWidget = createWidget(widget.TEXT, {
@@ -511,7 +523,9 @@ Page({
 import { createWidget, widget, align, text_style, deleteWidget } from '@zos/ui'
 ```
 
-> Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::note
+Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 Delete the UI widget.
 
@@ -525,14 +539,13 @@ Delete the UI widget.
 
 ### WIDGET
 
-| Description                            | Type |
-| -------------------------------------- | -------- |
-| widget object, returned by `createWidget`  | `number` |
+| Description                               | Type     |
+| ----------------------------------------- | -------- |
+| widget object, returned by `createWidget` | `number` |
 
 ## Code Example
 
 ```js
-
 Page({
   build() {
     const textWidget = createWidget(widget.TEXT, {
@@ -563,7 +576,9 @@ Page({
 import { createDialog } from '@zos/ui'
 ```
 
-> Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::note
+Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 [Image: create_dialog]
 
@@ -572,19 +587,19 @@ Create a Dialog.
 ## Type
 
 ```ts
-(option: Option) => result
+;(option: Option) => result
 ```
 
 ## Parameters
 
 ### Option: object
 
-| Properties    | Description                                                                                    | Required | Type                       |
-| ------------- | ---------------------------------------------------------------------------------------------- | -------- | -------------------------- |
-| title         | The title of the widget.                                                                    | YES      | `string`                   |
-| show          | Whether to display Dialog immediately after the creation is completed, default `false`.         | NO       | `boolean`                  |
+| Properties     | Description                                                                                    | Required | Type                       |
+| -------------- | ---------------------------------------------------------------------------------------------- | -------- | -------------------------- |
+| title          | The title of the widget.                                                                       | YES      | `string`                   |
+| show           | Whether to display Dialog immediately after the creation is completed, default `false`.        | NO       | `boolean`                  |
 | click_listener | Callback function, type: 0 click to cancel, type: 1 click to confirm.                          | YES      | `({type: number}) => void` |
-| auto_hide     | Whether the dialog disappears after clicking the "Confirm" or "Cancel" button, default `true`. | NO       | `boolean`                  |
+| auto_hide      | Whether the dialog disappears after clicking the "Confirm" or "Cancel" button, default `true`. | NO       | `boolean`                  |
 
 > **⚠️ Caution**
 >
@@ -608,7 +623,6 @@ Create a Dialog.
 ## Code examples
 
 ```js
-
 Page({
   build() {
     const dialog = createDialog({
@@ -636,7 +650,9 @@ Page({
 import { setStatusBarVisible } from '@zos/ui'
 ```
 
-> Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::note
+Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 This interface is only available on square screen devices, set the status bar visible or not.
 
@@ -650,14 +666,13 @@ For square screen title bar, refer to [Screen Adaptation](https://docs.zepp.com/
 
 ## Parameters
 
-| parameter | description | type |
-| ------- | --------------------------------------- | --------- |
-| visible | `true`: show the status bar; `false`: hide the status bar | `boolean` |
+| parameter | description                                               | type      |
+| --------- | --------------------------------------------------------- | --------- |
+| visible   | `true`: show the status bar; `false`: hide the status bar | `boolean` |
 
 ## Code examples
 
 ```js
-
 setStatusBarVisible(false)
 ```
 
@@ -671,7 +686,9 @@ setStatusBarVisible(false)
 import { updateStatusBarTitle } from '@zos/ui'
 ```
 
-> Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::note
+Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 This interface is only available on square screen devices, set the status bar to display text content.
 
@@ -685,14 +702,13 @@ For square screen title bar, refer to [Screen Adaptation](https://docs.zepp.com/
 
 ## Parameters
 
-| parameter | description | type |
-| ----- | -------------- | -------- |
-| title | Status bar display text | `string` |
+| parameter | description             | type     |
+| --------- | ----------------------- | -------- |
+| title     | Status bar display text | `string` |
 
 ## Code example
 
 ```js
-
 const title = 'Mini Program Title'
 
 updateStatusBarTitle(title)
@@ -708,7 +724,9 @@ updateStatusBarTitle(title)
 import { getTextLayout } from '@zos/ui'
 ```
 
-> Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::note
+Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 Calculate the height and width of the target text after the layout is completed, and does not actually render it, only performs the layout calculation.
 
@@ -717,7 +735,7 @@ Can be used to calculate the height of a multi-line text layout with a fixed wid
 ## Type
 
 ```ts
-(text: string, options: object) => result
+;(text: string, options: object) => result
 ```
 
 ## Parameters
@@ -738,18 +756,17 @@ Can be used to calculate the height of a multi-line text layout with a fixed wid
 
 ### result: object
 
-| Properties | Description                                                            | Type     | API_LEVEL |
-| ---------- | ---------------------------------------------------------------------- | -------- | --------- |
-| width      | Width pixel value                                                      | `number` | 2.0       |
-| height     | Height pixel value                                                     | `number` | 2.0       |
-| rows       | The text displays the number of lines. When the `wrapped` field is `false`, the value of `rows` is `1`.           | `number` | 2.0       |
-| result     | Calculation result, `-1` - error, `0` - success, `1` - success, characters truncated and ellipses added | `number` | 2.0       |
+| Properties | Description                                                                                                                                     | Type     | API_LEVEL |
+| ---------- | ----------------------------------------------------------------------------------------------------------------------------------------------- | -------- | --------- |
+| width      | Width pixel value                                                                                                                               | `number` | 2.0       |
+| height     | Height pixel value                                                                                                                              | `number` | 2.0       |
+| rows       | The text displays the number of lines. When the `wrapped` field is `false`, the value of `rows` is `1`.                                         | `number` | 2.0       |
+| result     | Calculation result, `-1` - error, `0` - success, `1` - success, characters truncated and ellipses added                                         | `number` | 2.0       |
 | text       | When the calculation is successful, the truncated and ellipsed text content is returned, which can be used for the display of actual UI widgets | `string` | 2.0       |
 
 ## Code example
 
 ```js
-
 const { width, height } = getTextLayout('turn right and go alone the road', {
   text_size: 30,
   text_width: 200
@@ -760,7 +777,6 @@ console.log('height', height)
 ```
 
 ```js
-
 const { width, height } = getTextLayout('turn right and go alone the road', {
   text_size: 30,
   text_width: 0,
@@ -781,14 +797,16 @@ console.log('height', height)
 import { getImageInfo } from '@zos/ui'
 ```
 
-> Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::note
+Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 Get information about the image resources in the `/assets` resource directory.
 
 ## Type
 
 ```ts
-(img_path: string) => result
+;(img_path: string) => result
 ```
 
 ## Parameters
@@ -807,7 +825,6 @@ Get information about the image resources in the `/assets` resource directory.
 ## Code example
 
 ```js
-
 getImageInfo('test.png')
 ```
 
@@ -821,27 +838,31 @@ getImageInfo('test.png')
 import { redraw } from '@zos/ui'
 ```
 
-> Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::note
+Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 In some boundary cases, after `deleteWidget`, the view may not be updated in time, need to call `redraw()` manually to update the view
 
 ## Type
 
 ```ts
-() => undefined
+;() => undefined
 ```
 
 ## Code example
 
 ```js
-
 redraw()
 ```
 
 ---
 
 ## setEnable
-> Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+
+:::note
+Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 Set whether the widget responds to screen gesture interaction events, the default is to respond.
 
@@ -871,14 +892,16 @@ If the widgets are stacked in the Z-axis direction, the widgets above the stack 
 import { setAppWidgetSize } from '@zos/ui'
 ```
 
-> Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::note
+Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 Set the size of the Shortcut cards, currently only height adjustment is supported.
 
 ## Type
 
 ```ts
-(option: Option) => undefined
+;(option: Option) => undefined
 ```
 
 ## Parameters
@@ -892,7 +915,6 @@ Set the size of the Shortcut cards, currently only height adjustment is supporte
 ## Code example
 
 ```js
-
 setAppWidgetSize({ h: 100 })
 ```
 
@@ -906,14 +928,16 @@ setAppWidgetSize({ h: 100 })
 import { getAppWidgetSize } from '@zos/ui'
 ```
 
-> Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::note
+Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 Get the system default shortcut card size for developers to layout the widget.
 
 ## Type
 
 ```ts
-() => result
+;() => result
 ```
 
 ### result: object
@@ -928,7 +952,6 @@ Get the system default shortcut card size for developers to layout the widget.
 ## Code example
 
 ```js
-
 const { w } = getAppWidgetSize()
 ```
 
@@ -942,14 +965,16 @@ const { w } = getAppWidgetSize()
 import { getRtlLayout } from '@zos/ui'
 ```
 
-> Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::note
+Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 Query whether the current system language setting is RTL language. Setting the language to Hebrew and Arabic will return `true`.
 
 ## Type
 
 ```ts
-() => result
+;() => result
 ```
 
 ### result: boolean
@@ -961,7 +986,6 @@ Query whether the current system language setting is RTL language. Setting the l
 ## Code example
 
 ```js
-
 const result = getRtlLayout()
 console.log(result)
 ```
@@ -976,33 +1000,33 @@ console.log(result)
 import { relayoutRtl } from '@zos/ui'
 ```
 
-> Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::note
+Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 Apply RTL layout to the widget based on the current system language.
 
 > **📝 Note**
 >
 > After calling this method, the current system language will be queried. If it is an RTL language, RTL layout adjustments will be made to all widgets on the current calling page. If there are widgets on the current page that do not need to be flipped, you need to organize the calling timing of `relayoutRtl()` and widget creation
->
 
 Design specification reference [Design Specifications - Internationalization - Interface layouts](https://docs.zepp.com/docs/designs/internationalization/interface-layouts)
 
 ## Type
 
 ```ts
-() => result
+;() => result
 ```
 
 ### result: boolean
 
-| Description                     | Type      |
-| ------------------------------- | --------- |
+| Description                                 | Type      |
+| ------------------------------------------- | --------- |
 | Call result, `true` succeeds, `false` fails | `boolean` |
 
 ## 代码示例
 
 ```js
-
 const result = relayoutRtl()
 console.log(result)
 ```
@@ -1010,7 +1034,10 @@ console.log(result)
 ---
 
 ## setLayoutParent
-> Supported from API_LEVEL `4.0`. For API compatibility, please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+
+:::note
+Start from API_LEVEL `4.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+::: For API compatibility, please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
 
 Sets the parent node of the current node.
 
@@ -1022,8 +1049,8 @@ Sets the parent node of the current node.
 
 ## Parameters
 
-| Parameter | Type      | Description                   |
-| --------- | --------- | ----------------------------- |
+| Parameter | Type       | Description                                    |
+| --------- | ---------- | ---------------------------------------------- |
 | parent    | `UIWidget` | Widget instance object participating in layout |
 
 ## Example
@@ -1058,7 +1085,9 @@ text.setLayoutParent(container)
 import { createWidget, widget } from '@zos/ui'
 ```
 
-> Supported from API_LEVEL `4.0`. For API compatibility, please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::note
+Start from API_LEVEL `4.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+::: For API compatibility, please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
 
 Adds a child node to the current widget.
 
@@ -1070,15 +1099,14 @@ Adds a child node to the current widget.
 
 ## Parameters
 
-| Parameter | Type       | Required | Description                 |
-| --------- | ---------- | -------- | --------------------------- |
+| Parameter | Type       | Required | Description                  |
+| --------- | ---------- | -------- | ---------------------------- |
 | child     | `UIWidget` | Yes      | Child widget instance to add |
-| index     | `number`   | No       | Insertion position index    |
+| index     | `number`   | No       | Insertion position index     |
 
 ## Example
 
 ```js
-
 const container = createWidget(widget.VIRTUAL_CONTAINER)
 const button = createWidget(widget.BUTTON)
 
@@ -1096,7 +1124,10 @@ container.addLayoutChild(button, 0)
 ---
 
 ## removeLayoutChild
-> Supported from API_LEVEL `4.0`. For API compatibility, please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+
+:::note
+Start from API_LEVEL `4.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+::: For API compatibility, please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
 
 Removes the specified child node from the current node.
 
@@ -1108,8 +1139,8 @@ Removes the specified child node from the current node.
 
 ## Parameters
 
-| Parameter | Type      | Description                 |
-| --------- | --------- | --------------------------- |
+| Parameter | Type       | Description                     |
+| --------- | ---------- | ------------------------------- |
 | child     | `UIWidget` | Child widget instance to remove |
 
 ## Example
@@ -1133,7 +1164,9 @@ container.removeLayoutChild(button)
 import { createWidget, widget } from '@zos/ui'
 ```
 
-> Supported from API_LEVEL `4.0`. For API compatibility, please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::note
+Start from API_LEVEL `4.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+::: For API compatibility, please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
 
 Updates the layout style of a widget node. For detailed `layout` object properties, please refer to [layout property configuration](https://docs.zepp.com/docs/guides/framework/device/layout.md#layout-properties).
 
@@ -1145,14 +1178,13 @@ Updates the layout style of a widget node. For detailed `layout` object properti
 
 ## Parameters
 
-| Parameter | Type          | Description               |
-| --------- | ------------- | ------------------------- |
+| Parameter | Type          | Description                                              |
+| --------- | ------------- | -------------------------------------------------------- |
 | style     | `LayoutStyle` | Object containing layout properties, the `layout` object |
 
 ## Example
 
 ```js
-
 const container = createWidget(widget.VIRTUAL_CONTAINER)
 
 // Update container layout style
@@ -1180,7 +1212,9 @@ container.updateLayoutStyle({
 import { createWidget, widget, updateLayout } from '@zos/ui'
 ```
 
-> Supported from API_LEVEL `4.0`. For API compatibility, please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::note
+Start from API_LEVEL `4.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+::: For API compatibility, please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
 
 Used to re-render the view after modifying the widget tree.
 
@@ -1193,7 +1227,6 @@ Used to re-render the view after modifying the widget tree.
 ## Example
 
 ```js
-
 const container = createWidget(widget.VIRTUAL_CONTAINER)
 const button = createWidget(widget.BUTTON)
 
@@ -1205,6 +1238,7 @@ updateLayout()
 ```
 
 ## Related References
+
 - [Widget layout properties for Flex layout](https://docs.zepp.com/docs/guides/framework/device/layout)
 
 ---
@@ -1217,12 +1251,14 @@ updateLayout()
 import { openInspector } from '@zos/ui'
 ```
 
-> Supported since API_LEVEL `4.0`. For API compatibility, please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::note
+Start from API_LEVEL `4.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 <img
-  src={useBaseUrl('/img/docs/guides/framework/layout_debug.jpg')}
-  width="50%"
-  title="layout_debug"
+src={useBaseUrl('/img/docs/guides/framework/layout_debug.jpg')}
+width="50%"
+title="layout_debug"
 />
 
 During development, especially when using Flex layout, you may need to check the actual layout position and size of each widget. Using `openInspector()` can visually display the boundaries of all widgets participating in layout in the simulator, helping developers debug layout issues.
@@ -1253,14 +1289,14 @@ Draws boundary rectangles for all widgets participating in layout.
 
 #### Parameters
 
-| Parameter | Type                | Required | Default | Description  |
-| --------- | ------------------- | -------- | ------- | ------------ |
+| Parameter | Type     | Required | Default | Description  |
+| --------- | -------- | -------- | ------- | ------------ |
 | options   | `object` | No       | -       | Draw options |
 
 #### options Object Properties
 
-| Property    | Type                | Required | Default | Description                                                       |
-| ----------- | ------------------- | -------- | ------- | ----------------------------------------------------------------- |
+| Property    | Type     | Required | Default | Description                                                       |
+| ----------- | -------- | -------- | ------- | ----------------------------------------------------------------- |
 | line_color  | `number` | No       | -       | Border line color, hexadecimal value, e.g., `0xff0000` for red    |
 | line_width  | `number` | No       | -       | Border line width                                                 |
 | border_mode | `number` | No       | `0`     | Border draw mode, `0` for outward drawing, `1` for inward drawing |
@@ -1272,7 +1308,6 @@ Clears all drawn boundary rectangles.
 ## Code Example
 
 ```js
-
 Page({
   build() {
     // Create layout...
@@ -1299,7 +1334,9 @@ Page({
 import { keyboard } from '@zos/ui'
 ```
 
-> Start from API_LEVEL `4.2`. Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::note
+Start from API_LEVEL `4.2` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 The keyboard API provides rich input interface capabilities, greatly simplifying the development complexity of custom keyboards.
 
@@ -1334,8 +1371,8 @@ Set the size and position of the input field.
 
 ##### Parameters
 
-| Parameter | Description                        | Required | Type     |
-| --------- | ---------------------------------- | -------- | -------- |
+| Parameter | Description                             | Required | Type     |
+| --------- | --------------------------------------- | -------- | -------- |
 | rect      | Object containing x, y, w, h properties | YES      | `object` |
 
 ##### Code Example
@@ -1375,7 +1412,7 @@ Get the text content of the current input field.
 ##### Type
 
 ```ts
-() => string
+;() => string
 ```
 
 ##### Code Example
@@ -1396,8 +1433,8 @@ Insert text at the current cursor position.
 
 ##### Parameters
 
-| Parameter | Description      | Required | Type     |
-| --------- | ---------------- | -------- | -------- |
+| Parameter | Description         | Required | Type     |
+| --------- | ------------------- | -------- | -------- |
 | text      | Text to be inserted | YES      | `string` |
 
 ##### Code Example
@@ -1418,8 +1455,8 @@ Delete a specified number of characters.
 
 ##### Parameters
 
-| Parameter | Description                | Required | Type     | Default |
-| --------- | -------------------------- | -------- | -------- | ------- |
+| Parameter | Description                    | Required | Type     | Default |
+| --------- | ------------------------------ | -------- | -------- | ------- |
 | count     | Number of characters to delete | NO       | `number` | 1       |
 
 ##### Code Example
@@ -1459,18 +1496,18 @@ Send special function key events.
 
 ##### Parameters
 
-| Parameter | Description      | Required | Type     |
-| --------- | ---------------- | -------- | -------- |
+| Parameter | Description       | Required | Type     |
+| --------- | ----------------- | -------- | -------- |
 | keyType   | Key type constant | YES      | `number` |
 
 ##### Key Type Constants
 
-| Constant             | Description           |
-| -------------------- | --------------------- |
-| `keyboard.BACKSPACE` | Backspace delete      |
-| `keyboard.ENTER`     | Confirm/submit input  |
+| Constant             | Description                  |
+| -------------------- | ---------------------------- |
+| `keyboard.BACKSPACE` | Backspace delete             |
+| `keyboard.ENTER`     | Confirm/submit input         |
 | `keyboard.SWITCH`    | Switch keyboard input method |
-| `keyboard.SELECT`    | Enter keyboard selection |
+| `keyboard.SELECT`    | Enter keyboard selection     |
 
 ##### Code Example
 
@@ -1493,11 +1530,11 @@ Set input buffer content.
 
 ##### Parameters
 
-| Parameter      | Description      | Required | Type     | Default    |
-| -------------- | ---------------- | -------- | -------- | ---------- |
-| text           | Buffer text      | YES      | `string` | -          |
-| color          | Text color       | NO       | `number` | `0xffffff` |
-| underlineColor | Underline color  | NO       | `number` | `0xffffff` |
+| Parameter      | Description     | Required | Type     | Default    |
+| -------------- | --------------- | -------- | -------- | ---------- |
+| text           | Buffer text     | YES      | `string` | -          |
+| color          | Text color      | NO       | `number` | `0xffffff` |
+| underlineColor | Underline color | NO       | `number` | `0xffffff` |
 
 ##### Code Example
 
@@ -1513,7 +1550,7 @@ Read buffer text.
 ##### Type
 
 ```ts
-() => string
+;() => string
 ```
 
 ##### Code Example
@@ -1552,19 +1589,19 @@ Switch to a specified type of keyboard.
 
 ##### Parameters
 
-| Parameter | Description        | Required | Type     |
-| --------- | ------------------ | -------- | -------- |
+| Parameter | Description         | Required | Type     |
+| --------- | ------------------- | -------- | -------- |
 | inputType | Input type constant | YES      | `number` |
 
 ##### Input Type Constants
 
-| Constant          | Description      |
-| ----------------- | ---------------- |
-| `inputType.EMOJI` | Emoji keyboard   |
-| `inputType.NUM`   | Number keyboard  |
+| Constant          | Description        |
+| ----------------- | ------------------ |
+| `inputType.EMOJI` | Emoji keyboard     |
+| `inputType.NUM`   | Number keyboard    |
 | `inputType.CHAR`  | Character keyboard |
-| `inputType.VOICE` | Voice input      |
-| `inputType.JSKB`  | Custom keyboard  |
+| `inputType.VOICE` | Voice input        |
+| `inputType.JSKB`  | Custom keyboard    |
 
 ##### Code Example
 
@@ -1581,7 +1618,7 @@ Check if voice input is supported.
 ##### Type
 
 ```ts
-() => boolean
+;() => boolean
 ```
 
 ##### Code Example
@@ -1597,7 +1634,7 @@ Check if the current keyboard is enabled in settings.
 ##### Type
 
 ```ts
-() => boolean
+;() => boolean
 ```
 
 ##### Code Example
@@ -1613,7 +1650,7 @@ Check if the current keyboard is selected for use.
 ##### Type
 
 ```ts
-() => boolean
+;() => boolean
 ```
 
 ##### Code Example
@@ -1641,7 +1678,6 @@ keyboard.gotoSettings()
 ## Code Example
 
 ```js
-
 // Keyboard Widget usage example
 DataWidget({
   build() {
@@ -1673,4 +1709,3 @@ DataWidget({
 - [SYSTEM_KEYBOARD](https://docs.zepp.com/docs/reference/device-app-api/newAPI/ui/widget/SYSTEM_KEYBOARD)
 
 ---
-

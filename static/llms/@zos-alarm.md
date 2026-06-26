@@ -2,22 +2,22 @@
 
 ## Constants
 
-| Constant | Description | API_LEVEL |
-|----------|-------------|-----------|
-| `REPEAT_ONCE` | Repeat once | 3.0 |
-| `REPEAT_MINUTE` | Specify the repetition period as minute | 3.0 |
-| `REPEAT_HOUR` | Specify the repetition period as hour | 3.0 |
-| `REPEAT_DAY` | Specify the repetition period as day | 3.0 |
-| `REPEAT_WEEK` | Specify the repetition period as week | 3.0 |
-| `REPEAT_MONTH` | Specify the repetition period as month | 3.0 |
-| `REPEAT_YEAR` | Specify the repetition period as year | 3.0 |
-| `WEEK_MON` | Monday | 3.0 |
-| `WEEK_TUE` | Tuesday | 3.0 |
-| `WEEK_WED` | Wednesday | 3.0 |
-| `WEEK_THU` | Thursday | 3.0 |
-| `WEEK_FRI` | Friday | 3.0 |
-| `WEEK_SAT` | Saturday | 3.0 |
-| `WEEK_SUN` | Sunday | 3.0 |
+| Constant        | Description                             | API_LEVEL |
+| --------------- | --------------------------------------- | --------- |
+| `REPEAT_ONCE`   | Repeat once                             | 3.0       |
+| `REPEAT_MINUTE` | Specify the repetition period as minute | 3.0       |
+| `REPEAT_HOUR`   | Specify the repetition period as hour   | 3.0       |
+| `REPEAT_DAY`    | Specify the repetition period as day    | 3.0       |
+| `REPEAT_WEEK`   | Specify the repetition period as week   | 3.0       |
+| `REPEAT_MONTH`  | Specify the repetition period as month  | 3.0       |
+| `REPEAT_YEAR`   | Specify the repetition period as year   | 3.0       |
+| `WEEK_MON`      | Monday                                  | 3.0       |
+| `WEEK_TUE`      | Tuesday                                 | 3.0       |
+| `WEEK_WED`      | Wednesday                               | 3.0       |
+| `WEEK_THU`      | Thursday                                | 3.0       |
+| `WEEK_FRI`      | Friday                                  | 3.0       |
+| `WEEK_SAT`      | Saturday                                | 3.0       |
+| `WEEK_SUN`      | Sunday                                  | 3.0       |
 
 ## cancel
 
@@ -40,7 +40,9 @@ import { cancel } from '@zos/alarm'
 cancel(id)
 ```
 
-> Start from API_LEVEL `3.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::note
+Start from API_LEVEL `3.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::
 
 Cancels the set timer, if the timer is set to persist and also cancels the persistence.
 
@@ -64,20 +66,19 @@ function cancel(id: number): Result
 
 ### Option
 
-| Property | Type                | Required | DefaultValue | Description                           | API_LEVEL |
-| -------- | ------------------- | -------- | ------------ | ------------------------------------- | --------- |
+| Property | Type     | Required | DefaultValue | Description                           | API_LEVEL |
+| -------- | -------- | -------- | ------------ | ------------------------------------- | --------- |
 | id       | `number` | Y        | -            | Vertical axis coordinates of the page | 3.0       |
 
 ### Result
 
-| Type                | Description                              |
-| ------------------- | ---------------------------------------- |
+| Type     | Description                              |
+| -------- | ---------------------------------------- |
 | `number` | If `0` is returned, success is indicated |
 
 ## Example
 
 ```js
-
 cancel(id)
 ```
 
@@ -104,7 +105,9 @@ import { getAllAlarms } from '@zos/alarm'
 getAllAlarms()
 ```
 
-> Start from API_LEVEL `3.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::note
+Start from API_LEVEL `3.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::
 
 Get an array of all created timers alarmId for the current Mini Program, including timers that support persistence.
 
@@ -121,7 +124,6 @@ function getAllAlarms(): Array<number>
 ## Example
 
 ```js
-
 getAllAlarms()
 ```
 
@@ -161,7 +163,7 @@ const option = {
   url: 'pages/index.js',
   time: 12345678,
   repeat_type: REPEAT_WEEK,
-  week_days: WEEK_MON| WEEK_WED
+  week_days: WEEK_MON | WEEK_WED
 }
 const id = set(option)
 
@@ -173,12 +175,14 @@ const option = {
   time: 12345678,
   repeat_type: REPEAT_DAY,
   repeat_period: 20,
-  repeat_duration: 1,
+  repeat_duration: 1
 }
 const id = set(option)
 ```
 
-> Start from API_LEVEL `3.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::note
+Start from API_LEVEL `3.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::
 
 Support for persistent timers to wake up pages of Mini Program.
 
@@ -196,25 +200,25 @@ function set(option: Option): Result
 
 ### Option
 
-| Property        | Type                 | Required | DefaultValue               | Description                                                                                                                                                                                                                                                                             | API_LEVEL |
-| --------------- | -------------------- | -------- | -------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- |
-| appid           | `number`  | N        | -                          | App ID of the Mini Program, default current Mini Program ID                                                                                                                                                                                                                             | 3.0       |
-| url             | `string`  | Y        | -                          | File path to wake up Mini Program, supporting App Service                                                                                                                                                                                                                               | 3.0       |
-| time            | `number`  | N        | -                          | Timer execution time, UTC timestamp, in seconds, this field has higher priority than `delay`, each call must pass one of the `time` and `delay` parameter                                                                                                                               | 3.0       |
-| delay           | `number`  | N        | -                          | How many seconds of delay based on the current time after the execution, in seconds. Each call must pass one of the `time` and `delay` parameter                                                                                                                                        | 3.0       |
-| param           | `string`  | N        | -                          | The argument passed to the app.js lifecycle `onCreate`                                                                                                                                                                                                                                  | 3.0       |
+| Property        | Type      | Required | DefaultValue    | Description                                                                                                                                                                                                                                                                             | API_LEVEL |
+| --------------- | --------- | -------- | --------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- |
+| appid           | `number`  | N        | -               | App ID of the Mini Program, default current Mini Program ID                                                                                                                                                                                                                             | 3.0       |
+| url             | `string`  | Y        | -               | File path to wake up Mini Program, supporting App Service                                                                                                                                                                                                                               | 3.0       |
+| time            | `number`  | N        | -               | Timer execution time, UTC timestamp, in seconds, this field has higher priority than `delay`, each call must pass one of the `time` and `delay` parameter                                                                                                                               | 3.0       |
+| delay           | `number`  | N        | -               | How many seconds of delay based on the current time after the execution, in seconds. Each call must pass one of the `time` and `delay` parameter                                                                                                                                        | 3.0       |
+| param           | `string`  | N        | -               | The argument passed to the app.js lifecycle `onCreate`                                                                                                                                                                                                                                  | 3.0       |
 | store           | `boolean` | N        | `false`         | Does the timer need persistent storage (can still be executed successfully after device reboot)                                                                                                                                                                                         | 3.0       |
-| repeat_type     | `number`  | N        | -                          | Timer repetition type, refer to timer periodic repetition constants                                                                                                                                                                                                                     | 3.0       |
+| repeat_type     | `number`  | N        | -               | Timer repetition type, refer to timer periodic repetition constants                                                                                                                                                                                                                     | 3.0       |
 | repeat_period   | `number`  | N        | `REPEAT_MINUTE` | Effective when `repeat_type` is set to `REPEAT_MINUTE`, `REPEAT_HOUR`, `REPEAT_DAY`, used in conjunction with repeat_duration to set a repeat period, one repeat period in the current `repeat_type`, containing `repeat_period` times, and `repeat_duration` times before the reminder | 3.0       |
 | repeat_duration | `number`  | N        | `1`             | When `repeat_type` is set to `REPEAT_MINUTE`, `REPEAT_HOUR`, `REPEAT_DAY`, the number of reminders in a period of the timer, used with `repeat_duration`, a period of the current `repeat_type`, including repeat_period times, `repeat_duration` times before the reminder             | 3.0       |
-| week_days       | `number`  | N        | -                          | Effective when `repeat_type` is `REPEAT_WEEK`, you can customize which days of the week are repeated, refer to the timer week constants                                                                                                                                                 | 3.0       |
-| start_time      | `number`  | N        | -                          | The time when the repeat reminder starts, in UTC seconds, and the repeat reminder only takes effect during the repeat time period                                                                                                                                                       | 3.0       |
-| end_time        | `number`  | N        | -                          | The time when the repeat reminder ends, in UTC seconds, and the repeat reminder only takes effect during the repeat time period                                                                                                                                                         | 3.0       |
+| week_days       | `number`  | N        | -               | Effective when `repeat_type` is `REPEAT_WEEK`, you can customize which days of the week are repeated, refer to the timer week constants                                                                                                                                                 | 3.0       |
+| start_time      | `number`  | N        | -               | The time when the repeat reminder starts, in UTC seconds, and the repeat reminder only takes effect during the repeat time period                                                                                                                                                       | 3.0       |
+| end_time        | `number`  | N        | -               | The time when the repeat reminder ends, in UTC seconds, and the repeat reminder only takes effect during the repeat time period                                                                                                                                                         | 3.0       |
 
 ### Result
 
-| Type                | Description                                                                                                                                                                                  |
-| ------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Type     | Description                                                                                                                                                                                  |
+| -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `number` | The id returned by the timer creation, `0` is an invalid ID, which means the timer creation failed, and the ID remains the same after the system restart for timers that support persistence |
 
 ## Constants
@@ -251,7 +255,7 @@ function set(option: Option): Result
 const option = {
   url: 'pages/index.js',
   time: 12345678,
-  repeat_type: REPEAT_DAY,
+  repeat_type: REPEAT_DAY
 }
 const id = set(option)
 
@@ -261,7 +265,7 @@ const option = {
   url: 'pages/index.js',
   time: 12345678,
   repeat_type: REPEAT_WEEK,
-  week_days: WEEK_MON | WEEK_WED,
+  week_days: WEEK_MON | WEEK_WED
 }
 const id = set(option)
 
@@ -272,10 +276,9 @@ const option = {
   time: 12345678,
   repeat_type: REPEAT_DAY,
   repeat_period: 20,
-  repeat_duration: 1,
+  repeat_duration: 1
 }
 const id = set(option)
 ```
 
 ---
-

@@ -3,8 +3,9 @@ title: TEXT
 sidebar_label: TEXT
 ---
 
-> Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](../../../../../guides/framework/device/compatibility.md).
-
+:::note
+Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 ![text_sample](/img/api/text_sample.jpg)
 
 Text widget for displaying text. Support setting text size, color, alignment, font.
@@ -23,10 +24,10 @@ const text = createWidget(widget.TEXT, Param)
 
 | Properties | Description                                                                                                                                                                                                                                    | Required | Type         |
 | ---------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------------ |
-| x          | The x-axis coordinate of the widget.                                                                                                                                                                                                        | YES      | `number`     |
-| y          | The y-axis coordinate of the widget.                                                                                                                                                                                                        | YES      | `number`     |
-| w          | The width of the widget.                                                                                                                                                                                                                    | YES      | `number`     |
-| h          | The height of the widget.                                                                                                                                                                                                                   | YES      | `number`     |
+| x          | The x-axis coordinate of the widget.                                                                                                                                                                                                           | YES      | `number`     |
+| y          | The y-axis coordinate of the widget.                                                                                                                                                                                                           | YES      | `number`     |
+| w          | The width of the widget.                                                                                                                                                                                                                       | YES      | `number`     |
+| h          | The height of the widget.                                                                                                                                                                                                                      | YES      | `number`     |
 | color      | The color of the text.                                                                                                                                                                                                                         | NO       | `number`     |
 | align_h    | The alignment of the horizontal axis (see ALIGN for values).                                                                                                                                                                                   | NO       | `ALIGN`      |
 | align_v    | Alignment of the vertical axis (see ALIGN for values).                                                                                                                                                                                         | NO       | `ALIGN`      |
@@ -35,7 +36,7 @@ const text = createWidget(widget.TEXT, Param)
 | text_style | Text overlength handling, default is `text_style.NONE` (see TEXT_STYLE for value).                                                                                                                                                             | NO       | `TEXT_STYLE` |
 | line_space | Row spacing.                                                                                                                                                                                                                                   | NO       | `number`     |
 | char_space | Character Spacing.                                                                                                                                                                                                                             | NO       | `number`     |
-| font       | Font path, resource storage path reference [Folder Structure](../../../../../guides/architecture/folder-structure.mdx)                                                                                                                                           | NO       | `string`     |
+| font       | Font path, resource storage path reference [Folder Structure](../../../../../guides/architecture/folder-structure.mdx)                                                                                                                         | NO       | `string`     |
 | text_i18n  | Multi-language text support, refer to the code example, where the 'en-US' field is required, when the current country language is not configured, the value of 'en-US' will be used, when passed in this way, the `text` attribute is disabled | NO       | `object`     |
 
 ### ALIGN alignment
@@ -55,7 +56,7 @@ const text = createWidget(widget.TEXT, Param)
 | ------------------- | ----------------------------------------- |
 | text_style.ELLIPSIS | Single line overflow character display... |
 | text_style.NONE     | Keep scrolling.                           |
-| text_style.WRAP     | Wrap                           |
+| text_style.WRAP     | Wrap                                      |
 
 ## Code example
 

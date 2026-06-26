@@ -1,6 +1,8 @@
 # onKey
 
-> Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::note
+Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 Listen to key events, only one event is allowed to be registered, if multiple registrations will cause the last registered event to fail.
 
@@ -66,6 +68,6 @@ onKey({
       console.log('up click')
     }
     return true
-  },
+  }
 })
 ```

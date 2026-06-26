@@ -3,8 +3,9 @@ title: SCROLL_LIST
 sidebar_label: SCROLL_LIST
 ---
 
-> Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](../../../../../guides/framework/device/compatibility.md).
-
+:::note
+Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 ![scroll_list_sample](/img/api/scroll_list_sample.png)
 
 Create a list area with sliding support, where each item item can have an image and text, and support horizontal sliding.
@@ -23,10 +24,10 @@ const scrollList = createWidget(widget.SCROLL_LIST, Param)
 
 | Properties               | Description                                                                                                                                               | Required | Type                    |
 | ------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ----------------------- |
-| x                        | The x-coordinate of the widget.                                                                                                                        | YES      | `number`                |
-| y                        | The y-coordinate of the widget.                                                                                                                        | YES      | `number`                |
-| w                        | Width of the widget.                                                                                                                                   | YES      | `number`                |
-| h                        | The height of the widget.                                                                                                                              | YES      | `number`                |
+| x                        | The x-coordinate of the widget.                                                                                                                           | YES      | `number`                |
+| y                        | The y-coordinate of the widget.                                                                                                                           | YES      | `number`                |
+| w                        | Width of the widget.                                                                                                                                      | YES      | `number`                |
+| h                        | The height of the widget.                                                                                                                                 | YES      | `number`                |
 | item_space               | Space between each item.                                                                                                                                  | NO       | `number`                |
 | item_config              | item type configuration, see [`ItemConfig`](#itemconfig-object)                                                                                           | YES      | `Array<ItemConfig>`     |
 | item_config_count        | The length of the item_config array.                                                                                                                      | YES      | `number`                |
@@ -62,8 +63,8 @@ All relative coordinates involving location information.
 | ---------- | -------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | --------- |
 | x          | x coordinate, relative coordinate.                                                                                                                 | YES      | `number`  |
 | y          | y-coordinate, relative coordinate.                                                                                                                 | YES      | `number`  |
-| w          | The width of widget.                                                                                                                            | YES      | `number`  |
-| h          | The length of the widget.                                                                                                                       | YES      | `number`  |
+| w          | The width of widget.                                                                                                                               | YES      | `number`  |
+| h          | The length of the widget.                                                                                                                          | YES      | `number`  |
 | color      | The color of text.                                                                                                                                 | NO       | `number`  |
 | text_size  | The size of text.                                                                                                                                  | NO       | `number`  |
 | key        | Data binding.See usage examples and data_array descriptions for details.                                                                           | YES      | `string`  |
@@ -85,8 +86,8 @@ All relative coordinates involving location information.
 | ---------- | -------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | --------- |
 | x          | x-coordinate, relative coordinate.                                                                                                                 | YES      | `number`  |
 | y          | y-coordinate, relative coordinate.                                                                                                                 | YES      | `number`  |
-| w          | The width of widget.                                                                                                                            | YES      | `number`  |
-| h          | The length of the widget.                                                                                                                       | YES      | `number`  |
+| w          | The width of widget.                                                                                                                               | YES      | `number`  |
+| h          | The length of the widget.                                                                                                                          | YES      | `number`  |
 | color      | The color of text.                                                                                                                                 | NO       | `number`  |
 | key        | Data binding.See usage examples and data_array descriptions for details.                                                                           | YES      | `string`  |
 | action     | Whether or not to respond to the click event, after responding, the corresponding data `key` can be captured in `item_click_func`, default `false` | NO       | `boolean` |
@@ -145,10 +146,10 @@ data_type_config_count:2
 (list: ScrollList, index: number, data_key: string) => void
 ```
 
-| Parameters | description                                          | Type     |
-| ---------- | ---------------------------------------------------- | -------- |
-| list       | SCROLL_LIST Widget                                    | `any`    |
-| index      | Clicked item index                                     | `number` |
+| Parameters | description                                                          | Type     |
+| ---------- | -------------------------------------------------------------------- | -------- |
+| list       | SCROLL_LIST Widget                                                   | `any`    |
+| index      | Clicked item index                                                   | `number` |
 | data_key   | Clicked data `key` name, by `key` can be located to the clicked area | `string` |
 
 ### ItemFocusChangeFunc
@@ -157,11 +158,11 @@ data_type_config_count:2
 (list: ScrollList, index: number, focus: boolean) => void
 ```
 
-| Parameters  | description              | Type      |
-| ----- | ----------------- | --------- |
-| list  | SCROLL_LIST Widget  | `any`     |
-| index | item index         | `number`  |
-| focus | item is in focus or not | `boolean` |
+| Parameters | description             | Type      |
+| ---------- | ----------------------- | --------- |
+| list       | SCROLL_LIST Widget      | `any`     |
+| index      | item index              | `number`  |
+| focus      | item is in focus or not | `boolean` |
 
 ## Refresh data
 

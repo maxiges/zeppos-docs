@@ -10,7 +10,9 @@ Basic widget APIs.
 import { createWidget, widget } from '@zos/ui'
 ```
 
-> Start from API_LEVEL `2.0`. Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::note
+Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 [Image: text_sample]
 
@@ -19,7 +21,6 @@ Text widget for displaying text. Support setting text size, color, alignment, fo
 ## Create UI widget
 
 ```js
-
 const text = createWidget(widget.TEXT, Param)
 ```
 
@@ -29,24 +30,24 @@ const text = createWidget(widget.TEXT, Param)
 
 | Properties  | Description                                                                                                                                                                                                                                    | Required | Type         |
 | ----------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------------ |
-| x           | The x-axis coordinate of the widget                                                                                                                                                                                                              | YES      | `number`     |
-| y           | The y-axis coordinate of the widget                                                                                                                                                                                                              | YES      | `number`     |
-| w           | The width of the widget                                                                                                                                                                                                                          | YES      | `number`     |
-| h           | The height of the widget                                                                                                                                                                                                                         | YES      | `number`     |
-| color       | The color of the text                                                                                                                                                                                                                            | NO       | `number`     |
-| align_h     | The alignment of the horizontal axis (see ALIGN for values)                                                                                                                                                                                      | NO       | `ALIGN`      |
-| align_v     | Alignment of the vertical axis (see ALIGN for values)                                                                                                                                                                                            | NO       | `ALIGN`      |
-| text        | Text                                                                                                                                                                                                                                             | NO       | `string`     |
-| text_size   | The size of the font                                                                                                                                                                                                                             | NO       | `number`     |
-| text_style  | Text overlength handling, default is scrolling text (see TEXT_STYLE for values)                                                                                                                                                                   | NO       | `TEXT_STYLE` |
-| line_space  | Row spacing                                                                                                                                                                                                                                      | NO       | `number`     |
-| char_space  | Character spacing                                                                                                                                                                                                                                | NO       | `number`     |
-| font        | Font path, resource storage path reference [Folder Structure](https://docs.zepp.com/docs/guides/architecture/folder-structure)                                                                                                                              | NO       | `string`     |
-| text_i18n   | Multi-language text support, refer to the code example, where the 'en-US' field is required. When the current country language is not configured, the value of 'en-US' will be used. When passed in this way, the `text` attribute is disabled     | NO       | `object`     |
-| start_angle | Arc layout starting angle                                                                                                                                                                                                                        | NO       | `number`     |
-| end_angle   | Arc layout ending angle (start_angle < end_angle)                                                                                                                                                                                                 | NO       | `number`     |
-| mode        | Arc layout mode, default 0<br/>0: inner<br/>1: outer                                                                                                                                                                                             | NO       | `number`     |
-| radius      | Controls the arc layout radius, defaults to half of the widget's width and height                                                                                                                                                                 | NO       | `number`     |
+| x           | The x-axis coordinate of the widget                                                                                                                                                                                                            | YES      | `number`     |
+| y           | The y-axis coordinate of the widget                                                                                                                                                                                                            | YES      | `number`     |
+| w           | The width of the widget                                                                                                                                                                                                                        | YES      | `number`     |
+| h           | The height of the widget                                                                                                                                                                                                                       | YES      | `number`     |
+| color       | The color of the text                                                                                                                                                                                                                          | NO       | `number`     |
+| align_h     | The alignment of the horizontal axis (see ALIGN for values)                                                                                                                                                                                    | NO       | `ALIGN`      |
+| align_v     | Alignment of the vertical axis (see ALIGN for values)                                                                                                                                                                                          | NO       | `ALIGN`      |
+| text        | Text                                                                                                                                                                                                                                           | NO       | `string`     |
+| text_size   | The size of the font                                                                                                                                                                                                                           | NO       | `number`     |
+| text_style  | Text overlength handling, default is scrolling text (see TEXT_STYLE for values)                                                                                                                                                                | NO       | `TEXT_STYLE` |
+| line_space  | Row spacing                                                                                                                                                                                                                                    | NO       | `number`     |
+| char_space  | Character spacing                                                                                                                                                                                                                              | NO       | `number`     |
+| font        | Font path, resource storage path reference [Folder Structure](https://docs.zepp.com/docs/guides/architecture/folder-structure)                                                                                                                 | NO       | `string`     |
+| text_i18n   | Multi-language text support, refer to the code example, where the 'en-US' field is required. When the current country language is not configured, the value of 'en-US' will be used. When passed in this way, the `text` attribute is disabled | NO       | `object`     |
+| start_angle | Arc layout starting angle                                                                                                                                                                                                                      | NO       | `number`     |
+| end_angle   | Arc layout ending angle (start_angle < end_angle)                                                                                                                                                                                              | NO       | `number`     |
+| mode        | Arc layout mode, default 0<br/>0: inner<br/>1: outer                                                                                                                                                                                           | NO       | `number`     |
+| radius      | Controls the arc layout radius, defaults to half of the widget's width and height                                                                                                                                                              | NO       | `number`     |
 
 ### ALIGN alignment
 
@@ -55,45 +56,44 @@ const text = createWidget(widget.TEXT, Param)
 | align.LEFT     | Horizontal axis-left aligned  |
 | align.RIGHT    | Horizontal axis-right aligned |
 | align.CENTER_H | Horizontal axis-centered      |
-| align.TOP      | Vertical axis-top            |
-| align.BOTTOM   | Vertical axis-bottom         |
-| align.CENTER_V | Vertical axis-centered       |
+| align.TOP      | Vertical axis-top             |
+| align.BOTTOM   | Vertical axis-bottom          |
+| align.CENTER_V | Vertical axis-centered        |
 
 ### TEXT_STYLE Text layout
 
 | Value               | Description                               |
 | ------------------- | ----------------------------------------- |
 | text_style.ELLIPSIS | Single line overflow character display... |
-| text_style.NONE     | Scrolling text                           |
-| text_style.WRAP     | Line wrap                                |
+| text_style.NONE     | Scrolling text                            |
+| text_style.WRAP     | Line wrap                                 |
 
 ## Property Access Support List
 
 | Property    | setProperty | getProperty | [setter](https://docs.zepp.com/docs/reference/device-app-api/newAPI/ui/gettersetter) | [getter](https://docs.zepp.com/docs/reference/device-app-api/newAPI/ui/gettersetter) |
-| ----------- | ----------- | ----------- | ----------------------------- | ----------------------------- |
-| x           | Y           | Y           | Y                             | Y                             |
-| y           | Y           | Y           | Y                             | Y                             |
-| w           | Y           | Y           | Y                             | Y                             |
-| h           | Y           | Y           | Y                             | Y                             |
-| color       | Y           | Y           | Y                             | Y                             |
-| align_h     | Y           | Y           | Y                             | Y                             |
-| align_v     | Y           | Y           | Y                             | Y                             |
-| text        | Y           | Y           | Y                             | Y                             |
-| text_size   | Y           | Y           | Y                             | Y                             |
-| font        | Y           | Y           | Y                             | Y                             |
-| text_style  | Y           | Y           | Y                             | Y                             |
-| line_space  | Y           | Y           | Y                             | Y                             |
-| char_space  | Y           | Y           | Y                             | Y                             |
-| text_i18n   | N           | N           | Y                             | Y                             |
-| start_angle | N           | N           | N                             | N                             |
-| end_angle   | N           | N           | N                             | N                             |
-| mode        | N           | N           | N                             | N                             |
-| radius      | N           | N           | N                             | N                             |
+| ----------- | ----------- | ----------- | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
+| x           | Y           | Y           | Y                                                                                    | Y                                                                                    |
+| y           | Y           | Y           | Y                                                                                    | Y                                                                                    |
+| w           | Y           | Y           | Y                                                                                    | Y                                                                                    |
+| h           | Y           | Y           | Y                                                                                    | Y                                                                                    |
+| color       | Y           | Y           | Y                                                                                    | Y                                                                                    |
+| align_h     | Y           | Y           | Y                                                                                    | Y                                                                                    |
+| align_v     | Y           | Y           | Y                                                                                    | Y                                                                                    |
+| text        | Y           | Y           | Y                                                                                    | Y                                                                                    |
+| text_size   | Y           | Y           | Y                                                                                    | Y                                                                                    |
+| font        | Y           | Y           | Y                                                                                    | Y                                                                                    |
+| text_style  | Y           | Y           | Y                                                                                    | Y                                                                                    |
+| line_space  | Y           | Y           | Y                                                                                    | Y                                                                                    |
+| char_space  | Y           | Y           | Y                                                                                    | Y                                                                                    |
+| text_i18n   | N           | N           | Y                                                                                    | Y                                                                                    |
+| start_angle | N           | N           | N                                                                                    | N                                                                                    |
+| end_angle   | N           | N           | N                                                                                    | N                                                                                    |
+| mode        | N           | N           | N                                                                                    | N                                                                                    |
+| radius      | N           | N           | N                                                                                    | N                                                                                    |
 
 ## Code example
 
 ```js
-
 Page({
   build() {
     const text = createWidget(widget.TEXT, {
@@ -134,12 +134,12 @@ Page({
   }
 })
 ```
+
 ## Additional Examples
 
 ### Example 1
 
 ```js
-
 createWidget(widget.TEXT, {
   x: 0,
   y: 0,
@@ -148,16 +148,15 @@ createWidget(widget.TEXT, {
   text: 'hello',
   color: 0x34e073,
   align_h: align.LEFT,
-  font: 'fonts/Pacifico-Regular.ttf',
+  font: 'fonts/Pacifico-Regular.ttf'
 })
 ```
 
 ### Example 2
 
 ```js
-
 const rootContainer = createWidget(widget.VIRTUAL_CONTAINER, {
-  layout: { x: '10vw', y: '10vh', width: '80vw', height: '50vh' },
+  layout: { x: '10vw', y: '10vh', width: '80vw', height: '50vh' }
 })
 
 const groupRoot = createWidget(widget.GROUP, {
@@ -170,8 +169,8 @@ const groupRoot = createWidget(widget.GROUP, {
     'justify-content': 'space-evenly',
     'align-items': 'center',
     width: '100%',
-    height: '100%',
-  },
+    height: '100%'
+  }
 })
 
 for (let i = 0; i < 3; i += 1) {
@@ -182,8 +181,8 @@ for (let i = 0; i < 3; i += 1) {
     layout: {
       width: '30%',
       height: '25%',
-      'font-size': '16',
-    },
+      'font-size': '16'
+    }
   })
 }
 ```
@@ -198,7 +197,9 @@ for (let i = 0; i < 3; i += 1) {
 import { createWidget, widget } from '@zos/ui'
 ```
 
-> Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::note
+Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 [Image: img_sample]
 
@@ -207,12 +208,10 @@ The image widget is used to display images and supports image rotation.
 > **💡 Tip**
 >
 > 1. Recommend using 24-bit or 32-bit png format images with RGB or RGBA color scheme.
->
 
 ## Create UI widget
 
 ```js
-
 const img = createWidget(widget.IMG, Param)
 ```
 
@@ -222,13 +221,13 @@ const img = createWidget(widget.IMG, Param)
 
 | Properties         | Description                                                                                                                                                      | Required | Type      |
 | ------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | --------- |
-| src                | The path of the image. Reference [folder-structure structure](https://docs.zepp.com/docs/guides/architecture/folder-structure)                                           | YES      | `string`  |
+| src                | The path of the image. Reference [folder-structure structure](https://docs.zepp.com/docs/guides/architecture/folder-structure)                                   | YES      | `string`  |
 | w                  | The width of the widget.If not passed then set the width of the image itself                                                                                     | NO       | `number`  |
 | h                  | The height of the widget.If not passed then set the height of the image itself                                                                                   | NO       | `number`  |
 | x                  | The x-axis coordinate of the widget.                                                                                                                             | YES      | `number`  |
 | y                  | The y-axis coordinate of the widget.                                                                                                                             | YES      | `number`  |
-| pos_x              | Relative coordinates.Horizontal offset of the image relative to the widget coordinates.                                                                                               | NO       | `number`  |
-| pos_y              | Relative coordinates.Vertical offset of the image relative to the widget coordinates.                                                                                                 | NO       | `number`  |
+| pos_x              | Relative coordinates.Horizontal offset of the image relative to the widget coordinates.                                                                          | NO       | `number`  |
+| pos_y              | Relative coordinates.Vertical offset of the image relative to the widget coordinates.                                                                            | NO       | `number`  |
 | angle              | The rotation angle of the picture (the 12-point direction is 0 degrees).                                                                                         | NO       | `number`  |
 | center_x           | The rotation center of the picture.                                                                                                                              | NO       | `number`  |
 | center_y           | The rotation center of the picture.                                                                                                                              | NO       | `number`  |
@@ -249,7 +248,6 @@ const img = createWidget(widget.IMG, Param)
 ## Code example
 
 ```js
-
 Page({
   build() {
     const img = createWidget(widget.IMG, {
@@ -267,7 +265,6 @@ Page({
 ```
 
 ```js
-
 Page({
   build() {
     const img_hour = createWidget(widget.IMG)
@@ -286,14 +283,14 @@ Page({
   }
 })
 ```
+
 ## Additional Examples
 
 ### Example 1
 
 ```js
-
 const rootContainer = createWidget(widget.VIRTUAL_CONTAINER, {
-  layout: { x: '10vw', y: '10vh', width: '80vw', height: '50vh' },
+  layout: { x: '10vw', y: '10vh', width: '80vw', height: '50vh' }
 })
 
 const groupRoot = createWidget(widget.GROUP, {
@@ -306,8 +303,8 @@ const groupRoot = createWidget(widget.GROUP, {
     'justify-content': 'space-evenly',
     'align-items': 'center',
     width: '100%',
-    height: '100%',
-  },
+    height: '100%'
+  }
 })
 
 for (let i = 0; i < 5; i += 1) {
@@ -317,8 +314,8 @@ for (let i = 0; i < 5; i += 1) {
       width: '15%',
       height: '25%',
       pos_x: '20',
-      radius: '5.25vw',
-    },
+      radius: '5.25vw'
+    }
   })
   fill_rect_list.push(imgWidget)
 }
@@ -334,7 +331,9 @@ for (let i = 0; i < 5; i += 1) {
 import { createWidget, widget } from '@zos/ui'
 ```
 
-> Supported from API_LEVEL `2.0`. For API compatibility, please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::note
+Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 [Image: button_sample]
 
@@ -343,7 +342,6 @@ The button widget supports setting images and colors for normal and pressed stat
 ## Create UI Widget
 
 ```js
-
 const button = createWidget(widget.BUTTON, Param)
 ```
 
@@ -351,24 +349,24 @@ const button = createWidget(widget.BUTTON, Param)
 
 ### Param: object
 
-| Properties     | Description                                                                                              | Required | Type        | API_LEVEL |
-| -------------- | -------------------------------------------------------------------------------------------------------- | -------- | ----------- | --------- |
-| x              | The x-coordinate of the widget                                                                            | YES      | `number`    | 2.0       |
-| y              | The y-coordinate of the widget                                                                            | YES      | `number`    | 2.0       |
+| Properties     | Description                                                                                                 | Required | Type        | API_LEVEL |
+| -------------- | ----------------------------------------------------------------------------------------------------------- | -------- | ----------- | --------- |
+| x              | The x-coordinate of the widget                                                                              | YES      | `number`    | 2.0       |
+| y              | The y-coordinate of the widget                                                                              | YES      | `number`    | 2.0       |
 | w              | The width of the widget. Note: If set to -1, it will prioritize adapting to normal_src size, default is 100 | YES      | `number`    | 2.0       |
-| h              | The height of the widget. Note: If set to -1, it will prioritize adapting to normal_src size, default is 40  | YES      | `number`    | 2.0       |
-| text           | Text displayed on the button                                                                               | NO       | `string`    | 2.0       |
-| color          | Text color                                                                                                | NO       | `number`    | 2.0       |
-| text_size      | Text font size                                                                                            | NO       | `number`    | 2.0       |
-| normal_color   | Background color in normal state, must be set together with `press_color` to take effect                   | NO       | `number`    | 2.0       |
-| press_color    | Background color when pressed, must be set together with `normal_color` to take effect                     | NO       | `number`    | 2.0       |
-| radius         | Corner radius when using color as button background                                                        | NO       | `number`    | 2.0       |
-| normal_src     | Background image in normal state, must be set together with `press_src` to take effect                     | NO       | `string`    | 2.0       |
-| press_src      | Background image when pressed, must be set together with `normal_src` to take effect                       | NO       | `string`    | 2.0       |
-| click_func     | Button click callback                                                                                      | NO       | `ClickFunc` | 2.0       |
+| h              | The height of the widget. Note: If set to -1, it will prioritize adapting to normal_src size, default is 40 | YES      | `number`    | 2.0       |
+| text           | Text displayed on the button                                                                                | NO       | `string`    | 2.0       |
+| color          | Text color                                                                                                  | NO       | `number`    | 2.0       |
+| text_size      | Text font size                                                                                              | NO       | `number`    | 2.0       |
+| normal_color   | Background color in normal state, must be set together with `press_color` to take effect                    | NO       | `number`    | 2.0       |
+| press_color    | Background color when pressed, must be set together with `normal_color` to take effect                      | NO       | `number`    | 2.0       |
+| radius         | Corner radius when using color as button background                                                         | NO       | `number`    | 2.0       |
+| normal_src     | Background image in normal state, must be set together with `press_src` to take effect                      | NO       | `string`    | 2.0       |
+| press_src      | Background image when pressed, must be set together with `normal_src` to take effect                        | NO       | `string`    | 2.0       |
+| click_func     | Button click callback                                                                                       | NO       | `ClickFunc` | 2.0       |
 | longpress_func | Long press (700ms) button callback                                                                          | NO       | `ClickFunc` | 2.0       |
-| font           | Font path, refer to [Directory Structure](https://docs.zepp.com/docs/guides/architecture/folder-structure)           | NO       | `string`    | 3.6       |
-| text_w         | Button text width                                                                                          | NO       | `number`    | 3.6       |
+| font           | Font path, refer to [Directory Structure](https://docs.zepp.com/docs/guides/architecture/folder-structure)  | NO       | `string`    | 3.6       |
+| text_w         | Button text width                                                                                           | NO       | `number`    | 3.6       |
 
 > **⚠️ Caution**
 >
@@ -390,23 +388,23 @@ The `button` instance created by the `createWidget` method
 ## Property Access Support List
 
 | Property Name  | setProperty | getProperty | [setter](https://docs.zepp.com/docs/reference/device-app-api/newAPI/ui/gettersetter) | [getter](https://docs.zepp.com/docs/reference/device-app-api/newAPI/ui/gettersetter) |
-| -------------- | ----------- | ----------- | ----------------------------- | ----------------------------- |
-| x              | Y           | Y           | Y                             | Y                             |
-| y              | Y           | Y           | Y                             | Y                             |
-| w              | Y           | Y           | Y                             | Y                             |
-| h              | Y           | Y           | Y                             | Y                             |
-| text           | Y           | Y           | Y                             | Y                             |
-| color          | Y           | Y           | Y                             | Y                             |
-| text_size      | Y           | Y           | Y                             | Y                             |
-| font           | Y           | Y           | Y                             | Y                             |
-| press_src      | N           | N           | Y                             | Y                             |
-| normal_src     | N           | N           | Y                             | Y                             |
-| press_color    | N           | N           | Y                             | Y                             |
-| normal_color   | N           | N           | Y                             | Y                             |
-| radius         | Y           | Y           | Y                             | Y                             |
-| click_func     | N           | N           | Y                             | Y                             |
-| longpress_func | N           | N           | Y                             | Y                             |
-| text_w         | N           | N           | Y                             | Y                             |
+| -------------- | ----------- | ----------- | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
+| x              | Y           | Y           | Y                                                                                    | Y                                                                                    |
+| y              | Y           | Y           | Y                                                                                    | Y                                                                                    |
+| w              | Y           | Y           | Y                                                                                    | Y                                                                                    |
+| h              | Y           | Y           | Y                                                                                    | Y                                                                                    |
+| text           | Y           | Y           | Y                                                                                    | Y                                                                                    |
+| color          | Y           | Y           | Y                                                                                    | Y                                                                                    |
+| text_size      | Y           | Y           | Y                                                                                    | Y                                                                                    |
+| font           | Y           | Y           | Y                                                                                    | Y                                                                                    |
+| press_src      | N           | N           | Y                                                                                    | Y                                                                                    |
+| normal_src     | N           | N           | Y                                                                                    | Y                                                                                    |
+| press_color    | N           | N           | Y                                                                                    | Y                                                                                    |
+| normal_color   | N           | N           | Y                                                                                    | Y                                                                                    |
+| radius         | Y           | Y           | Y                                                                                    | Y                                                                                    |
+| click_func     | N           | N           | Y                                                                                    | Y                                                                                    |
+| longpress_func | N           | N           | Y                                                                                    | Y                                                                                    |
+| text_w         | N           | N           | Y                                                                                    | Y                                                                                    |
 
 ## Code Example
 
@@ -415,7 +413,6 @@ The `button` instance created by the `createWidget` method
 > Please refer to [Design Resources](https://docs.zepp.com/docs/reference/related-resources/design-resources) for the image resources in the code example
 
 ```js
-
 Page({
   build() {
     const img_button = createWidget(widget.BUTTON, {
@@ -458,7 +455,6 @@ Page({
 ### Example 1
 
 ```js
-
 const button = createWidget(widget.BUTTON, {
   x: 0,
   y: 100,
@@ -472,18 +468,19 @@ const button = createWidget(widget.BUTTON, {
   },
   longpress_func: () => {
     console.log('button long pressed')
-  },
+  }
 })
 ```
 
 ### Example 2
 
-> Supported from API_LEVEL `4.0`.
+:::note
+Start from API_LEVEL `4.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 ```js
-
 const buttonContainer = createWidget(widget.VIRTUAL_CONTAINER, {
-  layout: { x: '0', y: '60vh', width: '100vw', height: '40vh' },
+  layout: { x: '0', y: '60vh', width: '100vw', height: '40vh' }
 })
 
 const buttonSubContainer = createWidget(widget.VIRTUAL_CONTAINER, {
@@ -496,8 +493,8 @@ const buttonSubContainer = createWidget(widget.VIRTUAL_CONTAINER, {
     'justify-content': 'space-evenly',
     'align-items': 'center',
     width: '100%',
-    height: '100%',
-  },
+    height: '100%'
+  }
 })
 
 const addButton = createWidget(widget.BUTTON, {
@@ -506,7 +503,7 @@ const addButton = createWidget(widget.BUTTON, {
   press_src: 'images/test/normalbtn_h.png',
   normal_src: 'images/test/normalbtn_n.png',
   text: 'add widget',
-  click_func: () => {},
+  click_func: () => {}
 })
 ```
 
@@ -520,7 +517,9 @@ const addButton = createWidget(widget.BUTTON, {
 import { createWidget, widget } from '@zos/ui'
 ```
 
-> Supported from API_LEVEL `2.0`. For API compatibility, please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::note
+Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 [Image: fill_rect_sample]
 
@@ -529,7 +528,6 @@ The Fill Rectangle widget is used to draw a solid color rectangular area.
 ## Create UI Widget
 
 ```js
-
 const fillRect = createWidget(widget.FILL_RECT, Param)
 ```
 
@@ -537,44 +535,43 @@ const fillRect = createWidget(widget.FILL_RECT, Param)
 
 ### Param: object
 
-| Property    | Description                                                         | Required | Type     | API_LEVEL |
-| ----------- | ------------------------------------------------------------------- | -------- | -------- | --------- |
-| x           | The x-coordinate of the widget                                       | YES      | `number` | 2.0       |
-| y           | The y-coordinate of the widget                                       | YES      | `number` | 2.0       |
-| w           | The width of the widget                                             | YES      | `number` | 2.0       |
-| h           | The height of the widget                                            | YES      | `number` | 2.0       |
-| color       | The color of the widget                                             | YES      | `number` | 2.0       |
-| radius      | The corner radius of the rectangle                                  | NO       | `number` | 2.0       |
-| angle       | The rotation angle                                                  | NO       | `number` | 2.0       |
-| alpha       | Opacity, value range 0-255, default 255 (opaque), 0 (transparent)   | NO       | `number` | 3.0       |
-| pos_x       | Drawing area x offset (only works when angle%360!=0)                | NO       | `number` | 4.0       |
-| pos_y       | Drawing area y offset (only works when angle%360!=0)                | NO       | `number` | 4.0       |
-| rect_width  | Width of the drawing area (only works when angle%360!=0)            | NO       | `number` | 4.0       |
-| rect_height | Height of the drawing area (only works when angle%360!=0)           | NO       | `number` | 4.0       |
+| Property    | Description                                                       | Required | Type     | API_LEVEL |
+| ----------- | ----------------------------------------------------------------- | -------- | -------- | --------- |
+| x           | The x-coordinate of the widget                                    | YES      | `number` | 2.0       |
+| y           | The y-coordinate of the widget                                    | YES      | `number` | 2.0       |
+| w           | The width of the widget                                           | YES      | `number` | 2.0       |
+| h           | The height of the widget                                          | YES      | `number` | 2.0       |
+| color       | The color of the widget                                           | YES      | `number` | 2.0       |
+| radius      | The corner radius of the rectangle                                | NO       | `number` | 2.0       |
+| angle       | The rotation angle                                                | NO       | `number` | 2.0       |
+| alpha       | Opacity, value range 0-255, default 255 (opaque), 0 (transparent) | NO       | `number` | 3.0       |
+| pos_x       | Drawing area x offset (only works when angle%360!=0)              | NO       | `number` | 4.0       |
+| pos_y       | Drawing area y offset (only works when angle%360!=0)              | NO       | `number` | 4.0       |
+| rect_width  | Width of the drawing area (only works when angle%360!=0)          | NO       | `number` | 4.0       |
+| rect_height | Height of the drawing area (only works when angle%360!=0)         | NO       | `number` | 4.0       |
 
 ## Property Access Support List
 
 | Property    | setProperty | getProperty | [setter](https://docs.zepp.com/docs/reference/device-app-api/newAPI/ui/gettersetter) | [getter](https://docs.zepp.com/docs/reference/device-app-api/newAPI/ui/gettersetter) |
-| ----------- | ----------- | ----------- | ----------------------------- | ----------------------------- |
-| x           | Y           | Y           | Y                             | Y                             |
-| y           | Y           | Y           | Y                             | Y                             |
-| w           | Y           | Y           | Y                             | Y                             |
-| h           | Y           | Y           | Y                             | Y                             |
-| color       | Y           | Y           | Y                             | Y                             |
-| radius      | Y           | Y           | Y                             | Y                             |
-| angle       | Y           | Y           | Y                             | Y                             |
-| pos_x       | N           | Y           | N                             | Y                             |
-| pos_y       | N           | Y           | N                             | Y                             |
-| rect_width  | N           | N           | N                             | Y                             |
-| rect_height | N           | N           | N                             | Y                             |
-| center_x    | Y           | Y           | Y                             | Y                             |
-| center_y    | Y           | Y           | Y                             | Y                             |
-| alpha       | Y           | Y           | Y                             | Y                             |
+| ----------- | ----------- | ----------- | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
+| x           | Y           | Y           | Y                                                                                    | Y                                                                                    |
+| y           | Y           | Y           | Y                                                                                    | Y                                                                                    |
+| w           | Y           | Y           | Y                                                                                    | Y                                                                                    |
+| h           | Y           | Y           | Y                                                                                    | Y                                                                                    |
+| color       | Y           | Y           | Y                                                                                    | Y                                                                                    |
+| radius      | Y           | Y           | Y                                                                                    | Y                                                                                    |
+| angle       | Y           | Y           | Y                                                                                    | Y                                                                                    |
+| pos_x       | N           | Y           | N                                                                                    | Y                                                                                    |
+| pos_y       | N           | Y           | N                                                                                    | Y                                                                                    |
+| rect_width  | N           | N           | N                                                                                    | Y                                                                                    |
+| rect_height | N           | N           | N                                                                                    | Y                                                                                    |
+| center_x    | Y           | Y           | Y                                                                                    | Y                                                                                    |
+| center_y    | Y           | Y           | Y                                                                                    | Y                                                                                    |
+| alpha       | Y           | Y           | Y                                                                                    | Y                                                                                    |
 
 ## Code Example
 
 ```js
-
 Page({
   build() {
     const fill_rect = createWidget(widget.FILL_RECT, {
@@ -608,7 +605,9 @@ Page({
 import { createWidget, widget } from '@zos/ui'
 ```
 
-> Supported from API_LEVEL `2.0`. For API compatibility, please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::note
+Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 [Image: stroke_rect_sample]
 
@@ -617,7 +616,6 @@ The stroked rectangle widget adds a stroke on the basis of the filled rectangle 
 ## Create UI Widget
 
 ```js
-
 const strokeRect = createWidget(widget.STROKE_RECT, Param)
 ```
 
@@ -625,42 +623,41 @@ const strokeRect = createWidget(widget.STROKE_RECT, Param)
 
 ### Param: object
 
-| Property     | Description                                                  | Required | Type     | API_LEVEL |
-| ------------ | ------------------------------------------------------------ | -------- | -------- | --------- |
-| x            | The x-axis coordinate of the widget                          | YES      | `number` | 2.0       |
-| y            | The y-axis coordinate of the widget                          | YES      | `number` | 2.0       |
-| w            | The width of the widget                                      | YES      | `number` | 2.0       |
-| h            | The height of the widget                                     | YES      | `number` | 2.0       |
-| color        | The widget's color                                           | YES      | `number` | 2.0       |
-| radius       | The rectangle's rounded corners                              | NO       | `number` | 2.0       |
-| line_width   | The width of stroke                                          | NO       | `number` | 2.0       |
-| angle        | Rotation angle                                               | NO       | `number` | 2.0       |
-| pos_x        | Drawing area x offset (only effective when angle%360!=0)     | NO       | `number` | 4.0       |
-| pos_y        | Drawing area y offset (only effective when angle%360!=0)     | NO       | `number` | 4.0       |
-| rect_width   | Width of the drawing area (only effective when angle%360!=0) | NO       | `number` | 4.0       |
-| rect_height  | Height of the drawing area (only effective when angle%360!=0) | NO       | `number` | 4.0       |
+| Property    | Description                                                   | Required | Type     | API_LEVEL |
+| ----------- | ------------------------------------------------------------- | -------- | -------- | --------- |
+| x           | The x-axis coordinate of the widget                           | YES      | `number` | 2.0       |
+| y           | The y-axis coordinate of the widget                           | YES      | `number` | 2.0       |
+| w           | The width of the widget                                       | YES      | `number` | 2.0       |
+| h           | The height of the widget                                      | YES      | `number` | 2.0       |
+| color       | The widget's color                                            | YES      | `number` | 2.0       |
+| radius      | The rectangle's rounded corners                               | NO       | `number` | 2.0       |
+| line_width  | The width of stroke                                           | NO       | `number` | 2.0       |
+| angle       | Rotation angle                                                | NO       | `number` | 2.0       |
+| pos_x       | Drawing area x offset (only effective when angle%360!=0)      | NO       | `number` | 4.0       |
+| pos_y       | Drawing area y offset (only effective when angle%360!=0)      | NO       | `number` | 4.0       |
+| rect_width  | Width of the drawing area (only effective when angle%360!=0)  | NO       | `number` | 4.0       |
+| rect_height | Height of the drawing area (only effective when angle%360!=0) | NO       | `number` | 4.0       |
 
 ## Property Access Support List
 
 | Property Name | setProperty | getProperty | [setter](https://docs.zepp.com/docs/reference/device-app-api/newAPI/ui/gettersetter) | [getter](https://docs.zepp.com/docs/reference/device-app-api/newAPI/ui/gettersetter) |
-| ------------- | ----------- | ----------- | ---------------------------- | ---------------------------- |
-| x             | Y           | Y           | Y                            | Y                            |
-| y             | Y           | Y           | Y                            | Y                            |
-| w             | Y           | Y           | Y                            | Y                            |
-| h             | Y           | Y           | Y                            | Y                            |
-| color         | Y           | Y           | Y                            | Y                            |
-| radius        | Y           | Y           | Y                            | Y                            |
-| line_width    | Y           | Y           | Y                            | Y                            |
-| angle         | Y           | Y           | Y                            | Y                            |
-| pos_x         | N           | Y           | N                            | Y                            |
-| pos_y         | N           | Y           | N                            | Y                            |
-| rect_width    | N           | N           | N                            | Y                            |
-| rect_height   | N           | N           | N                            | Y                            |
+| ------------- | ----------- | ----------- | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
+| x             | Y           | Y           | Y                                                                                    | Y                                                                                    |
+| y             | Y           | Y           | Y                                                                                    | Y                                                                                    |
+| w             | Y           | Y           | Y                                                                                    | Y                                                                                    |
+| h             | Y           | Y           | Y                                                                                    | Y                                                                                    |
+| color         | Y           | Y           | Y                                                                                    | Y                                                                                    |
+| radius        | Y           | Y           | Y                                                                                    | Y                                                                                    |
+| line_width    | Y           | Y           | Y                                                                                    | Y                                                                                    |
+| angle         | Y           | Y           | Y                                                                                    | Y                                                                                    |
+| pos_x         | N           | Y           | N                                                                                    | Y                                                                                    |
+| pos_y         | N           | Y           | N                                                                                    | Y                                                                                    |
+| rect_width    | N           | N           | N                                                                                    | Y                                                                                    |
+| rect_height   | N           | N           | N                                                                                    | Y                                                                                    |
 
 ## Code Example
 
 ```js
-
 Page({
   build() {
     const strokeRect = createWidget(widget.STROKE_RECT, {
@@ -692,7 +689,9 @@ Page({
 import { createWidget, widget } from '@zos/ui'
 ```
 
-> Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::note
+Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 [Image: circle_sample]
 
@@ -701,7 +700,6 @@ Draws a circle with support for color, transparency, and other properties.
 ## Creating UI widgets
 
 ```js
-
 const circle = createWidget(widget.CIRCLE, Param)
 ```
 
@@ -719,18 +717,17 @@ const circle = createWidget(widget.CIRCLE, Param)
 
 ## Supported Property Access List
 
-| Property   | setProperty | getProperty | [setter](https://docs.zepp.com/docs/reference/device-app-api/newAPI/ui/gettersetter) | [getter](https://docs.zepp.com/docs/reference/device-app-api/newAPI/ui/gettersetter) |
-|------------|-------------|-------------|-------------------------------|-------------------------------|
-| center_x   | Y           | Y           | Y                             | Y                             |
-| center_y   | Y           | Y           | Y                             | Y                             |
-| radius     | Y           | Y           | Y                             | Y                             |
-| color      | Y           | Y           | Y                             | Y                             |
-| alpha      | Y           | Y           | Y                             | Y                             |
+| Property | setProperty | getProperty | [setter](https://docs.zepp.com/docs/reference/device-app-api/newAPI/ui/gettersetter) | [getter](https://docs.zepp.com/docs/reference/device-app-api/newAPI/ui/gettersetter) |
+| -------- | ----------- | ----------- | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
+| center_x | Y           | Y           | Y                                                                                    | Y                                                                                    |
+| center_y | Y           | Y           | Y                                                                                    | Y                                                                                    |
+| radius   | Y           | Y           | Y                                                                                    | Y                                                                                    |
+| color    | Y           | Y           | Y                                                                                    | Y                                                                                    |
+| alpha    | Y           | Y           | Y                                                                                    | Y                                                                                    |
 
 ## Code example
 
 ```js
-
 Page({
   build() {
     const circle = createWidget(widget.CIRCLE, {
@@ -754,7 +751,9 @@ Page({
 import { createWidget, widget } from '@zos/ui'
 ```
 
-> Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::note
+Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 [Image: arc_sample]
 
@@ -763,7 +762,6 @@ Arc widget to display arc progress. Support setting line width, color, start and
 ## Create UI widget
 
 ```js
-
 const arc = createWidget(widget.ARC, Param)
 ```
 
@@ -771,17 +769,17 @@ const arc = createWidget(widget.ARC, Param)
 
 ### Param: object
 
-| Properties        | Description                                                                                |  Required | Type     |
-| ----------------- | ------------------------------------------------------------------------------------------ | --------- | -------- |
-| x                 | The x-coordinate of widgets                                                             | YES       | `number` |
-| y                 | The y-coordinate of widgets                                                             | YES       | `number` |
-| w                 | The width of widgets                                                                    | YES       | `number` |
-| h                 | The height of widgets                                                                   | YES       | `number` |
-| radius            | Radius                                                                                     | YES       | `number` |
-| start_angle       | The angle at the beginning of the arc. (0 degrees is the positive three o'clock direction) | YES       | `number` |
-| end_angle         | The angle at the end of the arc. (0 degrees is the positive three o'clock direction)       | YES       | `number` |
-| line_width        | Width of circular arc.                                                                     | YES       | `number` |
-| color             | Color of circular arc.                                                                     | YES       | `number` |
+| Properties  | Description                                                                                | Required | Type     |
+| ----------- | ------------------------------------------------------------------------------------------ | -------- | -------- |
+| x           | The x-coordinate of widgets                                                                | YES      | `number` |
+| y           | The y-coordinate of widgets                                                                | YES      | `number` |
+| w           | The width of widgets                                                                       | YES      | `number` |
+| h           | The height of widgets                                                                      | YES      | `number` |
+| radius      | Radius                                                                                     | YES      | `number` |
+| start_angle | The angle at the beginning of the arc. (0 degrees is the positive three o'clock direction) | YES      | `number` |
+| end_angle   | The angle at the end of the arc. (0 degrees is the positive three o'clock direction)       | YES      | `number` |
+| line_width  | Width of circular arc.                                                                     | YES      | `number` |
+| color       | Color of circular arc.                                                                     | YES      | `number` |
 
 > **ℹ️ Info**
 >
@@ -789,21 +787,20 @@ const arc = createWidget(widget.ARC, Param)
 
 ## Supported Property Access List
 
-| Property | setProperty | getProperty | [setter](https://docs.zepp.com/docs/reference/device-app-api/newAPI/ui/gettersetter) | [getter](https://docs.zepp.com/docs/reference/device-app-api/newAPI/ui/gettersetter) |
-|--------------|-------------|-------------|-------------------------------|-------------------------------|
-| x           | Y           | Y           | Y                             | Y                             |
-| y           | Y           | Y           | Y                             | Y                             |
-| w           | Y           | Y           | Y                             | Y                             |
-| h           | Y           | Y           | Y                             | Y                             |
-| start_angle | Y           | Y           | Y                             | Y                             |
-| end_angle   | Y           | Y           | Y                             | Y                             |
-| line_width  | Y           | Y           | Y                             | Y                             |
-| color       | Y           | Y           | Y                             | Y
+| Property    | setProperty | getProperty | [setter](https://docs.zepp.com/docs/reference/device-app-api/newAPI/ui/gettersetter) | [getter](https://docs.zepp.com/docs/reference/device-app-api/newAPI/ui/gettersetter) |
+| ----------- | ----------- | ----------- | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
+| x           | Y           | Y           | Y                                                                                    | Y                                                                                    |
+| y           | Y           | Y           | Y                                                                                    | Y                                                                                    |
+| w           | Y           | Y           | Y                                                                                    | Y                                                                                    |
+| h           | Y           | Y           | Y                                                                                    | Y                                                                                    |
+| start_angle | Y           | Y           | Y                                                                                    | Y                                                                                    |
+| end_angle   | Y           | Y           | Y                                                                                    | Y                                                                                    |
+| line_width  | Y           | Y           | Y                                                                                    | Y                                                                                    |
+| color       | Y           | Y           | Y                                                                                    | Y                                                                                    |
 
 ## Code example
 
 ```js
-
 Page({
   build() {
     const arc = createWidget(widget.ARC, {
@@ -836,7 +833,9 @@ Page({
 import { createWidget, widget } from '@zos/ui'
 ```
 
-> Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::note
+Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 [Image: img_anim_sample]
 
@@ -845,7 +844,6 @@ Play the pre-given image at the set frame rate to create an animation effect.
 ## Create UI widget
 
 ```js
-
 const imgAnim = createWidget(widget.IMG_ANIM, Param)
 ```
 
@@ -889,25 +887,25 @@ Please pay attention to the animation order of the current settings when setting
 
 ## Supported Property Access List
 
-| Property        | setProperty | getProperty | [setter](https://docs.zepp.com/docs/reference/device-app-api/newAPI/ui/gettersetter) | [getter](https://docs.zepp.com/docs/reference/device-app-api/newAPI/ui/gettersetter) |
-|-----------------------|-------------|-------------|-------------------------------|-------------------------------|
-| x                    | Y           | Y           | Y                             | Y                             |
-| y                    | Y           | Y           | Y                             | Y                             |
-| w                    | Y           | Y           | Y                             | Y                             |
-| h                    | Y           | Y           | Y                             | Y                             |
-| anim_path            | N           | N           | N                             | Y                             |
-| anim_prefix          | N           | N           | N                             | Y                             |
-| anim_ext             | N           | N           | N                             | Y                             |
-| anim_fps             | N           | N           | N                             | Y                             |
-| repeat_count         | N           | N           | N                             | Y                             |
-| anim_repeat          | N           | N           | N                             | N                             |
-| anim_size            | N           | N           | N                             | N                             |
-| anim_status          | N           | N           | N                             | N                             |
-| anim_complete_call   | N           | N           | N                             | N                             |
-| display_on_restart    | N           | N           | N                             | N                             |
-| anim_auto_resume_call | N           | N           | N                             | N                             |
-| step                 | Y           | Y           | Y                             | Y                             |
-| default_frame_index   | N           | N           | N                             | N                             |
+| Property              | setProperty | getProperty | [setter](https://docs.zepp.com/docs/reference/device-app-api/newAPI/ui/gettersetter) | [getter](https://docs.zepp.com/docs/reference/device-app-api/newAPI/ui/gettersetter) |
+| --------------------- | ----------- | ----------- | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
+| x                     | Y           | Y           | Y                                                                                    | Y                                                                                    |
+| y                     | Y           | Y           | Y                                                                                    | Y                                                                                    |
+| w                     | Y           | Y           | Y                                                                                    | Y                                                                                    |
+| h                     | Y           | Y           | Y                                                                                    | Y                                                                                    |
+| anim_path             | N           | N           | N                                                                                    | Y                                                                                    |
+| anim_prefix           | N           | N           | N                                                                                    | Y                                                                                    |
+| anim_ext              | N           | N           | N                                                                                    | Y                                                                                    |
+| anim_fps              | N           | N           | N                                                                                    | Y                                                                                    |
+| repeat_count          | N           | N           | N                                                                                    | Y                                                                                    |
+| anim_repeat           | N           | N           | N                                                                                    | N                                                                                    |
+| anim_size             | N           | N           | N                                                                                    | N                                                                                    |
+| anim_status           | N           | N           | N                                                                                    | N                                                                                    |
+| anim_complete_call    | N           | N           | N                                                                                    | N                                                                                    |
+| display_on_restart    | N           | N           | N                                                                                    | N                                                                                    |
+| anim_auto_resume_call | N           | N           | N                                                                                    | N                                                                                    |
+| step                  | Y           | Y           | Y                                                                                    | Y                                                                                    |
+| default_frame_index   | N           | N           | N                                                                                    | N                                                                                    |
 
 ## Code example
 
@@ -930,7 +928,6 @@ Please pay attention to the animation order of the current settings when setting
 ```
 
 ```js
-
 Page({
   build() {
     const imgAnimation = createWidget(widget.IMG_ANIM, {
@@ -970,7 +967,9 @@ Page({
 import { createWidget, widget } from '@zos/ui'
 ```
 
-> Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::note
+Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 The QRCODE widget consists of a QR code and a background (white).
 
@@ -979,7 +978,6 @@ The QRCODE widget consists of a QR code and a background (white).
 ## Create UI widget
 
 ```js
-
 const qrcode = createWidget(widget.QRCODE, Param)
 ```
 
@@ -1002,23 +1000,22 @@ const qrcode = createWidget(widget.QRCODE, Param)
 
 ## Supported Property Access List
 
-| Property | setProperty | getProperty | [setter](https://docs.zepp.com/docs/reference/device-app-api/newAPI/ui/gettersetter) | [getter](https://docs.zepp.com/docs/reference/device-app-api/newAPI/ui/gettersetter) |
-| --------- | ----------- | ----------- | ----------------------------- | ----------------------------- |
-| x         | Y           | Y           | Y                             | Y                             |
-| y         | Y           | Y           | Y                             | Y                             |
-| w         | N           | N           | N                             | N                             |
-| h         | N           | N           | N                             | N                             |
-| bg_x      | N           | N           | N                             | N                             |
-| bg_y      | N           | N           | N                             | N                             |
-| bg_w      | N           | N           | N                             | N                             |
-| bg_h      | N           | N           | N                             | N                             |
-| bg_radius | N           | N           | N                             | N                             |
-| content   | N           | N           | N                             | N                             |
+| Property  | setProperty | getProperty | [setter](https://docs.zepp.com/docs/reference/device-app-api/newAPI/ui/gettersetter) | [getter](https://docs.zepp.com/docs/reference/device-app-api/newAPI/ui/gettersetter) |
+| --------- | ----------- | ----------- | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
+| x         | Y           | Y           | Y                                                                                    | Y                                                                                    |
+| y         | Y           | Y           | Y                                                                                    | Y                                                                                    |
+| w         | N           | N           | N                                                                                    | N                                                                                    |
+| h         | N           | N           | N                                                                                    | N                                                                                    |
+| bg_x      | N           | N           | N                                                                                    | N                                                                                    |
+| bg_y      | N           | N           | N                                                                                    | N                                                                                    |
+| bg_w      | N           | N           | N                                                                                    | N                                                                                    |
+| bg_h      | N           | N           | N                                                                                    | N                                                                                    |
+| bg_radius | N           | N           | N                                                                                    | N                                                                                    |
+| content   | N           | N           | N                                                                                    | N                                                                                    |
 
 ## Code example
 
 ```js
-
 Page({
   build() {
     const qrcode = createWidget(widget.QRCODE, {
@@ -1035,12 +1032,12 @@ Page({
   }
 })
 ```
+
 ## Additional Examples
 
 ### Example 1
 
 ```js
-
 createWidget(widget.QRCODE, {
   x: 96,
   y: 120,
@@ -1050,7 +1047,7 @@ createWidget(widget.QRCODE, {
   bg_y: 104,
   bg_w: 320,
   bg_h: 320,
-  content: 'zepp/url/@my:long page2',
+  content: 'zepp/url/@my:long page2'
 })
 ```
 
@@ -1064,7 +1061,9 @@ createWidget(widget.QRCODE, {
 import { createWidget, widget } from '@zos/ui'
 ```
 
-> Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::note
+Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 > **⚠️ Caution**
 >
@@ -1077,7 +1076,6 @@ Dialog popup consists of a piece of text and two buttons. The popup box disappea
 ## Create UI widget
 
 ```js
-
 const dialog = createWidget(widget.DIALOG, Param)
 ```
 
@@ -1088,7 +1086,7 @@ const dialog = createWidget(widget.DIALOG, Param)
 | Properties           | Description                                            | Required | Type                       |
 | -------------------- | ------------------------------------------------------ | -------- | -------------------------- |
 | text                 | Contents of dialog.                                    | YES      | `string`                   |
-| content_text_size    | The text size of the dialog content.                  | NO       | `number`                   |
+| content_text_size    | The text size of the dialog content.                   | NO       | `number`                   |
 | content_text_color   | The text color of the dialog content.                  | NO       | `number`                   |
 | content_bg_color     | The background color of the dialog content.            | NO       | `number`                   |
 | content_text_align_h | Alignment of dialog content text.(horizontal axis)     | NO       | `string`                   |
@@ -1119,14 +1117,13 @@ const dialog = createWidget(widget.DIALOG, Param)
 
 ### prop Properties
 
-| Properties     | Support get/set | Type      | Notes                      |
-| -------------- | --------------- | --------- | -------------------------- |
-| prop.SHOW | set             | `boolean` | dialog whether to display. |
+| Properties | Support get/set | Type      | Notes                      |
+| ---------- | --------------- | --------- | -------------------------- |
+| prop.SHOW  | set             | `boolean` | dialog whether to display. |
 
 ## Code example
 
 ```js
-
 Page({
   build() {
     const dialog = createWidget(widget.DIALOG, {
@@ -1163,7 +1160,9 @@ Page({
 import { createWidget, widget } from '@zos/ui'
 ```
 
-> Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::note
+Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 [Image: histogram]
 
@@ -1172,7 +1171,6 @@ Draws a histogram.
 ## Create UI widget
 
 ```js
-
 const histoGram = createWidget(widget.HISTOGRAM, Param)
 ```
 
@@ -1180,77 +1178,77 @@ const histoGram = createWidget(widget.HISTOGRAM, Param)
 
 ### Param: object
 
-| Properties      | Description                                                                       | Required | Type            |
-| --------------- | --------------------------------------------------------------------------------- | -------- | --------------- |
-|       x         | The x-coordinate of widget.                                                    | YES      | `number` |
-|       y         | The y-coordinate of widget.                                                    | YES      | `number` |
-|       w         | The width of widget.                                                           | YES      | `number` |
-|       h         | The height of the widget.                                                      | YES      | `number` |
-| item_width      | Width of column.                                                                  | YES       | `number`        |
-| item_space      | Space of column.                                                                  | YES       | `number`        |
-| item_radius     | Radius of column.                                                                 | YES       | `number`        |
-| item_start_y    | The starting Y point of the column, relative coordinate, default is 0 if not filled. | NO       | `number`        |
-| item_max_height | Maximum height of column.If unfilled,default is widget height.                      | NO       | `number`        |
-| item_color      | Column color. In API_LEVEL 3.5, supports passing an array `Array<number>` to specify the color of each column | YES      | `number`        |
+| Properties      | Description                                                                                                                       | Required | Type            |
+| --------------- | --------------------------------------------------------------------------------------------------------------------------------- | -------- | --------------- |
+| x               | The x-coordinate of widget.                                                                                                       | YES      | `number`        |
+| y               | The y-coordinate of widget.                                                                                                       | YES      | `number`        |
+| w               | The width of widget.                                                                                                              | YES      | `number`        |
+| h               | The height of the widget.                                                                                                         | YES      | `number`        |
+| item_width      | Width of column.                                                                                                                  | YES      | `number`        |
+| item_space      | Space of column.                                                                                                                  | YES      | `number`        |
+| item_radius     | Radius of column.                                                                                                                 | YES      | `number`        |
+| item_start_y    | The starting Y point of the column, relative coordinate, default is 0 if not filled.                                              | NO       | `number`        |
+| item_max_height | Maximum height of column.If unfilled,default is widget height.                                                                    | NO       | `number`        |
+| item_color      | Column color. In API_LEVEL 3.5, supports passing an array `Array<number>` to specify the color of each column                     | YES      | `number`        |
 | item_alpha      | Column color transparency. In API_LEVEL 3.5, supports passing an array `Array<number>` to specify the transparency of each column | NO       | `number`        |
-| data_min_value  | Minimum value of the column.Used to calculate the actual height of the column.       | YES       | `number`        |
-| data_max_value  | Maximum value of the column.Used to calculate the actual height of the column.       | YES       | `number`        |
-| data_array      | Data array of columns.                                                               | YES       | `Array<number>` |
-| data_count      | Length of data.                                                                      | YES       | `number`        |
-| xline           | Configuration objects for the x-axis.                                                | YES       | `XLine`         |
-| xText           | Configuration object for x-axis text.                                                | YES       | `XText`         |
-| yline           | Configuration objects for the y-axis.                                                | YES       | `YLine`         |
-| yText           | Configuration object for y-axis text.                                                | YES       | `YText`         |
+| data_min_value  | Minimum value of the column.Used to calculate the actual height of the column.                                                    | YES      | `number`        |
+| data_max_value  | Maximum value of the column.Used to calculate the actual height of the column.                                                    | YES      | `number`        |
+| data_array      | Data array of columns.                                                                                                            | YES      | `Array<number>` |
+| data_count      | Length of data.                                                                                                                   | YES      | `number`        |
+| xline           | Configuration objects for the x-axis.                                                                                             | YES      | `XLine`         |
+| xText           | Configuration object for x-axis text.                                                                                             | YES      | `XText`         |
+| yline           | Configuration objects for the y-axis.                                                                                             | YES      | `YLine`         |
+| yText           | Configuration object for y-axis text.                                                                                             | YES      | `YText`         |
 
 ### XLine: object
 
-| Properties   | Description                                                                           | Required | Type     |
-| ------------ | ------------------------------------------------------------------------------------- | -------- | -------- |
-| pading       | Margin of dividing line based on x-axis.                                              | YES | `number` |
-| space        | The interval of the dividing line.                                                    | YES | `number` |
-| start        | The y-axis coordinates of the start of the divider.                                    | YES | `number` |
-| end          | The y-axis coordinate of the end of the divider end-start is the width of the divider. | YES | `number` |
-| width        | The width of the line.                                                                 | YES | `number` |
-| count        | The number of dividers.                                                                | YES | `number` |
-| color        | The color of the dividing line.                                                        | YES | `number` |
+| Properties | Description                                                                            | Required | Type     |
+| ---------- | -------------------------------------------------------------------------------------- | -------- | -------- |
+| pading     | Margin of dividing line based on x-axis.                                               | YES      | `number` |
+| space      | The interval of the dividing line.                                                     | YES      | `number` |
+| start      | The y-axis coordinates of the start of the divider.                                    | YES      | `number` |
+| end        | The y-axis coordinate of the end of the divider end-start is the width of the divider. | YES      | `number` |
+| width      | The width of the line.                                                                 | YES      | `number` |
+| count      | The number of dividers.                                                                | YES      | `number` |
+| color      | The color of the dividing line.                                                        | YES      | `number` |
 
 ### YLine: object
 
-| Properties   | Description                                                                           | Required | Type     |
-| ------------ | ------------------------------------------------------------------------------------- | -------- | -------- |
-| pading       | Margin of dividing line based on y-axis.                                              | YES | `number` |
-| space        | The interval of the dividing line.                                                    | YES | `number` |
-| start        | The x-axis coordinates of the start of the divider.                                    | YES | `number` |
-| end          | The x-axis coordinate of the end of the divider end-start is the width of the divider. | YES | `number` |
-| width        | The width of the line.                                                                 | YES | `number` |
-| count        | The number of dividers.                                                                | YES | `number` |
-| color        | The color of the dividing line.                                                        | YES | `number` |
+| Properties | Description                                                                            | Required | Type     |
+| ---------- | -------------------------------------------------------------------------------------- | -------- | -------- |
+| pading     | Margin of dividing line based on y-axis.                                               | YES      | `number` |
+| space      | The interval of the dividing line.                                                     | YES      | `number` |
+| start      | The x-axis coordinates of the start of the divider.                                    | YES      | `number` |
+| end        | The x-axis coordinate of the end of the divider end-start is the width of the divider. | YES      | `number` |
+| width      | The width of the line.                                                                 | YES      | `number` |
+| count      | The number of dividers.                                                                | YES      | `number` |
+| color      | The color of the dividing line.                                                        | YES      | `number` |
 
 ### XText: object
 
-| Properties | Description                                                                    | Required | Type |
-| ---------- | ------------------------------------------------------------------------------ | -------- | --------------- |
-|     x      | The initial x-coordinate of the text.                                          | YES      | `number` |
-|     y      | The initial y-coordinate of the text.                                          | YES      | `number` |
-|     w      | The width of the text.                                                         | YES | `number` |
-|     h      | The height of the text.                                                        | YES | `number` |
-|   space    | The spacing of the text.The x-coordinate of the nth text = x + (w + space)\*(n - 1). | YES | `number` |
-|   color    | The color of the text                                                          | YES | `number` |
-| data_array | The array of text.                                                             | YES | `Array<string>` |
-|   count    | The length of the array.                                                       | YES | `number` |
+| Properties | Description                                                                          | Required | Type            |
+| ---------- | ------------------------------------------------------------------------------------ | -------- | --------------- |
+| x          | The initial x-coordinate of the text.                                                | YES      | `number`        |
+| y          | The initial y-coordinate of the text.                                                | YES      | `number`        |
+| w          | The width of the text.                                                               | YES      | `number`        |
+| h          | The height of the text.                                                              | YES      | `number`        |
+| space      | The spacing of the text.The x-coordinate of the nth text = x + (w + space)\*(n - 1). | YES      | `number`        |
+| color      | The color of the text                                                                | YES      | `number`        |
+| data_array | The array of text.                                                                   | YES      | `Array<string>` |
+| count      | The length of the array.                                                             | YES      | `number`        |
 
 ### yText: object
 
-| Properties | Description                                                                    | Required | Type |
-| ---------- | ------------------------------------------------------------------------------ | -------- | --------------- |
-|     x      | The initial x-coordinate of the text.                                          | YES      | `number` |
-|     y      | The initial y-coordinate of the text.                                          | YES      | `number` |
-|     w      | The width of the text.                                                         | YES | `number` |
-|     h      | The height of the text.                                                        | YES | `number` |
-|   space    | The spacing of the text.The x-coordinate of the nth text = y + (h + space)\*(n - 1). | YES | `number` |
-|   color    | The color of the text                                                          | YES | `number` |
-| data_array | The array of text.                                                             | YES | `Array<string>` |
-|   count    | The length of the array.                                                       | YES | `number` |
+| Properties | Description                                                                          | Required | Type            |
+| ---------- | ------------------------------------------------------------------------------------ | -------- | --------------- |
+| x          | The initial x-coordinate of the text.                                                | YES      | `number`        |
+| y          | The initial y-coordinate of the text.                                                | YES      | `number`        |
+| w          | The width of the text.                                                               | YES      | `number`        |
+| h          | The height of the text.                                                              | YES      | `number`        |
+| space      | The spacing of the text.The x-coordinate of the nth text = y + (h + space)\*(n - 1). | YES      | `number`        |
+| color      | The color of the text                                                                | YES      | `number`        |
+| data_array | The array of text.                                                                   | YES      | `Array<string>` |
+| count      | The length of the array.                                                             | YES      | `number`        |
 
 ## Update item data
 
@@ -1265,7 +1263,6 @@ const view = ......;
 ## Code example
 
 ```js
-
 Page({
   build() {
     const fillRect = createWidget(widget.FILL_RECT, {
@@ -1346,7 +1343,9 @@ Page({
 import { createWidget, widget } from '@zos/ui'
 ```
 
-> Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::note
+Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 [Image: polyline]
 
@@ -1355,7 +1354,6 @@ Draws polylines that can be done on a line graph with multiple segments.
 ## Create UI widget
 
 ```js
-
 const polyline = createWidget(widget.GRADKIENT_POLYLINE, Param)
 ```
 
@@ -1407,20 +1405,19 @@ Clear drawn lines
 
 ## Supported Property Access List
 
-| Property      | setProperty | getProperty | [setter](https://docs.zepp.com/docs/reference/device-app-api/newAPI/ui/gettersetter) | [getter](https://docs.zepp.com/docs/reference/device-app-api/newAPI/ui/gettersetter) |
-|-------------|-------------|-------------|-------------------------------|-------------------------------|
-| x           | N           | Y           | N                             | Y                             |
-| y           | N           | Y           | N                             | Y                             |
-| w           | N           | Y           | N                             | Y                             |
-| h           | N           | Y           | N                             | Y                             |
-| line_color  | N           | N           | N                             | N                             |
-| line_width  | N           | N           | N                             | N                             |
-| bg_color    | N           | N           | N                             | N                             |
+| Property   | setProperty | getProperty | [setter](https://docs.zepp.com/docs/reference/device-app-api/newAPI/ui/gettersetter) | [getter](https://docs.zepp.com/docs/reference/device-app-api/newAPI/ui/gettersetter) |
+| ---------- | ----------- | ----------- | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
+| x          | N           | Y           | N                                                                                    | Y                                                                                    |
+| y          | N           | Y           | N                                                                                    | Y                                                                                    |
+| w          | N           | Y           | N                                                                                    | Y                                                                                    |
+| h          | N           | Y           | N                                                                                    | Y                                                                                    |
+| line_color | N           | N           | N                                                                                    | N                                                                                    |
+| line_width | N           | N           | N                                                                                    | N                                                                                    |
+| bg_color   | N           | N           | N                                                                                    | N                                                                                    |
 
 ## Code example
 
 ```js
-
 Page({
   build() {
     const lineDataList = [
@@ -1457,7 +1454,9 @@ Page({
 import { createWidget, widget } from '@zos/ui'
 ```
 
-> Start from API_LEVEL `3.0`. Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility)。
+:::note
+Start from API_LEVEL `3.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::
 
 [Image: canvas_demo.jpg]
 
@@ -1476,7 +1475,6 @@ Current Canvas capabilities include
 ## Create UI widget
 
 ```js
-
 const canvas = createWidget(widget.CANVAS, Param)
 ```
 
@@ -1735,8 +1733,8 @@ drawPoly(Param: object): void
 
 #### Coordinate
 
-| Properties | Description  | Type     |
-| ---------- | ------------ | -------- |
+| Properties | Description   | Type     |
+| ---------- | ------------- | -------- |
 | x          | x coordinates | `number` |
 | y          | y coordinates | `number` |
 
@@ -1842,7 +1840,6 @@ canvas.clear({
 Canvas supports `widget.addEventListener` to listen for interaction events, see [widget.addEventListener(eventId, callback)](https://docs.zepp.com/docs/reference/device-app-api/newAPI/ui/addEventListener)
 
 ```js
-
 canvas.addEventListener(event.CLICK_UP, function cb(info) {
   console.log(info.x)
   console.log(info.y)
@@ -1859,14 +1856,15 @@ canvas.addEventListener(event.CLICK_UP, function cb(info) {
 import { createWidget, widget } from '@zos/ui'
 ```
 
-> Start from API_LEVEL `2.1` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::note
+Start from API_LEVEL `2.1` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 When a page is set to Swiper scroll mode using the `@zos/page setScrollMode` method, an indicator control is created on the page to indicate the total number of pages and to indicate which page is currently stopped.
 
 ## Create UI widget
 
 ```js
-
 const pageIndicator = createWidget(widget.PAGE_INDICATOR, Param)
 ```
 
@@ -1874,23 +1872,23 @@ const pageIndicator = createWidget(widget.PAGE_INDICATOR, Param)
 
 ### Param: object
 
-| Properties   | Description                                                                                                                                                  | Required | Type      | API_LEVEL |
-| ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------- | --------- | --------- |
-| x            | The x-axis coordinate of the widget.                                                                                                                         | YES      | `number`  | 2.1       |
-| y            | The y-axis coordinate of the widget.                                                                                                                         | YES      | `number`  | 2.1       |
-| w            | The width of the widget.                                                                                                                                     | YES      | `number`  | 2.1       |
-| h            | The height of the widget.                                                                                                                                    | YES      | `number`  | 2.1       |
-| align_h      | The alignment of the horizontal axis (see ALIGN for values).                                                                                                 | NO       | `ALIGN`   | 2.1       |
-| h_space      | Horizontal spacing                                                                                                                                           | NO       | `number`  | 2.1       |
-| v_space      | Vertical spacing                                                                                                                                             | NO       | `number`  | 3.0       |
-| select_src   | Indicator current page highlight image path, resource storage path reference [Folder Structure](https://docs.zepp.com/docs/guides/architecture/folder-structure)     | YES      | `string`  | 2.1       |
-| unselect_src | Indicator non-current page highlight image path, resource storage path reference [Folder Structure](https://docs.zepp.com/docs/guides/architecture/folder-structure) | YES      | `string`  | 2.1       |
-| horizontal   | Horizontal or not, default is `true`, set `false` for vertical layout                                                                                        | NO       | `boolean` | 3.0       |
-| use_color    | Whether to use colors to configure indicator dots                             | NO       | `boolean` | 4.0       |
-| select_color | Selected color configuration                                                  | NO       | `number`  | 4.0       |
-| unselect_color | Unselected color configuration                                             | NO       | `number`  | 4.0       |
-| element_height | Width of the page indicator element                                         | NO       | `number`  | 4.0       |
-| element_radius | Height of the page indicator element                                        | NO       | `number`  | 4.0       |
+| Properties     | Description                                                                                                                                                          | Required | Type      | API_LEVEL |
+| -------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | --------- | --------- |
+| x              | The x-axis coordinate of the widget.                                                                                                                                 | YES      | `number`  | 2.1       |
+| y              | The y-axis coordinate of the widget.                                                                                                                                 | YES      | `number`  | 2.1       |
+| w              | The width of the widget.                                                                                                                                             | YES      | `number`  | 2.1       |
+| h              | The height of the widget.                                                                                                                                            | YES      | `number`  | 2.1       |
+| align_h        | The alignment of the horizontal axis (see ALIGN for values).                                                                                                         | NO       | `ALIGN`   | 2.1       |
+| h_space        | Horizontal spacing                                                                                                                                                   | NO       | `number`  | 2.1       |
+| v_space        | Vertical spacing                                                                                                                                                     | NO       | `number`  | 3.0       |
+| select_src     | Indicator current page highlight image path, resource storage path reference [Folder Structure](https://docs.zepp.com/docs/guides/architecture/folder-structure)     | YES      | `string`  | 2.1       |
+| unselect_src   | Indicator non-current page highlight image path, resource storage path reference [Folder Structure](https://docs.zepp.com/docs/guides/architecture/folder-structure) | YES      | `string`  | 2.1       |
+| horizontal     | Horizontal or not, default is `true`, set `false` for vertical layout                                                                                                | NO       | `boolean` | 3.0       |
+| use_color      | Whether to use colors to configure indicator dots                                                                                                                    | NO       | `boolean` | 4.0       |
+| select_color   | Selected color configuration                                                                                                                                         | NO       | `number`  | 4.0       |
+| unselect_color | Unselected color configuration                                                                                                                                       | NO       | `number`  | 4.0       |
+| element_height | Width of the page indicator element                                                                                                                                  | NO       | `number`  | 4.0       |
+| element_radius | Height of the page indicator element                                                                                                                                 | NO       | `number`  | 4.0       |
 
 ### ALIGN alignment
 
@@ -1903,7 +1901,6 @@ const pageIndicator = createWidget(widget.PAGE_INDICATOR, Param)
 ## Code Example
 
 ```js
-
 Page({
   build() {
     const itemCount = 10
@@ -1945,12 +1942,12 @@ Page({
   }
 })
 ```
+
 ## Additional Examples
 
 ### Example 1
 
 ```js
-
 const pageCount = 10
 const vertical = false
 const pageSize = 480
@@ -1960,8 +1957,8 @@ setScrollMode({
   options: {
     count: pageCount,
     height: vertical ? pageSize : undefined,
-    width: vertical ? undefined : pageSize,
-  },
+    width: vertical ? undefined : pageSize
+  }
 })
 
 createWidget(widget.PAGE_INDICATOR, {
@@ -1972,7 +1969,7 @@ createWidget(widget.PAGE_INDICATOR, {
   align_h: align.CENTER_H,
   h_space: 8,
   select_src: 'images/test/select/select.png',
-  unselect_src: 'images/test/select/unselect.png',
+  unselect_src: 'images/test/select/unselect.png'
 })
 
 for (let i = 0; i < pageCount; i += 1) {
@@ -1987,7 +1984,7 @@ for (let i = 0; i < pageCount; i += 1) {
     text_size: 35,
     color: 0xffffff,
     align_h: align.CENTER_H,
-    text: `PAGE ${i}`,
+    text: `PAGE ${i}`
   })
 }
 ```
@@ -2002,40 +1999,40 @@ for (let i = 0; i < pageCount; i += 1) {
 import { createWidget, widget } from '@zos/ui'
 ```
 
-> Start from API_LEVEL `3.0`. Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility)。
+:::note
+Start from API_LEVEL `3.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::
 
 Page Scrollbar.
 
 ## Create UI widget
 
 ```js
-
 const scrollBar = createWidget(widget.PAGE_SCROLLBAR, Param)
 ```
 
 ### Param: object
 
-| Properties   | Description                                                 | Required | Type     |
-| ------ | ---------------------------------------------------- | -------- | -------- |
-| target | The `VIEW_CONTAINER` widget that needs to be bound is the whole page scroll bar by default, and the `VIEW_CONTAINER` scroll bar is passed in | NO       | `object` |
+| Properties | Description                                                                                                                                  | Required | Type     |
+| ---------- | -------------------------------------------------------------------------------------------------------------------------------------------- | -------- | -------- |
+| target     | The `VIEW_CONTAINER` widget that needs to be bound is the whole page scroll bar by default, and the `VIEW_CONTAINER` scroll bar is passed in | NO       | `object` |
 
 ## Code example
 
 ```js
-
 const scrollBar = createWidget(widget.PAGE_SCROLLBAR)
 ```
+
 ## Additional Examples
 
 ### Example 1
 
 ```js
-
 const vc0 = createWidget(widget.VIEW_CONTAINER, {
   x: 0,
   y: 0,
   w: 466,
-  h: 466,
+  h: 466
 })
 
 const scrollVer = createWidget(widget.PAGE_SCROLLBAR, {})
@@ -2052,14 +2049,15 @@ scrollVer.setProperty(prop.TARGET, vc0)
 import { createWidget, widget } from '@zos/ui'
 ```
 
-> Start from API_LEVEL `3.6` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::note
+Start from API_LEVEL `3.6` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 Displaying workout data in the workout extension can display a rich variety of workouts data types.
 
 ## Create UI widget
 
 ```js
-
 const sportData = createWidget(widget.SPORT_DATA, Param)
 ```
 
@@ -2081,12 +2079,12 @@ const sportData = createWidget(widget.SPORT_DATA, Param)
 | sub_text_color   | Subtext color, default `0x0000FF`                                                                                       | NO       | `number`  |
 | rect_visible     | Whether to display the text box, default is `false`                                                                     | NO       | `boolean` |
 | line_color       | Text box color, default `0x0000FF`                                                                                      | NO       | `number`  |
-| text_x           | Relative coordinates.Text box displays location x coordinates                                                                                | NO       | `number`  |
-| text_y           | Relative coordinates.Text box displays position y coordinates                                                                                | NO       | `number`  |
+| text_x           | Relative coordinates.Text box displays location x coordinates                                                           | NO       | `number`  |
+| text_y           | Relative coordinates.Text box displays position y coordinates                                                           | NO       | `number`  |
 | text_w           | Text box width                                                                                                          | NO       | `number`  |
 | text_h           | Text box height                                                                                                         | NO       | `number`  |
-| sub_text_x       | Relative coordinates.Subtext box displays position x coordinates                                                                             | NO       | `number`  |
-| sub_text_y       | Relative coordinates.Subtext box displays position y coordinates                                                                             | NO       | `number`  |
+| sub_text_x       | Relative coordinates.Subtext box displays position x coordinates                                                        | NO       | `number`  |
+| sub_text_y       | Relative coordinates.Subtext box displays position y coordinates                                                        | NO       | `number`  |
 | sub_text_w       | Secondary text box width                                                                                                | NO       | `number`  |
 | sub_text_h       | Secondary text box height                                                                                               | NO       | `number`  |
 | mock_data        | The simulated data only takes effect in the emulator, and the data items of the widget will display the incoming string | NO       | `string`  |
@@ -2291,7 +2289,6 @@ Data item types are accessed through the `sport_data` object of the `@zos/ui` mo
 ## Code example
 
 ```js
-
 createWidget(widget.SPORT_DATA, {
   edit_id: 1,
   category: edit_widget_group_type.SPORTS,
@@ -2302,12 +2299,12 @@ createWidget(widget.SPORT_DATA, {
   h: 80
 })
 ```
+
 ## Additional Examples
 
 ### Example 1
 
 ```js
-
 createWidget(widget.SPORT_DATA, {
   x: 60,
   y: 120,
@@ -2322,9 +2319,8 @@ createWidget(widget.SPORT_DATA, {
   text_x: 24,
   text_y: 16,
   text_w: 312,
-  text_h: 40,
+  text_h: 40
 })
 ```
 
 ---
-

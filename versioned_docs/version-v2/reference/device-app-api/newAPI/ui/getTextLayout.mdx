@@ -3,7 +3,9 @@ title: getTextLayout(text_string, options)
 sidebar_label: getTextLayout
 ---
 
-> Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::note
+Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 Calculate the height and width of the target text after the layout is completed, and does not actually render it, only performs the layout calculation.
 
@@ -12,7 +14,7 @@ Can be used to calculate the height of a multi-line text layout with a fixed wid
 ## Type
 
 ```ts
-(text_string: string, options: object) => result
+;(text_string: string, options: object) => result
 ```
 
 ## Parameters
@@ -24,11 +26,11 @@ Can be used to calculate the height of a multi-line text layout with a fixed wid
 
 ### Options
 
-| Properties | Description                    | Required | Type     |
-| ---------- | ------------------------------ | -------- | -------- |
-| text_size  | Text size                      | YES      | `number` |
-| text_width | Width of a single line of text | YES      | `number` |
-| wrapped | whether the text is line feed, `0`: no line feed; `1`: line feed | NO | `number` |
+| Properties | Description                                                      | Required | Type     |
+| ---------- | ---------------------------------------------------------------- | -------- | -------- |
+| text_size  | Text size                                                        | YES      | `number` |
+| text_width | Width of a single line of text                                   | YES      | `number` |
+| wrapped    | whether the text is line feed, `0`: no line feed; `1`: line feed | NO       | `number` |
 
 ### result: object
 

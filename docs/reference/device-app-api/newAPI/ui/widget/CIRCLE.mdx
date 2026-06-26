@@ -3,8 +3,9 @@ title: CIRCLE
 sidebar_label: CIRCLE
 ---
 
-> Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](../../../../../guides/framework/device/compatibility.md).
-
+:::note
+Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 ![circle_sample](/img/api/circle_sample.jpg)
 
 Draws a circle with support for color, transparency, and other properties.
@@ -31,17 +32,24 @@ const circle = createWidget(widget.CIRCLE, Param)
 
 ## Supported Property Access List
 
-| Property   | setProperty | getProperty | [setter](../gettersetter.mdx) | [getter](../gettersetter.mdx) |
-|------------|-------------|-------------|-------------------------------|-------------------------------|
-| center_x   | Y           | Y           | Y                             | Y                             |
-| center_y   | Y           | Y           | Y                             | Y                             |
-| radius     | Y           | Y           | Y                             | Y                             |
-| color      | Y           | Y           | Y                             | Y                             |
-| alpha      | Y           | Y           | Y                             | Y                             |
+<details>
+<summary>Click to view property support table</summary>
 
-## Code example
+| Property | setProperty | getProperty | [setter](../gettersetter.mdx) | [getter](../gettersetter.mdx) |
+| -------- | ----------- | ----------- | ----------------------------- | ----------------------------- |
+| center_x | Y           | Y           | Y                             | Y                             |
+| center_y | Y           | Y           | Y                             | Y                             |
+| radius   | Y           | Y           | Y                             | Y                             |
+| color    | Y           | Y           | Y                             | Y                             |
+| alpha    | Y           | Y           | Y                             | Y                             |
+
+</details>
+
+## Examples
 
 ```js
+import Tabs from '@theme/Tabs'
+import TabItem from '@theme/TabItem'
 import { createWidget, widget } from '@zos/ui'
 
 Page({

@@ -60,7 +60,7 @@ const deviceAPIList = [
           { path: '/hmUI/widget/DELEGATE', targets: [1] },
           { path: '/hmUI/widget/edit_watchface', targets: [1] },
           { path: '/hmUI/widget/PICK_DATE', targets: [0] },
-          { path: '/hmUI/widget/QRCODE', targets: [0] },
+          { path: '/hmUI/widget/QRCODE', targets: [0] }
         ]
       },
       '/hmUI/createWidget',
@@ -554,10 +554,7 @@ module.exports = {
     {
       type: 'category',
       label: 'Custom Keyboard',
-      items: [
-        'guides/keyboard/intro',
-        'guides/keyboard/quick-start',
-      ]
+      items: ['guides/keyboard/intro', 'guides/keyboard/quick-start']
     },
     {
       type: 'category',
@@ -580,7 +577,18 @@ module.exports = {
         'guides/best-practice/widget-group',
         'guides/best-practice/persistence-storage',
         'guides/best-practice/error-catch',
-        'guides/best-practice/i18n'
+        'guides/best-practice/i18n',
+        {
+          type: 'category',
+          label: 'AI practice',
+          items: [
+            'guides/ai-practice/ai-intro',
+            'guides/ai-practice/ui-instructions',
+            'guides/ai-practice/app-lifecycle-instructions',
+            'guides/ai-practice/fs-instructions',
+            'guides/ai-practice/sensors-instructions'
+          ]
+        }
       ]
     },
     {
@@ -665,7 +673,7 @@ module.exports = {
                     'reference/device-app-api/newAPI/ui/widget/KEYBOARD',
                     'reference/device-app-api/newAPI/ui/widget/PICKER',
                     'reference/device-app-api/newAPI/ui/widget/TIME_PICKER',
-                    'reference/device-app-api/newAPI/ui/widget/SYSTEM_KEYBOARD',
+                    'reference/device-app-api/newAPI/ui/widget/SYSTEM_KEYBOARD'
                     // 'reference/device-app-api/newAPI/ui/widget/WIDGET_PICKER',
                   ]
                 },
@@ -678,7 +686,7 @@ module.exports = {
                     'reference/device-app-api/newAPI/ui/widget/VIEW_CONTAINER',
                     'reference/device-app-api/newAPI/ui/widget/CYCLE_LIST',
                     'reference/device-app-api/newAPI/ui/widget/CYCLE_IMAGE_TEXT_LIST',
-                    'reference/device-app-api/newAPI/ui/widget/VIRTUAL_CONTAINER',
+                    'reference/device-app-api/newAPI/ui/widget/VIRTUAL_CONTAINER'
                   ]
                 }
               ]
@@ -717,7 +725,7 @@ module.exports = {
             'reference/device-app-api/newAPI/ui/updateLayoutStyle',
             'reference/device-app-api/newAPI/ui/updateLayout',
             'reference/device-app-api/newAPI/ui/openInspector',
-            'reference/device-app-api/newAPI/ui/keyboard',
+            'reference/device-app-api/newAPI/ui/keyboard'
           ]
         },
         ...newAPIPathMap.map((i) => {

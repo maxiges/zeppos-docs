@@ -1,6 +1,8 @@
 # closeSync
 
-> Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::note
+Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 Close the file handle synchronously.
 
@@ -37,10 +39,10 @@ import { openSync, closeSync, O_RDONLY } from '@zos/fs'
 
 const fd = openSync({
   path: 'test.txt',
-  flag: O_RDONLY,
+  flag: O_RDONLY
 })
 const result = closeSync({
-  fd,
+  fd
 })
 
 if (result === 0) {

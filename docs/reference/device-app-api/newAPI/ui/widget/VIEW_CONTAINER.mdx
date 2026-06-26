@@ -5,9 +5,11 @@ sidebar_label: VIEW_CONTAINER
 
 import useBaseUrl from '@docusaurus/useBaseUrl'
 
-> Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](../../../../../guides/framework/device/compatibility.md).
+:::note
+Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
-<div style={{display: 'flex', gap: '10px', alignItems: 'center'}}>
+<div style={{ display: 'flex', gap: '10px', alignItems: 'center' }}>
   <img src={useBaseUrl('/img/api/view_container_sample.gif')} width="50%" title="vc_showcase" />
   <img src={useBaseUrl('/img/api/swiper_vc.gif')} width="50%" title="vc_showcase2" />
 </div>
@@ -34,19 +36,19 @@ viewContainer.createWidget(xxx, xxx)
 
 ## Param: object
 
-| Properties | Description | Required | Type | API_LEVEL |
-| --- | --- | --- | --- | --- |
-| x | Widget x-coordinate, default `0` | NO | `number` | 2.0 |
-| y | Widget y-coordinate, default `0` | NO | `number` | 2.0 |
-| w | Widget width, default screen width | NO | `number` | 2.0 |
-| h | Widget height, default screen height | NO | `number` | 2.0 |
-| scroll_enable | When the layout of widgets in VIEW_CONTAINER exceeds the width/height, it is considered a long page. `0`: disable scrolling, you can set container scroll position offset by `pos_x` or `pos_y`; `1`: allow scrolling (default) | NO | `number` | 2.0 |
-| pos_x | When VIEW_CONTAINER is a long horizontal page layout, you can read/set the horizontal offset | NO | `number` | 2.0 |
-| pos_y | When VIEW_CONTAINER is a long vertical page layout, you can read/set the vertical offset | NO | `number` | 2.0 |
-| z_index | When using multiple VIEW_CONTAINER widgets, the cascading relationship can be controlled by this field, with `0` at the bottom by default | NO | `number` | 2.0 |
-| modal | Modal layer switch. `0`: disable; `1`: enable (default). When enabled, it can be used to create a modal overlay/dialog inside a `VIEW_CONTAINER` and block the base layer from scrolling. | NO | `number` | 2.0 |
-| bounce | Rebound effect, `0`: disabled, `1`: enabled (default) | NO | `number` | 3.0 |
-| page | Used with [`setScrollMode`](../../page/setScrollMode.mdx) Swiper mode. The entire screen uses Swiper mode, and each independent page is implemented using `VIEW_CONTAINER`. Marks the page index to coordinate with Swiper mode | NO | `number` | 3.0 |
+| Properties    | Description                                                                                                                                                                                                                     | Required | Type     | API_LEVEL |
+| ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | -------- | --------- |
+| x             | Widget x-coordinate, default `0`                                                                                                                                                                                                | NO       | `number` | 2.0       |
+| y             | Widget y-coordinate, default `0`                                                                                                                                                                                                | NO       | `number` | 2.0       |
+| w             | Widget width, default screen width                                                                                                                                                                                              | NO       | `number` | 2.0       |
+| h             | Widget height, default screen height                                                                                                                                                                                            | NO       | `number` | 2.0       |
+| scroll_enable | When the layout of widgets in VIEW_CONTAINER exceeds the width/height, it is considered a long page. `0`: disable scrolling, you can set container scroll position offset by `pos_x` or `pos_y`; `1`: allow scrolling (default) | NO       | `number` | 2.0       |
+| pos_x         | When VIEW_CONTAINER is a long horizontal page layout, you can read/set the horizontal offset                                                                                                                                    | NO       | `number` | 2.0       |
+| pos_y         | When VIEW_CONTAINER is a long vertical page layout, you can read/set the vertical offset                                                                                                                                        | NO       | `number` | 2.0       |
+| z_index       | When using multiple VIEW_CONTAINER widgets, the cascading relationship can be controlled by this field, with `0` at the bottom by default                                                                                       | NO       | `number` | 2.0       |
+| modal         | Modal layer switch. `0`: disable; `1`: enable (default). When enabled, it can be used to create a modal overlay/dialog inside a `VIEW_CONTAINER` and block the base layer from scrolling.                                       | NO       | `number` | 2.0       |
+| bounce        | Rebound effect, `0`: disabled, `1`: enabled (default)                                                                                                                                                                           | NO       | `number` | 3.0       |
+| page          | Used with [`setScrollMode`](../../page/setScrollMode.mdx) Swiper mode. The entire screen uses Swiper mode, and each independent page is implemented using `VIEW_CONTAINER`. Marks the page index to coordinate with Swiper mode | NO       | `number` | 3.0       |
 
 ### FrameParams: object
 
@@ -172,12 +174,12 @@ Page({
 Used in conjunction with SetScrollMode Swiper mode, the effect is shown in the second GIF at the top.
 
 ```js
-import { createWidget, widget, align } from "@zos/ui";
-import { px } from "@zos/utils";
-import { setScrollMode, SCROLL_MODE_SWIPER_HORIZONTAL } from "@zos/page";
+import { createWidget, widget, align } from '@zos/ui'
+import { px } from '@zos/utils'
+import { setScrollMode, SCROLL_MODE_SWIPER_HORIZONTAL } from '@zos/page'
 
-const PAGE_WIDTH = 480;
-const PAGE_HEIGHT = 480;
+const PAGE_WIDTH = 480
+const PAGE_HEIGHT = 480
 
 Page({
   build() {
@@ -185,9 +187,9 @@ Page({
       mode: SCROLL_MODE_SWIPER_HORIZONTAL,
       options: {
         width: px(PAGE_WIDTH),
-        count: 2,
-      },
-    });
+        count: 2
+      }
+    })
 
     const viewContainer1 = createWidget(widget.VIEW_CONTAINER, {
       x: px(0),
@@ -195,36 +197,36 @@ Page({
       w: px(PAGE_WIDTH),
       h: px(PAGE_HEIGHT),
       scroll_enable: 1,
-      page: 0,
-    });
+      page: 0
+    })
 
     viewContainer1.createWidget(widget.TEXT, {
       x: 0,
       y: 0,
       w: px(PAGE_WIDTH),
       h: px(40),
-      text: "ViewContainer1",
+      text: 'ViewContainer1',
       text_size: px(26),
       color: 0xffffff,
       align_h: align.CENTER_H,
-      align_v: align.CENTER_V,
-    });
+      align_v: align.CENTER_V
+    })
 
     viewContainer1.createWidget(widget.FILL_RECT, {
       x: 0,
       y: px(40),
       w: px(PAGE_WIDTH),
       h: px(440),
-      color: 0xF84E3F,
-    });
+      color: 0xf84e3f
+    })
 
     viewContainer1.createWidget(widget.FILL_RECT, {
       x: 0,
       y: px(480),
       w: px(PAGE_WIDTH),
       h: px(480),
-      color: 0x42A5F5,
-    });
+      color: 0x42a5f5
+    })
 
     const viewContainer2 = createWidget(widget.VIEW_CONTAINER, {
       x: px(0),
@@ -232,47 +234,48 @@ Page({
       w: px(PAGE_WIDTH),
       h: px(PAGE_HEIGHT),
       scroll_enable: 1,
-      page: 1,
-    });
+      page: 1
+    })
 
     viewContainer2.createWidget(widget.TEXT, {
       x: 0,
       y: 0,
       w: px(PAGE_WIDTH),
       h: px(40),
-      text: "ViewContainer2",
+      text: 'ViewContainer2',
       text_size: px(26),
       color: 0xffffff,
       align_h: align.CENTER_H,
-      align_v: align.CENTER_V,
-    });
+      align_v: align.CENTER_V
+    })
 
     viewContainer2.createWidget(widget.FILL_RECT, {
       x: 0,
       y: px(40),
       w: px(PAGE_WIDTH),
       h: px(PAGE_HEIGHT) / 2,
-      color: 0xFFA726,
-    });
+      color: 0xffa726
+    })
 
     viewContainer2.createWidget(widget.FILL_RECT, {
       x: 0,
       y: px(280),
       w: px(PAGE_WIDTH),
       h: px(PAGE_HEIGHT) / 2,
-      color: 0xFFD54F,
-    });
+      color: 0xffd54f
+    })
 
     viewContainer2.createWidget(widget.FILL_RECT, {
       x: 0,
       y: px(40) + px(PAGE_HEIGHT),
       w: px(PAGE_WIDTH),
       h: px(PAGE_HEIGHT) / 2,
-      color: 0x66BB6A,
-    });
-  },
-});
+      color: 0x66bb6a
+    })
+  }
+})
 ```
+
 ## Additional Examples
 
 ### Example 1
@@ -292,7 +295,7 @@ const vc = createWidget(widget.VIEW_CONTAINER, {
   },
   scroll_complete_func: (info) => {
     console.log('scrolled', info)
-  },
+  }
 })
 
 vc.createWidget(widget.TEXT, {
@@ -302,7 +305,6 @@ vc.createWidget(widget.TEXT, {
   h: 50,
   color: 0xffffff,
   text_size: 30,
-  text: 'hello1',
+  text: 'hello1'
 })
 ```
-

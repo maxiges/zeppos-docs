@@ -3,7 +3,9 @@ title: keyboard API
 sidebar_label: keyboard API
 ---
 
-> Start from API_LEVEL `4.2`. Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::note
+Start from API_LEVEL `4.2` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 The keyboard API provides rich input interface capabilities, greatly simplifying the development complexity of custom keyboards.
 
@@ -38,8 +40,8 @@ Set the size and position of the input field.
 
 ##### Parameters
 
-| Parameter | Description                        | Required | Type     |
-| --------- | ---------------------------------- | -------- | -------- |
+| Parameter | Description                             | Required | Type     |
+| --------- | --------------------------------------- | -------- | -------- |
 | rect      | Object containing x, y, w, h properties | YES      | `object` |
 
 ##### Code Example
@@ -79,7 +81,7 @@ Get the text content of the current input field.
 ##### Type
 
 ```ts
-() => string
+;() => string
 ```
 
 ##### Code Example
@@ -100,8 +102,8 @@ Insert text at the current cursor position.
 
 ##### Parameters
 
-| Parameter | Description      | Required | Type     |
-| --------- | ---------------- | -------- | -------- |
+| Parameter | Description         | Required | Type     |
+| --------- | ------------------- | -------- | -------- |
 | text      | Text to be inserted | YES      | `string` |
 
 ##### Code Example
@@ -122,8 +124,8 @@ Delete a specified number of characters.
 
 ##### Parameters
 
-| Parameter | Description                | Required | Type     | Default |
-| --------- | -------------------------- | -------- | -------- | ------- |
+| Parameter | Description                    | Required | Type     | Default |
+| --------- | ------------------------------ | -------- | -------- | ------- |
 | count     | Number of characters to delete | NO       | `number` | 1       |
 
 ##### Code Example
@@ -163,18 +165,18 @@ Send special function key events.
 
 ##### Parameters
 
-| Parameter | Description      | Required | Type     |
-| --------- | ---------------- | -------- | -------- |
+| Parameter | Description       | Required | Type     |
+| --------- | ----------------- | -------- | -------- |
 | keyType   | Key type constant | YES      | `number` |
 
 ##### Key Type Constants
 
-| Constant             | Description           |
-| -------------------- | --------------------- |
-| `keyboard.BACKSPACE` | Backspace delete      |
-| `keyboard.ENTER`     | Confirm/submit input  |
+| Constant             | Description                  |
+| -------------------- | ---------------------------- |
+| `keyboard.BACKSPACE` | Backspace delete             |
+| `keyboard.ENTER`     | Confirm/submit input         |
 | `keyboard.SWITCH`    | Switch keyboard input method |
-| `keyboard.SELECT`    | Enter keyboard selection |
+| `keyboard.SELECT`    | Enter keyboard selection     |
 
 ##### Code Example
 
@@ -197,11 +199,11 @@ Set input buffer content.
 
 ##### Parameters
 
-| Parameter      | Description      | Required | Type     | Default    |
-| -------------- | ---------------- | -------- | -------- | ---------- |
-| text           | Buffer text      | YES      | `string` | -          |
-| color          | Text color       | NO       | `number` | `0xffffff` |
-| underlineColor | Underline color  | NO       | `number` | `0xffffff` |
+| Parameter      | Description     | Required | Type     | Default    |
+| -------------- | --------------- | -------- | -------- | ---------- |
+| text           | Buffer text     | YES      | `string` | -          |
+| color          | Text color      | NO       | `number` | `0xffffff` |
+| underlineColor | Underline color | NO       | `number` | `0xffffff` |
 
 ##### Code Example
 
@@ -217,7 +219,7 @@ Read buffer text.
 ##### Type
 
 ```ts
-() => string
+;() => string
 ```
 
 ##### Code Example
@@ -256,19 +258,19 @@ Switch to a specified type of keyboard.
 
 ##### Parameters
 
-| Parameter | Description        | Required | Type     |
-| --------- | ------------------ | -------- | -------- |
+| Parameter | Description         | Required | Type     |
+| --------- | ------------------- | -------- | -------- |
 | inputType | Input type constant | YES      | `number` |
 
 ##### Input Type Constants
 
-| Constant          | Description      |
-| ----------------- | ---------------- |
-| `inputType.EMOJI` | Emoji keyboard   |
-| `inputType.NUM`   | Number keyboard  |
+| Constant          | Description        |
+| ----------------- | ------------------ |
+| `inputType.EMOJI` | Emoji keyboard     |
+| `inputType.NUM`   | Number keyboard    |
 | `inputType.CHAR`  | Character keyboard |
-| `inputType.VOICE` | Voice input      |
-| `inputType.JSKB`  | Custom keyboard  |
+| `inputType.VOICE` | Voice input        |
+| `inputType.JSKB`  | Custom keyboard    |
 
 ##### Code Example
 
@@ -285,7 +287,7 @@ Check if voice input is supported.
 ##### Type
 
 ```ts
-() => boolean
+;() => boolean
 ```
 
 ##### Code Example
@@ -301,7 +303,7 @@ Check if the current keyboard is enabled in settings.
 ##### Type
 
 ```ts
-() => boolean
+;() => boolean
 ```
 
 ##### Code Example
@@ -317,7 +319,7 @@ Check if the current keyboard is selected for use.
 ##### Type
 
 ```ts
-() => boolean
+;() => boolean
 ```
 
 ##### Code Example

@@ -1,6 +1,8 @@
 # Page
 
-> Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::note
+Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 Register a page in the Mini Program, specify the lifecycle callback for the current page, etc. Each page file must call the `Page()` constructor only once.
 
@@ -32,7 +34,7 @@ function Page(option: Option): Result
 ```js title="page.js"
 Page({
   state: {
-    text: 'Hello Zepp OS',
+    text: 'Hello Zepp OS'
   },
   onInit() {
     console.log('onInit')
@@ -40,6 +42,6 @@ Page({
   build() {
     console.log('build')
     console.log(this.state.text)
-  },
+  }
 })
 ```

@@ -3,19 +3,21 @@ title: widget.getProperty(key)
 sidebar_label: getProperty
 ---
 
-> Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::note
+Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 Get the UI widget properties, use `widget.getProperty(prop.MORE, {})` to get all the properties of the widget.
 
 ## Type
 
 ```ts
-(key: any) => result
+;(key: any) => result
 ```
 
 ## Parameters
 
-| Parameter | Description            | Type |
+| Parameter | Description            | Type  |
 | --------- | ---------------------- | ----- |
 | key       | The value of property. | `any` |
 
@@ -46,7 +48,7 @@ Page({
     this.state.buttonY = 300
 
     createWidget(widget.BUTTON, {
-      y: this.state.buttonY,
+      y: this.state.buttonY
       // ...
     })
 

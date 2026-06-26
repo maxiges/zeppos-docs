@@ -3,8 +3,9 @@ title: IMG_ANIM
 sidebar_label: IMG_ANIM
 ---
 
-> Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](../../../../../guides/framework/device/compatibility.md).
-
+:::note
+Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 ![img_anim_sample](/img/api/img_anim_sample.gif)
 
 Play the pre-given image at the set frame rate to create an animation effect.
@@ -57,27 +58,32 @@ Please pay attention to the animation order of the current settings when setting
 
 ## Supported Property Access List
 
-| Property        | setProperty | getProperty | [setter](../gettersetter.mdx) | [getter](../gettersetter.mdx) |
-|-----------------------|-------------|-------------|-------------------------------|-------------------------------|
-| x                    | Y           | Y           | Y                             | Y                             |
-| y                    | Y           | Y           | Y                             | Y                             |
-| w                    | Y           | Y           | Y                             | Y                             |
-| h                    | Y           | Y           | Y                             | Y                             |
-| anim_path            | N           | N           | N                             | Y                             |
-| anim_prefix          | N           | N           | N                             | Y                             |
-| anim_ext             | N           | N           | N                             | Y                             |
-| anim_fps             | N           | N           | N                             | Y                             |
-| repeat_count         | N           | N           | N                             | Y                             |
-| anim_repeat          | N           | N           | N                             | N                             |
-| anim_size            | N           | N           | N                             | N                             |
-| anim_status          | N           | N           | N                             | N                             |
-| anim_complete_call   | N           | N           | N                             | N                             |
+<details>
+<summary>Click to view property support table</summary>
+
+| Property              | setProperty | getProperty | [setter](../gettersetter.mdx) | [getter](../gettersetter.mdx) |
+| --------------------- | ----------- | ----------- | ----------------------------- | ----------------------------- |
+| x                     | Y           | Y           | Y                             | Y                             |
+| y                     | Y           | Y           | Y                             | Y                             |
+| w                     | Y           | Y           | Y                             | Y                             |
+| h                     | Y           | Y           | Y                             | Y                             |
+| anim_path             | N           | N           | N                             | Y                             |
+| anim_prefix           | N           | N           | N                             | Y                             |
+| anim_ext              | N           | N           | N                             | Y                             |
+| anim_fps              | N           | N           | N                             | Y                             |
+| repeat_count          | N           | N           | N                             | Y                             |
+| anim_repeat           | N           | N           | N                             | N                             |
+| anim_size             | N           | N           | N                             | N                             |
+| anim_status           | N           | N           | N                             | N                             |
+| anim_complete_call    | N           | N           | N                             | N                             |
 | display_on_restart    | N           | N           | N                             | N                             |
 | anim_auto_resume_call | N           | N           | N                             | N                             |
-| step                 | Y           | Y           | Y                             | Y                             |
+| step                  | Y           | Y           | Y                             | Y                             |
 | default_frame_index   | N           | N           | N                             | N                             |
 
-## Code example
+</details>
+
+## Examples
 
 :::tip
 Please refer to [Design Resources](../../../../related-resources/design-resources.mdx) for the image resources in the code example

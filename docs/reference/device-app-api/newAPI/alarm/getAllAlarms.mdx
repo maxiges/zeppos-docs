@@ -1,6 +1,8 @@
 # getAllAlarms
 
-> Start from API_LEVEL `3.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::note
+Start from API_LEVEL `3.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 Get an array of all created timers alarmId for the current Mini Program, including timers that support persistence.
 
@@ -19,5 +21,10 @@ function getAllAlarms(): Array<number>
 ```js
 import { getAllAlarms } from '@zos/alarm'
 
-getAllAlarms()
+// Get all alarm IDs created by the current Mini Program
+const alarmIds = getAllAlarms()
+
+console.log('Current app alarm IDs:', alarmIds)
+
+// Example output: [1001, 1002, 1005]
 ```
