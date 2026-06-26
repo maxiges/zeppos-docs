@@ -1,6 +1,8 @@
 # offKey
 
-> Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::note
+Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 Cancel the keystroke event registered by `onKey`..
 
@@ -23,7 +25,7 @@ const keyCallback = (key, keyEvent) => {
 }
 
 onKey({
-  callback: keyCallback,
+  callback: keyCallback
 })
 
 offKey()

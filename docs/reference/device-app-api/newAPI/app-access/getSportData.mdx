@@ -1,6 +1,8 @@
 # getSportData
 
-> Start from API_LEVEL `3.6` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::note
+Start from API_LEVEL `3.6` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 By default, the system will off the screen in one page of the Mini Program, and the system will exit the Mini Program after 10s, and enter the dial page when the watch is woken up again. If `relaunch` is set to `true`, the Mini Program will reopen and enter the corresponding page when the watch is woken up again.
 
@@ -62,7 +64,7 @@ import { getSportData } from '@zos/app-access'
 
 const result = getSportData(
   {
-    type: 'distance',
+    type: 'distance'
   },
   (callbackResult) => {
     const { code, data } = callbackResult
@@ -70,6 +72,6 @@ const result = getSportData(
       const [{ distance }] = JSON.parse(data)
       console.log(distance)
     }
-  },
+  }
 )
 ```

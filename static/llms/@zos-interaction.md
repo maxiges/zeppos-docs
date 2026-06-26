@@ -2,28 +2,28 @@
 
 ## Constants
 
-| Constant | Description | API_LEVEL |
-|----------|-------------|-----------|
-| `GESTURE_UP` | Gesture up slide | — |
-| `GESTURE_DOWN` | Gesture down slide | — |
-| `GESTURE_LEFT` | Gesture left slide | — |
-| `GESTURE_RIGHT` | Gesture right slide | — |
-| `KEY_BACK` | BACK KEY | — |
-| `KEY_SELECT` | SELECT KEY | — |
-| `KEY_HOME` | HOME KEY | — |
-| `KEY_UP` | UP KEY | — |
-| `KEY_DOWN` | SHORTCUT KEY | — |
-| `KEY_SHORTCUT` | SHORTCUT KEY | — |
-| `KEY_EVENT_CLICK` | Key click event | — |
-| `KEY_EVENT_LONG_PRESS` | Key long-press event | — |
-| `KEY_EVENT_DOUBLE_CLICK` | Key double-click event | — |
-| `KEY_EVENT_PRESS` | Key press event | — |
-| `KEY_EVENT_RELEASE` | Key release event | — |
-| `MODAL_CONFIRM` | Modal Confirm button | — |
-| `MODAL_CANCEL` | Modal Cancel button | — |
-| `WRIST_MOTION_LIFT` | Wrist lift | — |
-| `WRIST_MOTION_LOWER` | Wrist down | — |
-| `WRIST_MOTION_FLIP` | Flip wrist movement | — |
+| Constant                 | Description            | API_LEVEL |
+| ------------------------ | ---------------------- | --------- |
+| `GESTURE_UP`             | Gesture up slide       | —         |
+| `GESTURE_DOWN`           | Gesture down slide     | —         |
+| `GESTURE_LEFT`           | Gesture left slide     | —         |
+| `GESTURE_RIGHT`          | Gesture right slide    | —         |
+| `KEY_BACK`               | BACK KEY               | —         |
+| `KEY_SELECT`             | SELECT KEY             | —         |
+| `KEY_HOME`               | HOME KEY               | —         |
+| `KEY_UP`                 | UP KEY                 | —         |
+| `KEY_DOWN`               | SHORTCUT KEY           | —         |
+| `KEY_SHORTCUT`           | SHORTCUT KEY           | —         |
+| `KEY_EVENT_CLICK`        | Key click event        | —         |
+| `KEY_EVENT_LONG_PRESS`   | Key long-press event   | —         |
+| `KEY_EVENT_DOUBLE_CLICK` | Key double-click event | —         |
+| `KEY_EVENT_PRESS`        | Key press event        | —         |
+| `KEY_EVENT_RELEASE`      | Key release event      | —         |
+| `MODAL_CONFIRM`          | Modal Confirm button   | —         |
+| `MODAL_CANCEL`           | Modal Cancel button    | —         |
+| `WRIST_MOTION_LIFT`      | Wrist lift             | —         |
+| `WRIST_MOTION_LOWER`     | Wrist down             | —         |
+| `WRIST_MOTION_FLIP`      | Flip wrist movement    | —         |
 
 ## createModal
 
@@ -58,7 +58,9 @@ const dialog = createModal({
 dialog.show(true)
 ```
 
-> Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::note
+Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 [Image: createModal_image}]
 
@@ -74,32 +76,32 @@ function createModal(option: Option): Modal
 
 ### Option
 
-| Property      | Type                                      | Required | DefaultValue          | Description                                                                                             | API_LEVEL |
-| ------------- | ----------------------------------------- | -------- | --------------------- | ------------------------------------------------------------------------------------------------------- | --------- |
-| content       | `string`                       | Y        | -                     | title of Modal                                                                                          | 2.0       |
-| title         | `string`                       | N        | -                     | Modal dialog box title, alias for `content`                                                             | 3.6       |
-| show          | `boolean`                      | N        | `true`     | Whether to display Modal immediately after the creation is completed                                    | 2.0       |
-| onClick       | `(keyObj: KeyObj) => void` | N        | -                     | Whether to display Modal immediately                                                                    | 2.0       |
-| autoHide      | `boolean`                      | N        | `true`     | Whether to automatically close the Modal dialog after clicking the Confirm or Cancel button             | 2.0       |
-| subtitle      | `string`                       | N        | -                     | subtitle                                                                                                | 3.6       |
-| src           | `string`                       | N        | -                     | Icon icon path                                                                                          | 3.6       |
-| text          | `string`                       | N        | -                     | text content                                                                                            | 3.6       |
-| textColor     | `number`                       | N        | `0xFFFFFF` | text color                                                                                              | 3.6       |
-| textAlpha     | `number`                       | N        | `255`      | Text transparency, transparency [0-255], 0 is full transparency                                         | 3.6       |
-| okButton      | `string`                       | N        | -                     | The icon path of the confirmation button                                                                | 3.6       |
-| cancelButton  | `string`                       | N        | -                     | Cancel button icon icon path                                                                            | 3.6       |
-| capsuleButton | `Array<string>`        | N        | -                     | Capsule button configuration, as a string array, click `type` in the returned KeyObj starting from `10` | 3.6       |
+| Property      | Type                       | Required | DefaultValue | Description                                                                                             | API_LEVEL |
+| ------------- | -------------------------- | -------- | ------------ | ------------------------------------------------------------------------------------------------------- | --------- |
+| content       | `string`                   | Y        | -            | title of Modal                                                                                          | 2.0       |
+| title         | `string`                   | N        | -            | Modal dialog box title, alias for `content`                                                             | 3.6       |
+| show          | `boolean`                  | N        | `true`       | Whether to display Modal immediately after the creation is completed                                    | 2.0       |
+| onClick       | `(keyObj: KeyObj) => void` | N        | -            | Whether to display Modal immediately                                                                    | 2.0       |
+| autoHide      | `boolean`                  | N        | `true`       | Whether to automatically close the Modal dialog after clicking the Confirm or Cancel button             | 2.0       |
+| subtitle      | `string`                   | N        | -            | subtitle                                                                                                | 3.6       |
+| src           | `string`                   | N        | -            | Icon icon path                                                                                          | 3.6       |
+| text          | `string`                   | N        | -            | text content                                                                                            | 3.6       |
+| textColor     | `number`                   | N        | `0xFFFFFF`   | text color                                                                                              | 3.6       |
+| textAlpha     | `number`                   | N        | `255`        | Text transparency, transparency [0-255], 0 is full transparency                                         | 3.6       |
+| okButton      | `string`                   | N        | -            | The icon path of the confirmation button                                                                | 3.6       |
+| cancelButton  | `string`                   | N        | -            | Cancel button icon icon path                                                                            | 3.6       |
+| capsuleButton | `Array<string>`            | N        | -            | Capsule button configuration, as a string array, click `type` in the returned KeyObj starting from `10` | 3.6       |
 
 ### KeyObj
 
-| Property | Type                | Description                                              | API_LEVEL |
-| -------- | ------------------- | -------------------------------------------------------- | --------- |
+| Property | Type     | Description                                              | API_LEVEL |
+| -------- | -------- | -------------------------------------------------------- | --------- |
 | type     | `number` | Modal key name, value reference Modal key name constants | 2.0       |
 
 ### Modal
 
-| Property | Type                                       | Description        | API_LEVEL |
-| -------- | ------------------------------------------ | ------------------ | --------- |
+| Property | Type                        | Description        | API_LEVEL |
+| -------- | --------------------------- | ------------------ | --------- |
 | show     | `(isShow: boolean) => void` | Show or hide Modal | 2.0       |
 
 ## Constants
@@ -114,7 +116,6 @@ function createModal(option: Option): Modal
 ## Example
 
 ```js
-
 const dialog = createModal({
   content: 'hello world',
   autoHide: false,
@@ -125,7 +126,7 @@ const dialog = createModal({
     } else {
       dialog.show(false)
     }
-  },
+  }
 })
 
 dialog.show(true)
@@ -162,7 +163,9 @@ onDigitalCrown({
 offDigitalCrown()
 ```
 
-> Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::note
+Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 Cancel the `onDigitalCrown` registration to listen for digital crown rotation events.
 
@@ -175,7 +178,6 @@ function offDigitalCrown(): void
 ## Example
 
 ```js
-
 const callback = (key, degree) => {
   if (key === KEY_HOME) {
     console.log(degree)
@@ -183,7 +185,7 @@ const callback = (key, degree) => {
 }
 
 onDigitalCrown({
-  callback,
+  callback
 })
 
 offDigitalCrown()
@@ -222,7 +224,9 @@ onGesture({
 offGesture()
 ```
 
-> Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::note
+Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 Cancel the `onGesture` registration to listen for user gesture events.
 
@@ -235,7 +239,6 @@ function offGesture(): void
 ## Example
 
 ```js
-
 const gestureCallback = (event) => {
   if (event === GESTURE_UP) {
     console.log('up')
@@ -245,7 +248,7 @@ const gestureCallback = (event) => {
 }
 
 onGesture({
-  callback: gestureCallback,
+  callback: gestureCallback
 })
 
 offGesture()
@@ -283,7 +286,9 @@ onKey({
 offKey()
 ```
 
-> Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::note
+Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 Cancel the keystroke event registered by `onKey`..
 
@@ -296,7 +301,6 @@ function offKey(): void
 ## Example
 
 ```js
-
 const keyCallback = (key, keyEvent) => {
   if (key === KEY_UP && keyEvent === KEY_EVENT_CLICK) {
     console.log('up click')
@@ -305,7 +309,7 @@ const keyCallback = (key, keyEvent) => {
 }
 
 onKey({
-  callback: keyCallback,
+  callback: keyCallback
 })
 
 offKey()
@@ -339,7 +343,9 @@ onDigitalCrown({
 })
 ```
 
-> Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::note
+Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 Listen to the digital crown rotation event, only one event is allowed to be registered, if multiple registrations will cause the last registered event to fail.
 
@@ -359,20 +365,20 @@ function onDigitalCrown(callback: (key: Key, degree: Degree) => void): void
 
 ### Option
 
-| Property | Type                                                | Required | DefaultValue | Description                                    | API_LEVEL |
-| -------- | --------------------------------------------------- | -------- | ------------ | ---------------------------------------------- | --------- |
+| Property | Type                                 | Required | DefaultValue | Description                                    | API_LEVEL |
+| -------- | ------------------------------------ | -------- | ------------ | ---------------------------------------------- | --------- |
 | callback | `(key: Key, degree: Degree) => void` | Y        | -            | Digital crown rotation event callback function | 2.0       |
 
 ### Key
 
-| Type                | Description                                                                          |
-| ------------------- | ------------------------------------------------------------------------------------ |
+| Type     | Description                                                                          |
+| -------- | ------------------------------------------------------------------------------------ |
 | `number` | Key name, value reference key name constants, currently only `KEY_HOME` is supported |
 
 ### Degree
 
-| Type                | Description                                                                                                                                                                                               |
-| ------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Type     | Description                                                                                                                                                                                               |
+| -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `number` | The rotation angle, positive number is counterclockwise rotation, negative number is clockwise rotation. The value is the angle of rotation, the faster the rotation speed, the larger the absolute value |
 
 ## Constants
@@ -391,13 +397,12 @@ function onDigitalCrown(callback: (key: Key, degree: Degree) => void): void
 ## Example
 
 ```js
-
 onDigitalCrown({
   callback: (key, degree) => {
     if (key === KEY_HOME) {
       console.log(degree)
     }
-  },
+  }
 })
 ```
 
@@ -430,7 +435,9 @@ onGesture({
 })
 ```
 
-> Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::note
+Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 Listen to user gesture events, only one event is allowed to be registered, if multiple registrations will cause the last registered event to fail.
 
@@ -450,20 +457,20 @@ function onGesture(callback: (event: GestureEvent) => PreventDefault): void
 
 ### Option
 
-| Property | Type                                                     | Required | DefaultValue | Description                     | API_LEVEL |
-| -------- | -------------------------------------------------------- | -------- | ------------ | ------------------------------- | --------- |
+| Property | Type                                      | Required | DefaultValue | Description                     | API_LEVEL |
+| -------- | ----------------------------------------- | -------- | ------------ | ------------------------------- | --------- |
 | callback | `(event: GestureEvent) => PreventDefault` | Y        | -            | Gesture event callback function | 2.0       |
 
 ### GestureEvent
 
-| Type                | Description                                                 |
-| ------------------- | ----------------------------------------------------------- |
+| Type     | Description                                                 |
+| -------- | ----------------------------------------------------------- |
 | `number` | Gesture event name, value reference gesture event constants |
 
 ### PreventDefault
 
-| Type                 | Description                                                                       |
-| -------------------- | --------------------------------------------------------------------------------- |
+| Type      | Description                                                                       |
+| --------- | --------------------------------------------------------------------------------- |
 | `boolean` | Whether to skip the default gesture behavior, `true` - skip, `false` - don't skip |
 
 ## Constants
@@ -480,14 +487,13 @@ function onGesture(callback: (event: GestureEvent) => PreventDefault): void
 ## Example
 
 ```js
-
 onGesture({
   callback: (event) => {
     if (event === GESTURE_UP) {
       console.log('up')
     }
     return true
-  },
+  }
 })
 ```
 
@@ -520,7 +526,9 @@ onKey({
 })
 ```
 
-> Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::note
+Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 Listen to key events, only one event is allowed to be registered, if multiple registrations will cause the last registered event to fail.
 
@@ -540,26 +548,26 @@ function onKey(callback: (key: Key, event: KeyEvent) => PreventDefault): void
 
 ### Option
 
-| Property | Type                                                           | Required | DefaultValue | Description                 | API_LEVEL |
-| -------- | -------------------------------------------------------------- | -------- | ------------ | --------------------------- | --------- |
+| Property | Type                                            | Required | DefaultValue | Description                 | API_LEVEL |
+| -------- | ----------------------------------------------- | -------- | ------------ | --------------------------- | --------- |
 | callback | `(key: Key, event: KeyEvent) => PreventDefault` | Y        | -            | Key event callback function | 2.0       |
 
 ### Key
 
-| Type                | Description                                  |
-| ------------------- | -------------------------------------------- |
+| Type     | Description                                  |
+| -------- | -------------------------------------------- |
 | `number` | Key name, value reference key name constants |
 
 ### KeyEvent
 
-| Type                | Description                                         |
-| ------------------- | --------------------------------------------------- |
+| Type     | Description                                         |
+| -------- | --------------------------------------------------- |
 | `number` | Key event name, value reference key event constants |
 
 ### PreventDefault
 
-| Type                 | Description                                                                   |
-| -------------------- | ----------------------------------------------------------------------------- |
+| Type      | Description                                                                   |
+| --------- | ----------------------------------------------------------------------------- |
 | `boolean` | Whether to skip the default key behavior, `true` - skip, `false` - don't skip |
 
 ## Constants
@@ -588,14 +596,13 @@ function onKey(callback: (key: Key, event: KeyEvent) => PreventDefault): void
 ## Example
 
 ```js
-
 onKey({
   callback: (key, keyEvent) => {
     if (key === KEY_UP && keyEvent === KEY_EVENT_CLICK) {
       console.log('up click')
     }
     return true
-  },
+  }
 })
 ```
 
@@ -630,7 +637,9 @@ onWristMotion({
 })
 ```
 
-> Start from API_LEVEL `3.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::note
+Start from API_LEVEL `3.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::
 
 Monitoring hand movement events.
 
@@ -644,14 +653,14 @@ function onWristMotion(option: Option): void
 
 ### Option
 
-| Property | Type                                      | Required | DefaultValue | Description                                    | API_LEVEL |
-| -------- | ----------------------------------------- | -------- | ------------ | ---------------------------------------------- | --------- |
+| Property | Type                       | Required | DefaultValue | Description                                    | API_LEVEL |
+| -------- | -------------------------- | -------- | ------------ | ---------------------------------------------- | --------- |
 | callback | `(params: Params) => void` | Y        | -            | Digital crown rotation event callback function | 3.0       |
 
 ### Params
 
-| Property | Type                | Description                                       | API_LEVEL |
-| -------- | ------------------- | ------------------------------------------------- | --------- |
+| Property | Type     | Description                                       | API_LEVEL |
+| -------- | -------- | ------------------------------------------------- | --------- |
 | type     | `number` | Action type, 0 - palm covering, 3 - wrist event   | 3.6       |
 | motion   | `number` | Action code, value reference hand motion constant | 3.0       |
 
@@ -668,7 +677,6 @@ function onWristMotion(option: Option): void
 ## Example
 
 ```js
-
 onWristMotion({
   callback: (result) => {
     const { type, motion } = result
@@ -676,7 +684,7 @@ onWristMotion({
     if (type === 3) {
       console.log(motion === WRIST_MOTION_LIFT)
     }
-  },
+  }
 })
 ```
 
@@ -703,7 +711,9 @@ showToast({
 })
 ```
 
-> Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::note
+Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 [Image: showToast_image}]
 
@@ -719,18 +729,16 @@ function showToast(option: Option): void
 
 ### Option
 
-| Property | Type                | Required | DefaultValue | Description           | API_LEVEL |
-| -------- | ------------------- | -------- | ------------ | --------------------- | --------- |
+| Property | Type     | Required | DefaultValue | Description           | API_LEVEL |
+| -------- | -------- | -------- | ------------ | --------------------- | --------- |
 | content  | `string` | Y        | -            | Content of the prompt | 2.0       |
 
 ## Example
 
 ```js
-
 showToast({
-  content: 'hello world',
+  content: 'hello world'
 })
 ```
 
 ---
-

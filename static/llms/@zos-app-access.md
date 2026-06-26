@@ -18,18 +18,23 @@ import { getSportData } from '@zos/app-access'
 ```js
 import { getSportData } from '@zos/app-access'
 
-const result = getSportData({
-  type: 'distance',
-}, (callbackResult) => {
-  const { code, data } = callbackResult
-  if (code === 0) {
-    const [{ distance }] = JSON.parse(data)
-    console.log(distance)
+const result = getSportData(
+  {
+    type: 'distance'
+  },
+  (callbackResult) => {
+    const { code, data } = callbackResult
+    if (code === 0) {
+      const [{ distance }] = JSON.parse(data)
+      console.log(distance)
+    }
   }
-})
+)
 ```
 
-> Start from API_LEVEL `3.6` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::note
+Start from API_LEVEL `3.6` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 By default, the system will off the screen in one page of the Mini Program, and the system will exit the Mini Program after 10s, and enter the dial page when the watch is woken up again. If `relaunch` is set to `true`, the Mini Program will reopen and enter the corresponding page when the watch is woken up again.
 
@@ -47,27 +52,27 @@ function getSportData(options: Options, callback: (callbackResult: CallbackResul
 
 ### Options
 
-| Property | Type                | Required | DefaultValue | Description                                    | API_LEVEL |
-| -------- | ------------------- | -------- | ------------ | ---------------------------------------------- | --------- |
+| Property | Type     | Required | DefaultValue | Description                                    | API_LEVEL |
+| -------- | -------- | -------- | ------------ | ---------------------------------------------- | --------- |
 | type     | `string` | Y        | -            | Sports type, refer to the value of `SportType` | 3.6       |
 
 ### CallbackResult
 
-| Property | Type                | Description                                                                                                                                                                                                                                                                  | API_LEVEL |
-| -------- | ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- |
+| Property | Type     | Description                                                                                                                                                                                                                                                                  | API_LEVEL |
+| -------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- |
 | code     | `number` | Result status code, `0` means success, non- `0` means failure                                                                                                                                                                                                                | 3.6       |
 | data     | `string` | Sports data, return value type is string, needs to be parsed using `JSON.parse`, the parsed type is `Array<object>`, the specific type of `object` can be referred to the `SportType` type description below, and the return value corresponding to each `type` is different | 3.6       |
 
 ### Result
 
-| Type                 | Description                                                                       |
-| -------------------- | --------------------------------------------------------------------------------- |
+| Type      | Description                                                                       |
+| --------- | --------------------------------------------------------------------------------- |
 | `Boolean` | If it returns `true`, it means the call was successful, otherwise the call failed |
 
 ### SportType
 
-| Value                   | Type                | Description                                                                                                                 | API_LEVEL |
-| ----------------------- | ------------------- | --------------------------------------------------------------------------------------------------------------------------- | --------- |
+| Value                   | Type     | Description                                                                                                                 | API_LEVEL |
+| ----------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------- | --------- |
 | speed                   | `object` | Speed, example return value `{"speed": "9.99", "name": "Speed"}`                                                            | 3.6       |
 | avg_speed               | `object` | Average speed, example return value `{"avg_speed": "9.99", "name": "Average Speed"}`                                        | 3.6       |
 | pace                    | `object` | Pace, example return value `{"avg_pace": "1' 12" "," name ":" Average Pace "}`                                              | 3.6       |
@@ -87,10 +92,9 @@ function getSportData(options: Options, callback: (callbackResult: CallbackResul
 ## Example
 
 ```js
-
 const result = getSportData(
   {
-    type: 'distance',
+    type: 'distance'
   },
   (callbackResult) => {
     const { code, data } = callbackResult
@@ -98,9 +102,8 @@ const result = getSportData(
       const [{ distance }] = JSON.parse(data)
       console.log(distance)
     }
-  },
+  }
 )
 ```
 
 ---
-

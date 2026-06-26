@@ -3,7 +3,9 @@ title: STROKE_RECT
 sidebar_label: STROKE_RECT
 ---
 
-> Supported from API_LEVEL `2.0`. For API compatibility, please refer to [API_LEVEL](../../../../../guides/framework/device/compatibility.md).
+:::note
+Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 ![stroke_rect_sample](/img/api/stroke_rect_sample.jpg)
 
@@ -21,37 +23,40 @@ const strokeRect = createWidget(widget.STROKE_RECT, Param)
 
 ### Param: object
 
-| Property     | Description                                                  | Required | Type     | API_LEVEL |
-| ------------ | ------------------------------------------------------------ | -------- | -------- | --------- |
-| x            | The x-axis coordinate of the widget                          | YES      | `number` | 2.0       |
-| y            | The y-axis coordinate of the widget                          | YES      | `number` | 2.0       |
-| w            | The width of the widget                                      | YES      | `number` | 2.0       |
-| h            | The height of the widget                                     | YES      | `number` | 2.0       |
-| color        | The widget's color                                           | YES      | `number` | 2.0       |
-| radius       | The rectangle's rounded corners                              | NO       | `number` | 2.0       |
-| line_width   | The width of stroke                                          | NO       | `number` | 2.0       |
-| angle        | Rotation angle                                               | NO       | `number` | 2.0       |
-| pos_x        | Drawing area x offset (only effective when angle%360!=0)     | NO       | `number` | 4.0       |
-| pos_y        | Drawing area y offset (only effective when angle%360!=0)     | NO       | `number` | 4.0       |
-| rect_width   | Width of the drawing area (only effective when angle%360!=0) | NO       | `number` | 4.0       |
-| rect_height  | Height of the drawing area (only effective when angle%360!=0) | NO       | `number` | 4.0       |
+| Property    | Description                                                   | Required | Type     | API_LEVEL |
+| ----------- | ------------------------------------------------------------- | -------- | -------- | --------- |
+| x           | The x-axis coordinate of the widget                           | YES      | `number` | 2.0       |
+| y           | The y-axis coordinate of the widget                           | YES      | `number` | 2.0       |
+| w           | The width of the widget                                       | YES      | `number` | 2.0       |
+| h           | The height of the widget                                      | YES      | `number` | 2.0       |
+| color       | The widget's color                                            | YES      | `number` | 2.0       |
+| radius      | The rectangle's rounded corners                               | NO       | `number` | 2.0       |
+| line_width  | The width of stroke                                           | NO       | `number` | 2.0       |
+| angle       | Rotation angle                                                | NO       | `number` | 2.0       |
+| pos_x       | Drawing area x offset (only effective when angle%360!=0)      | NO       | `number` | 4.0       |
+| pos_y       | Drawing area y offset (only effective when angle%360!=0)      | NO       | `number` | 4.0       |
+| rect_width  | Width of the drawing area (only effective when angle%360!=0)  | NO       | `number` | 4.0       |
+| rect_height | Height of the drawing area (only effective when angle%360!=0) | NO       | `number` | 4.0       |
 
-## Property Access Support List
+<details>
+<summary>Click to view property support table</summary>
 
 | Property Name | setProperty | getProperty | [setter](../gettersetter.mdx) | [getter](../gettersetter.mdx) |
-| ------------- | ----------- | ----------- | ---------------------------- | ---------------------------- |
-| x             | Y           | Y           | Y                            | Y                            |
-| y             | Y           | Y           | Y                            | Y                            |
-| w             | Y           | Y           | Y                            | Y                            |
-| h             | Y           | Y           | Y                            | Y                            |
-| color         | Y           | Y           | Y                            | Y                            |
-| radius        | Y           | Y           | Y                            | Y                            |
-| line_width    | Y           | Y           | Y                            | Y                            |
-| angle         | Y           | Y           | Y                            | Y                            |
-| pos_x         | N           | Y           | N                            | Y                            |
-| pos_y         | N           | Y           | N                            | Y                            |
-| rect_width    | N           | N           | N                            | Y                            |
-| rect_height   | N           | N           | N                            | Y                            |
+| ------------- | ----------- | ----------- | ----------------------------- | ----------------------------- |
+| x             | Y           | Y           | Y                             | Y                             |
+| y             | Y           | Y           | Y                             | Y                             |
+| w             | Y           | Y           | Y                             | Y                             |
+| h             | Y           | Y           | Y                             | Y                             |
+| color         | Y           | Y           | Y                             | Y                             |
+| radius        | Y           | Y           | Y                             | Y                             |
+| line_width    | Y           | Y           | Y                             | Y                             |
+| angle         | Y           | Y           | Y                             | Y                             |
+| pos_x         | N           | Y           | N                             | Y                             |
+| pos_y         | N           | Y           | N                             | Y                             |
+| rect_width    | N           | N           | N                             | Y                             |
+| rect_height   | N           | N           | N                             | Y                             |
+
+</details>
 
 ## Code Example
 

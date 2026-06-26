@@ -2,11 +2,11 @@
 
 ## Constants
 
-| Constant | Description | API_LEVEL |
-|----------|-------------|-----------|
-| `GENDER_MALE` | Male | — |
-| `GENDER_FEMALE` | Female | — |
-| `GENDER_UNSPECIFIED` | User not specified | — |
+| Constant             | Description        | API_LEVEL |
+| -------------------- | ------------------ | --------- |
+| `GENDER_MALE`        | Male               | —         |
+| `GENDER_FEMALE`      | Female             | —         |
+| `GENDER_UNSPECIFIED` | User not specified | —         |
 
 ## addHealthData
 
@@ -32,7 +32,9 @@ addHealthData({
 })
 ```
 
-> Start from API_LEVEL `3.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::note
+Start from API_LEVEL `3.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::
 
 Set user health data information.
 
@@ -50,24 +52,23 @@ function addHealthData(option: Option): Result
 
 ### Option
 
-| Property | Type                | Required | DefaultValue | Description                | API_LEVEL |
-| -------- | ------------------- | -------- | ------------ | -------------------------- | --------- |
+| Property | Type     | Required | DefaultValue | Description                | API_LEVEL |
+| -------- | -------- | -------- | ------------ | -------------------------- | --------- |
 | weight   | `number` | Y        | -            | Weight, in g               | 3.0       |
 | bmi      | `number` | Y        | -            | 100 times the value of BMI | 3.0       |
 
 ### Result
 
-| Type                 | Description |
-| -------------------- | ----------- |
+| Type      | Description |
+| --------- | ----------- |
 | `boolean` | undefined   |
 
 ## Example
 
 ```js
-
 addHealthData({
   weight: 65,
-  bmi: 1900,
+  bmi: 1900
 })
 ```
 
@@ -99,7 +100,9 @@ if (gender === GENDER_MALE) {
 }
 ```
 
-> Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::note
+Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 Get user information.
 
@@ -117,8 +120,8 @@ function getProfile(): Result
 
 ### Result
 
-| Property | Type                | Description                                                            | API_LEVEL |
-| -------- | ------------------- | ---------------------------------------------------------------------- | --------- |
+| Property | Type     | Description                                                            | API_LEVEL |
+| -------- | -------- | ---------------------------------------------------------------------- | --------- |
 | age      | `number` | User age, `0` if no data                                               | 2.0       |
 | height   | `number` | User height, `0` if no data                                            | 2.0       |
 | weight   | `number` | User weight, `0` if no data                                            | 2.0       |
@@ -139,7 +142,6 @@ function getProfile(): Result
 ## Example
 
 ```js
-
 const { age, gender } = getProfile()
 console.log(age)
 
@@ -149,4 +151,3 @@ if (gender === GENDER_MALE) {
 ```
 
 ---
-

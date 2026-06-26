@@ -19,7 +19,9 @@ import { addListener } from '@zos/ble'
 // ...
 ```
 
-> Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::note
+Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 Registering connection status listening callback function.
 
@@ -33,14 +35,13 @@ function addListener(callback: Callback): void
 
 ### Callback
 
-| Type                                        | Description                                              |
-| ------------------------------------------- | -------------------------------------------------------- |
+| Type                         | Description                                              |
+| ---------------------------- | -------------------------------------------------------- |
 | `(status?: boolean) => void` | Connection callback function, `status` Connection status |
 
 ## Example
 
 ```js
-
 // ...
 ```
 
@@ -65,7 +66,9 @@ import { connectStatus } from '@zos/ble'
 // ...
 ```
 
-> Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::note
+Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 Query connection status, `true` means connected, `false` means not connected.
 
@@ -78,7 +81,6 @@ function connectStatus(): boolean
 ## Example
 
 ```js
-
 // ...
 ```
 
@@ -103,7 +105,9 @@ import { createConnect } from '@zos/ble'
 // ...
 ```
 
-> Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::note
+Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 Create connection.
 
@@ -117,14 +121,13 @@ function createConnect(callback: Callback): void
 
 ### Callback
 
-| Type                                                                    | Description                                                                          |
-| ----------------------------------------------------------------------- | ------------------------------------------------------------------------------------ |
+| Type                                                     | Description                                                                          |
+| -------------------------------------------------------- | ------------------------------------------------------------------------------------ |
 | `(index?: number, data?: object, size?: number) => void` | Connection callback function, `index` packet number, `data` data, `size` data length |
 
 ## Example
 
 ```js
-
 // ...
 ```
 
@@ -149,7 +152,9 @@ import { disConnect } from '@zos/ble'
 // ...
 ```
 
-> Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::note
+Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 Disconnect.
 
@@ -162,7 +167,6 @@ function disConnect(): void
 ## Example
 
 ```js
-
 // ...
 ```
 
@@ -188,7 +192,9 @@ import { mstBuildProfile } from '@zos/ble'
 // ...
 ```
 
-> Start from API_LEVEL `3.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::note
+Start from API_LEVEL `3.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::
 
 Creating a Profile connection.
 
@@ -202,57 +208,56 @@ function mstBuildProfile(profile: ProfileObj): Result
 
 ### ProfileObj
 
-| Property | Type                                    | Required | DefaultValue | Description                                                   | API_LEVEL |
-| -------- | --------------------------------------- | -------- | ------------ | ------------------------------------------------------------- | --------- |
-| pair     | `boolean`                    | Y        | -            | Whether to pair automatically                                 | 3.0       |
-| id       | `number`                     | Y        | -            | Connection ID                                                 | 3.0       |
-| profile  | `string`                     | Y        | -            | Profile Name                                                  | 3.0       |
-| dev      | `ArrayBuffer`                | Y        | -            | Device MAC address, 6 bytes long, Uint8Array view recommended | 3.0       |
-| len      | `number`                     | Y        | -            | `list` array length                                           | 3.0       |
+| Property | Type                 | Required | DefaultValue | Description                                                   | API_LEVEL |
+| -------- | -------------------- | -------- | ------------ | ------------------------------------------------------------- | --------- |
+| pair     | `boolean`            | Y        | -            | Whether to pair automatically                                 | 3.0       |
+| id       | `number`             | Y        | -            | Connection ID                                                 | 3.0       |
+| profile  | `string`             | Y        | -            | Profile Name                                                  | 3.0       |
+| dev      | `ArrayBuffer`        | Y        | -            | Device MAC address, 6 bytes long, Uint8Array view recommended | 3.0       |
+| len      | `number`             | Y        | -            | `list` array length                                           | 3.0       |
 | list     | `Array<ServicesObj>` | Y        | -            | Services list array                                           | 3.0       |
 
 ### ServicesObj
 
-| Property | Type                                   | Required | DefaultValue | Description         | API_LEVEL |
-| -------- | -------------------------------------- | -------- | ------------ | ------------------- | --------- |
-| len      | `number`                    | Y        | -            | `list` array length | 3.0       |
+| Property | Type                | Required | DefaultValue | Description         | API_LEVEL |
+| -------- | ------------------- | -------- | ------------ | ------------------- | --------- |
+| len      | `number`            | Y        | -            | `list` array length | 3.0       |
 | list     | `Array<ServiceObj>` | Y        | -            | Service array       | 3.0       |
 
 ### ServiceObj
 
-| Property   | Type                                          | Required | DefaultValue   | Description                                | API_LEVEL |
-| ---------- | --------------------------------------------- | -------- | -------------- | ------------------------------------------ | --------- |
-| uuid       | `string`                           | Y        | -              | Service UUID                               | 3.0       |
-| permission | `number`                           | N        | `0` | Permission control, default `0` No control | 3.0       |
-| len1       | `number`                           | Y        | -              | Characteristic array length                | 3.0       |
-| list       | `Array<CharacteristicObj>` | Y        | -              | Characteristic length                      | 3.0       |
+| Property   | Type                       | Required | DefaultValue | Description                                | API_LEVEL |
+| ---------- | -------------------------- | -------- | ------------ | ------------------------------------------ | --------- |
+| uuid       | `string`                   | Y        | -            | Service UUID                               | 3.0       |
+| permission | `number`                   | N        | `0`          | Permission control, default `0` No control | 3.0       |
+| len1       | `number`                   | Y        | -            | Characteristic array length                | 3.0       |
+| list       | `Array<CharacteristicObj>` | Y        | -            | Characteristic length                      | 3.0       |
 
 ### CharacteristicObj
 
-| Property   | Type                                      | Required | DefaultValue   | Description                                | API_LEVEL |
-| ---------- | ----------------------------------------- | -------- | -------------- | ------------------------------------------ | --------- |
-| uuid       | `string`                       | Y        | -              | Characteristic UUID                        | 3.0       |
-| permission | `number`                       | N        | `0` | Permission control, default `0` No control | 3.0       |
-| len        | `number`                       | Y        | -              | Descriptor array length                    | 3.0       |
-| list       | `Array<DescriptorObj>` | Y        | -              | Descriptor array                           | 3.0       |
+| Property   | Type                   | Required | DefaultValue | Description                                | API_LEVEL |
+| ---------- | ---------------------- | -------- | ------------ | ------------------------------------------ | --------- |
+| uuid       | `string`               | Y        | -            | Characteristic UUID                        | 3.0       |
+| permission | `number`               | N        | `0`          | Permission control, default `0` No control | 3.0       |
+| len        | `number`               | Y        | -            | Descriptor array length                    | 3.0       |
+| list       | `Array<DescriptorObj>` | Y        | -            | Descriptor array                           | 3.0       |
 
 ### DescriptorObj
 
-| Property   | Type                | Required | DefaultValue   | Description                                | API_LEVEL |
-| ---------- | ------------------- | -------- | -------------- | ------------------------------------------ | --------- |
-| uuid       | `string` | Y        | -              | Descriptor UUID                            | 3.0       |
-| permission | `number` | N        | `0` | Permission control, default `0` No control | 3.0       |
+| Property   | Type     | Required | DefaultValue | Description                                | API_LEVEL |
+| ---------- | -------- | -------- | ------------ | ------------------------------------------ | --------- |
+| uuid       | `string` | Y        | -            | Descriptor UUID                            | 3.0       |
+| permission | `number` | N        | `0`          | Permission control, default `0` No control | 3.0       |
 
 ### Result
 
-| Type                 | Description                                                                  |
-| -------------------- | ---------------------------------------------------------------------------- |
+| Type      | Description                                                                  |
+| --------- | ---------------------------------------------------------------------------- |
 | `boolean` | The result of the function call, `true` means success, `false` means failure |
 
 ## Example
 
 ```js
-
 // ...
 ```
 
@@ -278,7 +283,9 @@ import { mstConnect } from '@zos/ble'
 // ...
 ```
 
-> Start from API_LEVEL `3.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::note
+Start from API_LEVEL `3.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::
 
 Connecting Devices.
 
@@ -292,34 +299,33 @@ function mstConnect(deviceAddress: DeviceAddress, callback: Callback): Result
 
 ### DeviceAddress
 
-| Type                     | Description                                                   |
-| ------------------------ | ------------------------------------------------------------- |
+| Type          | Description                                                   |
+| ------------- | ------------------------------------------------------------- |
 | `ArrayBuffer` | Device MAC address, 6 bytes long, Uint8Array view recommended |
 
 ### Callback
 
-| Type                                             | Description                         |
-| ------------------------------------------------ | ----------------------------------- |
+| Type                              | Description                         |
+| --------------------------------- | ----------------------------------- |
 | `(result: ConnectResult) => void` | Connection result callback function |
 
 ### ConnectResult
 
-| Property   | Type                     | Description                                                                                 | API_LEVEL |
-| ---------- | ------------------------ | ------------------------------------------------------------------------------------------- | --------- |
+| Property   | Type          | Description                                                                                 | API_LEVEL |
+| ---------- | ------------- | ------------------------------------------------------------------------------------------- | --------- |
 | connected  | `number`      | Connection status, `0` - successful connection, `1` - failed connection, `2` - disconnected | 3.0       |
 | connect_id | `number`      | The ID of the connection is returned when the connection is successful                      | 3.0       |
 | dev_addr   | `ArrayBuffer` | Device MAC address, 6 bytes long, Uint8Array view recommended                               | 3.0       |
 
 ### Result
 
-| Type                 | Description                                                                  |
-| -------------------- | ---------------------------------------------------------------------------- |
+| Type      | Description                                                                  |
+| --------- | ---------------------------------------------------------------------------- |
 | `boolean` | The result of the function call, `true` means success, `false` means failure |
 
 ## Example
 
 ```js
-
 // ...
 ```
 
@@ -345,7 +351,9 @@ import { mstDestroyProfileInstance } from '@zos/ble'
 mstDestroyProfileInstance()
 ```
 
-> Start from API_LEVEL `3.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::note
+Start from API_LEVEL `3.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::
 
 Destroy Profile.
 
@@ -359,14 +367,13 @@ function mstDestroyProfileInstance(profile: Profile): void
 
 ### Profile
 
-| Type                | Description     |
-| ------------------- | --------------- |
+| Type     | Description     |
+| -------- | --------------- |
 | `number` | Profile pointer |
 
 ## Example
 
 ```js
-
 mstDestroyProfileInstance()
 ```
 
@@ -392,7 +399,9 @@ import { mstDisconnect } from '@zos/ble'
 // ...
 ```
 
-> Start from API_LEVEL `3.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::note
+Start from API_LEVEL `3.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::
 
 Disconnecting devices.
 
@@ -406,20 +415,19 @@ function mstDisconnect(connectId: ConnectId): Result
 
 ### ConnectId
 
-| Type                | Description                                                                             |
-| ------------------- | --------------------------------------------------------------------------------------- |
+| Type     | Description                                                                             |
+| -------- | --------------------------------------------------------------------------------------- |
 | `number` | The connection ID returned when the connection is successful using the `mstConnect` API |
 
 ### Result
 
-| Type                 | Description                                                                  |
-| -------------------- | ---------------------------------------------------------------------------- |
+| Type      | Description                                                                  |
+| --------- | ---------------------------------------------------------------------------- |
 | `boolean` | The result of the function call, `true` means success, `false` means failure |
 
 ## Example
 
 ```js
-
 // ...
 ```
 
@@ -445,7 +453,9 @@ import { mstGetConnIdByRemoteAddr } from '@zos/ble'
 // ...
 ```
 
-> Start from API_LEVEL `3.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::note
+Start from API_LEVEL `3.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::
 
 Look up the connection Id based on the Peripheral MAC address.
 
@@ -459,20 +469,19 @@ function mstGetConnIdByRemoteAddr(deviceAddress: DeviceAddress): Result
 
 ### DeviceAddress
 
-| Type                     | Description                                                   |
-| ------------------------ | ------------------------------------------------------------- |
+| Type          | Description                                                   |
+| ------------- | ------------------------------------------------------------- |
 | `ArrayBuffer` | Device MAC address, 6 bytes long, Uint8Array view recommended |
 
 ### Result
 
-| Type                               | Description                                                                                                    |
-| ---------------------------------- | -------------------------------------------------------------------------------------------------------------- |
+| Type                    | Description                                                                                                    |
+| ----------------------- | -------------------------------------------------------------------------------------------------------------- |
 | `number&#124;undefined` | The result of the function call returns `connectId` for a successful query and `undefined` for a failed query. |
 
 ## Example
 
 ```js
-
 // ...
 ```
 
@@ -498,7 +507,9 @@ import { mstGetProfileInstance } from '@zos/ble'
 // ...
 ```
 
-> Start from API_LEVEL `3.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::note
+Start from API_LEVEL `3.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::
 
 Query Profile pointer based on Profile name and connection ID.
 
@@ -512,26 +523,25 @@ function mstGetProfileInstance(profileName: ProfileName, connectId: ConnectId): 
 
 ### ProfileName
 
-| Type                | Description  |
-| ------------------- | ------------ |
+| Type     | Description  |
+| -------- | ------------ |
 | `string` | Profile name |
 
 ### ConnectId
 
-| Type                | Description                                |
-| ------------------- | ------------------------------------------ |
+| Type     | Description                                |
+| -------- | ------------------------------------------ |
 | `number` | The ID returned on a successful connection |
 
 ### Result
 
-| Type                               | Description                                                                          |
-| ---------------------------------- | ------------------------------------------------------------------------------------ |
+| Type                    | Description                                                                          |
+| ----------------------- | ------------------------------------------------------------------------------------ |
 | `number&#124;undefined` | A successful search returns the Profile pointer, a failed search returns `undefined` |
 
 ## Example
 
 ```js
-
 // ...
 ```
 
@@ -557,7 +567,9 @@ import { mstOffAllCb } from '@zos/ble'
 mstOffAllCb()
 ```
 
-> Start from API_LEVEL `3.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::note
+Start from API_LEVEL `3.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::
 
 Unregister of all registered Bluetooth-related callback functions.
 
@@ -570,7 +582,6 @@ function mstOffAllCb(): void
 ## Example
 
 ```js
-
 mstOffAllCb()
 ```
 
@@ -596,7 +607,9 @@ import { mstOnCharaNotification } from '@zos/ble'
 // ...
 ```
 
-> Start from API_LEVEL `3.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::note
+Start from API_LEVEL `3.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::
 
 Register Characteristic Notification to reach the callback function.
 
@@ -610,44 +623,43 @@ function mstOnCharaNotification(callback: Callback): Result
 
 ### Callback
 
-| Type                                                                                | Description                                                  |
-| ----------------------------------------------------------------------------------- | ------------------------------------------------------------ |
+| Type                                                                 | Description                                                  |
+| -------------------------------------------------------------------- | ------------------------------------------------------------ |
 | `(profile: Profile, uuid: UUID, data: Data, length: Length) => void` | Characteristic Notification arrives at the callback function |
 
 ### Profile
 
-| Type                | Description     |
-| ------------------- | --------------- |
+| Type     | Description     |
+| -------- | --------------- |
 | `number` | Profile pointer |
 
 ### UUID
 
-| Type                | Description                |
-| ------------------- | -------------------------- |
+| Type     | Description                |
+| -------- | -------------------------- |
 | `string` | Characteristic UUID string |
 
 ### Data
 
-| Type                     | Description                                                   |
-| ------------------------ | ------------------------------------------------------------- |
+| Type          | Description                                                   |
+| ------------- | ------------------------------------------------------------- |
 | `ArrayBuffer` | It is recommended to use the Uint8Array view to read the data |
 
 ### Length
 
-| Type                | Description |
-| ------------------- | ----------- |
+| Type     | Description |
+| -------- | ----------- |
 | `number` | Data length |
 
 ### Result
 
-| Type                 | Description                                                                  |
-| -------------------- | ---------------------------------------------------------------------------- |
+| Type      | Description                                                                  |
+| --------- | ---------------------------------------------------------------------------- |
 | `boolean` | The result of the function call, `true` means success, `false` means failure |
 
 ## Example
 
 ```js
-
 // ...
 ```
 
@@ -673,7 +685,9 @@ import { mstOnCharaReadComplete } from '@zos/ble'
 // ...
 ```
 
-> Start from API_LEVEL `3.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::note
+Start from API_LEVEL `3.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::
 
 Register the read Characteristic completion callback function.
 
@@ -687,38 +701,37 @@ function mstOnCharaReadComplete(callback: Callback): Result
 
 ### Callback
 
-| Type                                                                    | Description                                      |
-| ----------------------------------------------------------------------- | ------------------------------------------------ |
+| Type                                                     | Description                                      |
+| -------------------------------------------------------- | ------------------------------------------------ |
 | `(profile: Profile, uuid: UUID, status: Status) => void` | Read Characteristic Completion Callback Function |
 
 ### Profile
 
-| Type                | Description     |
-| ------------------- | --------------- |
+| Type     | Description     |
+| -------- | --------------- |
 | `number` | Profile pointer |
 
 ### UUID
 
-| Type                | Description                |
-| ------------------- | -------------------------- |
+| Type     | Description                |
+| -------- | -------------------------- |
 | `string` | Characteristic UUID string |
 
 ### Status
 
-| Type                | Description                   |
-| ------------------- | ----------------------------- |
+| Type     | Description                   |
+| -------- | ----------------------------- |
 | `number` | Status, `0` indicates success |
 
 ### Result
 
-| Type                 | Description                                                                  |
-| -------------------- | ---------------------------------------------------------------------------- |
+| Type      | Description                                                                  |
+| --------- | ---------------------------------------------------------------------------- |
 | `boolean` | The result of the function call, `true` means success, `false` means failure |
 
 ## Example
 
 ```js
-
 // ...
 ```
 
@@ -744,7 +757,9 @@ import { mstOnCharaValueArrived } from '@zos/ble'
 // ...
 ```
 
-> Start from API_LEVEL `3.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::note
+Start from API_LEVEL `3.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::
 
 Register to read Characteristic data to the callback function.
 
@@ -758,44 +773,43 @@ function mstOnCharaValueArrived(callback: Callback): Result
 
 ### Callback
 
-| Type                                                                                | Description                                       |
-| ----------------------------------------------------------------------------------- | ------------------------------------------------- |
+| Type                                                                 | Description                                       |
+| -------------------------------------------------------------------- | ------------------------------------------------- |
 | `(profile: Profile, uuid: UUID, data: Data, status: Status) => void` | Read Characteristic data to the callback function |
 
 ### Profile
 
-| Type                | Description     |
-| ------------------- | --------------- |
+| Type     | Description     |
+| -------- | --------------- |
 | `number` | Profile pointer |
 
 ### UUID
 
-| Type                | Description                |
-| ------------------- | -------------------------- |
+| Type     | Description                |
+| -------- | -------------------------- |
 | `string` | Characteristic UUID string |
 
 ### Data
 
-| Type                     | Description                              |
-| ------------------------ | ---------------------------------------- |
+| Type          | Description                              |
+| ------------- | ---------------------------------------- |
 | `ArrayBuffer` | Reads the data using the Uint8Array view |
 
 ### Status
 
-| Type                | Description                   |
-| ------------------- | ----------------------------- |
+| Type     | Description                   |
+| -------- | ----------------------------- |
 | `number` | Status, `0` indicates success |
 
 ### Result
 
-| Type                 | Description                                                                  |
-| -------------------- | ---------------------------------------------------------------------------- |
+| Type      | Description                                                                  |
+| --------- | ---------------------------------------------------------------------------- |
 | `boolean` | The result of the function call, `true` means success, `false` means failure |
 
 ## Example
 
 ```js
-
 // ...
 ```
 
@@ -821,7 +835,9 @@ import { mstOnCharaWriteComplete } from '@zos/ble'
 // ...
 ```
 
-> Start from API_LEVEL `3.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::note
+Start from API_LEVEL `3.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::
 
 Register the Write Characteristic data completion callback function.
 
@@ -835,38 +851,37 @@ function mstOnCharaWriteComplete(callback: Callback): Result
 
 ### Callback
 
-| Type                                                                    | Description                                            |
-| ----------------------------------------------------------------------- | ------------------------------------------------------ |
+| Type                                                     | Description                                            |
+| -------------------------------------------------------- | ------------------------------------------------------ |
 | `(profile: Profile, uuid: UUID, status: Status) => void` | Write Characteristic Data Completion Callback Function |
 
 ### Profile
 
-| Type                | Description     |
-| ------------------- | --------------- |
+| Type     | Description     |
+| -------- | --------------- |
 | `number` | Profile pointer |
 
 ### UUID
 
-| Type                | Description                |
-| ------------------- | -------------------------- |
+| Type     | Description                |
+| -------- | -------------------------- |
 | `string` | Characteristic UUID string |
 
 ### Status
 
-| Type                | Description                   |
-| ------------------- | ----------------------------- |
+| Type     | Description                   |
+| -------- | ----------------------------- |
 | `number` | Status, `0` indicates success |
 
 ### Result
 
-| Type                 | Description                                                                  |
-| -------------------- | ---------------------------------------------------------------------------- |
+| Type      | Description                                                                  |
+| --------- | ---------------------------------------------------------------------------- |
 | `boolean` | The result of the function call, `true` means success, `false` means failure |
 
 ## Example
 
 ```js
-
 // ...
 ```
 
@@ -892,7 +907,9 @@ import { mstOnDescValueArrived } from '@zos/ble'
 // ...
 ```
 
-> Start from API_LEVEL `3.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::note
+Start from API_LEVEL `3.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::
 
 Register the Read Descriptor data arrival callback function.
 
@@ -906,50 +923,49 @@ function mstOnDescValueArrived(callback: Callback): Result
 
 ### Callback
 
-| Type                                                                                                       | Description                                   |
-| ---------------------------------------------------------------------------------------------------------- | --------------------------------------------- |
+| Type                                                                                        | Description                                   |
+| ------------------------------------------------------------------------------------------- | --------------------------------------------- |
 | `( profile: Profile, uuid: UUID, descUUID: DescUUID, data: Data, status: Status, ) => void` | Read Descriptor data to the callback function |
 
 ### Profile
 
-| Type                | Description     |
-| ------------------- | --------------- |
+| Type     | Description     |
+| -------- | --------------- |
 | `number` | Profile pointer |
 
 ### UUID
 
-| Type                | Description                |
-| ------------------- | -------------------------- |
+| Type     | Description                |
+| -------- | -------------------------- |
 | `string` | Characteristic UUID string |
 
 ### DescUUID
 
-| Type                | Description            |
-| ------------------- | ---------------------- |
+| Type     | Description            |
+| -------- | ---------------------- |
 | `string` | Descriptor UUID string |
 
 ### Data
 
-| Type                     | Description                              |
-| ------------------------ | ---------------------------------------- |
+| Type          | Description                              |
+| ------------- | ---------------------------------------- |
 | `ArrayBuffer` | Reads the data using the Uint8Array view |
 
 ### Status
 
-| Type                | Description                   |
-| ------------------- | ----------------------------- |
+| Type     | Description                   |
+| -------- | ----------------------------- |
 | `number` | Status, `0` indicates success |
 
 ### Result
 
-| Type                 | Description                                                                  |
-| -------------------- | ---------------------------------------------------------------------------- |
+| Type      | Description                                                                  |
+| --------- | ---------------------------------------------------------------------------- |
 | `boolean` | The result of the function call, `true` means success, `false` means failure |
 
 ## Example
 
 ```js
-
 // ...
 ```
 
@@ -975,7 +991,9 @@ import { mstOnDescWriteComplete } from '@zos/ble'
 // ...
 ```
 
-> Start from API_LEVEL `3.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::note
+Start from API_LEVEL `3.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::
 
 Register Descriptor data write completion callback function.
 
@@ -989,44 +1007,43 @@ function mstOnDescWriteComplete(callback: Callback): Result
 
 ### Callback
 
-| Type                                                                                        | Description                                        |
-| ------------------------------------------------------------------------------------------- | -------------------------------------------------- |
+| Type                                                                         | Description                                        |
+| ---------------------------------------------------------------------------- | -------------------------------------------------- |
 | `(profile: Profile, uuid: UUID, descUUID: DescUUID, status: Status) => void` | Descriptor Data write completion callback function |
 
 ### Profile
 
-| Type                | Description     |
-| ------------------- | --------------- |
+| Type     | Description     |
+| -------- | --------------- |
 | `number` | Profile pointer |
 
 ### UUID
 
-| Type                | Description                |
-| ------------------- | -------------------------- |
+| Type     | Description                |
+| -------- | -------------------------- |
 | `string` | Characteristic UUID string |
 
 ### DescUUID
 
-| Type                | Description            |
-| ------------------- | ---------------------- |
+| Type     | Description            |
+| -------- | ---------------------- |
 | `string` | Descriptor UUID string |
 
 ### Status
 
-| Type                | Description                   |
-| ------------------- | ----------------------------- |
+| Type     | Description                   |
+| -------- | ----------------------------- |
 | `number` | Status, `0` indicates success |
 
 ### Result
 
-| Type                 | Description                                                                  |
-| -------------------- | ---------------------------------------------------------------------------- |
+| Type      | Description                                                                  |
+| --------- | ---------------------------------------------------------------------------- |
 | `boolean` | The result of the function call, `true` means success, `false` means failure |
 
 ## Example
 
 ```js
-
 // ...
 ```
 
@@ -1052,7 +1069,9 @@ import { mstOnPrepare } from '@zos/ble'
 // ...
 ```
 
-> Start from API_LEVEL `3.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::note
+Start from API_LEVEL `3.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::
 
 Register the prepare operation callback function.
 
@@ -1066,32 +1085,31 @@ function mstOnPrepare(callback: Callback): Result
 
 ### Callback
 
-| Type                                                        | Description                                      |
-| ----------------------------------------------------------- | ------------------------------------------------ |
+| Type                                         | Description                                      |
+| -------------------------------------------- | ------------------------------------------------ |
 | `(profile: Profile, status: Status) => void` | Listening to the prepare event callback function |
 
 ### Profile
 
-| Type                | Description     |
-| ------------------- | --------------- |
+| Type     | Description     |
+| -------- | --------------- |
 | `number` | Profile pointer |
 
 ### Status
 
-| Type                | Description                   |
-| ------------------- | ----------------------------- |
+| Type     | Description                   |
+| -------- | ----------------------------- |
 | `number` | Status, `0` indicates success |
 
 ### Result
 
-| Type                 | Description                                                                  |
-| -------------------- | ---------------------------------------------------------------------------- |
+| Type      | Description                                                                  |
+| --------- | ---------------------------------------------------------------------------- |
 | `boolean` | The result of the function call, `true` means success, `false` means failure |
 
 ## Example
 
 ```js
-
 // ...
 ```
 
@@ -1117,7 +1135,9 @@ import { mstOnServiceChangeBegin } from '@zos/ble'
 // ...
 ```
 
-> Start from API_LEVEL `3.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::note
+Start from API_LEVEL `3.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::
 
 Register the Service start change callback function.
 
@@ -1131,26 +1151,25 @@ function mstOnServiceChangeBegin(callback: Callback): Result
 
 ### Callback
 
-| Type                                        | Description                            |
-| ------------------------------------------- | -------------------------------------- |
+| Type                         | Description                            |
+| ---------------------------- | -------------------------------------- |
 | `(profile: Profile) => void` | Service start change callback function |
 
 ### Profile
 
-| Type                | Description     |
-| ------------------- | --------------- |
+| Type     | Description     |
+| -------- | --------------- |
 | `number` | Profile pointer |
 
 ### Result
 
-| Type                 | Description                                                                  |
-| -------------------- | ---------------------------------------------------------------------------- |
+| Type      | Description                                                                  |
+| --------- | ---------------------------------------------------------------------------- |
 | `boolean` | The result of the function call, `true` means success, `false` means failure |
 
 ## Example
 
 ```js
-
 // ...
 ```
 
@@ -1176,7 +1195,9 @@ import { mstOnServiceChangeEnd } from '@zos/ble'
 // ...
 ```
 
-> Start from API_LEVEL `3.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::note
+Start from API_LEVEL `3.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::
 
 Register the Service change end callback function.
 
@@ -1190,26 +1211,25 @@ function mstOnServiceChangeEnd(callback: Callback): Result
 
 ### Callback
 
-| Type                                        | Description                          |
-| ------------------------------------------- | ------------------------------------ |
+| Type                         | Description                          |
+| ---------------------------- | ------------------------------------ |
 | `(profile: Profile) => void` | Service change end callback function |
 
 ### Profile
 
-| Type                | Description     |
-| ------------------- | --------------- |
+| Type     | Description     |
+| -------- | --------------- |
 | `number` | Profile pointer |
 
 ### Result
 
-| Type                 | Description                                                                  |
-| -------------------- | ---------------------------------------------------------------------------- |
+| Type      | Description                                                                  |
+| --------- | ---------------------------------------------------------------------------- |
 | `boolean` | The result of the function call, `true` means success, `false` means failure |
 
 ## Example
 
 ```js
-
 // ...
 ```
 
@@ -1235,7 +1255,9 @@ import { mstPair } from '@zos/ble'
 // ...
 ```
 
-> Start from API_LEVEL `3.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::note
+Start from API_LEVEL `3.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::
 
 Pairing with devices via `connectId`.
 
@@ -1249,20 +1271,19 @@ function mstPair(connectId: ConnectId): Result
 
 ### ConnectId
 
-| Type                | Description                                                                             |
-| ------------------- | --------------------------------------------------------------------------------------- |
+| Type     | Description                                                                             |
+| -------- | --------------------------------------------------------------------------------------- |
 | `number` | The connection ID returned when the connection is successful using the `mstConnect` API |
 
 ### Result
 
-| Type                 | Description                                                                  |
-| -------------------- | ---------------------------------------------------------------------------- |
+| Type      | Description                                                                  |
+| --------- | ---------------------------------------------------------------------------- |
 | `boolean` | The result of the function call, `true` means success, `false` means failure |
 
 ## Example
 
 ```js
-
 // ...
 ```
 
@@ -1288,7 +1309,9 @@ import { mstPrepare } from '@zos/ble'
 // ...
 ```
 
-> Start from API_LEVEL `3.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::note
+Start from API_LEVEL `3.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::
 
 prepare interface.
 
@@ -1302,14 +1325,13 @@ function mstPrepare(profile: Profile): void
 
 ### Profile
 
-| Type                | Description                                         |
-| ------------------- | --------------------------------------------------- |
+| Type     | Description                                         |
+| -------- | --------------------------------------------------- |
 | `number` | The `profile` pointer returned by `mstBuildProfile` |
 
 ## Example
 
 ```js
-
 // ...
 ```
 
@@ -1335,7 +1357,9 @@ import { mstReadCharacteristic } from '@zos/ble'
 // ...
 ```
 
-> Start from API_LEVEL `3.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::note
+Start from API_LEVEL `3.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::
 
 Read Characteristic information.
 
@@ -1349,20 +1373,19 @@ function mstReadCharacteristic(profile: Profile, uuid: UUID): void
 
 ### Profile
 
-| Type                | Description     |
-| ------------------- | --------------- |
+| Type     | Description     |
+| -------- | --------------- |
 | `number` | Profile pointer |
 
 ### UUID
 
-| Type                | Description                |
-| ------------------- | -------------------------- |
+| Type     | Description                |
+| -------- | -------------------------- |
 | `string` | Characteristic UUID string |
 
 ## Example
 
 ```js
-
 // ...
 ```
 
@@ -1388,7 +1411,9 @@ import { mstReadDescriptor } from '@zos/ble'
 // ...
 ```
 
-> Start from API_LEVEL `3.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::note
+Start from API_LEVEL `3.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::
 
 Write characteristic information.
 
@@ -1402,26 +1427,25 @@ function mstReadDescriptor(profile: Profile, uuid: UUID, descUUID: DescUUID): vo
 
 ### Profile
 
-| Type                | Description     |
-| ------------------- | --------------- |
+| Type     | Description     |
+| -------- | --------------- |
 | `number` | Profile pointer |
 
 ### UUID
 
-| Type                | Description                |
-| ------------------- | -------------------------- |
+| Type     | Description                |
+| -------- | -------------------------- |
 | `string` | Characteristic UUID string |
 
 ### DescUUID
 
-| Type                | Description            |
-| ------------------- | ---------------------- |
+| Type     | Description            |
+| -------- | ---------------------- |
 | `string` | Descriptor UUID string |
 
 ## Example
 
 ```js
-
 // ...
 ```
 
@@ -1447,7 +1471,9 @@ import { mstStartScan } from '@zos/ble'
 // ...
 ```
 
-> Start from API_LEVEL `3.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::note
+Start from API_LEVEL `3.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::
 
 Scan and discover Bluetooth peripherals, which can be filtered according to filter conditions.
 
@@ -1461,31 +1487,31 @@ function mstStartScan(callback: Callback, filter?: Filter): Result
 
 ### Callback
 
-| Type                                                                              | Description                                  |
-| --------------------------------------------------------------------------------- | -------------------------------------------- |
+| Type                                                               | Description                                  |
+| ------------------------------------------------------------------ | -------------------------------------------- |
 | `(result: ScanResult, filter?: Filter, timeout?: Timeout) => void` | Callback function for receiving scan results |
 
 ### ScanResult
 
-| Property           | Type                                    | Description                                                   | API_LEVEL |
-| ------------------ | --------------------------------------- | ------------------------------------------------------------- | --------- |
-| dev_name           | `string`                     | Device name                                                   | 3.0       |
-| dev_addr           | `ArrayBuffer`                | Device MAC address, 6 bytes long, Uint8Array view recommended | 3.0       |
-| rssi               | `number`                     | RSSI Signal Strength                                          | 3.0       |
+| Property           | Type                 | Description                                                   | API_LEVEL |
+| ------------------ | -------------------- | ------------------------------------------------------------- | --------- |
+| dev_name           | `string`             | Device name                                                   | 3.0       |
+| dev_addr           | `ArrayBuffer`        | Device MAC address, 6 bytes long, Uint8Array view recommended | 3.0       |
+| rssi               | `number`             | RSSI Signal Strength                                          | 3.0       |
 | service_uuid_array | `Array<string>`      | Service UUID array in broadcast data                          | 3.0       |
 | service_data_array | `Array<ServiceData>` | Array of Service Data Objects in Broadcast Data               | 3.0       |
 
 ### ServiceData
 
-| Property     | Type                     | Description  | API_LEVEL |
-| ------------ | ------------------------ | ------------ | --------- |
+| Property     | Type          | Description  | API_LEVEL |
+| ------------ | ------------- | ------------ | --------- |
 | uuid         | `string`      | Service UUID | 3.0       |
 | service_data | `ArrayBuffer` | Service data | 3.0       |
 
 ### Filter
 
-| Property          | Type                | Required | DefaultValue | Description                                        | API_LEVEL |
-| ----------------- | ------------------- | -------- | ------------ | -------------------------------------------------- | --------- |
+| Property          | Type     | Required | DefaultValue | Description                                        | API_LEVEL |
+| ----------------- | -------- | -------- | ------------ | -------------------------------------------------- | --------- |
 | device_name       | `string` | N        | -            | Device name                                        | 3.0       |
 | fuzzy_mode        | `string` | N        | -            | Whether to use fuzzy mode for device name matching | 3.0       |
 | service_uuid      | `string` | N        | -            | Service UUID                                       | 3.0       |
@@ -1494,21 +1520,20 @@ function mstStartScan(callback: Callback, filter?: Filter): Result
 
 ### Timeout
 
-| Property   | Type                        | Required | DefaultValue | Description                                                                                    | API_LEVEL |
-| ---------- | --------------------------- | -------- | ------------ | ---------------------------------------------------------------------------------------------- | --------- |
-| duration   | `number`         | N        | -            | Scanning duration, in seconds. Scanning automatically stops when the given duration is reached | 3.0       |
+| Property   | Type         | Required | DefaultValue | Description                                                                                    | API_LEVEL |
+| ---------- | ------------ | -------- | ------------ | ---------------------------------------------------------------------------------------------- | --------- |
+| duration   | `number`     | N        | -            | Scanning duration, in seconds. Scanning automatically stops when the given duration is reached | 3.0       |
 | on_timeout | `() => void` | N        | -            | Callback function after scanning stops                                                         | 3.0       |
 
 ### Result
 
-| Type                 | Description                                                                  |
-| -------------------- | ---------------------------------------------------------------------------- |
+| Type      | Description                                                                  |
+| --------- | ---------------------------------------------------------------------------- |
 | `boolean` | The result of the function call, `true` means success, `false` means failure |
 
 ## Example
 
 ```js
-
 // ...
 ```
 
@@ -1534,7 +1559,9 @@ import { mstStopScan } from '@zos/ble'
 mstStopScan()
 ```
 
-> Start from API_LEVEL `3.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::note
+Start from API_LEVEL `3.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::
 
 Stop device scanning, used in conjunction with `mstStartScan`.
 
@@ -1548,14 +1575,13 @@ function mstStopScan(): Result
 
 ### Result
 
-| Type                 | Description                                                                  |
-| -------------------- | ---------------------------------------------------------------------------- |
+| Type      | Description                                                                  |
+| --------- | ---------------------------------------------------------------------------- |
 | `boolean` | The result of the function call, `true` means success, `false` means failure |
 
 ## Example
 
 ```js
-
 mstStopScan()
 ```
 
@@ -1581,7 +1607,9 @@ import { mstWriteCharacteristic } from '@zos/ble'
 // ...
 ```
 
-> Start from API_LEVEL `3.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::note
+Start from API_LEVEL `3.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::
 
 Write Characteristic information.
 
@@ -1595,32 +1623,31 @@ function mstWriteCharacteristic(profile: Profile, uuid: UUID, data: Data, length
 
 ### Profile
 
-| Type                | Description     |
-| ------------------- | --------------- |
+| Type     | Description     |
+| -------- | --------------- |
 | `number` | Profile pointer |
 
 ### UUID
 
-| Type                | Description                |
-| ------------------- | -------------------------- |
+| Type     | Description                |
+| -------- | -------------------------- |
 | `string` | Characteristic UUID string |
 
 ### Data
 
-| Type                     | Description                              |
-| ------------------------ | ---------------------------------------- |
+| Type          | Description                              |
+| ------------- | ---------------------------------------- |
 | `ArrayBuffer` | Reads the data using the Uint8Array view |
 
 ### Length
 
-| Type                | Description |
-| ------------------- | ----------- |
+| Type     | Description |
+| -------- | ----------- |
 | `number` | Data length |
 
 ## Example
 
 ```js
-
 // ...
 ```
 
@@ -1646,7 +1673,9 @@ import { mstWriteDescriptor } from '@zos/ble'
 // ...
 ```
 
-> Start from API_LEVEL `3.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::note
+Start from API_LEVEL `3.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::
 
 Register the Characteristic notification arrival callback function.
 
@@ -1658,7 +1687,7 @@ function mstWriteDescriptor(
   uuid: UUID,
   descUUID: DescUUID,
   data: Data,
-  length: Length,
+  length: Length
 ): Result
 ```
 
@@ -1666,44 +1695,43 @@ function mstWriteDescriptor(
 
 ### Profile
 
-| Type                | Description     |
-| ------------------- | --------------- |
+| Type     | Description     |
+| -------- | --------------- |
 | `number` | Profile pointer |
 
 ### UUID
 
-| Type                | Description                |
-| ------------------- | -------------------------- |
+| Type     | Description                |
+| -------- | -------------------------- |
 | `string` | Characteristic UUID string |
 
 ### DescUUID
 
-| Type                | Description            |
-| ------------------- | ---------------------- |
+| Type     | Description            |
+| -------- | ---------------------- |
 | `string` | Descriptor UUID string |
 
 ### Data
 
-| Type                     | Description                              |
-| ------------------------ | ---------------------------------------- |
+| Type          | Description                              |
+| ------------- | ---------------------------------------- |
 | `ArrayBuffer` | Reads the data using the Uint8Array view |
 
 ### Length
 
-| Type                | Description |
-| ------------------- | ----------- |
+| Type     | Description |
+| -------- | ----------- |
 | `number` | Data length |
 
 ### Result
 
-| Type                 | Description                                                                  |
-| -------------------- | ---------------------------------------------------------------------------- |
+| Type      | Description                                                                  |
+| --------- | ---------------------------------------------------------------------------- |
 | `boolean` | The result of the function call, `true` means success, `false` means failure |
 
 ## Example
 
 ```js
-
 // ...
 ```
 
@@ -1728,7 +1756,9 @@ import { removeListener } from '@zos/ble'
 // ...
 ```
 
-> Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::note
+Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 Cancel connection status listening callback function.
 
@@ -1741,7 +1771,6 @@ function removeListener(): void
 ## Example
 
 ```js
-
 // ...
 ```
 
@@ -1766,7 +1795,9 @@ import { send } from '@zos/ble'
 // ...
 ```
 
-> Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::note
+Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 Send message, `data` data to be sent, `size` length of data to be sent.
 
@@ -1779,9 +1810,7 @@ function send(data: object, size: number): void
 ## Example
 
 ```js
-
 // ...
 ```
 
 ---
-

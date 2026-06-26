@@ -3,7 +3,9 @@ title: widget.addEventListener(eventId, callback)
 sidebar_label: addEventListener
 ---
 
-> Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::note
+Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 Register a listener to the UI widget and the given callback function will be executed when the specified event is triggered.
 
@@ -15,15 +17,15 @@ Register a listener to the UI widget and the given callback function will be exe
 
 ## Parameters
 
-| Parameter | Description                                         |   Type    |
-| --------- | --------------------------------------------------- | --------- |
+| Parameter | Description                                                | Type      |
+| --------- | ---------------------------------------------------------- | --------- |
 | eventId   | Event type. (e.g., `event.MOVE`, `event.CLICK_DOWN`, etc.) | `EventId` |
-| event     | Event details, refer to different events.           | `object` |
+| event     | Event details, refer to different events.                  | `object`  |
 
 ### EventId
 
-| Value                   | Description |
-| ----------------------- | ----------- |
+| Value              | Description |
+| ------------------ | ----------- |
 | `event.MOVE`       | Slide       |
 | `event.CLICK_DOWN` | Press       |
 | `event.CLICK_UP`   | Lift up     |

@@ -2,10 +2,10 @@
 
 ## Constants
 
-| Constant | Description | API_LEVEL |
-|----------|-------------|-----------|
-| `SCREEN_SHAPE_SQUARE` | Square Screen | — |
-| `SCREEN_SHAPE_ROUND` | Round Screen | — |
+| Constant              | Description   | API_LEVEL |
+| --------------------- | ------------- | --------- |
+| `SCREEN_SHAPE_SQUARE` | Square Screen | —         |
+| `SCREEN_SHAPE_ROUND`  | Round Screen  | —         |
 
 ## getDeviceInfo
 
@@ -33,7 +33,9 @@ if (screenShape === SCREEN_SHAPE_SQUARE) {
 }
 ```
 
-> Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::note
+Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 Gets device information.
 
@@ -51,8 +53,8 @@ function getDeviceInfo(): Result
 
 ### Result
 
-| Property     | Type                 | Description                                         | API_LEVEL |
-| ------------ | -------------------- | --------------------------------------------------- | --------- |
+| Property     | Type      | Description                                         | API_LEVEL |
+| ------------ | --------- | --------------------------------------------------- | --------- |
 | width        | `number`  | Device screen width                                 | 2.0       |
 | height       | `number`  | Device screen height                                | 2.0       |
 | screenShape  | `number`  | Screen shape, value refer to screen shape constants | 2.0       |
@@ -84,7 +86,6 @@ function getDeviceInfo(): Result
 ## Example
 
 ```js
-
 const { width, screenShape } = getDeviceInfo()
 console.log(width)
 
@@ -115,7 +116,9 @@ const { total } = getDiskInfo()
 console.log(total)
 ```
 
-> Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::note
+Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 Gets disk information.
 
@@ -129,8 +132,8 @@ function getDiskInfo(): Result
 
 ### Result
 
-| Property  | Type                | Description                              | API_LEVEL |
-| --------- | ------------------- | ---------------------------------------- | --------- |
+| Property  | Type     | Description                              | API_LEVEL |
+| --------- | -------- | ---------------------------------------- | --------- |
 | total     | `number` | Total Space in bytes                     | 2.0       |
 | free      | `number` | Available Space in bytes                 | 2.0       |
 | app       | `number` | Space occupied by Mini Programs in bytes | 2.0       |
@@ -141,10 +144,8 @@ function getDiskInfo(): Result
 ## Example
 
 ```js
-
 const { total } = getDiskInfo()
 console.log(total)
 ```
 
 ---
-

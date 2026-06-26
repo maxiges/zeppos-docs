@@ -1,6 +1,8 @@
 # cancel
 
-> Start from API_LEVEL `3.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::note
+Start from API_LEVEL `3.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 Cancels the set timer, if the timer is set to persist and also cancels the persistence.
 
@@ -24,20 +26,45 @@ function cancel(id: number): Result
 
 ### Option
 
-| Property | Type                | Required | DefaultValue | Description                           | API_LEVEL |
-| -------- | ------------------- | -------- | ------------ | ------------------------------------- | --------- |
-| id       | <code>number</code> | Y        | -            | Vertical axis coordinates of the page | 3.0       |
+| Property | Type     | Required | DefaultValue | Description                    | API_LEVEL |
+| :------- | :------- | :------- | :----------- | :----------------------------- | :-------- |
+| id       | `number` | Y        | -            | The ID of the alarm to cancel. | 3.0       |
 
 ### Result
 
-| Type                | Description                              |
-| ------------------- | ---------------------------------------- |
-| <code>number</code> | If `0` is returned, success is indicated |
+| Type     | Description                                  |
+| :------- | :------------------------------------------- |
+| `number` | Returns `0` if successful, otherwise failed. |
 
 ## Example
+
+import Tabs from '@theme/Tabs'
+import TabItem from '@theme/TabItem'
+
+<Tabs>
+  <TabItem value="single" label="Cancel Single Alarm">
 
 ```js
 import { cancel } from '@zos/alarm'
 
-cancel(id)
+// Cancel alarm by its ID
+const alarmId = 1001
+cancel(alarmId)
 ```
+
+  </TabItem>
+  <TabItem value="all" label="Cancel All Alarms">
+
+```js
+import { cancel, getAllAlarms } from '@zos/alarm'
+
+// Get all alarm IDs for this app and cancel them all
+const alarmIds = getAllAlarms()
+
+alarmIds.forEach((id) => {
+  cancel(id)
+})
+```
+
+  </TabItem>
+</Tabs>

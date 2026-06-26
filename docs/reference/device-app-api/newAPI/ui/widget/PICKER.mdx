@@ -3,7 +3,9 @@ title: PICKER
 sidebar_label: PICKER
 ---
 
-> Start from API_LEVEL `3.0`. Please refer to [API_LEVEL](../../../../../guides/framework/device/compatibility.md)。
+:::note
+Start from API_LEVEL `3.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::
 
 An universal selector, use to text and number list selection
 
@@ -31,19 +33,19 @@ const picker_widget = createWidget(widget.WIDGET_PICKER, Param)
 
 #### DataConfig: object
 
-| Properties          | Description                                     | Required | Type                                   |
-| ------------------- | ----------------------------------------------- | -------- | -------------------------------------- |
+| Properties          | Description                                     | Required | Type                                     |
+| ------------------- | ----------------------------------------------- | -------- | ---------------------------------------- |
 | data_array          | Data array of column                            | YES      | <code>Array\<number&#124;string\></code> |
-| support_loop        | support circular drag and drop                  | YES      | `boolean`                              |
-| unit                | Unit                                            | NO       | `string`                               |
-| connector           | Data separator                                  | NO       | `string`                               |
-| font_name           | Path of font file, refer to `TEXT`              | NO       | `string`                               |
-| font_size           | Font size                                       | NO       | `number`                               |
-| select_font_size    | Font size of selected item                      | NO       | `number`                               |
-| connector_font_size | Font size of separator                          | NO       | `number`                               |
-| unit_font_size      | Font size of unit                               | NO       | `number`                               |
-| init_val_index      | Default selected index                          | NO       | `number`                               |
-| col_width           | Column width, all columns need to be configured | NO       | `number`                               |
+| support_loop        | support circular drag and drop                  | YES      | `boolean`                                |
+| unit                | Unit                                            | NO       | `string`                                 |
+| connector           | Data separator                                  | NO       | `string`                                 |
+| font_name           | Path of font file, refer to `TEXT`              | NO       | `string`                                 |
+| font_size           | Font size                                       | NO       | `number`                                 |
+| select_font_size    | Font size of selected item                      | NO       | `number`                                 |
+| connector_font_size | Font size of separator                          | NO       | `number`                                 |
+| unit_font_size      | Font size of unit                               | NO       | `number`                                 |
+| init_val_index      | Default selected index                          | NO       | `number`                                 |
+| col_width           | Column width, all columns need to be configured | NO       | `number`                                 |
 
 #### CallBack: function
 
@@ -157,6 +159,7 @@ function picker_cb(picker, event_type, column_index, select_index) {
   )
 }
 ```
+
 ## Additional Examples
 
 ### Example 1
@@ -180,7 +183,7 @@ createWidget(widget.WIDGET_PICKER, {
       select_font_size: 48,
       connector_font_size: 18,
       unit_font_size: 18,
-      col_width: 80,
+      col_width: 80
     },
     {
       data_array: new Array(31).fill(0).map((_, index) => index + 1),
@@ -192,7 +195,7 @@ createWidget(widget.WIDGET_PICKER, {
       select_font_size: 48,
       connector_font_size: 36,
       unit_font_size: 36,
-      col_width: 80,
+      col_width: 80
     },
     {
       data_array: new Array(30).fill(0).map((_, index) => index + 2020),
@@ -204,12 +207,11 @@ createWidget(widget.WIDGET_PICKER, {
       select_font_size: 48,
       connector_font_size: 36,
       unit_font_size: 36,
-      col_width: 80,
-    },
+      col_width: 80
+    }
   ],
   picker_cb: (picker, eventType, column, valueIndex) => {
     console.log('picker event', eventType, column, valueIndex)
-  },
+  }
 })
 ```
-

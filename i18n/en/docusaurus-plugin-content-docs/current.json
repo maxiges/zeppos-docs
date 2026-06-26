@@ -55,6 +55,10 @@
     "message": "Best practice",
     "description": "The label for category Best practice in sidebar guides"
   },
+  "sidebar.guides.category.Best practice AI": {
+    "message": "AI practice",
+    "description": "The label for category AI practice in sidebar guides"
+  },
   "sidebar.guides.category.polyfill": {
     "message": "polyfill",
     "description": "The label for category polyfill in sidebar guides"

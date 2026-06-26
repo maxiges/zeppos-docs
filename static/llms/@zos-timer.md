@@ -18,9 +18,14 @@ import { createSysTimer } from '@zos/timer'
 import { createSysTimer } from '@zos/timer'
 
 // Create a non-periodic timer that executes after 5 seconds
-const timerId = createSysTimer(false, 5000, (param) => {
-  console.log('timer callback with param:', param)
-}, 'customParam')
+const timerId = createSysTimer(
+  false,
+  5000,
+  (param) => {
+    console.log('timer callback with param:', param)
+  },
+  'customParam'
+)
 
 // Create a periodic timer that executes every 10 seconds
 const intervalId = createSysTimer(true, 10000, () => {
@@ -28,7 +33,9 @@ const intervalId = createSysTimer(true, 10000, () => {
 })
 ```
 
-> Start from API_LEVEL `4.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::note
+Start from API_LEVEL `4.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 A system-level timer that can be registered in device app services and runs regardless of watch screen state.
 
@@ -42,38 +49,37 @@ function createSysTimer(periodic: Periodic, period: Period, callback: Callback, 
 
 ### Periodic
 
-| Type                 | Description                        |
-| -------------------- | ---------------------------------- |
+| Type      | Description                        |
+| --------- | ---------------------------------- |
 | `boolean` | Whether to create a periodic timer |
 
 ### Period
 
-| Type                | Description                                                                                           |
-| ------------------- | ----------------------------------------------------------------------------------------------------- |
+| Type     | Description                                                                                           |
+| -------- | ----------------------------------------------------------------------------------------------------- |
 | `number` | Timer period (ms). For non-periodic timers, it represents delay duration, 0 means immediate execution |
 
 ### Callback
 
-| Type                                     | Description       |
-| ---------------------------------------- | ----------------- |
+| Type                      | Description       |
+| ------------------------- | ----------------- |
 | `(arg?: unknown) => void` | Callback function |
 
 ### Arg
 
-| Type                 | Description                               |
-| -------------------- | ----------------------------------------- |
+| Type      | Description                               |
+| --------- | ----------------------------------------- |
 | `unknown` | Parameter passed to the callback function |
 
 ### Result
 
-| Type                | Description                                                              |
-| ------------------- | ------------------------------------------------------------------------ |
+| Type     | Description                                                              |
+| -------- | ------------------------------------------------------------------------ |
 | `number` | The ID returned by creating a system timer, used to stop the timer later |
 
 ## Example
 
 ```js
-
 // Create a non-periodic timer that executes after 5 seconds
 const timerId = createSysTimer(
   false,
@@ -81,7 +87,7 @@ const timerId = createSysTimer(
   (param) => {
     console.log('timer callback with param:', param)
   },
-  'customParam',
+  'customParam'
 )
 
 // Create a periodic timer that executes every 10 seconds
@@ -121,7 +127,9 @@ createSysTimer(false, 5000, () => {
 })
 ```
 
-> Start from API_LEVEL `4.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::note
+Start from API_LEVEL `4.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 Stop the timer created by `createSysTimer` method.
 
@@ -135,14 +143,13 @@ function stopTimer(timerId: TimerId): void
 
 ### TimerId
 
-| Type                | Description                                                 |
-| ------------------- | ----------------------------------------------------------- |
+| Type     | Description                                                 |
+| -------- | ----------------------------------------------------------- |
 | `number` | Timer ID to be stopped, returned by `createSysTimer` method |
 
 ## Example
 
 ```js
-
 // Create a periodic timer that executes every 10 seconds
 const timerId = createSysTimer(true, 10000, () => {
   console.log('Execute every 10 seconds')
@@ -156,4 +163,3 @@ createSysTimer(false, 5000, () => {
 ```
 
 ---
-

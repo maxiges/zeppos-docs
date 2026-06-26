@@ -2,47 +2,47 @@
 
 ## Constants
 
-| Constant | Description | API_LEVEL |
-|----------|-------------|-----------|
-| `SYSTEM_APP_STATUS` | Activity | 3.0 |
-| `SYSTEM_APP_HR` | Heart Rate | 3.0 |
-| `SYSTEM_APP_SPORT` | Workout | 3.0 |
-| `SYSTEM_APP_WEATHER` | Weather | 3.0 |
-| `SYSTEM_APP_ALARM` | Alarm | 3.0 |
-| `SYSTEM_APP_CAMERA` | Camera Remote | 3.0 |
-| `SYSTEM_APP_MUSIC` | Music | 3.0 |
-| `SYSTEM_APP_STOPWATCH` | Stopwatch | 3.0 |
-| `SYSTEM_APP_COUNTDOWN` | Timer | 3.0 |
-| `SYSTEM_APP_FINE_PHONE` | Find My Phone | 3.0 |
-| `SYSTEM_APP_CARD` | Cards | 3.0 |
-| `SYSTEM_APP_ALIPAY` | Alipay | 3.0 |
-| `SYSTEM_APP_SETTING` | Settings | 3.0 |
-| `SYSTEM_APP_SPORT_HISTORY` | Workout History | 3.0 |
-| `SYSTEM_APP_COMPASS` | Compass | 3.0 |
-| `SYSTEM_APP_PAI` | PAI | 3.0 |
-| `SYSTEM_APP_WORLD_CLOCK` | World Clock | 3.0 |
-| `SYSTEM_APP_PRESSURE` | Stress | 3.0 |
-| `SYSTEM_APP_MENSTRUAL` | Cycle Tracking | 3.0 |
-| `SYSTEM_APP_SPORT_STATUS` | Workout Status | 3.0 |
-| `SYSTEM_APP_CALENDAR` | Calendar | 3.0 |
-| `SYSTEM_APP_SLEEP` | Sleep | 3.0 |
-| `SYSTEM_APP_SPO2` | Blood Oxygen | 3.0 |
-| `SYSTEM_APP_PHONE` | Phone | 3.0 |
-| `SYSTEM_APP_NETEASE_MUSIC` | NetEase Music | 3.0 |
-| `SYSTEM_APP_WEPAY` | Weixin Pay | 3.0 |
-| `SYSTEM_APP_BREATH` | Breathe | 3.0 |
-| `SYSTEM_APP_POMODORO` | Pomodoro Timer | 3.0 |
-| `SYSTEM_APP_ALEAX` | Alexa | 3.0 |
-| `SYSTEM_APP_THERMOMETER` | Thermometer | 3.0 |
-| `SYSTEM_APP_TODO_LIST` | To Do | 3.0 |
-| `SYSTEM_APP_ALTIMETER` | Barometer | 3.0 |
-| `SYSTEM_APP_VOICE_MEMO` | Voice Memos | 3.0 |
-| `SYSTEM_APP_SUN_AND_MOON` | Sun & Moon | 3.0 |
-| `SYSTEM_APP_MEASUREMENT` | One-tap Measuring | 3.0 |
-| `SYSTEM_APP_ZEPP_COACH` | Zepp Coach | 3.0 |
-| `SYSTEM_APP_CLUB_CARD` | Membership Card | 3.0 |
-| `SYSTEM_APP_BODY_COMPOSITION` | Body Composition | 3.0 |
-| `SYSTEM_APP_READINESS` | Readiness | 3.0 |
+| Constant                      | Description       | API_LEVEL |
+| ----------------------------- | ----------------- | --------- |
+| `SYSTEM_APP_STATUS`           | Activity          | 3.0       |
+| `SYSTEM_APP_HR`               | Heart Rate        | 3.0       |
+| `SYSTEM_APP_SPORT`            | Workout           | 3.0       |
+| `SYSTEM_APP_WEATHER`          | Weather           | 3.0       |
+| `SYSTEM_APP_ALARM`            | Alarm             | 3.0       |
+| `SYSTEM_APP_CAMERA`           | Camera Remote     | 3.0       |
+| `SYSTEM_APP_MUSIC`            | Music             | 3.0       |
+| `SYSTEM_APP_STOPWATCH`        | Stopwatch         | 3.0       |
+| `SYSTEM_APP_COUNTDOWN`        | Timer             | 3.0       |
+| `SYSTEM_APP_FINE_PHONE`       | Find My Phone     | 3.0       |
+| `SYSTEM_APP_CARD`             | Cards             | 3.0       |
+| `SYSTEM_APP_ALIPAY`           | Alipay            | 3.0       |
+| `SYSTEM_APP_SETTING`          | Settings          | 3.0       |
+| `SYSTEM_APP_SPORT_HISTORY`    | Workout History   | 3.0       |
+| `SYSTEM_APP_COMPASS`          | Compass           | 3.0       |
+| `SYSTEM_APP_PAI`              | PAI               | 3.0       |
+| `SYSTEM_APP_WORLD_CLOCK`      | World Clock       | 3.0       |
+| `SYSTEM_APP_PRESSURE`         | Stress            | 3.0       |
+| `SYSTEM_APP_MENSTRUAL`        | Cycle Tracking    | 3.0       |
+| `SYSTEM_APP_SPORT_STATUS`     | Workout Status    | 3.0       |
+| `SYSTEM_APP_CALENDAR`         | Calendar          | 3.0       |
+| `SYSTEM_APP_SLEEP`            | Sleep             | 3.0       |
+| `SYSTEM_APP_SPO2`             | Blood Oxygen      | 3.0       |
+| `SYSTEM_APP_PHONE`            | Phone             | 3.0       |
+| `SYSTEM_APP_NETEASE_MUSIC`    | NetEase Music     | 3.0       |
+| `SYSTEM_APP_WEPAY`            | Weixin Pay        | 3.0       |
+| `SYSTEM_APP_BREATH`           | Breathe           | 3.0       |
+| `SYSTEM_APP_POMODORO`         | Pomodoro Timer    | 3.0       |
+| `SYSTEM_APP_ALEAX`            | Alexa             | 3.0       |
+| `SYSTEM_APP_THERMOMETER`      | Thermometer       | 3.0       |
+| `SYSTEM_APP_TODO_LIST`        | To Do             | 3.0       |
+| `SYSTEM_APP_ALTIMETER`        | Barometer         | 3.0       |
+| `SYSTEM_APP_VOICE_MEMO`       | Voice Memos       | 3.0       |
+| `SYSTEM_APP_SUN_AND_MOON`     | Sun & Moon        | 3.0       |
+| `SYSTEM_APP_MEASUREMENT`      | One-tap Measuring | 3.0       |
+| `SYSTEM_APP_ZEPP_COACH`       | Zepp Coach        | 3.0       |
+| `SYSTEM_APP_CLUB_CARD`        | Membership Card   | 3.0       |
+| `SYSTEM_APP_BODY_COMPOSITION` | Body Composition  | 3.0       |
+| `SYSTEM_APP_READINESS`        | Readiness         | 3.0       |
 
 ## back
 
@@ -63,7 +63,9 @@ import { back } from '@zos/router'
 back()
 ```
 
-> Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::note
+Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 Closes the current page to return to the previous page.
 
@@ -76,7 +78,6 @@ function back(): void
 ## Example
 
 ```js
-
 back()
 ```
 
@@ -105,7 +106,9 @@ checkSystemApp({
 })
 ```
 
-> Start from API_LEVEL `3.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::note
+Start from API_LEVEL `3.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::
 
 Check if the system application supports jumping.
 
@@ -125,8 +128,8 @@ function checkSystemApp(appId: number): void
 
 ### Option
 
-| Property | Type                | Required | DefaultValue | Description                                                                      | API_LEVEL |
-| -------- | ------------------- | -------- | ------------ | -------------------------------------------------------------------------------- | --------- |
+| Property | Type     | Required | DefaultValue | Description                                                                      | API_LEVEL |
+| -------- | -------- | -------- | ------------ | -------------------------------------------------------------------------------- | --------- |
 | appId    | `number` | Y        | -            | ID of the system App to be jumped to, value refers to the system App ID constant | 3.0       |
 
 ## Constants
@@ -178,9 +181,8 @@ function checkSystemApp(appId: number): void
 ## Example
 
 ```js
-
 checkSystemApp({
-  appId: SYSTEM_APP_STATUS,
+  appId: SYSTEM_APP_STATUS
 })
 ```
 
@@ -213,7 +215,9 @@ clearLaunchAppTimeout({
 })
 ```
 
-> Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::note
+Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 Cancel the wakeup Mini Program timer created by `setLaunchAppTimeout`.
 
@@ -233,28 +237,27 @@ function clearLaunchAppTimeout(timeoutId: number): void
 
 ### Option
 
-| Property  | Type                | Required | DefaultValue | Description                                                                                                                 | API_LEVEL |
-| --------- | ------------------- | -------- | ------------ | --------------------------------------------------------------------------------------------------------------------------- | --------- |
+| Property  | Type     | Required | DefaultValue | Description                                                                                                                 | API_LEVEL |
+| --------- | -------- | -------- | ------------ | --------------------------------------------------------------------------------------------------------------------------- | --------- |
 | timeoutId | `number` | Y        | -            | The identifier of the timeout you want to cancel. This ID was returned by the corresponding call to `setLaunchAppTimeout`() | 2.0       |
 
 ### Result
 
-| Type                | Description                                                                                                                                                                                       |
-| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Type     | Description                                                                                                                                                                                       |
+| -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `number` | The returned value is a positive integer value which identifies the timer created by the call to `setLaunchAppTimeout`. This value can be passed to `clearLaunchAppTimeout` to cancel the timeout |
 
 ## Example
 
 ```js
-
 const timeoutId = setLaunchAppTimeout({
   url: 'pages/js_widget_sample',
   appId: 1000001,
-  delay: 10000,
+  delay: 10000
 })
 
 clearLaunchAppTimeout({
-  timeoutId,
+  timeoutId
 })
 ```
 
@@ -279,7 +282,9 @@ import { exit } from '@zos/router'
 exit()
 ```
 
-> Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::note
+Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 Exit the Mini Program and return to the applist page.
 
@@ -292,7 +297,6 @@ function exit(): void
 ## Example
 
 ```js
-
 exit()
 ```
 
@@ -319,7 +323,9 @@ const appId = getAppIdByName('calculator')
 console.log(appId)
 ```
 
-> Start from API_LEVEL `3.6` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::note
+Start from API_LEVEL `3.6` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 Fuzzy match the English name of installed Mini Programs on the device by name.
 
@@ -333,14 +339,13 @@ function getAppIdByName(name: string): Result
 
 ### Result
 
-| Type                | Description                                                  |
-| ------------------- | ------------------------------------------------------------ |
+| Type     | Description                                                  |
+| -------- | ------------------------------------------------------------ |
 | `number` | Matched Mini Program ID, returns invalid ID when match fails |
 
 ## Example
 
 ```js
-
 const appId = getAppIdByName('calculator')
 console.log(appId)
 ```
@@ -366,7 +371,9 @@ import { home } from '@zos/router'
 home()
 ```
 
-> Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::note
+Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 Exit the Mini Program and return to the watchface page.
 
@@ -379,7 +386,6 @@ function home(): void
 ## Example
 
 ```js
-
 home()
 ```
 
@@ -404,21 +410,23 @@ import { launchApp, SYSTEM_APP_HR } from '@zos/router'
 
 // Jump to Mini Program
 launchApp({
-   appId: 1000001,
-   url: 'pages/js_widget_sample',
-   params: {
-     type: 1
+  appId: 1000001,
+  url: 'pages/js_widget_sample',
+  params: {
+    type: 1
   }
 })
 
 // Jump to system App Heart Rate
 launchApp({
-   appId: SYSTEM_APP_HR,
-   native: true
+  appId: SYSTEM_APP_HR,
+  native: true
 })
 ```
 
-> Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::note
+Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 Open Mini Program.
 
@@ -432,8 +440,8 @@ function launchApp(option: Option): void
 
 ### Option
 
-| Property | Type                            | Required | DefaultValue | Description                                                                                                                                                                                   | API_LEVEL |
-| -------- | ------------------------------- | -------- | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- |
+| Property | Type                 | Required | DefaultValue | Description                                                                                                                                                                                   | API_LEVEL |
+| -------- | -------------------- | -------- | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- |
 | appId    | `number`             | Y        | -            | Mini Program ID or System App ID (API_LEVEL 3.0 support, value reference System App ID constant)                                                                                              | 2.0       |
 | url      | `string`             | Y        | -            | path                                                                                                                                                                                          | 2.0       |
 | native   | `boolean`            | Y        | -            | Whether to jump to the system App                                                                                                                                                             | 3.0       |
@@ -488,20 +496,19 @@ function launchApp(option: Option): void
 ## Example
 
 ```js
-
 // Jump to Mini Program
 launchApp({
   appId: 1000001,
   url: 'pages/js_widget_sample',
   params: {
-    type: 1,
-  },
+    type: 1
+  }
 })
 
 // Jump to system App Heart Rate
 launchApp({
   appId: SYSTEM_APP_HR,
-  native: true,
+  native: true
 })
 ```
 
@@ -524,12 +531,14 @@ import { push } from '@zos/router'
 import { push } from '@zos/router'
 
 push({
-   url: 'page/index',
-   params: 'type=1'
+  url: 'page/index',
+  params: 'type=1'
 })
 ```
 
-> Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::note
+Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 Navigate to a page within the Mini Program. Use the `back` method to go back to the original page.
 
@@ -543,18 +552,17 @@ function push(option: Option): void
 
 ### Option
 
-| Property | Type                            | Required | DefaultValue | Description                                                                                                                                                                      | API_LEVEL |
-| -------- | ------------------------------- | -------- | ------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- |
+| Property | Type                 | Required | DefaultValue | Description                                                                                                                                                                      | API_LEVEL |
+| -------- | -------------------- | -------- | ------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- |
 | url      | `string`             | Y        | -            | path                                                                                                                                                                             | 2.0       |
 | params   | `string&#124;object` | N        | -            | Parameters passed to the page `onInit` lifecycle, supporting strings or standard JSON object. If a standard JSON object is passed, the method internally converts it to a string | 2.0       |
 
 ## Example
 
 ```js
-
 push({
   url: 'page/index',
-  params: 'type=1',
+  params: 'type=1'
 })
 ```
 
@@ -577,12 +585,14 @@ import { replace } from '@zos/router'
 import { replace } from '@zos/router'
 
 replace({
-   url: 'page/index',
-   params: 'type=1'
+  url: 'page/index',
+  params: 'type=1'
 })
 ```
 
-> Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::note
+Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 Close the current page and jump to a page within the app.
 
@@ -596,18 +606,17 @@ function replace(option: Option): void
 
 ### Option
 
-| Property | Type                            | Required | DefaultValue | Description                                                                                                                                                                         | API_LEVEL |
-| -------- | ------------------------------- | -------- | ------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- |
+| Property | Type                 | Required | DefaultValue | Description                                                                                                                                                                         | API_LEVEL |
+| -------- | -------------------- | -------- | ------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- |
 | url      | `string`             | Y        | -            | path                                                                                                                                                                                | 2.0       |
 | params   | `string&#124;object` | N        | -            | Parameters passed to the page `onCreate` lifecycle, supporting strings or standard JSON objects. If a standard JSON object is passed, the method internally converts it to a string | 2.0       |
 
 ## Example
 
 ```js
-
 replace({
   url: 'page/index',
-  params: 'type=1',
+  params: 'type=1'
 })
 ```
 
@@ -640,7 +649,9 @@ clearLaunchAppTimeout({
 })
 ```
 
-> Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::note
+Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 Register a timer to launch the Mini Program at a given time.
 
@@ -654,34 +665,32 @@ function setLaunchAppTimeout(option: Option): Result
 
 ### Option
 
-| Property | Type                            | Required | DefaultValue   | Description                                                                                                                                                                                   | API_LEVEL |
-| -------- | ------------------------------- | -------- | -------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- |
-| appId    | `number`             | Y        | -              | Mini Program ID                                                                                                                                                                               | 2.0       |
-| url      | `string`             | Y        | -              | path                                                                                                                                                                                          | 2.0       |
-| utc      | `number`             | N        | -              | utc timestamp(milliseconds)，the priority is higher than `delay`, and when set at the same time as the `delay` field, only the `utc` field takes effect                                       | 2.0       |
-| delay    | `number`             | N        | `0` | The time, in milliseconds that the timer should wait before the Mini Program is waked.                                                                                                        | 3.0       |
-| params   | `string&#124;object` | N        | -              | The argument passed to the app.js lifecycle `onCreate` supports either a string or a standard JSON object. If a standard JSON object is passed, the method internally converts it to a string | 2.0       |
+| Property | Type                 | Required | DefaultValue | Description                                                                                                                                                                                   | API_LEVEL |
+| -------- | -------------------- | -------- | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- |
+| appId    | `number`             | Y        | -            | Mini Program ID                                                                                                                                                                               | 2.0       |
+| url      | `string`             | Y        | -            | path                                                                                                                                                                                          | 2.0       |
+| utc      | `number`             | N        | -            | utc timestamp(milliseconds)，the priority is higher than `delay`, and when set at the same time as the `delay` field, only the `utc` field takes effect                                       | 2.0       |
+| delay    | `number`             | N        | `0`          | The time, in milliseconds that the timer should wait before the Mini Program is waked.                                                                                                        | 3.0       |
+| params   | `string&#124;object` | N        | -            | The argument passed to the app.js lifecycle `onCreate` supports either a string or a standard JSON object. If a standard JSON object is passed, the method internally converts it to a string | 2.0       |
 
 ### Result
 
-| Type                | Description                                                                                                                                                                                        |
-| ------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Type     | Description                                                                                                                                                                                        |
+| -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `number` | The returned value is a positive integer value which identifies the timer created by the call to `setLaunchAppTimeout`. This value can be passed to `clearLaunchAppTimeout` to cancel the timeout. |
 
 ## Example
 
 ```js
-
 const timeoutId = setLaunchAppTimeout({
   url: 'pages/js_widget_sample',
   appId: 1000001,
-  delay: 1000,
+  delay: 1000
 })
 
 clearLaunchAppTimeout({
-  timeoutId,
+  timeoutId
 })
 ```
 
 ---
-

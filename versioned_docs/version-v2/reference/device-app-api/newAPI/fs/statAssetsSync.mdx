@@ -1,6 +1,8 @@
 # statAssetsSync
 
-> Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::note
+Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 Synchronously gets information about the files in the Mini Program `/assets` directory.
 
@@ -37,7 +39,7 @@ function statAssetsSync(option: Option): Result
 import { statAssetsSync } from '@zos/fs'
 
 const result = statAssetsSync({
-  path: 'test.txt',
+  path: 'test.txt'
 })
 
 if (result) {

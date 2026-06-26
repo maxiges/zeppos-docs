@@ -3,7 +3,9 @@ title: FILL_RECT
 sidebar_label: FILL_RECT
 ---
 
-> Supported from API_LEVEL `2.0`. For API compatibility, please refer to [API_LEVEL](../../../../../guides/framework/device/compatibility.md).
+:::note
+Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 ![fill_rect_sample](/img/api/fill_rect_sample.jpg)
 
@@ -21,22 +23,23 @@ const fillRect = createWidget(widget.FILL_RECT, Param)
 
 ### Param: object
 
-| Property    | Description                                                         | Required | Type     | API_LEVEL |
-| ----------- | ------------------------------------------------------------------- | -------- | -------- | --------- |
-| x           | The x-coordinate of the widget                                       | YES      | `number` | 2.0       |
-| y           | The y-coordinate of the widget                                       | YES      | `number` | 2.0       |
-| w           | The width of the widget                                             | YES      | `number` | 2.0       |
-| h           | The height of the widget                                            | YES      | `number` | 2.0       |
-| color       | The color of the widget                                             | YES      | `number` | 2.0       |
-| radius      | The corner radius of the rectangle                                  | NO       | `number` | 2.0       |
-| angle       | The rotation angle                                                  | NO       | `number` | 2.0       |
-| alpha       | Opacity, value range 0-255, default 255 (opaque), 0 (transparent)   | NO       | `number` | 3.0       |
-| pos_x       | Drawing area x offset (only works when angle%360!=0)                | NO       | `number` | 4.0       |
-| pos_y       | Drawing area y offset (only works when angle%360!=0)                | NO       | `number` | 4.0       |
-| rect_width  | Width of the drawing area (only works when angle%360!=0)            | NO       | `number` | 4.0       |
-| rect_height | Height of the drawing area (only works when angle%360!=0)           | NO       | `number` | 4.0       |
+| Property    | Description                                                       | Required | Type     | API_LEVEL |
+| ----------- | ----------------------------------------------------------------- | -------- | -------- | --------- |
+| x           | The x-coordinate of the widget                                    | YES      | `number` | 2.0       |
+| y           | The y-coordinate of the widget                                    | YES      | `number` | 2.0       |
+| w           | The width of the widget                                           | YES      | `number` | 2.0       |
+| h           | The height of the widget                                          | YES      | `number` | 2.0       |
+| color       | The color of the widget                                           | YES      | `number` | 2.0       |
+| radius      | The corner radius of the rectangle                                | NO       | `number` | 2.0       |
+| angle       | The rotation angle                                                | NO       | `number` | 2.0       |
+| alpha       | Opacity, value range 0-255, default 255 (opaque), 0 (transparent) | NO       | `number` | 3.0       |
+| pos_x       | Drawing area x offset (only works when angle%360!=0)              | NO       | `number` | 4.0       |
+| pos_y       | Drawing area y offset (only works when angle%360!=0)              | NO       | `number` | 4.0       |
+| rect_width  | Width of the drawing area (only works when angle%360!=0)          | NO       | `number` | 4.0       |
+| rect_height | Height of the drawing area (only works when angle%360!=0)         | NO       | `number` | 4.0       |
 
-## Property Access Support List
+<details>
+<summary>Click to view property support table</summary>
 
 | Property    | setProperty | getProperty | [setter](../gettersetter.mdx) | [getter](../gettersetter.mdx) |
 | ----------- | ----------- | ----------- | ----------------------------- | ----------------------------- |
@@ -55,7 +58,9 @@ const fillRect = createWidget(widget.FILL_RECT, Param)
 | center_y    | Y           | Y           | Y                             | Y                             |
 | alpha       | Y           | Y           | Y                             | Y                             |
 
-## Code Example
+</details>
+
+## Examples
 
 ```js
 import { createWidget, widget, prop } from '@zos/ui'

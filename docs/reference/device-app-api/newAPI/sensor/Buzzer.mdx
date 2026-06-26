@@ -3,8 +3,9 @@ title: Buzzer
 sidebar_label: Buzzer
 ---
 
-> Start from API_LEVEL `3.6` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
-
+:::note
+Start from API_LEVEL `3.6` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 Buzzer.
 
 ## Methods
@@ -72,7 +73,7 @@ const sceneList = ['ALARM', 'REMIND_1', 'REMIND_2', 'OPERATE', 'SUCCESS', 'FAILU
 Page({
   state: {
     pageName: 'BUZZER',
-    currentIndex: 0,
+    currentIndex: 0
   },
   build() {
     const buzzer = new Buzzer()
@@ -86,7 +87,7 @@ Page({
       align_h: align.CENTER_H,
       align_v: align.CENTER_V,
       text_style: text_style.NONE,
-      text: `${sceneList[this.state.currentIndex]}`,
+      text: `${sceneList[this.state.currentIndex]}`
     })
 
     const startBuzzer = () => {
@@ -98,7 +99,7 @@ Page({
 
       this.state.currentIndex = (this.state.currentIndex + 1) % sceneList.length
       sceneText.setProperty(prop.MORE, {
-        text: `BUZZER: ${sceneList[this.state.currentIndex]}`,
+        text: `BUZZER: ${sceneList[this.state.currentIndex]}`
       })
     }
 
@@ -111,8 +112,8 @@ Page({
       normal_color: 0xfc6950,
       press_color: 0xfeb4a8,
       text: 'START BUZZER',
-      click_func: startBuzzer,
+      click_func: startBuzzer
     })
-  },
+  }
 })
 ```

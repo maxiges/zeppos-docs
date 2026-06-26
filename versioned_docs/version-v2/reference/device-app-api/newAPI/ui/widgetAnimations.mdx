@@ -3,7 +3,9 @@ title: Widget Animation
 sidebar_label: Widget Animation
 ---
 
-> Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::note
+Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 ![widget_anim](/img/api/widget_anim.gif)
 
@@ -40,7 +42,7 @@ The properties that support setting animations are
 | anim_fps           | `number`             | Animation frame rate, default `25`                                                                                                                                         |
 | anim_auto_start    | `number`             | If or not the animation plays automatically, default `1`, `0`: don't play automatically; `1`: play automatically                                                           |
 | anim_auto_destroy  | `number`             | If or not the animation is automatically destroyed, default `1`, `0`: not automatically destroyed; `1`: automatically destroyed                                            |
-| anim_repeat        | `number`             | Animation loop, default `0`, `-1`: infinite loop; `0`: play once; or specify the number of times to play directly                                                    |
+| anim_repeat        | `number`             | Animation loop, default `0`, `-1`: infinite loop; `0`: play once; or specify the number of times to play directly                                                          |
 | anim_frame_func    | `() => void`         | Callback function for each frame of animation playback                                                                                                                     |
 | anim_complete_func | `() => void`         | End of animation callback function                                                                                                                                         |
 
@@ -50,12 +52,12 @@ The properties that support setting animations are
 - Use `widget.getProperty` to get the animation play state
 
 | anim_status        | Description |
-| ------------------ | ---- |
-| anim_status.START  | start |
-| anim_status.STOP   | stop |
-| anim_status.PAUSE  | pause |
-| anim_status.RESUME | resume |
-| anim_status.UNKNOW | unknown |
+| ------------------ | ----------- |
+| anim_status.START  | start       |
+| anim_status.STOP   | stop        |
+| anim_status.PAUSE  | pause       |
+| anim_status.RESUME | resume      |
+| anim_status.UNKNOW | unknown     |
 
 ## Code example
 

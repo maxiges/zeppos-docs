@@ -1,6 +1,8 @@
 # swipeToIndex
 
-> Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::note
+Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 Scrolls the page to the Swiper's target item, only if the current page scroll mode is `SCROLL_MODE_SWIPER`.
 
@@ -37,11 +39,11 @@ setScrollMode({
   mode: SCROLL_MODE_SWIPER,
   options: {
     height: 480,
-    count: 10,
-  },
+    count: 10
+  }
 })
 
 swipeToIndex({
-  index: 5,
+  index: 5
 })
 ```

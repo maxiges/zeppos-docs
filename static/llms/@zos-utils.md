@@ -19,13 +19,15 @@ import { EventBus } from '@zos/utils'
 const eventBus = new EventBus()
 
 eventBus.on('data', (data) => {
- console.log(data)
+  console.log(data)
 })
 
 eventBus.emit('data', 'Hello Zepp OS!')
 ```
 
-> Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::note
+Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 EventBus is a utility class that provides event publishing/subscribing, an implementation of the publish-subscribe pattern.
 
@@ -82,7 +84,6 @@ count(eventName?: string): number
 ## Example
 
 ```js
-
 const eventBus = new EventBus()
 
 eventBus.on('data', (data) => {
@@ -117,7 +118,9 @@ console.log(assetsPathFunc(imagePath)) // img/zeppos-logo.png
 console.log(assetsPathFunc(imagePath, true)) // img/zeppos-logo@rtl.png
 ```
 
-> Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::note
+Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 Used to handle resource file paths, splice `basePath`. and can pass in parameters for rtl path conversion of images, for RTL adaptation of Mini Program.
 
@@ -131,38 +134,37 @@ function assets(basePath: BasePath): AssetsPathFunc
 
 ### BasePath
 
-| Type                | Description                                                        |
-| ------------------- | ------------------------------------------------------------------ |
+| Type     | Description                                                        |
+| -------- | ------------------------------------------------------------------ |
 | `string` | The base path, which will be spliced before the resource file path |
 
 ### AssetsPathFunc
 
-| Type                                                       | Description                    |
-| ---------------------------------------------------------- | ------------------------------ |
+| Type                                        | Description                    |
+| ------------------------------------------- | ------------------------------ |
 | `(path: Path, isRtl?: IsRtl) => ResultPath` | Resource file path constructor |
 
 ### Path
 
-| Type                | Description        |
-| ------------------- | ------------------ |
+| Type     | Description        |
+| -------- | ------------------ |
 | `string` | Resource file path |
 
 ### IsRtl
 
-| Type                 | Description                    |
-| -------------------- | ------------------------------ |
+| Type      | Description                    |
+| --------- | ------------------------------ |
 | `boolean` | Whether to splice the rtl path |
 
 ### ResultPath
 
-| Type                | Description     |
-| ------------------- | --------------- |
+| Type     | Description     |
+| -------- | --------------- |
 | `string` | Final file path |
 
 ## Example
 
 ```js
-
 const imagePath = 'zeppos-logo.png'
 const assetsPathFunc = assets('img')
 
@@ -192,7 +194,9 @@ import { bufferToString } from '@zos/utils'
 const str = bufferToString(buffer)
 ```
 
-> Start from API_LEVEL `4.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::note
+Start from API_LEVEL `4.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 Convert `ArrayBuffer` type to string type.
 
@@ -206,20 +210,19 @@ function bufferToString(buffer: InputBuffer): Result
 
 ### InputBuffer
 
-| Type                     | Description                       |
-| ------------------------ | --------------------------------- |
+| Type          | Description                       |
+| ------------- | --------------------------------- |
 | `ArrayBuffer` | The `ArrayBuffer` to be converted |
 
 ### Result
 
-| Type                | Description          |
-| ------------------- | -------------------- |
+| Type     | Description          |
+| -------- | -------------------- |
 | `string` | The converted string |
 
 ## Example
 
 ```js
-
 const str = bufferToString(buffer)
 ```
 
@@ -233,7 +236,9 @@ const str = bufferToString(buffer)
 import { log } from '@zos/utils'
 ```
 
-> Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::note
+Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 The `log` instance is used for log printing and has multiple levels of logging methods for easy filtering in the console.
 
@@ -290,7 +295,6 @@ info(...args: string[]): void
 ## Example
 
 ```js
-
 const pageLogger = log.getLogger('page')
 
 pageLogger.log('page created')
@@ -318,7 +322,9 @@ import { px } from '@zos/utils'
 px(480)
 ```
 
-> Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::note
+Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 Pixel scaling calculation. The `designWidth` of each model in the `targets` object in the `app.json` is used as the base..
 
@@ -332,20 +338,19 @@ function px(value: PxValue): Result
 
 ### PxValue
 
-| Type                | Description                         |
-| ------------------- | ----------------------------------- |
+| Type     | Description                         |
+| -------- | ----------------------------------- |
 | `number` | Pixel values based on `designWidth` |
 
 ### Result
 
-| Type                | Description                            |
-| ------------------- | -------------------------------------- |
+| Type     | Description                            |
+| -------- | -------------------------------------- |
 | `number` | Pixel values after scaling calculation |
 
 ## Example
 
 ```js
-
 px(480)
 ```
 
@@ -371,7 +376,9 @@ import { stringToBuffer } from '@zos/utils'
 const buffer = stringToBuffer('Hello Zepp OS')
 ```
 
-> Start from API_LEVEL `4.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::note
+Start from API_LEVEL `4.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 Convert string type to `ArrayBuffer` type.
 
@@ -385,22 +392,20 @@ function stringToBuffer(str: InputString): Result
 
 ### InputString
 
-| Type                | Description                |
-| ------------------- | -------------------------- |
+| Type     | Description                |
+| -------- | -------------------------- |
 | `string` | The string to be converted |
 
 ### Result
 
-| Type                     | Description                 |
-| ------------------------ | --------------------------- |
+| Type          | Description                 |
+| ------------- | --------------------------- |
 | `ArrayBuffer` | The converted `ArrayBuffer` |
 
 ## Example
 
 ```js
-
 const buffer = stringToBuffer('Hello Zepp OS')
 ```
 
 ---
-

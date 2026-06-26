@@ -1,6 +1,8 @@
 # setLaunchAppTimeout
 
-> Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::note
+Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 Register a timer to launch the Mini Program at a given time.
 
@@ -36,10 +38,10 @@ import { setLaunchAppTimeout, clearLaunchAppTimeout } from '@zos/router'
 const timeoutId = setLaunchAppTimeout({
   url: 'pages/js_widget_sample',
   appId: 1000001,
-  delay: 1000,
+  delay: 1000
 })
 
 clearLaunchAppTimeout({
-  timeoutId,
+  timeoutId
 })
 ```

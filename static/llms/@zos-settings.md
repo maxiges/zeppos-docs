@@ -2,21 +2,21 @@
 
 ## Constants
 
-| Constant | Description | API_LEVEL |
-|----------|-------------|-----------|
-| `DATE_FORMAT_YMD` | year-month-day | — |
-| `DATE_FORMAT_DMY` | day-month-year | — |
-| `DATE_FORMAT_MDY` | month-day-year | — |
-| `TIME_FORMAT_12` | 12-hour format | 2.1 |
-| `TIME_FORMAT_24` | 24-hour format | 2.1 |
-| `DISTANCE_UNIT_METRIC` | metric system | — |
-| `DISTANCE_UNIT_IMPERIAL` | imperial system | — |
-| `WEIGHT_UNIT_KILOGRAM` | Kilogram | — |
-| `WEIGHT_UNIT_JIN` | Jin | — |
-| `WEIGHT_UNIT_POUND` | Pound | — |
-| `WEIGHT_UNIT_STONE` | Stone | — |
-| `TEMPERATURE_UNIT_CENTIGRADE` | Celsius temperature | — |
-| `TEMPERATURE_UNIT_FAHRENHEIT` | Fahrenheit temperature | — |
+| Constant                      | Description            | API_LEVEL |
+| ----------------------------- | ---------------------- | --------- |
+| `DATE_FORMAT_YMD`             | year-month-day         | —         |
+| `DATE_FORMAT_DMY`             | day-month-year         | —         |
+| `DATE_FORMAT_MDY`             | month-day-year         | —         |
+| `TIME_FORMAT_12`              | 12-hour format         | 2.1       |
+| `TIME_FORMAT_24`              | 24-hour format         | 2.1       |
+| `DISTANCE_UNIT_METRIC`        | metric system          | —         |
+| `DISTANCE_UNIT_IMPERIAL`      | imperial system        | —         |
+| `WEIGHT_UNIT_KILOGRAM`        | Kilogram               | —         |
+| `WEIGHT_UNIT_JIN`             | Jin                    | —         |
+| `WEIGHT_UNIT_POUND`           | Pound                  | —         |
+| `WEIGHT_UNIT_STONE`           | Stone                  | —         |
+| `TEMPERATURE_UNIT_CENTIGRADE` | Celsius temperature    | —         |
+| `TEMPERATURE_UNIT_FAHRENHEIT` | Fahrenheit temperature | —         |
 
 ## getDateFormat
 
@@ -42,7 +42,9 @@ if (currentDateFormat === DATE_FORMAT_YMD) {
 }
 ```
 
-> Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::note
+Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 Get the current system date format.
 
@@ -56,8 +58,8 @@ function getDateFormat(): Result
 
 ### Result
 
-| Type                | Description                                       |
-| ------------------- | ------------------------------------------------- |
+| Type     | Description                                       |
+| -------- | ------------------------------------------------- |
 | `number` | Date format, value refer to date format constants |
 
 ## Constants
@@ -73,7 +75,6 @@ function getDateFormat(): Result
 ## Example
 
 ```js
-
 const currentDateFormat = getDateFormat()
 
 if (currentDateFormat === DATE_FORMAT_YMD) {
@@ -107,7 +108,9 @@ if (distanceUnit === DISTANCE_UNIT_METRIC) {
 }
 ```
 
-> Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::note
+Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 Returns whether the current distance unit is metric or imperial. This method is to get the units set by the user, not to represent the units of the data, the data units refer to the interface description of the corresponding data.
 
@@ -121,8 +124,8 @@ function getDistanceUnit(): Result
 
 ### Result
 
-| Type                | Description                                            |
-| ------------------- | ------------------------------------------------------ |
+| Type     | Description                                            |
+| -------- | ------------------------------------------------------ |
 | `number` | Distance units, value refer to distance unit constants |
 
 ## Constants
@@ -137,7 +140,6 @@ function getDistanceUnit(): Result
 ## Example
 
 ```js
-
 const distanceUnit = getDistanceUnit()
 
 if (distanceUnit === DISTANCE_UNIT_METRIC) {
@@ -167,7 +169,9 @@ const languageCode = getLanguage()
 console.log(languageCode)
 ```
 
-> Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::note
+Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 Get the current system language setting.
 
@@ -181,14 +185,13 @@ function getLanguage(): Result
 
 ### Result
 
-| Type                | Description                                          |
-| ------------------- | ---------------------------------------------------- |
+| Type     | Description                                          |
+| -------- | ---------------------------------------------------- |
 | `number` | Please see the Multilingual Mapping for more details |
 
 ## Example
 
 ```js
-
 const languageCode = getLanguage()
 console.log(languageCode)
 ```
@@ -215,7 +218,9 @@ const sleepTarget = getSleepTarget()
 console.log(sleepTarget)
 ```
 
-> Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::note
+Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 Get the sleep target set by the user.
 
@@ -229,14 +234,13 @@ function getSleepTarget(): Result
 
 ### Result
 
-| Type                | Description                                       |
-| ------------------- | ------------------------------------------------- |
+| Type     | Description                                       |
+| -------- | ------------------------------------------------- |
 | `number` | User-set sleep target, default is `0`, in minutes |
 
 ## Example
 
 ```js
-
 const sleepTarget = getSleepTarget()
 console.log(sleepTarget)
 ```
@@ -264,7 +268,9 @@ const { minAPI } = getSystemInfo()
 console.log(minAPI)
 ```
 
-> Start from API_LEVEL `2.1` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::note
+Start from API_LEVEL `2.1` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 Get system related information.
 
@@ -278,8 +284,8 @@ function getSystemInfo(): Result
 
 ### Result
 
-| Property        | Type                | Description             | API_LEVEL |
-| --------------- | ------------------- | ----------------------- | --------- |
+| Property        | Type     | Description             | API_LEVEL |
+| --------------- | -------- | ----------------------- | --------- |
 | osVersion       | `string` | Zepp OS System Version  | 2.1       |
 | firmwareVersion | `string` | Device firmware version | 2.1       |
 | minAPI          | `string` | API_LEVEL               | 2.1       |
@@ -287,7 +293,6 @@ function getSystemInfo(): Result
 ## Example
 
 ```js
-
 const { minAPI } = getSystemInfo()
 console.log(minAPI)
 ```
@@ -315,7 +320,9 @@ const mode = getSystemMode()
 console.log(mode)
 ```
 
-> Start from API_LEVEL `3.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::note
+Start from API_LEVEL `3.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::
 
 Get the system mode setting information.
 
@@ -329,8 +336,8 @@ function getSystemMode(): Result
 
 ### Result
 
-| Property         | Type                 | Description                   | API_LEVEL |
-| ---------------- | -------------------- | ----------------------------- | --------- |
+| Property         | Type      | Description                   | API_LEVEL |
+| ---------------- | --------- | ----------------------------- | --------- |
 | DND              | `boolean` | State of Do Not Disturb Mode  | 3.0       |
 | sleep            | `boolean` | State of Sleep Mode           | 3.0       |
 | theater          | `boolean` | State of Sleep Mode           | 3.0       |
@@ -344,7 +351,6 @@ function getSystemMode(): Result
 ## Example
 
 ```js
-
 const mode = getSystemMode()
 console.log(mode)
 ```
@@ -376,7 +382,9 @@ if (temperatureUnit === TEMPERATURE_UNIT_CENTIGRADE) {
 }
 ```
 
-> Start from API_LEVEL `2.1` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::note
+Start from API_LEVEL `2.1` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 Get the temperature units set by the user.
 
@@ -390,8 +398,8 @@ function getTemperatureUnit(): Result
 
 ### Result
 
-| Type                | Description                                                   |
-| ------------------- | ------------------------------------------------------------- |
+| Type     | Description                                                   |
+| -------- | ------------------------------------------------------------- |
 | `number` | Temperature units, value reference temperature unit constants |
 
 ## Constants
@@ -406,7 +414,6 @@ function getTemperatureUnit(): Result
 ## Example
 
 ```js
-
 const temperatureUnit = getTemperatureUnit()
 
 if (temperatureUnit === TEMPERATURE_UNIT_CENTIGRADE) {
@@ -441,7 +448,9 @@ if (timeFormat === TIME_FORMAT_24) {
 }
 ```
 
-> Start from API_LEVEL `2.1` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::note
+Start from API_LEVEL `2.1` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 Get the current system time format, 12-hour format or 24-hour format.
 
@@ -455,8 +464,8 @@ function getTimeFormat(): Result
 
 ### Result
 
-| Type                | Description                                       |
-| ------------------- | ------------------------------------------------- |
+| Type     | Description                                       |
+| -------- | ------------------------------------------------- |
 | `number` | Hour format, value refer to hour format constants |
 
 ## Constants
@@ -471,7 +480,6 @@ function getTimeFormat(): Result
 ## Example
 
 ```js
-
 const timeFormat = getTimeFormat()
 
 if (timeFormat === TIME_FORMAT_24) {
@@ -501,7 +509,9 @@ const weightTarget = getWeightTarget()
 console.log(weightTarget)
 ```
 
-> Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::note
+Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 Get the weight target set by the user.
 
@@ -515,14 +525,13 @@ function getWeightTarget(): Result
 
 ### Result
 
-| Type                | Description                            |
-| ------------------- | -------------------------------------- |
+| Type     | Description                            |
+| -------- | -------------------------------------- |
 | `number` | User-set weight target, default is `0` |
 
 ## Example
 
 ```js
-
 const weightTarget = getWeightTarget()
 console.log(weightTarget)
 ```
@@ -553,7 +562,9 @@ if (weightUnit === WEIGHT_UNIT_KILOGRAM) {
 }
 ```
 
-> Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::note
+Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 Gets the weight unit set by the user.
 
@@ -567,8 +578,8 @@ function getWeightUnit(): Result
 
 ### Result
 
-| Type                | Description                                        |
-| ------------------- | -------------------------------------------------- |
+| Type     | Description                                        |
+| -------- | -------------------------------------------------- |
 | `number` | Weight units, value refer to weight unit constants |
 
 ## Constants
@@ -585,7 +596,6 @@ function getWeightUnit(): Result
 ## Example
 
 ```js
-
 const weightUnit = getWeightUnit()
 
 if (weightUnit === WEIGHT_UNIT_KILOGRAM) {
@@ -594,4 +604,3 @@ if (weightUnit === WEIGHT_UNIT_KILOGRAM) {
 ```
 
 ---
-

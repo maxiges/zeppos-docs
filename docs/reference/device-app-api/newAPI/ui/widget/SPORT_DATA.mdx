@@ -3,7 +3,9 @@ title: SPORT_DATA
 sidebar_label: SPORT_DATA
 ---
 
-> Start from API_LEVEL `3.6` . Please refer to [API_LEVEL](../../../../../guides/framework/device/compatibility.md).
+:::note
+Start from API_LEVEL `3.6` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 Displaying workout data in the workout extension can display a rich variety of workouts data types.
 
@@ -33,12 +35,12 @@ const sportData = createWidget(widget.SPORT_DATA, Param)
 | sub_text_color   | Subtext color, default `0x0000FF`                                                                                       | NO       | `number`  |
 | rect_visible     | Whether to display the text box, default is `false`                                                                     | NO       | `boolean` |
 | line_color       | Text box color, default `0x0000FF`                                                                                      | NO       | `number`  |
-| text_x           | Relative coordinates.Text box displays location x coordinates                                                                                | NO       | `number`  |
-| text_y           | Relative coordinates.Text box displays position y coordinates                                                                                | NO       | `number`  |
+| text_x           | Relative coordinates.Text box displays location x coordinates                                                           | NO       | `number`  |
+| text_y           | Relative coordinates.Text box displays position y coordinates                                                           | NO       | `number`  |
 | text_w           | Text box width                                                                                                          | NO       | `number`  |
 | text_h           | Text box height                                                                                                         | NO       | `number`  |
-| sub_text_x       | Relative coordinates.Subtext box displays position x coordinates                                                                             | NO       | `number`  |
-| sub_text_y       | Relative coordinates.Subtext box displays position y coordinates                                                                             | NO       | `number`  |
+| sub_text_x       | Relative coordinates.Subtext box displays position x coordinates                                                        | NO       | `number`  |
+| sub_text_y       | Relative coordinates.Subtext box displays position y coordinates                                                        | NO       | `number`  |
 | sub_text_w       | Secondary text box width                                                                                                | NO       | `number`  |
 | sub_text_h       | Secondary text box height                                                                                               | NO       | `number`  |
 | mock_data        | The simulated data only takes effect in the emulator, and the data items of the widget will display the incoming string | NO       | `string`  |
@@ -255,6 +257,7 @@ createWidget(widget.SPORT_DATA, {
   h: 80
 })
 ```
+
 ## Additional Examples
 
 ### Example 1
@@ -276,7 +279,6 @@ createWidget(widget.SPORT_DATA, {
   text_x: 24,
   text_y: 16,
   text_w: 312,
-  text_h: 40,
+  text_h: 40
 })
 ```
-

@@ -3,7 +3,9 @@ title: HeartRate
 sidebar_label: HeartRate
 ---
 
-> Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::note
+Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 HeartRate Sensor.
 
@@ -39,7 +41,9 @@ getToday(): Array<number>
 
 ### onCurrentChange
 
-> Start from API_LEVEL `2.1`
+:::note
+Start from API_LEVEL `2.1` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 Call this method and start measuring heart rate continuously, call the callback function when there is a measurement result, call the `getCurrent` method in the callback function to get the heart rate measurement value, if you want to stop the heart rate measurement, you need to call the `offCurrentChange` method
 
@@ -49,7 +53,9 @@ onCurrentChange(callback: () => void): void
 
 ### offCurrentChange
 
-> Start from API_LEVEL `2.1`
+:::note
+Start from API_LEVEL `2.1` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 Cancel continuous heart rate measurement and cancel callback function listeners
 
@@ -59,7 +65,9 @@ offCurrentChange(callback: () => void): void
 
 ### onLastChange
 
-> Start from API_LEVEL `2.1`
+:::note
+Start from API_LEVEL `2.1` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 Register the heart rate single measurement change event callback function
 
@@ -69,7 +77,9 @@ onLastChange(callback: () => void): void
 
 ### offLastChange
 
-> Start from API_LEVEL `2.1`
+:::note
+Start from API_LEVEL `2.1` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 Cancel the heart rate single measurement change event callback function
 
@@ -79,7 +89,9 @@ offLastChange(callback: () => void): void
 
 ### getDailySummary
 
-> Start from API_LEVEL `3.0`
+:::note
+Start from API_LEVEL `3.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::
 
 Get daily heart rate statistics
 
@@ -102,7 +114,9 @@ getDailySummary(): Result
 
 ### getResting
 
-> Start from API_LEVEL `3.0`
+:::note
+Start from API_LEVEL `3.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::
 
 Get current resting heart rate
 
@@ -112,7 +126,9 @@ getResting(): number
 
 ### getAFibRecord
 
-> Start from API_LEVEL `3.0`
+:::note
+Start from API_LEVEL `3.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::
 
 Get Atrial Fibrillation Data Array
 
@@ -139,7 +155,9 @@ getAFibRecord(): Result
 
 ### onRestingChange
 
-> Start from API_LEVEL `3.0`
+:::note
+Start from API_LEVEL `3.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::
 
 After calling this method, the device starts real-time resting heart rate measurement and registers a callback function, which is called when there is a measurement result, in which the `getResting` method can be called to get the resting heart rate measurement value, and if you need to stop the resting heart rate measurement, you need to call the `offRestingChange` method
 
@@ -149,7 +167,9 @@ onRestingChange(callback: () => void): void
 
 ### offRestingChange
 
-> Start from API_LEVEL `3.0`
+:::note
+Start from API_LEVEL `3.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::
 
 Cancel continuous resting heart rate measurement and cancel callback function listeners
 

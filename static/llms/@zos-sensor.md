@@ -2,22 +2,22 @@
 
 ## Constants
 
-| Constant | Description | API_LEVEL |
-|----------|-------------|-----------|
-| `VIBRATOR_SCENE_SHORT_LIGHT` | Light vibration intensity and short time (20ms) | — |
-| `VIBRATOR_SCENE_SHORT_MIDDLE` | Medium vibration intensity, short time (20ms) | — |
-| `VIBRATOR_SCENE_SHORT_STRONG` | High vibration intensity and short time (20ms) | — |
-| `VIBRATOR_SCENE_DURATION` | High vibration intensity, lasting 600ms | — |
-| `VIBRATOR_SCENE_DURATION_LONG` | High vibration intensity, lasting 1000ms | — |
-| `VIBRATOR_SCENE_STRONG_REMINDER` | High vibration intensity, four vibrations in 1200ms, can be used for stronger reminders | — |
-| `VIBRATOR_SCENE_NOTIFICATION` | Two short, continuous vibrations, consistent with the watch message notification vibration feedback | — |
-| `VIBRATOR_SCENE_CALL` | High vibration intensity, single vibration twice in 500ms, continuous vibration, need to manually `stop`, consistent with the watch call vibration feedback | — |
-| `VIBRATOR_SCENE_TIMER` | High vibration intensity, single long vibration 500ms, continuous vibration, need to manually `stop`, consistent with the watch alarm clock, countdown vibration feedback | — |
-| `TIME_HOUR_FORMAT_12` | 12-hour format | 2.1 |
-| `TIME_HOUR_FORMAT_24` | 24-hour format | 2.1 |
-| `FREQ_MODE_LOW` | Low power mode with low trigger frequency | 3.0 |
-| `FREQ_MODE_NORMAL` | Normal power consumption mode, medium trigger frequency | 3.0 |
-| `FREQ_MODE_HIGH` | High power consumption mode with high trigger frequency | 3.0 |
+| Constant                         | Description                                                                                                                                                               | API_LEVEL |
+| -------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- |
+| `VIBRATOR_SCENE_SHORT_LIGHT`     | Light vibration intensity and short time (20ms)                                                                                                                           | —         |
+| `VIBRATOR_SCENE_SHORT_MIDDLE`    | Medium vibration intensity, short time (20ms)                                                                                                                             | —         |
+| `VIBRATOR_SCENE_SHORT_STRONG`    | High vibration intensity and short time (20ms)                                                                                                                            | —         |
+| `VIBRATOR_SCENE_DURATION`        | High vibration intensity, lasting 600ms                                                                                                                                   | —         |
+| `VIBRATOR_SCENE_DURATION_LONG`   | High vibration intensity, lasting 1000ms                                                                                                                                  | —         |
+| `VIBRATOR_SCENE_STRONG_REMINDER` | High vibration intensity, four vibrations in 1200ms, can be used for stronger reminders                                                                                   | —         |
+| `VIBRATOR_SCENE_NOTIFICATION`    | Two short, continuous vibrations, consistent with the watch message notification vibration feedback                                                                       | —         |
+| `VIBRATOR_SCENE_CALL`            | High vibration intensity, single vibration twice in 500ms, continuous vibration, need to manually `stop`, consistent with the watch call vibration feedback               | —         |
+| `VIBRATOR_SCENE_TIMER`           | High vibration intensity, single long vibration 500ms, continuous vibration, need to manually `stop`, consistent with the watch alarm clock, countdown vibration feedback | —         |
+| `TIME_HOUR_FORMAT_12`            | 12-hour format                                                                                                                                                            | 2.1       |
+| `TIME_HOUR_FORMAT_24`            | 24-hour format                                                                                                                                                            | 2.1       |
+| `FREQ_MODE_LOW`                  | Low power mode with low trigger frequency                                                                                                                                 | 3.0       |
+| `FREQ_MODE_NORMAL`               | Normal power consumption mode, medium trigger frequency                                                                                                                   | 3.0       |
+| `FREQ_MODE_HIGH`                 | High power consumption mode with high trigger frequency                                                                                                                   | 3.0       |
 
 ## Accelerometer
 
@@ -51,7 +51,9 @@ accelerometer.offChange()
 accelerometer.stop()
 ```
 
-> Start from API_LEVEL `3.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::note
+Start from API_LEVEL `3.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::
 
 [Image: Accelerometer_image}]
 
@@ -89,8 +91,8 @@ getCurrent(): Result
 
 #### Result
 
-| Property | Type                | Description                      | API_LEVEL |
-| -------- | ------------------- | -------------------------------- | --------- |
+| Property | Type     | Description                      | API_LEVEL |
+| -------- | -------- | -------------------------------- | --------- |
 | x        | `number` | Acceleration of x-axis in cm/s^2 | 3.0       |
 | y        | `number` | Acceleration of y-axis in cm/s^2 | 3.0       |
 | z        | `number` | Acceleration of z-axis in cm/s^2 | 3.0       |
@@ -113,7 +115,9 @@ offChange(callback: () => void): void
 
 ### setFreqMode
 
-> Start from API_LEVEL `3.0`
+:::note
+Start from API_LEVEL `3.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::
 
 Set the mode of trigger frequency, `mode` value reference frequency mode constant
 
@@ -133,7 +137,9 @@ setFreqMode(mode: number): void
 
 ### getFreqMode
 
-> Start from API_LEVEL `3.0`
+:::note
+Start from API_LEVEL `3.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::
 
 Get the mode of trigger frequency, result value reference frequency mode constant
 
@@ -154,7 +160,6 @@ getFreqMode(): number
 ## Example
 
 ```js
-
 const accelerometer = new Accelerometer()
 
 const callback = () => {
@@ -203,7 +208,9 @@ barometer.onChange(callback)
 barometer.offChange(callback)
 ```
 
-> Start from API_LEVEL `2.1` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::note
+Start from API_LEVEL `2.1` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 Barometer Sensor.
 
@@ -248,7 +255,6 @@ offChange(callback: () => void): void
 ## Example
 
 ```js
-
 const barometer = new Barometer()
 const airPressure = barometer.getAirPressure()
 const altitude = barometer.getAltitude()
@@ -294,7 +300,9 @@ battery.onChange(callback)
 battery.offChange(callback)
 ```
 
-> Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::note
+Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 Battery Sensor.
 
@@ -327,7 +335,6 @@ offChange(callback: () => void): void
 ## Example
 
 ```js
-
 const battery = new Battery()
 const current = battery.getCurrent()
 
@@ -374,7 +381,9 @@ bloodOxygen.start()
 bloodOxygen.offChange(callback)
 ```
 
-> Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::note
+Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 Blood oxygen Sensor.
 
@@ -394,16 +403,16 @@ getCurrent(): Result
 
 #### Result
 
-| Property | Type                | Description                               | API_LEVEL |
-| -------- | ------------------- | ----------------------------------------- | --------- |
+| Property | Type     | Description                               | API_LEVEL |
+| -------- | -------- | ----------------------------------------- | --------- |
 | value    | `number` | Blood oxygen measurement values           | 2.0       |
 | time     | `number` | Measurement time                          | 2.0       |
 | retCode  | `number` | Result code, refer to retCode description | 2.0       |
 
 #### retCode
 
-| Value | Type                | Description             | API_LEVEL |
-| ----- | ------------------- | ----------------------- | --------- |
+| Value | Type     | Description             | API_LEVEL |
+| ----- | -------- | ----------------------- | --------- |
 | 0     | `number` | Measurement invalid     | 2.0       |
 | 1     | `number` | Continue measuring      | 2.0       |
 | 2     | `number` | Measurement success     | 2.0       |
@@ -426,7 +435,9 @@ getLastDay(): Array<number>
 
 ### start
 
-> Start from API_LEVEL `2.1`
+:::note
+Start from API_LEVEL `2.1` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 Start blood oxygen measurement, it is recommended to call `stop` to stop the last measurement before calling the `start` method
 
@@ -436,7 +447,9 @@ start(): void
 
 ### stop
 
-> Start from API_LEVEL `2.1`
+:::note
+Start from API_LEVEL `2.1` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 Cancel blood oxygen measurement
 
@@ -462,7 +475,9 @@ offChange(callback: () => void): void
 
 ### getLastFewHour
 
-> Start from API_LEVEL `3.0`
+:::note
+Start from API_LEVEL `3.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::
 
 Obtain blood oxygen measurements for the last `hour` and sort the results in chronological order
 
@@ -472,15 +487,14 @@ getLastFewHour(hour: number): Array<Data>
 
 #### Data
 
-| Property | Type                | Description                                                           | API_LEVEL |
-| -------- | ------------------- | --------------------------------------------------------------------- | --------- |
+| Property | Type     | Description                                                           | API_LEVEL |
+| -------- | -------- | --------------------------------------------------------------------- | --------- |
 | spo2     | `number` | Blood oxygen measurement value                                        | 3.0       |
 | time     | `number` | Time of measurement of blood oxygen values, UTC time stamp in seconds | 3.0       |
 
 ## Example
 
 ```js
-
 const bloodOxygen = new BloodOxygen()
 const { value } = bloodOxygen.getCurrent()
 const lastDay = bloodOxygen.getLastDay()
@@ -520,7 +534,9 @@ const bodyTemperature = new BodyTemperature()
 bodyTemperature.getCurrent()
 ```
 
-> Start from API_LEVEL `3.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::note
+Start from API_LEVEL `3.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::
 
 Body surface temperature sensor.
 
@@ -540,8 +556,8 @@ getCurrent(): Result
 
 #### Result
 
-| Property     | Type                | Description                                                                                             | API_LEVEL |
-| ------------ | ------------------- | ------------------------------------------------------------------------------------------------------- | --------- |
+| Property     | Type     | Description                                                                                             | API_LEVEL |
+| ------------ | -------- | ------------------------------------------------------------------------------------------------------- | --------- |
 | current      | `number` | Sleep stage type, refer to the constants returned by `getStageConstantObj` for the meaning of the value | 3.0       |
 | timeinterval | `number` | Sleep stage type, refer to the constants returned by `getStageConstantObj` for the meaning of the value | 3.0       |
 
@@ -556,7 +572,6 @@ getToday(): Array<number>
 ## Example
 
 ```js
-
 const bodyTemperature = new BodyTemperature()
 
 bodyTemperature.getCurrent()
@@ -578,7 +593,7 @@ import { createWidget, widget, prop, align, text_style } from '@zos/ui'
 - API_LEVEL: 3.6
 - Example:
 
-```js
+````js
 import { createWidget, widget, prop, align, text_style } from "@zos/ui";
 import { Buzzer } from "@zos/sensor";
 import { px } from "@zos/utils";
@@ -632,7 +647,9 @@ Page({
   },
 });
 
-> Start from API_LEVEL `3.6` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::note
+Start from API_LEVEL `3.6` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 Buzzer.
 
@@ -644,7 +661,7 @@ Get whether other options in the system buzzer scene settings are turned on, Set
 
 ```ts
 isEnabled(): boolean
-```
+````
 
 ### getSourceType
 
@@ -656,8 +673,8 @@ getSourceType(): Type
 
 #### Type
 
-| Value    | Type                | Description | API_LEVEL |
-| -------- | ------------------- | ----------- | --------- |
+| Value    | Type     | Description | API_LEVEL |
+| -------- | -------- | ----------- | --------- |
 | ALARM    | `number` | Alarm clock | 3.6       |
 | REMIND_1 | `number` | Reminder 1  | 3.6       |
 | REMIND_2 | `number` | Reminder 2  | 3.6       |
@@ -692,13 +709,12 @@ stop(): void
 ## Example
 
 ```js
-
 const sceneList = ['ALARM', 'REMIND_1', 'REMIND_2', 'OPERATE', 'SUCCESS', 'FAILURE']
 
 Page({
   state: {
     pageName: 'BUZZER',
-    currentIndex: 0,
+    currentIndex: 0
   },
   build() {
     const buzzer = new Buzzer()
@@ -712,7 +728,7 @@ Page({
       align_h: align.CENTER_H,
       align_v: align.CENTER_V,
       text_style: text_style.NONE,
-      text: `${sceneList[this.state.currentIndex]}`,
+      text: `${sceneList[this.state.currentIndex]}`
     })
 
     const startBuzzer = () => {
@@ -724,7 +740,7 @@ Page({
 
       this.state.currentIndex = (this.state.currentIndex + 1) % sceneList.length
       sceneText.setProperty(prop.MORE, {
-        text: `BUZZER: ${sceneList[this.state.currentIndex]}`,
+        text: `BUZZER: ${sceneList[this.state.currentIndex]}`
       })
     }
 
@@ -737,9 +753,9 @@ Page({
       normal_color: 0xfc6950,
       press_color: 0xfeb4a8,
       text: 'START BUZZER',
-      click_func: startBuzzer,
+      click_func: startBuzzer
     })
-  },
+  }
 })
 ```
 
@@ -775,7 +791,9 @@ calorie.onChange(callback)
 calorie.offChange(callback)
 ```
 
-> Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::note
+Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 Calorie Sensor.
 
@@ -820,7 +838,6 @@ offChange(callback: () => void): void
 ## Example
 
 ```js
-
 const calorie = new Calorie()
 const current = calorie.getCurrent()
 const target = calorie.getTarget()
@@ -870,7 +887,9 @@ compass.offChange()
 compass.stop()
 ```
 
-> Start from API_LEVEL `3.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::note
+Start from API_LEVEL `3.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::
 
 compass.
 
@@ -914,8 +933,8 @@ getDirection(): string
 
 #### direction
 
-| Value | Type                | Description | API_LEVEL |
-| ----- | ------------------- | ----------- | --------- |
+| Value | Type     | Description | API_LEVEL |
+| ----- | -------- | ----------- | --------- |
 | N     | `string` | North       | 3.0       |
 | NE    | `string` | Northeast   | 3.0       |
 | E     | `string` | East        | 3.0       |
@@ -951,7 +970,9 @@ offChange(callback: () => void): void
 
 ### setFreqMode
 
-> Start from API_LEVEL `4.0`
+:::note
+Start from API_LEVEL `4.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 Set the mode of trigger frequency, `mode` value reference frequency mode constant
 
@@ -971,7 +992,9 @@ setFreqMode(mode: number): void
 
 ### getFreqMode
 
-> Start from API_LEVEL `4.0`
+:::note
+Start from API_LEVEL `4.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 Get the mode of trigger frequency, result value reference frequency mode constant
 
@@ -992,7 +1015,6 @@ getFreqMode(): number
 ## Example
 
 ```js
-
 const compass = new Compass()
 
 const callback = () => {
@@ -1040,7 +1062,9 @@ distance.onChange(callback)
 distance.offChange(callback)
 ```
 
-> Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::note
+Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 Distance Sensor.
 
@@ -1077,7 +1101,6 @@ offChange(callback: () => void): void
 ## Example
 
 ```js
-
 const distance = new Distance()
 const current = distance.getCurrent()
 const callback = () => {
@@ -1122,7 +1145,9 @@ fatBurning.onChange(callback)
 fatBurning.offChange(callback)
 ```
 
-> Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::note
+Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 FatBurning Sensor.
 
@@ -1167,7 +1192,6 @@ offChange(callback: () => void): void
 ## Example
 
 ```js
-
 const fatBurning = new FatBurning()
 const current = fatBurning.getCurrent()
 const target = fatBurning.getTarget()
@@ -1218,7 +1242,9 @@ geolocation.offChange(callback)
 geolocation.stop()
 ```
 
-> Start from API_LEVEL `2.1` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::note
+Start from API_LEVEL `2.1` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 Geolocation Sensor.
 
@@ -1262,20 +1288,20 @@ getLatitude(option: Option): Result
 
 #### Option
 
-| Property | Type                | Required | DefaultValue    | Description                                                                             | API_LEVEL |
-| -------- | ------------------- | -------- | --------------- | --------------------------------------------------------------------------------------- | --------- |
-| format   | `string` | N        | `DD` | Coordinate format, optionally `DD` for decimal or `DMS` in degrees, minutes and seconds | 2.1       |
+| Property | Type     | Required | DefaultValue | Description                                                                             | API_LEVEL |
+| -------- | -------- | -------- | ------------ | --------------------------------------------------------------------------------------- | --------- |
+| format   | `string` | N        | `DD`         | Coordinate format, optionally `DD` for decimal or `DMS` in degrees, minutes and seconds | 2.1       |
 
 #### Result
 
-| Type                         | Description                                |
-| ---------------------------- | ------------------------------------------ |
+| Type              | Description                                |
+| ----------------- | ------------------------------------------ |
 | `number&#124;DMS` | Coordinates, coordinate system type WGS-84 |
 
 #### DMS
 
-| Property  | Type                | Description                                               | API_LEVEL |
-| --------- | ------------------- | --------------------------------------------------------- | --------- |
+| Property  | Type     | Description                                               | API_LEVEL |
+| --------- | -------- | --------------------------------------------------------- | --------- |
 | direction | `string` | Direction, `N` for north latitude, `S` for south latitude | 2.1       |
 | degrees   | `number` | degree                                                    | 2.1       |
 | minutes   | `number` | minute                                                    | 2.1       |
@@ -1291,20 +1317,20 @@ getLongitude(option: Option): Result
 
 #### Option
 
-| Property | Type                | Required | DefaultValue    | Description                                                                             | API_LEVEL |
-| -------- | ------------------- | -------- | --------------- | --------------------------------------------------------------------------------------- | --------- |
-| format   | `string` | N        | `DD` | Coordinate format, optionally `DD` for decimal or `DMS` in degrees, minutes and seconds | 2.1       |
+| Property | Type     | Required | DefaultValue | Description                                                                             | API_LEVEL |
+| -------- | -------- | -------- | ------------ | --------------------------------------------------------------------------------------- | --------- |
+| format   | `string` | N        | `DD`         | Coordinate format, optionally `DD` for decimal or `DMS` in degrees, minutes and seconds | 2.1       |
 
 #### Result
 
-| Type                         | Description                                |
-| ---------------------------- | ------------------------------------------ |
+| Type              | Description                                |
+| ----------------- | ------------------------------------------ |
 | `number&#124;DMS` | Coordinates, coordinate system type WGS-84 |
 
 #### DMS
 
-| Property  | Type                | Description                                               | API_LEVEL |
-| --------- | ------------------- | --------------------------------------------------------- | --------- |
+| Property  | Type     | Description                                               | API_LEVEL |
+| --------- | -------- | --------------------------------------------------------- | --------- |
 | direction | `string` | Direction, `E` for east longitude, `W` for west longitude | 2.1       |
 | degrees   | `number` | degree                                                    | 2.1       |
 | minutes   | `number` | minute                                                    | 2.1       |
@@ -1312,7 +1338,9 @@ getLongitude(option: Option): Result
 
 ### getSetting
 
-> Start from API_LEVEL `3.0`
+:::note
+Start from API_LEVEL `3.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::
 
 Get the positioning settings
 
@@ -1322,14 +1350,14 @@ getSetting(): Result
 
 #### Result
 
-| Property | Type                | Description                                                   | API_LEVEL |
-| -------- | ------------------- | ------------------------------------------------------------- | --------- |
+| Property | Type     | Description                                                   | API_LEVEL |
+| -------- | -------- | ------------------------------------------------------------- | --------- |
 | mode     | `number` | Positioning settings, see `mode` below for value descriptions | 3.0       |
 
 #### mode
 
-| Value | Type                | Description        | API_LEVEL |
-| ----- | ------------------- | ------------------ | --------- |
+| Value | Type     | Description        | API_LEVEL |
+| ----- | -------- | ------------------ | --------- |
 | 0     | `number` | Accuracy           | 3.0       |
 | 1     | `number` | Automation         | 3.0       |
 | 2     | `number` | Balance            | 3.0       |
@@ -1355,7 +1383,9 @@ offChange(callback: () => void): void
 
 ### onGnssChange
 
-> Start from API_LEVEL `3.0`
+:::note
+Start from API_LEVEL `3.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::
 
 Register a callback function to listen for GNSS information change events
 
@@ -1365,29 +1395,29 @@ onGnssChange(callback: (info: Info) => void): void
 
 #### Info
 
-| Property           | Type                                        | Description                                                                            | API_LEVEL |
-| ------------------ | ------------------------------------------- | -------------------------------------------------------------------------------------- | --------- |
-| agps_inject_time   | `number`                         | AGPS update time UTC timestamp in milliseconds                                         | 3.0       |
-| top4_cn_val        | `number`                         | Signal strength value of the positioning satellite                                     | 3.0       |
-| is_dualband        | `number`                         | Whether dual-band                                                                      | 3.0       |
-| nb_valid_satellite | `number`                         | Number of available satellites                                                         | 3.0       |
-| nb_used_satellite  | `number`                         | Number of satellites used                                                              | 3.0       |
-| elapsed_time       | `number`                         | Time consumed from the start of satellite search to successful positioning, in seconds | 3.0       |
+| Property           | Type                     | Description                                                                            | API_LEVEL |
+| ------------------ | ------------------------ | -------------------------------------------------------------------------------------- | --------- |
+| agps_inject_time   | `number`                 | AGPS update time UTC timestamp in milliseconds                                         | 3.0       |
+| top4_cn_val        | `number`                 | Signal strength value of the positioning satellite                                     | 3.0       |
+| is_dualband        | `number`                 | Whether dual-band                                                                      | 3.0       |
+| nb_valid_satellite | `number`                 | Number of available satellites                                                         | 3.0       |
+| nb_used_satellite  | `number`                 | Number of satellites used                                                              | 3.0       |
+| elapsed_time       | `number`                 | Time consumed from the start of satellite search to successful positioning, in seconds | 3.0       |
 | satellite_data     | `Array<SatelliteSystem>` | Satellite data arrays                                                                  | 3.0       |
 
 #### SatelliteSystem
 
-| Property           | Type                                  | Description                                              | API_LEVEL |
-| ------------------ | ------------------------------------- | -------------------------------------------------------- | --------- |
-| gnss_id            | `number`                   | Satellite ID, see `gnss_id` below for value descriptions | 3.0       |
-| sub_top4_cn_val    | `number`                   | The strongest signal value of this satellite system      | 3.0       |
-| nb_valid_satellite | `number`                   | Number of available satellites that can be searched      | 3.0       |
+| Property           | Type               | Description                                              | API_LEVEL |
+| ------------------ | ------------------ | -------------------------------------------------------- | --------- |
+| gnss_id            | `number`           | Satellite ID, see `gnss_id` below for value descriptions | 3.0       |
+| sub_top4_cn_val    | `number`           | The strongest signal value of this satellite system      | 3.0       |
+| nb_valid_satellite | `number`           | Number of available satellites that can be searched      | 3.0       |
 | gsv_data           | `Array<Satellite>` | Single satellite data array, maximum length 32           | 3.6       |
 
 #### gnss_id
 
-| Value | Type                | Description | API_LEVEL |
-| ----- | ------------------- | ----------- | --------- |
+| Value | Type     | Description | API_LEVEL |
+| ----- | -------- | ----------- | --------- |
 | 0     | `number` | GPS         | 3.0       |
 | 1     | `number` | BDS         | 3.0       |
 | 2     | `number` | GLONASS     | 3.0       |
@@ -1397,8 +1427,8 @@ onGnssChange(callback: (info: Info) => void): void
 
 #### Satellite
 
-| Property  | Type                | Description           | API_LEVEL |
-| --------- | ------------------- | --------------------- | --------- |
+| Property  | Type     | Description           | API_LEVEL |
+| --------- | -------- | --------------------- | --------- |
 | id        | `number` | Satellite ID          | 3.6       |
 | elevation | `number` | Pitch angle           | 3.6       |
 | azimuth   | `number` | Azimuth               | 3.6       |
@@ -1406,7 +1436,9 @@ onGnssChange(callback: (info: Info) => void): void
 
 ### offGnssChange
 
-> Start from API_LEVEL `3.0`
+:::note
+Start from API_LEVEL `3.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::
 
 Cancel the callback function for listening to the GNSS information change event
 
@@ -1416,7 +1448,9 @@ offGnssChange(callback: (info: Geolocation.onGnssChange.Info) => void): void
 
 ### getEnabled
 
-> Start from API_LEVEL `4.0`
+:::note
+Start from API_LEVEL `4.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 Get whether the user allows the Mini Program to use location features
 
@@ -1426,7 +1460,9 @@ getEnabled(): boolean
 
 ### onEnableChange
 
-> Start from API_LEVEL `4.0`
+:::note
+Start from API_LEVEL `4.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 Register a callback function to listen for user location permission change events
 
@@ -1436,7 +1472,9 @@ onEnableChange(callback: () => void): void
 
 ### offEnableChange
 
-> Start from API_LEVEL `4.0`
+:::note
+Start from API_LEVEL `4.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 Cancel the callback function for listening to user location permission change events
 
@@ -1447,7 +1485,6 @@ offEnableChange(callback: () => void): void
 ## Example
 
 ```js
-
 const geolocation = new Geolocation()
 
 const callback = () => {
@@ -1499,7 +1536,9 @@ gyroscope.offChange()
 gyroscope.stop()
 ```
 
-> Start from API_LEVEL `3.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::note
+Start from API_LEVEL `3.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::
 
 [Image: Gyroscope_image}]
 
@@ -1537,8 +1576,8 @@ getCurrent(): Result
 
 #### Result
 
-| Property | Type                | Description                                           | API_LEVEL |
-| -------- | ------------------- | ----------------------------------------------------- | --------- |
+| Property | Type     | Description                                           | API_LEVEL |
+| -------- | -------- | ----------------------------------------------------- | --------- |
 | x        | `number` | Angular velocity of x-axis in DPS, degrees per second | 3.0       |
 | y        | `number` | Angular velocity of y-axis in DPS, degrees per second | 3.0       |
 | z        | `number` | Angular velocity of z-axis in DPS, degrees per second | 3.0       |
@@ -1561,7 +1600,9 @@ offChange(callback: () => void): void
 
 ### setFreqMode
 
-> Start from API_LEVEL `3.0`
+:::note
+Start from API_LEVEL `3.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::
 
 Set the mode of trigger frequency, `mode` value reference frequency mode constant
 
@@ -1581,7 +1622,9 @@ setFreqMode(mode: number): void
 
 ### getFreqMode
 
-> Start from API_LEVEL `3.0`
+:::note
+Start from API_LEVEL `3.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::
 
 Get the mode of trigger frequency, result value reference frequency mode constant
 
@@ -1602,7 +1645,6 @@ getFreqMode(): number
 ## Example
 
 ```js
-
 const gyroscope = new Gyroscope()
 
 const callback = () => {
@@ -1649,7 +1691,9 @@ heartRate.onCurrentChange(callback)
 heartRate.offCurrentChange(callback)
 ```
 
-> Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::note
+Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 HeartRate Sensor.
 
@@ -1685,7 +1729,9 @@ getToday(): Array<number>
 
 ### onCurrentChange
 
-> Start from API_LEVEL `2.1`
+:::note
+Start from API_LEVEL `2.1` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 Call this method and start measuring heart rate continuously, call the callback function when there is a measurement result, call the `getCurrent` method in the callback function to get the heart rate measurement value, if you want to stop the heart rate measurement, you need to call the `offCurrentChange` method
 
@@ -1695,7 +1741,9 @@ onCurrentChange(callback: () => void): void
 
 ### offCurrentChange
 
-> Start from API_LEVEL `2.1`
+:::note
+Start from API_LEVEL `2.1` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 Cancel continuous heart rate measurement and cancel callback function listeners
 
@@ -1705,7 +1753,9 @@ offCurrentChange(callback: () => void): void
 
 ### onLastChange
 
-> Start from API_LEVEL `2.1`
+:::note
+Start from API_LEVEL `2.1` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 Register the heart rate single measurement change event callback function
 
@@ -1715,7 +1765,9 @@ onLastChange(callback: () => void): void
 
 ### offLastChange
 
-> Start from API_LEVEL `2.1`
+:::note
+Start from API_LEVEL `2.1` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 Cancel the heart rate single measurement change event callback function
 
@@ -1725,7 +1777,9 @@ offLastChange(callback: () => void): void
 
 ### getDailySummary
 
-> Start from API_LEVEL `3.0`
+:::note
+Start from API_LEVEL `3.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::
 
 Get daily heart rate statistics
 
@@ -1735,20 +1789,22 @@ getDailySummary(): Result
 
 #### Result
 
-| Property | Type                 | Description                    | API_LEVEL |
-| -------- | -------------------- | ------------------------------ | --------- |
+| Property | Type      | Description                    | API_LEVEL |
+| -------- | --------- | ------------------------------ | --------- |
 | maximum  | `Maximum` | Maximum heart rate information | 3.0       |
 
 #### Maximum
 
-| Property | Type                | Description                            | API_LEVEL |
-| -------- | ------------------- | -------------------------------------- | --------- |
+| Property | Type     | Description                            | API_LEVEL |
+| -------- | -------- | -------------------------------------- | --------- |
 | hr_value | `number` | Maximum heart rate value               | 3.0       |
 | time     | `number` | Measurement time of maximum heart rate | 3.0       |
 
 ### getResting
 
-> Start from API_LEVEL `3.0`
+:::note
+Start from API_LEVEL `3.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::
 
 Get current resting heart rate
 
@@ -1758,7 +1814,9 @@ getResting(): number
 
 ### getAFibRecord
 
-> Start from API_LEVEL `3.0`
+:::note
+Start from API_LEVEL `3.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::
 
 Get Atrial Fibrillation Data Array
 
@@ -1768,14 +1826,14 @@ getAFibRecord(): Result
 
 #### Result
 
-| Type                                 | Description                           |
-| ------------------------------------ | ------------------------------------- |
+| Type              | Description                           |
+| ----------------- | ------------------------------------- |
 | `Array<AfibInfo>` | Atrial Fibrillation Information Array |
 
 #### AfibInfo
 
-| Property | Type                | Description                                                                                                  | API_LEVEL |
-| -------- | ------------------- | ------------------------------------------------------------------------------------------------------------ | --------- |
+| Property | Type     | Description                                                                                                  | API_LEVEL |
+| -------- | -------- | ------------------------------------------------------------------------------------------------------------ | --------- |
 | flag     | `number` | Atrial fibrillation test results, `0` - normal, `1` - high alert, `2` - low alert, `3` - atrial fibrillation | 3.0       |
 | val      | `number` | Atrial fibrillation data value, integer value 0 - 255                                                        | 3.0       |
 | maxValue | `number` | Atrial fibrillation data maximum value, integer value 0 - 255                                                | 3.0       |
@@ -1785,7 +1843,9 @@ getAFibRecord(): Result
 
 ### onRestingChange
 
-> Start from API_LEVEL `3.0`
+:::note
+Start from API_LEVEL `3.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::
 
 After calling this method, the device starts real-time resting heart rate measurement and registers a callback function, which is called when there is a measurement result, in which the `getResting` method can be called to get the resting heart rate measurement value, and if you need to stop the resting heart rate measurement, you need to call the `offRestingChange` method
 
@@ -1795,7 +1855,9 @@ onRestingChange(callback: () => void): void
 
 ### offRestingChange
 
-> Start from API_LEVEL `3.0`
+:::note
+Start from API_LEVEL `3.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::
 
 Cancel continuous resting heart rate measurement and cancel callback function listeners
 
@@ -1806,7 +1868,6 @@ offRestingChange(callback: () => void): void
 ## Example
 
 ```js
-
 const heartRate = new HeartRate()
 const lastValue = heartRate.getLast()
 
@@ -1845,7 +1906,9 @@ const today = pai.getToday()
 const lastWeek = pai.getLastWeek()
 ```
 
-> Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::note
+Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 PAI Sensor.
 
@@ -1882,7 +1945,6 @@ getLastWeek(): Array<number>
 ## Example
 
 ```js
-
 const pai = new Pai()
 const total = pai.getTotal()
 const today = pai.getToday()
@@ -1920,7 +1982,9 @@ screen.onChange(callback)
 screen.offChange(callback)
 ```
 
-> Start from API_LEVEL `3.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::note
+Start from API_LEVEL `3.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::
 
 Screen Status Sensor.
 
@@ -1944,7 +2008,9 @@ getAodMode(): boolean
 
 ### getLight
 
-> Start from API_LEVEL `3.6`
+:::note
+Start from API_LEVEL `3.6` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 Light intensity, unit lux
 
@@ -1971,7 +2037,6 @@ offChange(callback: (status: number) => void): void
 ## Example
 
 ```js
-
 const screen = new Screen()
 const status = screen.getStatus()
 const callback = () => {
@@ -2017,7 +2082,9 @@ stage.forEach((i) => {
 })
 ```
 
-> Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::note
+Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 Sleep Sensor.
 
@@ -2045,8 +2112,8 @@ getInfo(): SleepInfo
 
 #### SleepInfo
 
-| Property  | Type                | Description                                                         | API_LEVEL |
-| --------- | ------------------- | ------------------------------------------------------------------- | --------- |
+| Property  | Type     | Description                                                         | API_LEVEL |
+| --------- | -------- | ------------------------------------------------------------------- | --------- |
 | score     | `number` | Sleep score                                                         | 2.0       |
 | deepTime  | `number` | Deep sleep time (minutes)                                           | 2.0       |
 | startTime | `number` | Sleep onset time, based on the number of minutes at 0:00 of the day | 2.0       |
@@ -2063,8 +2130,8 @@ getStageConstantObj(): StageConstants
 
 #### StageConstants
 
-| Property    | Type                | Description               | API_LEVEL |
-| ----------- | ------------------- | ------------------------- | --------- |
+| Property    | Type     | Description               | API_LEVEL |
+| ----------- | -------- | ------------------------- | --------- |
 | WAKE_STAGE  | `number` | Awake stage               | 2.0       |
 | REM_STAGE   | `number` | Deep sleep time (minutes) | 2.0       |
 | LIGHT_STAGE | `number` | Light Sleep stage         | 2.0       |
@@ -2080,15 +2147,17 @@ getStage(): Array<StageInfo>
 
 #### StageInfo
 
-| Property | Type                | Description                                                                                             | API_LEVEL |
-| -------- | ------------------- | ------------------------------------------------------------------------------------------------------- | --------- |
+| Property | Type     | Description                                                                                             | API_LEVEL |
+| -------- | -------- | ------------------------------------------------------------------------------------------------------- | --------- |
 | model    | `number` | Sleep stage type, refer to the constants returned by `getStageConstantObj` for the meaning of the value | 2.0       |
 | start    | `number` | Sleep stage onset time, based on the number of minutes at 0:00 of the day                               | 2.0       |
 | stop     | `number` | Sleep stage end time, based on the number of minutes at 0:00 of the day                                 | 2.0       |
 
 ### getSleepingStatus
 
-> Start from API_LEVEL `3.0`
+:::note
+Start from API_LEVEL `3.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::
 
 Get the current sleep state, 0 'awake, 1' sleeping
 
@@ -2098,7 +2167,9 @@ getSleepingStatus(): number
 
 ### getNap
 
-> Start from API_LEVEL `3.0`
+:::note
+Start from API_LEVEL `3.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::
 
 Get nap data
 
@@ -2108,8 +2179,8 @@ getNap(): Array<NapInfo>
 
 #### NapInfo
 
-| Property | Type                | Description                                                       | API_LEVEL |
-| -------- | ------------------- | ----------------------------------------------------------------- | --------- |
+| Property | Type     | Description                                                       | API_LEVEL |
+| -------- | -------- | ----------------------------------------------------------------- | --------- |
 | length   | `number` | Nap duration (minutes)                                            | 3.0       |
 | start    | `number` | Nap start time, based on the number of minutes at 0:00 of the day | 3.0       |
 | stop     | `number` | Nap end time, based on the number of minutes at 0:00 of the day   | 3.0       |
@@ -2117,7 +2188,6 @@ getNap(): Array<NapInfo>
 ## Example
 
 ```js
-
 const sleep = new Sleep()
 const { score } = sleep.getInfo()
 const sleepStageConstants = sleep.getStageConstantObj()
@@ -2164,7 +2234,9 @@ stand.onChange(callback)
 stand.offChange(callback)
 ```
 
-> Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::note
+Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 Standing behavior Sensor.
 
@@ -2209,7 +2281,6 @@ offChange(callback: () => void): void
 ## Example
 
 ```js
-
 const stand = new Stand()
 const current = stand.getCurrent()
 const target = stand.getTarget()
@@ -2255,7 +2326,9 @@ step.onChange(callback)
 step.offChange(callback)
 ```
 
-> Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::note
+Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 Step Sensor.
 
@@ -2300,7 +2373,6 @@ offChange(callback: () => void): void
 ## Example
 
 ```js
-
 const step = new Step()
 const current = step.getCurrent()
 const target = step.getTarget()
@@ -2346,7 +2418,9 @@ stress.onChange(callback)
 stress.offChange(callback)
 ```
 
-> Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::note
+Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 Stress Sensor.
 
@@ -2366,8 +2440,8 @@ getCurrent(): Result
 
 #### Result
 
-| Property | Type                | Description                       | API_LEVEL |
-| -------- | ------------------- | --------------------------------- | --------- |
+| Property | Type     | Description                       | API_LEVEL |
+| -------- | -------- | --------------------------------- | --------- |
 | value    | `number` | Stress measurement values         | 2.0       |
 | time     | `number` | Time to obtain the measured value | 2.0       |
 
@@ -2389,7 +2463,9 @@ offChange(callback: () => void): void
 
 ### getToday
 
-> Start from API_LEVEL `3.0`
+:::note
+Start from API_LEVEL `3.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::
 
 Get the pressure measurements for the whole day, recorded every minute, the return value is an array of variable length, the maximum length of the array is 24 \* 60
 
@@ -2399,14 +2475,16 @@ getToday(): Array<number>
 
 #### StressInfo
 
-| Property | Type                | Description                                                 | API_LEVEL |
-| -------- | ------------------- | ----------------------------------------------------------- | --------- |
+| Property | Type     | Description                                                 | API_LEVEL |
+| -------- | -------- | ----------------------------------------------------------- | --------- |
 | second   | `number` | Pressure value measurement time, UTC time stamp, in seconds | 3.0       |
 | stress   | `number` | Pressure value, `0` means invalid                           | 3.0       |
 
 ### getTodayByHour
 
-> Start from API_LEVEL `3.0`
+:::note
+Start from API_LEVEL `3.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::
 
 Get the average pressure value for the whole day, the return value is a fixed-length array, the average pressure for each hour, the length of the array is 24
 
@@ -2416,7 +2494,9 @@ getTodayByHour(): Array<number>
 
 ### getLastWeek
 
-> Start from API_LEVEL `3.0`
+:::note
+Start from API_LEVEL `3.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::
 
 Get the average pressure value for each day of the past 7 days, the return value is a fixed-length array, the average pressure per day, the length of the array is 7, the position of index 0 represents six days ago, the position of index 6 represents today
 
@@ -2426,7 +2506,9 @@ getLastWeek(): Array<number>
 
 ### getLastWeekByHour
 
-> Start from API_LEVEL `3.0`
+:::note
+Start from API_LEVEL `3.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::
 
 Get the hourly pressure average for the past 7 days, the return value is a fixed-length array, the length of the array is 7 \* 24
 
@@ -2436,15 +2518,14 @@ getLastWeekByHour(): Array<StressInfo>
 
 #### StressInfo
 
-| Property | Type                | Description                                                 | API_LEVEL |
-| -------- | ------------------- | ----------------------------------------------------------- | --------- |
+| Property | Type     | Description                                                 | API_LEVEL |
+| -------- | -------- | ----------------------------------------------------------- | --------- |
 | second   | `number` | Pressure value measurement time, UTC time stamp, in seconds | 3.0       |
 | stress   | `number` | Pressure value, `0` means invalid                           | 3.0       |
 
 ## Example
 
 ```js
-
 const stress = new Stress()
 const { value } = stress.getCurrent()
 
@@ -2485,7 +2566,9 @@ if (systemSounds.getEnabled()) {
 }
 ```
 
-> Start from API_LEVEL `3.6` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::note
+Start from API_LEVEL `3.6` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 System Sounds.
 
@@ -2509,8 +2592,8 @@ getSourceType(): Type
 
 #### Type
 
-| Property | Type                | Required | DefaultValue | Description                                               | API_LEVEL |
-| -------- | ------------------- | -------- | ------------ | --------------------------------------------------------- | --------- |
+| Property | Type     | Required | DefaultValue | Description                                               | API_LEVEL |
+| -------- | -------- | -------- | ------------ | --------------------------------------------------------- | --------- |
 | ALARM    | `number` | Y        | -            | Alarm clock reminder                                      | 3.6       |
 | MESSAGE  | `number` | Y        | -            | Notification sound when receiving text messages or emails | 3.6       |
 | REGULAR  | `number` | Y        | -            | TingTing sound                                            | 3.6       |
@@ -2539,7 +2622,6 @@ stop(): void
 ## Example
 
 ```js
-
 const systemSounds = new SystemSounds()
 const alarmType = systemSounds.getSourceType().ALARM
 
@@ -2570,7 +2652,9 @@ const time = new Time()
 const currentTime = time.getTime()
 ```
 
-> Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::note
+Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 Time/Date Sensor.
 
@@ -2642,7 +2726,9 @@ getDay(): number
 
 ### getHourFormat
 
-> Start from API_LEVEL `2.1`
+:::note
+Start from API_LEVEL `2.1` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 Get the current system time format, 12-hour format or 24-hour format，value reference hour format constants
 
@@ -2661,7 +2747,9 @@ getHourFormat(): number
 
 ### getFormatHour
 
-> Start from API_LEVEL `2.1`
+:::note
+Start from API_LEVEL `2.1` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 Get the number of hours in the current time format (12-hour format or 24-hour format)
 
@@ -2671,7 +2759,9 @@ getFormatHour(): number
 
 ### onPerMinute
 
-> Start from API_LEVEL `2.1`
+:::note
+Start from API_LEVEL `2.1` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 Register end-of-minute event listener callback function
 
@@ -2681,7 +2771,9 @@ onPerMinute(callback: () => void): void
 
 ### onPerDay
 
-> Start from API_LEVEL `2.1`
+:::note
+Start from API_LEVEL `2.1` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 Register the end-of-day event listener callback function
 
@@ -2691,7 +2783,9 @@ onPerDay(callback: () => void): void
 
 ### onPerHourEnd
 
-> Start from API_LEVEL `3.6`
+:::note
+Start from API_LEVEL `3.6` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 Register the end-of-hour event listener callback function
 
@@ -2765,14 +2859,16 @@ getLunarMonthCalendar(): LunarMonthCalendar
 
 #### LunarMonthCalendar
 
-| Property         | Type                               | Description                                                                                                         | API_LEVEL |
-| ---------------- | ---------------------------------- | ------------------------------------------------------------------------------------------------------------------- | --------- |
-| day_count        | `number`                | Number of days in the current month                                                                                 | 2.0       |
+| Property         | Type            | Description                                                                                                         | API_LEVEL |
+| ---------------- | --------------- | ------------------------------------------------------------------------------------------------------------------- | --------- |
+| day_count        | `number`        | Number of days in the current month                                                                                 | 2.0       |
 | lunar_days_array | `Array<string>` | Array of display content for each day of the current month, display content priority for holidays, Solar Term, date | 2.0       |
 
 ### onSunrise
 
-> Start from API_LEVEL `3.0`
+:::note
+Start from API_LEVEL `3.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::
 
 Register the Sunrise event listener callback function to take effect only when the device weather information
 
@@ -2782,7 +2878,9 @@ onSunrise(callback: () => void): void
 
 ### onSunset
 
-> Start from API_LEVEL `3.0`
+:::note
+Start from API_LEVEL `3.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::
 
 Register the Sunset event listener callback function to take effect only when the device weather information
 
@@ -2792,7 +2890,9 @@ onSunset(callback: () => void): void
 
 ### onPhoneTimeSetting
 
-> Start from API_LEVEL `3.0`
+:::note
+Start from API_LEVEL `3.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::
 
 Register the phone modify time event listening callback function
 
@@ -2803,7 +2903,6 @@ onPhoneTimeSetting(callback: () => void): void
 ## Example
 
 ```js
-
 const time = new Time()
 const currentTime = time.getTime()
 ```
@@ -2834,7 +2933,9 @@ vibrator.setMode(VIBRATOR_SCENE_DURATION)
 vibrator.start()
 ```
 
-> Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::note
+Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 Vibrator.
 
@@ -2850,14 +2951,14 @@ start(option?: Option | Array<Action>): void
 
 #### Option
 
-| Property | Type                | Required | DefaultValue                             | Description                                                   | API_LEVEL |
-| -------- | ------------------- | -------- | ---------------------------------------- | ------------------------------------------------------------- | --------- |
+| Property | Type     | Required | DefaultValue                  | Description                                                   | API_LEVEL |
+| -------- | -------- | -------- | ----------------------------- | ------------------------------------------------------------- | --------- |
 | mode     | `number` | N        | `VIBRATOR_SCENE_SHORT_MIDDLE` | Vibration mode, Value refer to Vibration motor mode constants | 2.0       |
 
 #### Action
 
-| Property | Type                | Required | DefaultValue | Description           | API_LEVEL |
-| -------- | ------------------- | -------- | ------------ | --------------------- | --------- |
+| Property | Type     | Required | DefaultValue | Description           | API_LEVEL |
+| -------- | -------- | -------- | ------------ | --------------------- | --------- |
 | type     | `number` | Y        | -            | Vibration Scene Type  | 3.6       |
 | duration | `number` | N        | -            | Duration of vibration | 3.6       |
 
@@ -2895,8 +2996,8 @@ setMode(option: Option): void
 
 #### Option
 
-| Property | Type                | Required | DefaultValue | Description                                                   | API_LEVEL |
-| -------- | ------------------- | -------- | ------------ | ------------------------------------------------------------- | --------- |
+| Property | Type     | Required | DefaultValue | Description                                                   | API_LEVEL |
+| -------- | -------- | -------- | ------------ | ------------------------------------------------------------- | --------- |
 | mode     | `number` | Y        | -            | Vibration mode, Value refer to Vibration motor mode constants | 2.0       |
 
 ### getConfig
@@ -2909,13 +3010,15 @@ getConfig(): Option
 
 #### Option
 
-| Property | Type                | Description                                                   | API_LEVEL |
-| -------- | ------------------- | ------------------------------------------------------------- | --------- |
+| Property | Type     | Description                                                   | API_LEVEL |
+| -------- | -------- | ------------------------------------------------------------- | --------- |
 | mode     | `number` | Vibration mode, Value refer to Vibration motor mode constants | 2.0       |
 
 ### getType
 
-> Start from API_LEVEL `3.6`
+:::note
+Start from API_LEVEL `3.6` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 Get Vibration Scene Type
 
@@ -2925,8 +3028,8 @@ getType(): Type
 
 #### Type
 
-| Property       | Type                | Description                                   | API_LEVEL |
-| -------------- | ------------------- | --------------------------------------------- | --------- |
+| Property       | Type     | Description                                   | API_LEVEL |
+| -------------- | -------- | --------------------------------------------- | --------- |
 | GENTLE_SHORT   | `number` | Vibration scene, light short vibration        | 3.6       |
 | STRONG_SHORT   | `number` | Vibration scene, strong and short vibration   | 3.6       |
 | STANDARD_CROWN | `number` | Vibration scene, standard crown vibration     | 3.6       |
@@ -2941,7 +3044,6 @@ getType(): Type
 ## Example
 
 ```js
-
 const vibrator = new Vibrator()
 vibrator.start()
 
@@ -2980,7 +3082,9 @@ wear.onChange(callback)
 wear.offChange(callback)
 ```
 
-> Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::note
+Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 Wearing status sensor.
 
@@ -3013,7 +3117,6 @@ offChange(callback: () => void): void
 ## Example
 
 ```js
-
 const wear = new Wear()
 const status = wear.getStatus()
 const callback = () => {
@@ -3065,9 +3168,9 @@ for (let i = 0; i < tideData.count; i++) {
 
 ### Methods
 
-| Method | Signature | Description | API_LEVEL | Permission |
-|--------|-----------|-------------|-----------|------------|
-| `getForecastWeather` | `getForecastWeather(): Weather.getForecastWeather.ForecastWeather` | Get weather forecast data | — | — |
+| Method               | Signature                                                          | Description               | API_LEVEL | Permission |
+| -------------------- | ------------------------------------------------------------------ | ------------------------- | --------- | ---------- |
+| `getForecastWeather` | `getForecastWeather(): Weather.getForecastWeather.ForecastWeather` | Get weather forecast data | —         | —          |
 
 ### Method Details
 
@@ -3081,7 +3184,9 @@ for (let i = 0; i < tideData.count; i++) {
 >
 > This interface has been deprecated, please refer to https://github.com/orgs/zepp-health/discussions/83
 
-> Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::note
+Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 Weather Forecasts sensor.
 
@@ -3097,31 +3202,31 @@ getForecastWeather(): ForecastWeather
 
 #### ForecastWeather
 
-| Property     | Type                      | Description         | API_LEVEL |
-| ------------ | ------------------------- | ------------------- | --------- |
+| Property     | Type           | Description         | API_LEVEL |
+| ------------ | -------------- | ------------------- | --------- |
 | cityName     | `string`       | City Name           | 2.0       |
 | forecastData | `ForecastData` | Weather Information | 2.0       |
 | tideData     | `TideData`     | Tide Information    | 2.0       |
 
 #### ForecastData
 
-| Property | Type                                         | Description                                                    | API_LEVEL |
-| -------- | -------------------------------------------- | -------------------------------------------------------------- | --------- |
+| Property | Type                      | Description                                                    | API_LEVEL |
+| -------- | ------------------------- | -------------------------------------------------------------- | --------- |
 | data     | `Array<ForecastDataItem>` | Weather Information Array, index 0 position represents the day | 2.0       |
-| count    | `number`                          | The length of Weather Information Array                        | 2.0       |
+| count    | `number`                  | The length of Weather Information Array                        | 2.0       |
 
 #### ForecastDataItem
 
-| Property | Type                | Description                                                                      | API_LEVEL |
-| -------- | ------------------- | -------------------------------------------------------------------------------- | --------- |
+| Property | Type     | Description                                                                      | API_LEVEL |
+| -------- | -------- | -------------------------------------------------------------------------------- | --------- |
 | high     | `number` | Maximum temperature                                                              | 2.0       |
 | low      | `number` | Lowest temperature                                                               | 2.0       |
 | index    | `number` | The index value of the weather, see `index` below for a description of the value | 2.0       |
 
 #### index
 
-| Value | Type                | Description          | API_LEVEL |
-| ----- | ------------------- | -------------------- | --------- |
+| Value | Type     | Description          | API_LEVEL |
+| ----- | -------- | -------------------- | --------- |
 | 0     | `number` | Cloudy               | 2.0       |
 | 1     | `number` | Showers              | 2.0       |
 | 2     | `number` | Snow Showers         | 2.0       |
@@ -3154,36 +3259,35 @@ getForecastWeather(): ForecastWeather
 
 #### TideData
 
-| Property | Type                                     | Description                                                 | API_LEVEL |
-| -------- | ---------------------------------------- | ----------------------------------------------------------- | --------- |
+| Property | Type                  | Description                                                 | API_LEVEL |
+| -------- | --------------------- | ----------------------------------------------------------- | --------- |
 | data     | `Array<TideDataItem>` | Tide Information Array, index 0 position represents the day | 2.0       |
-| count    | `number`                      | The length of Tide Information Array                        | 2.0       |
+| count    | `number`              | The length of Tide Information Array                        | 2.0       |
 
 #### TideDataItem
 
-| Property | Type                 | Description  | API_LEVEL |
-| -------- | -------------------- | ------------ | --------- |
+| Property | Type      | Description  | API_LEVEL |
+| -------- | --------- | ------------ | --------- |
 | sunrise  | `Sunrise` | Sunrise time | 2.0       |
 | sunset   | `Sunset`  | Sunset time  | 2.0       |
 
 #### Sunrise
 
-| Property | Type                | Description           | API_LEVEL |
-| -------- | ------------------- | --------------------- | --------- |
+| Property | Type     | Description           | API_LEVEL |
+| -------- | -------- | --------------------- | --------- |
 | hour     | `number` | Sunrise time - hour   | 2.0       |
 | minute   | `number` | Sunrise time - minute | 2.0       |
 
 #### Sunset
 
-| Property | Type                | Description           | API_LEVEL |
-| -------- | ------------------- | --------------------- | --------- |
+| Property | Type     | Description           | API_LEVEL |
+| -------- | -------- | --------------------- | --------- |
 | hour     | `number` | Sunrise time - hour   | 2.0       |
 | minute   | `number` | Sunrise time - minute | 2.0       |
 
 ## Example
 
 ```js
-
 const weather = new Weather()
 const { forecastData, tideData, cityName } = weather.getForecast()
 
@@ -3233,10 +3337,11 @@ const hrZoneSettings = workout.getUserHrZoneSettings()
 // {"type":1,"rest":70,"range":[90,108,126,144,162,181]}
 
 const trackNavInfo = workout.getWorkoutTrackNavInfo()
-
 ```
 
-> Start from API_LEVEL `3.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::note
+Start from API_LEVEL `3.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::
 
 Workout Sensor.
 
@@ -3256,8 +3361,8 @@ getStatus(): Status
 
 #### Status
 
-| Property         | Type                | Description        | API_LEVEL |
-| ---------------- | ------------------- | ------------------ | --------- |
+| Property         | Type     | Description        | API_LEVEL |
+| ---------------- | -------- | ------------------ | --------- |
 | vo2Max           | `number` | VO2 Max            | 3.0       |
 | trainingLoad     | `number` | Training Load      | 3.0       |
 | fullRecoveryTime | `number` | Full Recovery Time | 3.0       |
@@ -3272,14 +3377,16 @@ getHistory(): Array<History>
 
 #### History
 
-| Property  | Type                | Description                    | API_LEVEL |
-| --------- | ------------------- | ------------------------------ | --------- |
+| Property  | Type     | Description                    | API_LEVEL |
+| --------- | -------- | ------------------------------ | --------- |
 | startTime | `number` | Workout start time             | 3.0       |
 | duration  | `number` | Duration of workout in seconds | 3.0       |
 
 ### getUserHrZoneSettings
 
-> Start from API_LEVEL `4.2`
+:::note
+Start from API_LEVEL `4.2` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 Get user heart rate zone settings
 
@@ -3289,15 +3396,17 @@ getUserHrZoneSettings(): HrZoneSettings
 
 #### HrZoneSettings
 
-| Property | Type                  | Description                                                                                                                       | API_LEVEL |
-| -------- | --------------------- | --------------------------------------------------------------------------------------------------------------------------------- | --------- |
+| Property | Type       | Description                                                                                                                       | API_LEVEL |
+| -------- | ---------- | --------------------------------------------------------------------------------------------------------------------------------- | --------- |
 | type     | `number`   | Heart rate zone type, 0: by heart rate reserve, 1: by maximum heart rate                                                          | 4.2       |
 | rest     | `number`   | Resting heart rate value                                                                                                          | 4.2       |
 | range    | `number[]` | Heart rate zone value array with 6 values, corresponding to: Ligit, Intensive, Aerobic, Anaerobic, VO2 max and maximum heart rate | 4.2       |
 
 ### getWorkoutTrackNavInfo
 
-> Start from API_LEVEL `4.2`
+:::note
+Start from API_LEVEL `4.2` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 Get workout track navigation information, returns navigation info object when navigation is enabled, returns `undefined` when navigation is not enabled
 
@@ -3307,8 +3416,8 @@ getWorkoutTrackNavInfo(): WorkoutTrackNavInfo | undefined
 
 #### WorkoutTrackNavInfo
 
-| Property       | Type                | Description                                                             | API_LEVEL |
-| -------------- | ------------------- | ----------------------------------------------------------------------- | --------- |
+| Property       | Type     | Description                                                             | API_LEVEL |
+| -------------- | -------- | ----------------------------------------------------------------------- | --------- |
 | isYaw          | `number` | Whether off course, true: off course, false: on course                  | 4.2       |
 | yawAngle       | `number` | Yaw angle                                                               | 4.2       |
 | yawDistance    | `number` | Yaw distance in meters                                                  | 4.2       |
@@ -3318,8 +3427,8 @@ getWorkoutTrackNavInfo(): WorkoutTrackNavInfo | undefined
 
 #### TURN_TYPE
 
-| Value | Type                | Description         | API_LEVEL |
-| ----- | ------------------- | ------------------- | --------- |
+| Value | Type     | Description         | API_LEVEL |
+| ----- | -------- | ------------------- | --------- |
 | 1     | `number` | Turn right forward  | 4.2       |
 | 2     | `number` | Turn right          | 4.2       |
 | 3     | `number` | Turn right backward | 4.2       |
@@ -3333,7 +3442,6 @@ getWorkoutTrackNavInfo(): WorkoutTrackNavInfo | undefined
 ## Example
 
 ```js
-
 const workout = new Workout()
 
 const status = workout.getStatus()
@@ -3382,7 +3490,9 @@ for (let i = 0; i < worldClockCount; i++) {
 worldClock.destroy()
 ```
 
-> Start from API_LEVEL `3.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::note
+Start from API_LEVEL `3.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::
 
 World Clock Sensor.
 
@@ -3406,8 +3516,8 @@ getInfo(index: number): WorldClockInfo
 
 #### WorldClockInfo
 
-| Property       | Type                | Description                         | API_LEVEL |
-| -------------- | ------------------- | ----------------------------------- | --------- |
+| Property       | Type     | Description                         | API_LEVEL |
+| -------------- | -------- | ----------------------------------- | --------- |
 | city           | `string` | City Name                           | 3.0       |
 | cityCode       | `string` | City code, e.g. San Francisco `SFO` | 3.0       |
 | hour           | `number` | Hour                                | 3.0       |
@@ -3418,7 +3528,6 @@ getInfo(index: number): WorldClockInfo
 ## Example
 
 ```js
-
 const worldClock = new WorldClock()
 const worldClockCount = worldClock.getCount()
 
@@ -3463,7 +3572,9 @@ if (result) {
 }
 ```
 
-> Start from API_LEVEL `3.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::note
+Start from API_LEVEL `3.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::
 
 Check the availability of sensors on the current device.
 
@@ -3477,20 +3588,19 @@ function checkSensor(sensor: Sensor): Result
 
 ### Sensor
 
-| Type                | Description                                                                                                             |
-| ------------------- | ----------------------------------------------------------------------------------------------------------------------- |
+| Type     | Description                                                                                                             |
+| -------- | ----------------------------------------------------------------------------------------------------------------------- |
 | `object` | Sensor, such as checking if the positioning sensor is available, pass in the `Geolocation` sensor construction function |
 
 ### Result
 
-| Type                 | Description                                                                    |
-| -------------------- | ------------------------------------------------------------------------------ |
+| Type      | Description                                                                    |
+| --------- | ------------------------------------------------------------------------------ |
 | `boolean` | `true` - auto-brightness is set to on, `false` - auto-brightness is set to off |
 
 ## Example
 
 ```js
-
 const result = checkSensor(Geolocation)
 let geolocation = null
 
@@ -3500,4 +3610,3 @@ if (result) {
 ```
 
 ---
-

@@ -3,7 +3,9 @@ title: Geolocation
 sidebar_label: Geolocation
 ---
 
-> Start from API_LEVEL `2.1` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::note
+Start from API_LEVEL `2.1` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 Geolocation Sensor.
 
@@ -97,7 +99,9 @@ getLongitude(option: Option): Result
 
 ### getSetting
 
-> Start from API_LEVEL `3.0`
+:::note
+Start from API_LEVEL `3.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::
 
 Get the positioning settings
 
@@ -140,7 +144,9 @@ offChange(callback: () => void): void
 
 ### onGnssChange
 
-> Start from API_LEVEL `3.0`
+:::note
+Start from API_LEVEL `3.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::
 
 Register a callback function to listen for GNSS information change events
 
@@ -191,7 +197,9 @@ onGnssChange(callback: (info: Info) => void): void
 
 ### offGnssChange
 
-> Start from API_LEVEL `3.0`
+:::note
+Start from API_LEVEL `3.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::
 
 Cancel the callback function for listening to the GNSS information change event
 
@@ -201,7 +209,9 @@ offGnssChange(callback: (info: Geolocation.onGnssChange.Info) => void): void
 
 ### getEnabled
 
-> Start from API_LEVEL `4.0`
+:::note
+Start from API_LEVEL `4.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 Get whether the user allows the Mini Program to use location features
 
@@ -211,7 +221,9 @@ getEnabled(): boolean
 
 ### onEnableChange
 
-> Start from API_LEVEL `4.0`
+:::note
+Start from API_LEVEL `4.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 Register a callback function to listen for user location permission change events
 
@@ -221,7 +233,9 @@ onEnableChange(callback: () => void): void
 
 ### offEnableChange
 
-> Start from API_LEVEL `4.0`
+:::note
+Start from API_LEVEL `4.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 Cancel the callback function for listening to user location permission change events
 

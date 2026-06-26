@@ -3,7 +3,9 @@ title: ble
 sidebar_label: BLE
 ---
 
-> Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](../../../guides/framework/device/compatibility.md).
+:::note
+Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 The "Device App" communicates with the "Side Service" through the `ble` module using the device's Bluetooth communication capabilities.
 
@@ -25,11 +27,11 @@ Create connection
 
 #### Parameters
 
-| Callback parameter |       Description       | Required |   Type   |
+| Callback parameter | Description             | Required | Type     |
 | ------------------ | ----------------------- | -------- | -------- |
-|       index        |     subpackage number   |    NO    | `number` |
-|       data         |      received data      |    NO    | `object` |
-|       size         | length of data received |    NO    | `number` |
+| index              | subpackage number       | NO       | `number` |
+| data               | received data           | NO       | `object` |
+| size               | length of data received | NO       | `number` |
 
 ### disConnect()
 
@@ -53,10 +55,10 @@ Send a message
 
 #### Parameters
 
-| Parameters |          Description      | Required | Type |
+| Parameters | Description               | Required | Type     |
 | ---------- | ------------------------- | -------- | -------- |
-|    data    |        data to be sent    |    NO    | `object` |
-|    size    | length of data to be sent |    NO    | `number` |
+| data       | data to be sent           | NO       | `object` |
+| size       | length of data to be sent | NO       | `number` |
 
 ### connectStatus()
 
@@ -65,12 +67,12 @@ Query connection status
 #### Type
 
 ```ts
-() => Result
+;() => Result
 ```
 
 #### Result
 
-|                              Description                  |   Type    |
+| Description                                               | Type      |
 | --------------------------------------------------------- | --------- |
 | connection status `true` connected, `false` not connected | `boolean` |
 
@@ -86,9 +88,9 @@ Register a connection status listener
 
 #### Parameters
 
-| Callback parameter |    Description    |   Type    |
+| Callback parameter | Description       | Type      |
 | ------------------ | ----------------- | --------- |
-|       status       | connection status | `boolean` |
+| status             | connection status | `boolean` |
 
 ### removeListener
 

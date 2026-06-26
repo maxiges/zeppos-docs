@@ -3,8 +3,9 @@ title: VIEW_CONTAINER
 sidebar_label: VIEW_CONTAINER
 ---
 
-> Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](../../../../../guides/framework/device/compatibility.md).
-
+:::note
+Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 ![view_container_sample](/img/api/view_container_sample.gif)
 
 The VIEW_CONTAINER widget container is a very powerful layout widget with the following features.
@@ -28,18 +29,18 @@ viewContainer.createWidget(xxx, xxx)
 
 ## Param: object
 
-| Properties           | Description                                                                                                                                    | Required | Type       |
-| -------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ---------- |
-| x                    | Widget x-coordinate, default `0`                                                                                                                          | NO       | `number`   |
-| y                    | Widget y-coordinate, default `0`                                                                                                                          | NO       | `number`   |
-| w                    | Widget width, default screen width                                                                                                                         | NO       | `number`   |
-| h                    | Widget height, default screen height                                                                                                                     | NO       | `number`   |
+| Properties           | Description                                                                                                                                                                                                                     | Required | Type       |
+| -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ---------- |
+| x                    | Widget x-coordinate, default `0`                                                                                                                                                                                                | NO       | `number`   |
+| y                    | Widget y-coordinate, default `0`                                                                                                                                                                                                | NO       | `number`   |
+| w                    | Widget width, default screen width                                                                                                                                                                                              | NO       | `number`   |
+| h                    | Widget height, default screen height                                                                                                                                                                                            | NO       | `number`   |
 | scroll_enable        | When the layout of widgets in VIEW_CONTAINER exceeds the width/height, it is considered a long page. `0`: disable scrolling, you can set container scroll position offset by `pos_x` or `pos_y`; `1`: allow scrolling (default) | NO       | `number`   |
-| pos_x                | When VIEW_CONTAINER is a long horizontal page layout, you can read/set the horizontal offset                                                                                     | NO       | `number`   |
-| pos_y                | When VIEW_CONTAINER is a long vertical page layout, you can read/set the vertical offset                                                                                    | NO       | `number`   |
-| z_index              | When using multiple VIEW_CONTAINER widgets, the cascading relationship can be controlled by this field, with `0` at the bottom by default                                                                | NO       | `number`   |
-| scroll_frame_func    | During scrolling, a callback function is triggered for each frame                                                                                                               | NO       | `function` |
-| scroll_complete_func | Callback function at the end of scrolling                                                                                                                             | NO       | `function` |
+| pos_x                | When VIEW_CONTAINER is a long horizontal page layout, you can read/set the horizontal offset                                                                                                                                    | NO       | `number`   |
+| pos_y                | When VIEW_CONTAINER is a long vertical page layout, you can read/set the vertical offset                                                                                                                                        | NO       | `number`   |
+| z_index              | When using multiple VIEW_CONTAINER widgets, the cascading relationship can be controlled by this field, with `0` at the bottom by default                                                                                       | NO       | `number`   |
+| scroll_frame_func    | During scrolling, a callback function is triggered for each frame                                                                                                                                                               | NO       | `function` |
+| scroll_complete_func | Callback function at the end of scrolling                                                                                                                                                                                       | NO       | `function` |
 
 ## Code example
 

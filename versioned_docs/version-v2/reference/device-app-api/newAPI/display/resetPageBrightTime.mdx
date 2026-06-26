@@ -1,6 +1,8 @@
 # resetPageBrightTime
 
-> Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::note
+Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 Cancel the bright time set by `setPageBrightTime`.
 
@@ -24,7 +26,7 @@ function resetPageBrightTime(): Result
 import { setPageBrightTime, resetPageBrightTime } from '@zos/display'
 
 setPageBrightTime({
-  brightTime: 60000,
+  brightTime: 60000
 })
 
 const result = resetPageBrightTime()

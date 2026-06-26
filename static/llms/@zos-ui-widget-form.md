@@ -10,7 +10,9 @@ Form widget APIs.
 import { createWidget, widget } from '@zos/ui'
 ```
 
-> Start from API_LEVEL `2.0`. Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::note
+Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 [Image: radio_group_sample]
 
@@ -19,7 +21,6 @@ Used to select a single option among multiple options. Each individual option is
 ## Create UI Widget
 
 ```js
-
 const radioGroup = createWidget(widget.RADIO_GROUP, radioGroupParam)
 const stateButton = createWidget(widget.STATE_BUTTON, stateButtonParam)
 ```
@@ -45,24 +46,24 @@ const stateButton = createWidget(widget.STATE_BUTTON, stateButtonParam)
 (radioGroup: RadioGroup, index: number, checked: boolean) => void
 ```
 
-| Parameters | Description                 | Type         |
-| ---------- | --------------------------- | ------------ |
-| radioGroup | The radioGroup instance     | `RadioGroup` |
-| index      | Index of the option        | `number`     |
-| checked    | Whether selected           | `boolean`    |
+| Parameters | Description             | Type         |
+| ---------- | ----------------------- | ------------ |
+| radioGroup | The radioGroup instance | `RadioGroup` |
+| index      | Index of the option     | `number`     |
+| checked    | Whether selected        | `boolean`    |
 
 ### StateButton: object
 
-| Properties     | Description                                                  | Required | Type     | API_LEVEL |
-| -------------- | ------------------------------------------------------------ | -------- | -------- | --------- |
-| x              | The x-coordinate relative to radioGroup                      | YES      | `number` | 2.0       |
-| y              | The y-coordinate relative to radioGroup                      | YES      | `number` | 2.0       |
-| w              | Width of the widget                                          | YES      | `number` | 2.0       |
-| h              | Height of the widget                                         | YES      | `number` | 2.0       |
-| select_color   | Color when selected                                          | NO       | `number` | 4.0       |
-| unselect_color | Color when unselected                                        | NO       | `number` | 4.0       |
-| fill_width     | Button color display area width                              | NO       | `number` | 4.0       |
-| fill_height    | Button color display area height                             | NO       | `number` | 4.0       |
+| Properties     | Description                             | Required | Type     | API_LEVEL |
+| -------------- | --------------------------------------- | -------- | -------- | --------- |
+| x              | The x-coordinate relative to radioGroup | YES      | `number` | 2.0       |
+| y              | The y-coordinate relative to radioGroup | YES      | `number` | 2.0       |
+| w              | Width of the widget                     | YES      | `number` | 2.0       |
+| h              | Height of the widget                    | YES      | `number` | 2.0       |
+| select_color   | Color when selected                     | NO       | `number` | 4.0       |
+| unselect_color | Color when unselected                   | NO       | `number` | 4.0       |
+| fill_width     | Button color display area width         | NO       | `number` | 4.0       |
+| fill_height    | Button color display area height        | NO       | `number` | 4.0       |
 
 > **⚠️ Caution**
 >
@@ -70,39 +71,39 @@ const stateButton = createWidget(widget.STATE_BUTTON, stateButtonParam)
 
 ### Prop Properties
 
-| Properties       | Support get/set | Type     | Notes                                                                                                                                    |
-| ---------------- | -------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
-| `prop.INIT`      | set            | `object` | Initialize the component and set the default selected item                                                                                |
-| `prop.CHECKED`   | set/get        | `object` | Set the selected child widget to selected state, or get the selected state of the child widget, the value type is `boolean`               |
-| `prop.UNCHECKED` | get            | `object` | Set the selected child widget to unselected state, or get the selected state of the child widget, the value type is `boolean`             |
+| Properties       | Support get/set | Type     | Notes                                                                                                                         |
+| ---------------- | --------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| `prop.INIT`      | set             | `object` | Initialize the component and set the default selected item                                                                    |
+| `prop.CHECKED`   | set/get         | `object` | Set the selected child widget to selected state, or get the selected state of the child widget, the value type is `boolean`   |
+| `prop.UNCHECKED` | get             | `object` | Set the selected child widget to unselected state, or get the selected state of the child widget, the value type is `boolean` |
 
 ## Property Access Support List
 
 ### RADIO_GROUP
 
 | Property Name | setProperty | getProperty | [setter](https://docs.zepp.com/docs/reference/device-app-api/newAPI/ui/gettersetter) | [getter](https://docs.zepp.com/docs/reference/device-app-api/newAPI/ui/gettersetter) |
-| ------------ | ----------- | ----------- | ----------------------------- | ----------------------------- |
-| x            | Y           | Y           | Y                             | Y                             |
-| y            | Y           | Y           | Y                             | Y                             |
-| w            | Y           | Y           | Y                             | Y                             |
-| h            | Y           | Y           | Y                             | Y                             |
-| select_src   | N           | N           | N                             | N                             |
-| unselect_src | N           | N           | N                             | N                             |
-| check_func   | N           | N           | N                             | N                             |
-| use_color    | N           | N           | N                             | N                             |
+| ------------- | ----------- | ----------- | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
+| x             | Y           | Y           | Y                                                                                    | Y                                                                                    |
+| y             | Y           | Y           | Y                                                                                    | Y                                                                                    |
+| w             | Y           | Y           | Y                                                                                    | Y                                                                                    |
+| h             | Y           | Y           | Y                                                                                    | Y                                                                                    |
+| select_src    | N           | N           | N                                                                                    | N                                                                                    |
+| unselect_src  | N           | N           | N                                                                                    | N                                                                                    |
+| check_func    | N           | N           | N                                                                                    | N                                                                                    |
+| use_color     | N           | N           | N                                                                                    | N                                                                                    |
 
 ### STATE_BUTTON
 
-| Property Name   | setProperty | getProperty | [setter](https://docs.zepp.com/docs/reference/device-app-api/newAPI/ui/gettersetter) | [getter](https://docs.zepp.com/docs/reference/device-app-api/newAPI/ui/gettersetter) |
-| -------------- | ----------- | ----------- | ----------------------------- | ----------------------------- |
-| x              | Y           | Y           | Y                             | Y                             |
-| y              | Y           | Y           | Y                             | Y                             |
-| w              | Y           | Y           | Y                             | Y                             |
-| h              | Y           | Y           | Y                             | Y                             |
-| select_color   | N           | N           | N                             | N                             |
-| unselect_color | N           | N           | N                             | N                             |
-| fill_width     | N           | N           | N                             | N                             |
-| fill_height    | N           | N           | N                             | N                             |
+| Property Name  | setProperty | getProperty | [setter](https://docs.zepp.com/docs/reference/device-app-api/newAPI/ui/gettersetter) | [getter](https://docs.zepp.com/docs/reference/device-app-api/newAPI/ui/gettersetter) |
+| -------------- | ----------- | ----------- | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
+| x              | Y           | Y           | Y                                                                                    | Y                                                                                    |
+| y              | Y           | Y           | Y                                                                                    | Y                                                                                    |
+| w              | Y           | Y           | Y                                                                                    | Y                                                                                    |
+| h              | Y           | Y           | Y                                                                                    | Y                                                                                    |
+| select_color   | N           | N           | N                                                                                    | N                                                                                    |
+| unselect_color | N           | N           | N                                                                                    | N                                                                                    |
+| fill_width     | N           | N           | N                                                                                    | N                                                                                    |
+| fill_height    | N           | N           | N                                                                                    | N                                                                                    |
 
 ## Code Example
 
@@ -111,7 +112,6 @@ const stateButton = createWidget(widget.STATE_BUTTON, stateButtonParam)
 > Please refer to [Design Resources](https://docs.zepp.com/docs/reference/related-resources/design-resources) for the image resources in the code example
 
 ```js
-
 Page({
   build() {
     const radioGroup = createWidget(widget.RADIO_GROUP, {
@@ -161,7 +161,9 @@ Page({
 import { createWidget, widget } from '@zos/ui'
 ```
 
-> Supported from API_LEVEL `2.0`. Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility) for API compatibility.
+:::note
+Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 [Image: check_group_sample]
 
@@ -170,7 +172,6 @@ Used to select multiple options from a set of choices. Each option needs to be c
 ## Create UI Widget
 
 ```js
-
 const checkGroup = createWidget(widget.CHECKBOX_GROUP, checkboxGroupParam)
 const stateButton = createWidget(widget.STATE_BUTTON, stateButtonParam)
 ```
@@ -179,16 +180,16 @@ const stateButton = createWidget(widget.STATE_BUTTON, stateButtonParam)
 
 ### checkboxGroupParam: object
 
-| Properties   | Description                             | Required | Type        | API_LEVEL |
-| ------------ | --------------------------------------- | -------- | ----------- | --------- |
-| x            | The x-coordinate of the widget          | YES      | `number`    | 2.0       |
-| y            | The y-coordinate of the widget          | YES      | `number`    | 2.0       |
-| w            | The width of the widget                 | YES      | `number`    | 2.0       |
-| h            | The height of the widget                | YES      | `number`    | 2.0       |
-| select_src   | Image displayed when selected           | YES      | `string`    | 2.0       |
-| unselect_src | Image displayed when unselected         | YES      | `string`    | 2.0       |
-| check_func   | Callback when button state changes      | NO       | `CheckFunc` | 2.0       |
-| use_color    | Whether to display widget using colors  | NO       | `boolean`   | 4.0       |
+| Properties   | Description                            | Required | Type        | API_LEVEL |
+| ------------ | -------------------------------------- | -------- | ----------- | --------- |
+| x            | The x-coordinate of the widget         | YES      | `number`    | 2.0       |
+| y            | The y-coordinate of the widget         | YES      | `number`    | 2.0       |
+| w            | The width of the widget                | YES      | `number`    | 2.0       |
+| h            | The height of the widget               | YES      | `number`    | 2.0       |
+| select_src   | Image displayed when selected          | YES      | `string`    | 2.0       |
+| unselect_src | Image displayed when unselected        | YES      | `string`    | 2.0       |
+| check_func   | Callback when button state changes     | NO       | `CheckFunc` | 2.0       |
+| use_color    | Whether to display widget using colors | NO       | `boolean`   | 4.0       |
 
 ### CheckFunc: function
 
@@ -196,32 +197,32 @@ const stateButton = createWidget(widget.STATE_BUTTON, stateButtonParam)
 (checkboxGroup: CheckboxGroup, index: number, checked: boolean) => void
 ```
 
-| Parameters    | Description                     | Type            |
-| ------------- | ------------------------------- | --------------- |
-| checkboxGroup | The `checkboxGroup` instance    | `CheckboxGroup` |
-| index         | Index of the option            | `number`        |
-| checked       | Whether selected               | `boolean`       |
+| Parameters    | Description                  | Type            |
+| ------------- | ---------------------------- | --------------- |
+| checkboxGroup | The `checkboxGroup` instance | `CheckboxGroup` |
+| index         | Index of the option          | `number`        |
+| checked       | Whether selected             | `boolean`       |
 
 ### StateButton: object
 
-| Properties     | Description                                          | Required | Type     | API_LEVEL |
-| -------------- | ---------------------------------------------------- | -------- | -------- | --------- |
-| x              | The x-coordinate relative to `radioGroup`            | YES      | `number` | 2.0       |
-| y              | The y-coordinate relative to `radioGroup`            | YES      | `number` | 2.0       |
-| w              | The width of the widget                              | YES      | `number` | 2.0       |
-| h              | The height of the widget                             | YES      | `number` | 2.0       |
-| select_color   | Color when selected                                  | NO       | `number` | 4.0       |
-| unselect_color | Color when unselected                                | NO       | `number` | 4.0       |
-| fill_width     | Button color display area width                      | NO       | `number` | 4.0       |
-| fill_height    | Button color display area height                     | NO       | `number` | 4.0       |
+| Properties     | Description                               | Required | Type     | API_LEVEL |
+| -------------- | ----------------------------------------- | -------- | -------- | --------- |
+| x              | The x-coordinate relative to `radioGroup` | YES      | `number` | 2.0       |
+| y              | The y-coordinate relative to `radioGroup` | YES      | `number` | 2.0       |
+| w              | The width of the widget                   | YES      | `number` | 2.0       |
+| h              | The height of the widget                  | YES      | `number` | 2.0       |
+| select_color   | Color when selected                       | NO       | `number` | 4.0       |
+| unselect_color | Color when unselected                     | NO       | `number` | 4.0       |
+| fill_width     | Button color display area width           | NO       | `number` | 4.0       |
+| fill_height    | Button color display area height          | NO       | `number` | 4.0       |
 
 ### Prop Properties
 
-| Properties         | Supports get/set | Type     | Notes                                                                   |
-| ------------------ | --------------- | -------- | ----------------------------------------------------------------------- |
-| `prop.INIT`        | set             | `object` | Initialize the widget and set default selected item                      |
-| `prop.CHECKED`     | set/get         | `object` | Set/get selected sub-widget state, returns boolean type when getting    |
-| `prop.UNCHECKED`   | set             | `object` | Set sub-widget to unselected state                                      |
+| Properties       | Supports get/set | Type     | Notes                                                                |
+| ---------------- | ---------------- | -------- | -------------------------------------------------------------------- |
+| `prop.INIT`      | set              | `object` | Initialize the widget and set default selected item                  |
+| `prop.CHECKED`   | set/get          | `object` | Set/get selected sub-widget state, returns boolean type when getting |
+| `prop.UNCHECKED` | set              | `object` | Set sub-widget to unselected state                                   |
 
 > **⚠️ Caution**
 >
@@ -232,28 +233,28 @@ const stateButton = createWidget(widget.STATE_BUTTON, stateButtonParam)
 ### CHECKBOX_GROUP
 
 | Property     | setProperty | getProperty | [setter](https://docs.zepp.com/docs/reference/device-app-api/newAPI/ui/gettersetter) | [getter](https://docs.zepp.com/docs/reference/device-app-api/newAPI/ui/gettersetter) |
-| ------------ | ----------- | ----------- | ----------------------------- | ----------------------------- |
-| x            | Y           | Y           | Y                             | Y                             |
-| y            | Y           | Y           | Y                             | Y                             |
-| w            | Y           | Y           | Y                             | Y                             |
-| h            | Y           | Y           | Y                             | Y                             |
-| select_src   | N           | N           | N                             | N                             |
-| unselect_src | N           | N           | N                             | N                             |
-| check_func   | N           | N           | N                             | N                             |
-| use_color    | N           | N           | N                             | N                             |
+| ------------ | ----------- | ----------- | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
+| x            | Y           | Y           | Y                                                                                    | Y                                                                                    |
+| y            | Y           | Y           | Y                                                                                    | Y                                                                                    |
+| w            | Y           | Y           | Y                                                                                    | Y                                                                                    |
+| h            | Y           | Y           | Y                                                                                    | Y                                                                                    |
+| select_src   | N           | N           | N                                                                                    | N                                                                                    |
+| unselect_src | N           | N           | N                                                                                    | N                                                                                    |
+| check_func   | N           | N           | N                                                                                    | N                                                                                    |
+| use_color    | N           | N           | N                                                                                    | N                                                                                    |
 
 ### STATE_BUTTON
 
 | Property       | setProperty | getProperty | [setter](https://docs.zepp.com/docs/reference/device-app-api/newAPI/ui/gettersetter) | [getter](https://docs.zepp.com/docs/reference/device-app-api/newAPI/ui/gettersetter) |
-| -------------- | ----------- | ----------- | ----------------------------- | ----------------------------- |
-| x              | Y           | Y           | Y                             | Y                             |
-| y              | Y           | Y           | Y                             | Y                             |
-| w              | Y           | Y           | Y                             | Y                             |
-| h              | Y           | Y           | Y                             | Y                             |
-| select_color   | N           | N           | N                             | N                             |
-| unselect_color | N           | N           | N                             | N                             |
-| fill_width     | N           | N           | N                             | N                             |
-| fill_height    | N           | N           | N                             | N                             |
+| -------------- | ----------- | ----------- | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
+| x              | Y           | Y           | Y                                                                                    | Y                                                                                    |
+| y              | Y           | Y           | Y                                                                                    | Y                                                                                    |
+| w              | Y           | Y           | Y                                                                                    | Y                                                                                    |
+| h              | Y           | Y           | Y                                                                                    | Y                                                                                    |
+| select_color   | N           | N           | N                                                                                    | N                                                                                    |
+| unselect_color | N           | N           | N                                                                                    | N                                                                                    |
+| fill_width     | N           | N           | N                                                                                    | N                                                                                    |
+| fill_height    | N           | N           | N                                                                                    | N                                                                                    |
 
 ## Code Example
 
@@ -262,7 +263,6 @@ const stateButton = createWidget(widget.STATE_BUTTON, stateButtonParam)
 > Please refer to [Design Resources](https://docs.zepp.com/docs/reference/related-resources/design-resources) for the image resources in the code example
 
 ```js
-
 Page({
   build() {
     const checkbox_group = createWidget(widget.CHECKBOX_GROUP, {
@@ -313,7 +313,9 @@ Page({
 import { createWidget, widget } from '@zos/ui'
 ```
 
-> Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::note
+Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 [Image: slide_switch_sample]
 
@@ -322,7 +324,6 @@ Used to switch between open and closed states.
 ## Create UI widget
 
 ```js
-
 const slideSwitch = createWidget(widget.SLIDE_SWITCH, Param)
 ```
 
@@ -330,20 +331,20 @@ const slideSwitch = createWidget(widget.SLIDE_SWITCH, Param)
 
 ### Param: object
 
-| Properties          | Description                                                          | Required | Type                |
-| ------------------- | -------------------------------------------------------------------- | -------- | ------------------- |
-| x                   | The x-axis coordinate of the widget.                              | YES      | `number`            |
-| y                   | The y-axis coordinate of the widget.                              | YES      | `number`            |
-| w                   | The width of the widget.                                          | YES      | `number`            |
-| h                   | The height of the widget.                                         | YES      | `number`            |
-| select_bg           | The selected background.                                             | YES      | `string`            |
-| un_select_bg        | Unselected background.                                               | YES      | `string`            |
-| slide_src           | Switch button.                                                       | YES      | `string`            |
+| Properties          | Description                                                     | Required | Type                |
+| ------------------- | --------------------------------------------------------------- | -------- | ------------------- |
+| x                   | The x-axis coordinate of the widget.                            | YES      | `number`            |
+| y                   | The y-axis coordinate of the widget.                            | YES      | `number`            |
+| w                   | The width of the widget.                                        | YES      | `number`            |
+| h                   | The height of the widget.                                       | YES      | `number`            |
+| select_bg           | The selected background.                                        | YES      | `string`            |
+| un_select_bg        | Unselected background.                                          | YES      | `string`            |
+| slide_src           | Switch button.                                                  | YES      | `string`            |
 | slide_select_x      | Relative coordinates.The selected state of the switch button.   | YES      | `number`            |
 | slide_un_select_x   | Relative coordinates.The unselected state of the switch button. | YES      | `number`            |
-| slide_y             | Relative coordinates.The y-axis offset of the switch button.   | NO       | `number`            |
-| checked_change_func | Callback on state change.                                            | NO       | `CheckedChangeFunc` |
-| checked             | Default switch state.                                                | NO       | `boolean`           |
+| slide_y             | Relative coordinates.The y-axis offset of the switch button.    | NO       | `number`            |
+| checked_change_func | Callback on state change.                                       | NO       | `CheckedChangeFunc` |
+| checked             | Default switch state.                                           | NO       | `boolean`           |
 
 ### CheckedChangeFunc: function
 
@@ -358,8 +359,8 @@ const slideSwitch = createWidget(widget.SLIDE_SWITCH, Param)
 
 ### Prop Properties
 
-| properties          | description                       | support get/set | types                                    |
-| ------------------- | --------------------------------- | --------------- | ---------------------------------------- |
+| properties     | description                       | support get/set | types                                    |
+| -------------- | --------------------------------- | --------------- | ---------------------------------------- |
 | `prop.CHECKED` | Set switch state.Get switch state | set/get         | `boolean` returns bool type when you get |
 
 ## Code example
@@ -369,7 +370,6 @@ const slideSwitch = createWidget(widget.SLIDE_SWITCH, Param)
 > Please refer to [Design Resources](https://docs.zepp.com/docs/reference/related-resources/design-resources) for the image resources in the code example
 
 ```js
-
 Page({
   build() {
     const slide_switch = createWidget(widget.SLIDE_SWITCH, {
@@ -403,7 +403,9 @@ Page({
 import { createWidget, widget } from '@zos/ui'
 ```
 
-> Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::note
+Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 > **⚠️ Warning**
 >
@@ -416,7 +418,6 @@ Time picker widget, providing user choice
 ## Create UI widget
 
 ```js
-
 const pickDate = createWidget(widget.PICK_DATE, Param)
 ```
 
@@ -453,7 +454,6 @@ const pickDate = createWidget(widget.PICK_DATE, Param)
 ## Code example
 
 ```js
-
 Page({
   build() {
     const pick_date_date = createWidget(widget.PICK_DATE)
@@ -500,12 +500,13 @@ Page({
 import { createWidget, widget, prop } from '@zos/ui'
 ```
 
-> Start from API_LEVEL `3.0`. Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility)。
+:::note
+Start from API_LEVEL `3.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::
 
 ## Create UI widget
 
 ```js
-
 const keyboard = createWidget(widget.KEYBOARD, Param)
 ```
 
@@ -639,7 +640,6 @@ keyboard.setProperty(prop.Y, 10)
 ## Code example
 
 ```js
-
 function callback(keyboard, id, value) {
   console.log(`id:${id} char:${value}`)
   keyboard.setProperty(prop.TEXT, `id:${id} char:${value}`)
@@ -771,20 +771,20 @@ keyboard.setProperty(prop.ADD_KEY, {
   value: 11
 })
 ```
+
 ## Additional Examples
 
 ### Example 1
 
 ```js
-
 let keyboardLock = createWidget(widget.KEYBOARD, {
   click_func: presscb,
   key_attr: [
     { cntr_coord_style: true, id: 0, x: 8, y: '35vh', text: 'H', value: 1 },
     { id: 1, x: 90, y: 150, text: 'E', value: 2 },
     { id: 20, x: 180, y: 150, text: 'L', value: 3 },
-    { id: 3, x: 270, y: 150, text: 'L', value: 4 },
-  ],
+    { id: 3, x: 270, y: 150, text: 'L', value: 4 }
+  ]
 })
 
 keyboardLock.setProperty(prop.TEXT, 'hello rose !')
@@ -800,14 +800,15 @@ keyboardLock.setProperty(prop.TEXT, 'hello rose !')
 import { createWidget, widget, prop } from '@zos/ui'
 ```
 
-> Start from API_LEVEL `3.0`. Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility)。
+:::note
+Start from API_LEVEL `3.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::
 
 An universal selector, use to text and number list selection
 
 ## Create UI widget
 
 ```js
-
 const picker_widget = createWidget(widget.WIDGET_PICKER, Param)
 ```
 
@@ -827,19 +828,19 @@ const picker_widget = createWidget(widget.WIDGET_PICKER, Param)
 
 #### DataConfig: object
 
-| Properties          | Description                                     | Required | Type                                   |
-| ------------------- | ----------------------------------------------- | -------- | -------------------------------------- |
+| Properties          | Description                                     | Required | Type                          |
+| ------------------- | ----------------------------------------------- | -------- | ----------------------------- |
 | data_array          | Data array of column                            | YES      | `Array\<number&#124;string\>` |
-| support_loop        | support circular drag and drop                  | YES      | `boolean`                              |
-| unit                | Unit                                            | NO       | `string`                               |
-| connector           | Data separator                                  | NO       | `string`                               |
-| font_name           | Path of font file, refer to `TEXT`              | NO       | `string`                               |
-| font_size           | Font size                                       | NO       | `number`                               |
-| select_font_size    | Font size of selected item                      | NO       | `number`                               |
-| connector_font_size | Font size of separator                          | NO       | `number`                               |
-| unit_font_size      | Font size of unit                               | NO       | `number`                               |
-| init_val_index      | Default selected index                          | NO       | `number`                               |
-| col_width           | Column width, all columns need to be configured | NO       | `number`                               |
+| support_loop        | support circular drag and drop                  | YES      | `boolean`                     |
+| unit                | Unit                                            | NO       | `string`                      |
+| connector           | Data separator                                  | NO       | `string`                      |
+| font_name           | Path of font file, refer to `TEXT`              | NO       | `string`                      |
+| font_size           | Font size                                       | NO       | `number`                      |
+| select_font_size    | Font size of selected item                      | NO       | `number`                      |
+| connector_font_size | Font size of separator                          | NO       | `number`                      |
+| unit_font_size      | Font size of unit                               | NO       | `number`                      |
+| init_val_index      | Default selected index                          | NO       | `number`                      |
+| col_width           | Column width, all columns need to be configured | NO       | `number`                      |
 
 #### CallBack: function
 
@@ -893,7 +894,6 @@ The `SET` and `GET` means `widget.setProperty` and `widget.getProperty`
 ## Code example
 
 ```js
-
 const time = new Time()
 
 const picker_widget = createWidget(widget.WIDGET_PICKER, {
@@ -951,12 +951,12 @@ function picker_cb(picker, event_type, column_index, select_index) {
   )
 }
 ```
+
 ## Additional Examples
 
 ### Example 1
 
 ```js
-
 createWidget(widget.WIDGET_PICKER, {
   title: 'Start Date',
   subtitle: '',
@@ -973,7 +973,7 @@ createWidget(widget.WIDGET_PICKER, {
       select_font_size: 48,
       connector_font_size: 18,
       unit_font_size: 18,
-      col_width: 80,
+      col_width: 80
     },
     {
       data_array: new Array(31).fill(0).map((_, index) => index + 1),
@@ -985,7 +985,7 @@ createWidget(widget.WIDGET_PICKER, {
       select_font_size: 48,
       connector_font_size: 36,
       unit_font_size: 36,
-      col_width: 80,
+      col_width: 80
     },
     {
       data_array: new Array(30).fill(0).map((_, index) => index + 2020),
@@ -997,12 +997,12 @@ createWidget(widget.WIDGET_PICKER, {
       select_font_size: 48,
       connector_font_size: 36,
       unit_font_size: 36,
-      col_width: 80,
-    },
+      col_width: 80
+    }
   ],
   picker_cb: (picker, eventType, column, valueIndex) => {
     console.log('picker event', eventType, column, valueIndex)
-  },
+  }
 })
 ```
 
@@ -1016,7 +1016,9 @@ createWidget(widget.WIDGET_PICKER, {
 import { createWidget, widget, prop } from '@zos/ui'
 ```
 
-> Start from API_LEVEL `3.6`. Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility)。
+:::note
+Start from API_LEVEL `3.6` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 [Image: time_picker]
 
@@ -1025,7 +1027,6 @@ A full-screen widget that supports time and date selection.
 ## Create UI widget
 
 ```js
-
 const time_picker = createWidget(widget.WIDGET_TIME_PICKER, Param)
 ```
 
@@ -1098,7 +1099,6 @@ The `SET` and `GET` means `widget.setProperty` and `widget.getProperty`
 ## Code example
 
 ```js
-
 const time_picker = createWidget(widget.WIDGET_TIME_PICKER, {
   type: 0, // 0: select time  1: select date
   style: 1,
@@ -1125,7 +1125,9 @@ function callbackFunc(picker, event_type, column, value_index) {
 import { createKeyboard, inputType } from '@zos/ui'
 ```
 
-> Start from API_LEVEL `4.0`. Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::note
+Start from API_LEVEL `4.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 <img src={useBaseUrl('/img/api/smart_keyboard.jpg')} width="50%" title="smart_keyboard" />
 
@@ -1134,7 +1136,6 @@ Create a system-level input keyboard that supports multiple input modes.
 ## Create Keyboard Widget
 
 ```js
-
 const keyboard = createKeyboard({
   // Required parameters
   inputType: inputType.NUM,
@@ -1165,13 +1166,13 @@ const keyboard = createKeyboard({
 
 ### `inputType` Enum
 
-| Value           | Description        | API_LEVEL |
-| --------------- | ------------------ | --------- |
-| inputType.EMOJI | Emoji keyboard     | 4.0       |
-| inputType.NUM   | Number keyboard    | 4.0       |
-| inputType.CHAR  | Character keyboard | 4.0       |
-| inputType.VOICE | Voice input        | 4.0       |
-| inputType.JSKB  | Custom Keyboard Widget  | 4.2       |
+| Value           | Description            | API_LEVEL |
+| --------------- | ---------------------- | --------- |
+| inputType.EMOJI | Emoji keyboard         | 4.0       |
+| inputType.NUM   | Number keyboard        | 4.0       |
+| inputType.CHAR  | Character keyboard     | 4.0       |
+| inputType.VOICE | Voice input            | 4.0       |
+| inputType.JSKB  | Custom Keyboard Widget | 4.2       |
 
 ## Methods
 
@@ -1180,14 +1181,12 @@ const keyboard = createKeyboard({
 Exit and destroy the current keyboard input interface
 
 ```js
-
 deleteKeyboard()
 ```
 
 ## Code Example
 
 ```js
-
 Page({
   onInit() {
     this.createKeyboard()
@@ -1216,4 +1215,3 @@ Page({
 ```
 
 ---
-

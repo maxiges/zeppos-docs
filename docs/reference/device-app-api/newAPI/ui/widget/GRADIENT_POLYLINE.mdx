@@ -3,8 +3,9 @@ title: POLYLINE
 sidebar_label: POLYLINE
 ---
 
-> Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](../../../../../guides/framework/device/compatibility.md).
-
+:::note
+Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 ![polyline](/img/api/polyline_sample.jpg.jpg)
 
 Draws polylines that can be done on a line graph with multiple segments.
@@ -65,17 +66,22 @@ Clear drawn lines
 
 ## Supported Property Access List
 
-| Property      | setProperty | getProperty | [setter](../gettersetter.mdx) | [getter](../gettersetter.mdx) |
-|-------------|-------------|-------------|-------------------------------|-------------------------------|
-| x           | N           | Y           | N                             | Y                             |
-| y           | N           | Y           | N                             | Y                             |
-| w           | N           | Y           | N                             | Y                             |
-| h           | N           | Y           | N                             | Y                             |
-| line_color  | N           | N           | N                             | N                             |
-| line_width  | N           | N           | N                             | N                             |
-| bg_color    | N           | N           | N                             | N                             |
+<details>
+<summary>Click to view property support table</summary>
 
-## Code example
+| Property   | setProperty | getProperty | [setter](../gettersetter.mdx) | [getter](../gettersetter.mdx) |
+| ---------- | ----------- | ----------- | ----------------------------- | ----------------------------- |
+| x          | N           | Y           | N                             | Y                             |
+| y          | N           | Y           | N                             | Y                             |
+| w          | N           | Y           | N                             | Y                             |
+| h          | N           | Y           | N                             | Y                             |
+| line_color | N           | N           | N                             | N                             |
+| line_width | N           | N           | N                             | N                             |
+| bg_color   | N           | N           | N                             | N                             |
+
+</details>
+
+## Examples
 
 ```js
 import { createWidget, widget } from '@zos/ui'

@@ -1,6 +1,8 @@
 # writeFileSync
 
-> Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::note
+Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 Synchronously write data to a file in the `/data` directory of the Mini Program, replacing the file if it already exists, or creating a new file if it doesn't.
 
@@ -34,14 +36,14 @@ import { writeFileSync } from '@zos/fs'
 const buffer = new ArrayBuffer(4)
 writeFileSync({
   path: 'test.txt',
-  data: buffer,
+  data: buffer
 })
 
 writeFileSync({
   path: 'content.txt',
   data: 'some content...',
   options: {
-    encoding: 'utf8',
-  },
+    encoding: 'utf8'
+  }
 })
 ```

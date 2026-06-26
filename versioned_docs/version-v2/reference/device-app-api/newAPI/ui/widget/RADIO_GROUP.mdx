@@ -3,8 +3,9 @@ title: RADIO_GROUP
 sidebar_label: RADIO_GROUP
 ---
 
-> Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](../../../../../guides/framework/device/compatibility.md).
-
+:::note
+Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 ![radio_group_sample](/img/api/radio_group_sample.jpg)
 
 Used to select a single result among multiple options. Each individual option needs to be created using `STATE_BUTTON`.
@@ -24,12 +25,12 @@ const stateButton = createWidget(widget.STATE_BUTTON, stateButtonParam)
 
 | Properties   | Description                               | Required | Type        |
 | ------------ | ----------------------------------------- | -------- | ----------- |
-| x            | The x-coordinate of the widget.        | YES      | `number`    |
-| y            | The y-coordinate of the widget.        | YES      | `number`    |
-| w            | Width of the widget.                   | YES      | `number`    |
-| h            | The height of the widget.              | YES      | `number`    |
-| select_src   | The selected image of the widget.      | YES      | `string`    |
-| unselect_src | Unselected image of the widget.        | YES      | `string`    |
+| x            | The x-coordinate of the widget.           | YES      | `number`    |
+| y            | The y-coordinate of the widget.           | YES      | `number`    |
+| w            | Width of the widget.                      | YES      | `number`    |
+| h            | The height of the widget.                 | YES      | `number`    |
+| select_src   | The selected image of the widget.         | YES      | `string`    |
+| unselect_src | Unselected image of the widget.           | YES      | `string`    |
 | check_func   | Callback when the button's state changes. | NO       | `CheckFunc` |
 
 ### CheckFunc: function
@@ -46,8 +47,8 @@ const stateButton = createWidget(widget.STATE_BUTTON, stateButtonParam)
 
 ### StateButton: object
 
-| Properties | Description                                                              | Required | Type     |
-| ---------- | ------------------------------------------------------------------------ | -------- | -------- |
+| Properties | Description                                                           | Required | Type     |
+| ---------- | --------------------------------------------------------------------- | -------- | -------- |
 | x          | The x-coordinate of the widget. Coordinates relative to `radioGroup`. | YES      | `number` |
 | y          | The y-coordinate of the widget. Coordinates relative to `radioGroup`. | YES      | `number` |
 | w          | Width of the widget.                                                  | YES      | `number` |
@@ -59,9 +60,9 @@ The widget must be initialized once with `prop.INIT` to render the view
 
 ### Prop Properties
 
-| Properties            | Support get/set | Type                               | Notes                                                                                                                                      |
-| --------------------- | --------------- | ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
-| `prop.INIT`      | set             | `object`                           | Initialize the widget and set the default selected items.                                                                               |
+| Properties       | Support get/set | Type                               | Notes                                                                                                                                      |
+| ---------------- | --------------- | ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
+| `prop.INIT`      | set             | `object`                           | Initialize the widget and set the default selected items.                                                                                  |
 | `prop.CHECKED`   | set/get         | `object` Return `boolean` when get | Set the selected child widget to the selected state, or use to get the selected state of the child widget, the value is of type `boolean`. |
 | `prop.UNCHECKED` | get             | `object`                           | Set the selected child widget to unselected state, or use to get the selected state of the child widget, the value is of type `boolean`.   |
 

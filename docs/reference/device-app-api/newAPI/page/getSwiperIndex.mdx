@@ -1,6 +1,8 @@
 # getSwiperIndex
 
-> Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::note
+Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 Get the scroll position of the current page, only if the page scroll mode is `SCROLL_MODE_SWIPER` or `SCROLL_MODE_SWIPER_HORIZONTAL` return the index of the current item (starting from `1`), otherwise return `undefined`.
 
@@ -27,12 +29,12 @@ setScrollMode({
   mode: SCROLL_MODE_SWIPER,
   options: {
     height: 480,
-    count: 10,
-  },
+    count: 10
+  }
 })
 
 swipeToIndex({
-  index: 5,
+  index: 5
 })
 
 const currentIndex = getSwiperIndex()

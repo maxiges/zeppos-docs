@@ -23,7 +23,9 @@ if (result) {
 }
 ```
 
-> Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::note
+Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 Get whether to turn on the screen auto brightness setting.
 
@@ -37,14 +39,13 @@ function getAutoBrightness(): Result
 
 ### Result
 
-| Type                 | Description                                                                    |
-| -------------------- | ------------------------------------------------------------------------------ |
+| Type      | Description                                                                    |
+| --------- | ------------------------------------------------------------------------------ |
 | `boolean` | `true` - auto-brightness is set to on, `false` - auto-brightness is set to off |
 
 ## Example
 
 ```js
-
 const result = getAutoBrightness()
 
 if (result) {
@@ -74,7 +75,9 @@ const result = getBrightness()
 console.log(`current brightness ${result}`)
 ```
 
-> Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::note
+Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 Get the screen brightness of the current device.
 
@@ -88,14 +91,13 @@ function getBrightness(): Result
 
 ### Result
 
-| Type                | Description                            |
-| ------------------- | -------------------------------------- |
+| Type     | Description                            |
+| -------- | -------------------------------------- |
 | `number` | Screen brightness value, range 0 - 100 |
 
 ## Example
 
 ```js
-
 const result = getBrightness()
 console.log(`current brightness ${result}`)
 ```
@@ -122,7 +124,9 @@ import { getSettings } from '@zos/display'
 console.log(getSettings())
 ```
 
-> Start from API_LEVEL `3.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::note
+Start from API_LEVEL `3.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::
 
 Get system display related information.
 
@@ -136,23 +140,23 @@ function getSettings(): Result
 
 ### Result
 
-| Property | Type                    | Required | DefaultValue | Description                     | API_LEVEL |
-| -------- | ----------------------- | -------- | ------------ | ------------------------------- | --------- |
+| Property | Type         | Required | DefaultValue | Description                     | API_LEVEL |
+| -------- | ------------ | -------- | ------------ | ------------------------------- | --------- |
 | screen   | `ScreenObj`  | Y        | -            | Screen Status                   | 3.0       |
 | wrist    | `WristObj`   | Y        | -            | Lift wrist to view info setting | 3.0       |
 | standby  | `StandbyObj` | Y        | -            | Rest screen display settings    | 3.0       |
 
 ### ScreenObj
 
-| Property | Type                | Required | DefaultValue | Description                              | API_LEVEL |
-| -------- | ------------------- | -------- | ------------ | ---------------------------------------- | --------- |
+| Property | Type     | Required | DefaultValue | Description                              | API_LEVEL |
+| -------- | -------- | -------- | ------------ | ---------------------------------------- | --------- |
 | status   | `number` | Y        | -            | Current screen status, `1`: On, `2`: Off | 3.0       |
 | duration | `number` | Y        | -            | Screen light-up time, in seconds         | 3.0       |
 
 ### WristObj
 
-| Property  | Type                | Required | DefaultValue | Description                                                   | API_LEVEL |
-| --------- | ------------------- | -------- | ------------ | ------------------------------------------------------------- | --------- |
+| Property  | Type     | Required | DefaultValue | Description                                                   | API_LEVEL |
+| --------- | -------- | -------- | ------------ | ------------------------------------------------------------- | --------- |
 | speed     | `number` | Y        | -            | Response speed                                                | 3.0       |
 | model     | `number` | Y        | -            | Mode, see `model` for value                                   | 3.0       |
 | startTime | `number` | Y        | -            | Start time, based on the number of minutes at 0:00 of the day | 3.0       |
@@ -160,8 +164,8 @@ function getSettings(): Result
 
 ### StandbyObj
 
-| Property  | Type                | Required | DefaultValue | Description                                                                    | API_LEVEL |
-| --------- | ------------------- | -------- | ------------ | ------------------------------------------------------------------------------ | --------- |
+| Property  | Type     | Required | DefaultValue | Description                                                                    | API_LEVEL |
+| --------- | -------- | -------- | ------------ | ------------------------------------------------------------------------------ | --------- |
 | style     | `number` | Y        | -            | Rest screen Watchface style, `0`: system default, `1`: follow the current dial | 3.0       |
 | model     | `number` | Y        | -            | Mode, see `model` for value                                                    | 3.0       |
 | startTime | `number` | Y        | -            | Start time, based on the number of minutes at 0:00 of the day                  | 3.0       |
@@ -169,8 +173,8 @@ function getSettings(): Result
 
 ### mode
 
-| Value | Type                | Description         | API_LEVEL |
-| ----- | ------------------- | ------------------- | --------- |
+| Value | Type     | Description         | API_LEVEL |
+| ----- | -------- | ------------------- | --------- |
 | 0     | `number` | Measurement invalid | 3.0       |
 | 1     | `number` | Measurement invalid | 3.0       |
 | 2     | `number` | Measurement invalid | 3.0       |
@@ -179,7 +183,6 @@ function getSettings(): Result
 ## Example
 
 ```js
-
 console.log(getSettings())
 ```
 
@@ -207,7 +210,9 @@ pauseDropWristScreenOff({
 })
 ```
 
-> Start from API_LEVEL `2.1` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::note
+Start from API_LEVEL `2.1` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 Suspension of wrist resting behavior.
 
@@ -221,22 +226,21 @@ function pauseDropWristScreenOff(option: Option): Result
 
 ### Option
 
-| Property | Type                | Required | DefaultValue       | Description                                                                                                               | API_LEVEL |
-| -------- | ------------------- | -------- | ------------------ | ------------------------------------------------------------------------------------------------------------------------- | --------- |
-| duration | `number` | N        | `30000` | Duration (milliseconds), if `0` is passed, the wrist rest behavior will be suspended until `resetPalmScreenOff` is called | 2.1       |
+| Property | Type     | Required | DefaultValue | Description                                                                                                               | API_LEVEL |
+| -------- | -------- | -------- | ------------ | ------------------------------------------------------------------------------------------------------------------------- | --------- |
+| duration | `number` | N        | `30000`      | Duration (milliseconds), if `0` is passed, the wrist rest behavior will be suspended until `resetPalmScreenOff` is called | 2.1       |
 
 ### Result
 
-| Type                | Description                              |
-| ------------------- | ---------------------------------------- |
+| Type     | Description                              |
+| -------- | ---------------------------------------- |
 | `number` | If `0` is returned, success is indicated |
 
 ## Example
 
 ```js
-
 pauseDropWristScreenOff({
-  duration: 60000,
+  duration: 60000
 })
 ```
 
@@ -264,7 +268,9 @@ pausePalmScreenOff({
 })
 ```
 
-> Start from API_LEVEL `2.1` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::note
+Start from API_LEVEL `2.1` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 Suspension of overlapping palm resting screen behavior.
 
@@ -278,22 +284,21 @@ function pausePalmScreenOff(option: Option): Result
 
 ### Option
 
-| Property | Type                | Required | DefaultValue       | Description                                                                                                         | API_LEVEL |
-| -------- | ------------------- | -------- | ------------------ | ------------------------------------------------------------------------------------------------------------------- | --------- |
-| duration | `number` | N        | `30000` | Duration (milliseconds), if `0` is passed, the palm rest behavior is suspended until `resetPalmScreenOff` is called | 2.1       |
+| Property | Type     | Required | DefaultValue | Description                                                                                                         | API_LEVEL |
+| -------- | -------- | -------- | ------------ | ------------------------------------------------------------------------------------------------------------------- | --------- |
+| duration | `number` | N        | `30000`      | Duration (milliseconds), if `0` is passed, the palm rest behavior is suspended until `resetPalmScreenOff` is called | 2.1       |
 
 ### Result
 
-| Type                | Description                              |
-| ------------------- | ---------------------------------------- |
+| Type     | Description                              |
+| -------- | ---------------------------------------- |
 | `number` | If `0` is returned, success is indicated |
 
 ## Example
 
 ```js
-
 pausePalmScreenOff({
-  duration: 60000,
+  duration: 60000
 })
 ```
 
@@ -325,7 +330,9 @@ setTimeout(() => {
 }, 3000)
 ```
 
-> Start from API_LEVEL `2.1` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::note
+Start from API_LEVEL `2.1` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 Resume wrist drop resting behavior.
 
@@ -339,16 +346,15 @@ function resetDropWristScreenOff(): Result
 
 ### Result
 
-| Type                | Description                              |
-| ------------------- | ---------------------------------------- |
+| Type     | Description                              |
+| -------- | ---------------------------------------- |
 | `number` | If `0` is returned, success is indicated |
 
 ## Example
 
 ```js
-
 pauseDropWristScreenOff({
-  duration: 0,
+  duration: 0
 })
 
 setTimeout(() => {
@@ -381,7 +387,9 @@ setPageBrightTime({
 const result = resetPageBrightTime()
 ```
 
-> Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::note
+Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 Cancel the bright time set by `setPageBrightTime`.
 
@@ -395,16 +403,15 @@ function resetPageBrightTime(): Result
 
 ### Result
 
-| Type                | Description                              |
-| ------------------- | ---------------------------------------- |
+| Type     | Description                              |
+| -------- | ---------------------------------------- |
 | `number` | If `0` is returned, success is indicated |
 
 ## Example
 
 ```js
-
 setPageBrightTime({
-  brightTime: 60000,
+  brightTime: 60000
 })
 
 const result = resetPageBrightTime()
@@ -438,7 +445,9 @@ setTimeout(() => {
 }, 3000)
 ```
 
-> Start from API_LEVEL `2.1` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::note
+Start from API_LEVEL `2.1` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 Recovery of overlapping palm resting screen behavior.
 
@@ -452,16 +461,15 @@ function resetPalmScreenOff(): Result
 
 ### Result
 
-| Type                | Description                              |
-| ------------------- | ---------------------------------------- |
+| Type     | Description                              |
+| -------- | ---------------------------------------- |
 | `number` | If `0` is returned, success is indicated |
 
 ## Example
 
 ```js
-
 pausePalmScreenOff({
-  duration: 0,
+  duration: 0
 })
 
 setTimeout(() => {
@@ -492,7 +500,9 @@ setAutoBrightness({
 })
 ```
 
-> Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::note
+Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 Set whether to turn on auto-brightness, if it is on, then the screen brightness will be controlled by the light sensor and the `setBrightness` will be disabled.
 
@@ -512,16 +522,15 @@ function setAutoBrightness(autoBright: boolean): void
 
 ### Option
 
-| Property   | Type                 | Required | DefaultValue | Description                              | API_LEVEL |
-| ---------- | -------------------- | -------- | ------------ | ---------------------------------------- | --------- |
+| Property   | Type      | Required | DefaultValue | Description                              | API_LEVEL |
+| ---------- | --------- | -------- | ------------ | ---------------------------------------- | --------- |
 | autoBright | `boolean` | Y        | -            | Whether to open the automatic brightness | 2.0       |
 
 ## Example
 
 ```js
-
 setAutoBrightness({
-  autoBright: true,
+  autoBright: true
 })
 ```
 
@@ -552,7 +561,9 @@ if (result === 0) {
 }
 ```
 
-> Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::note
+Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 Set the screen brightness of the current device. If the auto brightness setting is currently turned on, the brightness is automatically adjusted by the light sensor, calling `setBrightness` will not take effect at this time, you need to use `setAutoBrightness` to turn off the auto brightness and then set it again. Note: If you exit the current page, you need to consider whether you need to set the brightness back to the original brightness.
 
@@ -572,22 +583,21 @@ function setBrightness(brightness: number): Result
 
 ### Option
 
-| Property   | Type                | Required | DefaultValue | Description                            | API_LEVEL |
-| ---------- | ------------------- | -------- | ------------ | -------------------------------------- | --------- |
+| Property   | Type     | Required | DefaultValue | Description                            | API_LEVEL |
+| ---------- | -------- | -------- | ------------ | -------------------------------------- | --------- |
 | brightness | `number` | Y        | -            | Screen brightness value, range 0 - 100 | 2.0       |
 
 ### Result
 
-| Type                | Description                              |
-| ------------------- | ---------------------------------------- |
+| Type     | Description                              |
+| -------- | ---------------------------------------- |
 | `number` | If `0` is returned, success is indicated |
 
 ## Example
 
 ```js
-
 const result = setBrightness({
-  brightness: 50,
+  brightness: 50
 })
 
 if (result === 0) {
@@ -622,7 +632,9 @@ if (result === 0) {
 }
 ```
 
-> Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::note
+Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 Set the current page screen lighting time, this setting will follow the page destruction to do reset.
 
@@ -636,22 +648,21 @@ function setPageBrightTime(option: Option): Result
 
 ### Option
 
-| Property   | Type                | Required | DefaultValue       | Description                                                    | API_LEVEL |
-| ---------- | ------------------- | -------- | ------------------ | -------------------------------------------------------------- | --------- |
-| brightTime | `number` | N        | `10000` | Screen lighting time (milliseconds), range [1000 - 2147483000] | 2.0       |
+| Property   | Type     | Required | DefaultValue | Description                                                    | API_LEVEL |
+| ---------- | -------- | -------- | ------------ | -------------------------------------------------------------- | --------- |
+| brightTime | `number` | N        | `10000`      | Screen lighting time (milliseconds), range [1000 - 2147483000] | 2.0       |
 
 ### Result
 
-| Type                | Description                              |
-| ------------------- | ---------------------------------------- |
+| Type     | Description                              |
+| -------- | ---------------------------------------- |
 | `number` | If `0` is returned, success is indicated |
 
 ## Example
 
 ```js
-
 const result = setPageBrightTime({
-  brightTime: 60000,
+  brightTime: 60000
 })
 
 if (result === 0) {
@@ -684,7 +695,9 @@ if (result === 0) {
 }
 ```
 
-> Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::note
+Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 Set the screen to rest.
 
@@ -698,14 +711,13 @@ function setScreenOff(): Result
 
 ### Result
 
-| Type                | Description                              |
-| ------------------- | ---------------------------------------- |
+| Type     | Description                              |
+| -------- | ---------------------------------------- |
 | `number` | If `0` is returned, success is indicated |
 
 ## Example
 
 ```js
-
 const result = setScreenOff()
 
 if (result === 0) {
@@ -736,7 +748,9 @@ setWakeUpRelaunch({
 })
 ```
 
-> Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](https://docs.zepp.com/docs/guides/framework/device/compatibility).
+:::note
+Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 By default, the system will off the screen in one page of the Mini Program, and the system will exit the Mini Program after 10s, and enter the dial page when the watch is woken up again. If `relaunch` is set to `true`, the Mini Program will reopen and enter the corresponding page when the watch is woken up again.
 
@@ -756,24 +770,22 @@ function setWakeUpRelaunch(relaunch: boolean): void
 
 ### Option
 
-| Type                              | Description                                                                    |
-| --------------------------------- | ------------------------------------------------------------------------------ |
+| Type                   | Description                                                                    |
+| ---------------------- | ------------------------------------------------------------------------------ |
 | `Options&#124;boolean` | `true` - auto-brightness is set to on, `false` - auto-brightness is set to off |
 
 ### Options
 
-| Property | Type                 | Required | DefaultValue | Description                                                                             | API_LEVEL |
-| -------- | -------------------- | -------- | ------------ | --------------------------------------------------------------------------------------- | --------- |
+| Property | Type      | Required | DefaultValue | Description                                                                             | API_LEVEL |
+| -------- | --------- | -------- | ------------ | --------------------------------------------------------------------------------------- | --------- |
 | relaunch | `boolean` | Y        | -            | Whether to reopen the Mini Program after waking up the watch again after a screen break | 2.0       |
 
 ## Example
 
 ```js
-
 setWakeUpRelaunch({
-  relaunch: true,
+  relaunch: true
 })
 ```
 
 ---
-

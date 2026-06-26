@@ -1,6 +1,8 @@
 # requestPermission
 
-> Start from API_LEVEL `3.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::note
+Start from API_LEVEL `3.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 Dynamic permission application, when querying a dynamic permission has not been authorized, you can use this interface to apply for the relevant permission. Generally, before using the system-related functional interface (such as the interface to enable app services), do the relevant permission check and application, otherwise the functional interface will not be allowed to execute due to the permission issue.
 
@@ -42,7 +44,7 @@ const result = requestPermission({
   permissions: ['device:os.bg_service'],
   callback: (result) => {
     console.log(result)
-  },
+  }
 })
 console.log(result)
 ```

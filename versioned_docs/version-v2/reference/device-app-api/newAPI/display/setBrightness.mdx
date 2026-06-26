@@ -1,6 +1,8 @@
 # setBrightness
 
-> Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::note
+Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 
 Set the screen brightness of the current device. If the auto brightness setting is currently turned on, the brightness is automatically adjusted by the light sensor, calling `setBrightness` will not take effect at this time, you need to use `setAutoBrightness` to turn off the auto brightness and then set it again. Note: If you exit the current page, you need to consider whether you need to set the brightness back to the original brightness.
 
@@ -36,7 +38,7 @@ function setBrightness(brightness: number): Result
 import { setBrightness } from '@zos/display'
 
 const result = setBrightness({
-  brightness: 50,
+  brightness: 50
 })
 
 if (result === 0) {

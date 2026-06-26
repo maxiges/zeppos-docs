@@ -1,7 +1,8 @@
 # checkSystemApp
 
-> Start from API_LEVEL `3.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
-
+:::note
+Start from API_LEVEL `3.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 Check if the system application supports jumping.
 
 ## Type
@@ -76,6 +77,6 @@ function checkSystemApp(appId: number): void
 import { checkSystemApp, SYSTEM_APP_STATUS } from '@zos/router'
 
 checkSystemApp({
-  appId: SYSTEM_APP_STATUS,
+  appId: SYSTEM_APP_STATUS
 })
 ```

@@ -1,7 +1,8 @@
 # setAutoBrightness
 
-> Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
-
+:::note
+Start from API_LEVEL `2.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+:::
 Set whether to turn on auto-brightness, if it is on, then the screen brightness will be controlled by the light sensor and the `setBrightness` will be disabled.
 
 ## Type
@@ -30,6 +31,6 @@ function setAutoBrightness(autoBright: boolean): void
 import { setAutoBrightness } from '@zos/display'
 
 setAutoBrightness({
-  autoBright: true,
+  autoBright: true
 })
 ```
