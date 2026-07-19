@@ -1,0 +1,81 @@
+---
+title: Crypto Module Overview
+sidebar_label: Overview
+---
+
+:::note
+Available starting from API_LEVEL `3.0`. Please refer to the [API_LEVEL Compatibility Guide](../../../../guides/framework/device/compatibility.md) for detailed environment compatibility.
+:::
+
+The `@zos/crypto` module provides a comprehensive suite of cryptographic primitives optimized for Zepp OS applications. It enables developers to secure sensitive user data, verify data integrity, authenticate messages, and handle digital signatures directly on the device using low-overhead implementations, utilizing hardware acceleration where available.
+
+## Import
+
+To use the cryptographic features, import the necessary factory functions, algorithm constants, and helper parameters from the module:
+
+```js
+import { alg, createCrypto, ecp_dp, encryptKey } from '@zos/crypto'
+```
+
+---
+
+## Available Algorithms Reference
+
+The following table provides a comprehensive overview of the supported cryptographic and hashing primitives within the Zepp OS environment.
+
+| Algorithm ID       | Category             | Technical Description & Key Sizes                                                                                                                           | Security & Usage Guidance                                                                                                                                                                             | API_LEVEL |
+| :----------------- | :------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :-------: |
+| `alg.AES_CBC`      | Symmetric Cipher     | Advanced Encryption Standard in Cipher Block Chaining mode. Typically utilizes 128-bit or 256-bit keys with a mandatory 16-byte Initialization Vector (IV). | Recommended for secure local data storage. Requires proper padding handling (such as PKCS#7) and randomized IVs per encryption operation.                                                             |   `3.0`   |
+| `alg.CRC16`        | Checksum             | 16-bit Cyclic Redundancy Check non-cryptographic checksum.                                                                                                  | Highly optimized for ultra-low overhead error detection in communication protocols or data transmissions. Not secure against deliberate tampering.                                                    |   `3.0`   |
+| `alg.CRC32`        | Checksum             | 32-bit Cyclic Redundancy Check non-cryptographic checksum.                                                                                                  | Used for quick data integrity and corruption verification (e.g., file transfer checks or ZIP files). Provides a lower collision rate than CRC16, but is cryptographically insecure.                   |   `3.0`   |
+| `alg.MD5`          | Message Digest       | Message-Digest Algorithm 5 producing a 128-bit hash value.                                                                                                  | Historically used for data integrity. Cryptographically broken and vulnerable to collision attacks; should only be used for legacy compatibility or non-security checksums.                           |   `3.0`   |
+| `alg.HMACMD5`      | Authenticated Digest | Hash-based Message Authentication Code using the MD5 hash function.                                                                                         | Combines MD5 with a shared secret key to verify data integrity and authenticity. Provides stronger resistance against length-extension attacks than raw MD5, but should be avoided for new protocols. |   `3.0`   |
+| `alg.SHA_1`        | Message Digest       | Secure Hash Algorithm 1 producing a 160-bit output.                                                                                                         | Theoretically vulnerable to collision attacks. Primarily intended for compatibility with legacy systems or specialized protocols. Not recommended for new security features.                          |   `3.0`   |
+| `alg.HMAC_SHA_1`   | Authenticated Digest | Hash-based Message Authentication Code using the SHA-1 hash function.                                                                                       | Used for message authentication and cryptographic signing over legacy communication layers. Provides message integrity backed by a cryptographic key.                                                 |   `3.0`   |
+| `alg.SHA_256`      | Message Digest       | Secure Hash Algorithm 2 family, producing a highly secure 256-bit hash value.                                                                               | Industry standard for secure hashing. Ideal for data fingerprints, password hashing architectures (combined with salt), and verifying software payloads.                                              |   `3.0`   |
+| `alg.HMAC_SHA_256` | Authenticated Digest | Hash-based Message Authentication Code using the SHA-256 hash function.                                                                                     | Excellent performance and highly secure standard for verifying API requests, message authenticity, and securing data exchanges between the watch and mobile apps.                                     |   `3.0`   |
+| `alg.ECDSA`        | Digital Signature    | Elliptic Curve Digital Signature Algorithm supporting standard SECP curves.                                                                                 | Standard for asymmetric cryptography, allowing mathematical proof of authenticity and non-repudiation. Highly efficient signature generation ideal for resource-constrained wearable hardware.        |   `3.0`   |
+
+---
+
+## Architectural Breakdown & Category Guides
+
+### 🛡️ Symmetric Encryption (AES-CBC)
+
+The AES implementation allows you to encrypt or decrypt blocks of data securely using a symmetric key shared between the sender and receiver.
+
+- **Operational Mechanics:** Cipher Block Chaining (CBC) links each plaintext block with the previous ciphertext block via an XOR operation before encryption. This prevents identical blocks of plaintext from resulting in identical ciphertext.
+- **Developer Considerations:** You must provide a unique, unpredictable Initialization Vector (IV) for every encryption operation to maintain confidentiality across multiple messages.
+- **Deep Dive:** [AES Crypto Detailed API Guide](AESCrypto.mdx)
+
+### 🔑 Digital Signatures (ECDSA)
+
+Asymmetric cryptography allows secure verification without revealing private keys.
+
+- **Supported Curves:** Full support for standard SECP elliptic curves, including `SECP192K1`, `SECP224K1`, and the industry-standard `SECP256K1` (commonly used in blockchain and secure network protocols).
+- **Use Cases:** Used for authenticating firmware upgrades, establishing secure key exchange handshakes, or signing transactions from the wearable device.
+- **Deep Dive:** [ECDSA Crypto Detailed API Guide](ECDSACrypto.mdx)
+
+### 📑 Message Digests & HMAC Authentication
+
+Message digests produce deterministic, fixed-size hashes from arbitrary binary inputs.
+
+- **Streaming vs. One-shot:** The framework supports both one-shot calculations for small memory buffers and streaming architectures (Init/Update/Finalize) to process large files or incoming network streams without exhausting device RAM.
+- **HMAC Layer:** HMAC implementations integrate a secret key into the hashing process, ensuring that the hash cannot be counterfeited by a man-in-the-middle attacker who lacks the key.
+- **Deep Dive:** [Digest & HMAC Crypto Detailed API Guide](DigestCrypto.mdx)
+
+### 📊 Checksums (CRC16 / CRC32)
+
+Non-cryptographic operations focused entirely on execution speed and communication safety.
+
+- **Functionality:** Designed to instantly catch random bit flips, hardware transmission drops, or flash memory corruption.
+- **Performance Note:** Executes at near-native speeds with minimal battery impact, making it ideal for frequent internal loop checks. Do not use for authentication or security boundaries.
+- **Deep Dive:** [CRC Checksum Detailed API Guide](CRCCrypto.mdx)
+
+### 🔒 Hardware Key Encryption (PUF Module)
+
+Zepp OS provides direct access to state-of-the-art silicon security via Physical Unclonable Functions (PUF).
+
+- **Hardware-bound Security:** The `encryptKey` primitive wraps and encrypts sensitive application key material using unique cryptographic keys generated directly from microscopic, unreplicable variations in the device's silicon.
+- **Zero Exposure:** Keys protected via this mechanism are completely locked to the physical wearable hardware and cannot be copied, cloned, or extracted via software exploits.
+- **Deep Dive:** [Hardware Key Encryption (encryptKey) API Guide](encryptKey.mdx)

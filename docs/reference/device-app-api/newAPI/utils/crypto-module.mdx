@@ -1,0 +1,42 @@
+---
+title: Crypto Module
+sidebar_label: Crypto Module
+---
+
+:::note
+Start from API_LEVEL `3.0`. Please refer to [API_LEVEL](../../../guides/framework/device/compatibility.md).
+:::
+
+The `@zos/crypto` module provides cryptographic utilities for Zepp OS applications, including AES encryption, CRC checksums, message digests (MD5, SHA), HMAC authentication, and ECDSA digital signatures.
+
+## Available Functions
+
+| Function                                                             | Description                                         |
+| -------------------------------------------------------------------- | --------------------------------------------------- |
+| `createCrypto(alg.AES_CBC, ...)`                                     | AES-CBC symmetric encryption / decryption           |
+| `createCrypto(alg.CRC16 / alg.CRC32, ...)`                           | CRC checksum calculation                            |
+| `createCrypto(alg.MD5 / alg.SHA_256 / alg.SHA_1, ...)`               | Message digest (hash) computation                   |
+| `createCrypto(alg.HMACMD5 / alg.HMAC_SHA_256 / alg.HMAC_SHA_1, ...)` | HMAC authenticated digest                           |
+| `createCrypto(alg.ECDSA, ...)`                                       | ECDSA digital signature generation and verification |
+| `encryptKey(...)`                                                    | Encrypt key material using the PUF hardware module  |
+
+## Quick Example
+
+```js
+import { alg, createCrypto } from '@zos/crypto'
+
+// SHA-256 digest
+const sha256 = createCrypto(alg.SHA_256)
+if (sha256) {
+  const result = sha256.encrypt([72, 101, 108, 108, 111]) // "Hello"
+}
+```
+
+## Related Documentation
+
+- [Crypto Module Overview](../crypto/index.mdx)
+- [AES-CBC](../crypto/AESCrypto.mdx)
+- [CRC Checksums](../crypto/CRCCrypto.mdx)
+- [MD5 / SHA Digests](../crypto/DigestCrypto.mdx)
+- [ECDSA](../crypto/ECDSACrypto.mdx)
+- [encryptKey](../crypto/encryptKey.mdx)

@@ -1,28 +1,130 @@
-# encryptKey
+---
+title: encryptKey API Reference
+sidebar_label: encryptKey
+---
 
-> Start from API_LEVEL `3.0` . Please refer to [API_LEVEL](../../../../guides/framework/device/compatibility.md).
+# Hardware Key Encryption (`encryptKey`)
 
-Encrypt data with the firmware PUF hardware module using AES. Input length must be a multiple of 16 bytes; returns `undefined` on failure.
+The `encryptKey` function provides interface access to the device's specialized firmware **Physical Unclonable Function (PUF)** hardware module. It leverages microscopic, unique hardware variations inherent in each individual silicon chip to securely encrypt sensitive cryptographic keys or application secrets.
 
-## Type
+### How PUF and Hardware Encryption Works
+
+Unlike conventional encryption where keys are statically stored in flash storage, the PUF module utilizes hardware-bound traits unique to that specific watch:
+
+1. **Device-Unique Binding:** Data encrypted via `encryptKey` can **only** be decrypted or processed on the exact physical device where it was encrypted. It acts as a hardware-bound envelope.
+2. **Anti-Extraction Security:** Even if an attacker clones the application flash storage or extracts the database payload, the encrypted key material cannot be decrypted on any other watch, chip, or emulator, rendering it useless outside the origin device.
+3. **Cryptographic Engine Alignment:** It uses a hardware-accelerated AES algorithm. Due to block cipher constraints, input arrays **must have a byte size that is a multiple of 16 bytes** (e.g., 16, 32, 48 bytes).
+
+---
+
+## Type Definition
 
 ```ts
 function encryptKey(data: CryptoData): ArrayBuffer | undefined
 ```
 
+---
+
 ## Parameters
 
 ### CryptoData
 
-| Type                                                   | Description     |
-| ------------------------------------------------------ | --------------- |
-| <code>number[]&#124;ArrayBuffer&#124;Uint8Array</code> | Data to encrypt |
+Represents the structural binary payload targeted for low-level silicon envelope wrapping.
 
-## Example
+| Type                                                   | Required | Boundary Constraints                                                             | Description                                                                            |
+| :----------------------------------------------------- | :------: | :------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------- |
+| <code>number[]&#124;ArrayBuffer&#124;Uint8Array</code> |   Yes    | Total byte size **must** be perfectly divisible by 16 (e.g., length % 16 === 0). | The raw secret keys, access tokens, or seed material needing device-unique protection. |
+
+### Return Value
+
+- **Type:** `ArrayBuffer` | `undefined`
+- **Description:** Returns an `ArrayBuffer` containing the device-bound encrypted output. If the input data fails the 16-byte alignment validation, or if the hardware engine encounters an internal failure, it returns `undefined`.
+
+---
+
+## Architectural Implementation Examples
+
+import Tabs from '@theme/Tabs'
+import TabItem from '@theme/TabItem'
+
+<Tabs>
+  <TabItem value="basic" label="Encrypt a Zero Key" default>
+
+Encrypt a 16-byte zero-initialized key using the PUF hardware module. The firmware's PUF module binds the encrypted output to the specific device.
 
 ```js
 import { encryptKey } from '@zos/crypto'
 
+// A 16-byte key buffer (divisible by 16)
 const key = new Uint8Array(16)
 const encryptedKey = encryptKey(key)
+
+if (encryptedKey) {
+  console.log(`Encrypted key length: ${encryptedKey.byteLength} bytes`)
+} else {
+  console.error('Hardware key encryption failed due to size mismatch or internal fault.')
+}
 ```
+
+  </TabItem>
+  <TabItem value="sensitive" label="Encrypt Application Secret">
+
+Encrypt a sensitive application secret (e.g., an API token or session key) so it never remains exposed in plaintext within persistent storage or active device memory layouts.
+
+```js
+import { encryptKey } from '@zos/crypto'
+
+// Application secret payload (exactly 16 bytes)
+const appSecret = new Uint8Array([
+  0x01, 0x23, 0x45, 0x67, 0x89, 0xab, 0xcd, 0xef, 0xfe, 0xdc, 0xba, 0x98, 0x76, 0x54, 0x32, 0x10
+])
+
+const encryptedSecret = encryptKey(appSecret)
+if (encryptedSecret) {
+  // Store encryptedSecret safely into localStorage / file storage system
+  // The original plaintext appSecret can now be safely garbage-collected or wiped from memory
+  console.log(`Secret successfully bound to hardware, size: ${encryptedSecret.byteLength} bytes`)
+}
+```
+
+  </TabItem>
+  <TabItem value="usage" label="Encrypt Key for AES-CBC Usage">
+
+Combine `encryptKey` with the symmetric `AES_CBC` cipher suite. First, encrypt an application key using the hardware PUF module, and then pass it directly into an AES configuration instance with the `key_encrypt` flag active.
+
+```js
+import { encryptKey, alg, createCrypto } from '@zos/crypto'
+
+// Step 1: Initialize a 16-byte raw key payload
+const rawKey = new Uint8Array(16)
+for (let i = 0; i < 16; i++) {
+  rawKey[i] = i
+}
+
+// Step 2: Encrypt the key with the device-unique hardware module
+const pufEncryptedKey = encryptKey(rawKey)
+if (!pufEncryptedKey) throw new Error('PUF hardware encryption failed')
+
+// Step 3: Cast the encrypted result to a Uint8Array byte sequence
+const encryptedKeyBytes = new Uint8Array(pufEncryptedKey)
+
+// Step 4: Instantiate AES-CBC cipher engine.
+// key_encrypt: 1 flags the system that the private_key parameter is already PUF-encrypted.
+const aes = createCrypto(alg.AES_CBC, {
+  key_bit_length: 128,
+  private_key: encryptedKeyBytes,
+  key_encrypt: 1
+})
+if (!aes) throw new Error('Failed to instantiate AES-CBC cryptographic pipeline')
+
+// Plaintext input must also fit block constraints for basic processing
+const plainData = new Uint8Array([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16])
+const encrypted = aes.encrypt(plainData)
+
+if (encrypted) {
+  console.log(`Data encrypted through PUF-protected pipeline, size: ${encrypted.length}`)
+}
+```
+
+  </TabItem>
+</Tabs>

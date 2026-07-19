@@ -1,116 +1,244 @@
-# MD5 and SHA Digests
+---
+title: Message Digests and HMAC API Reference
+sidebar_label: Digests & HMAC
+---
+
+# Message Digests & HMAC Hashing
+
+The Hashing and Message Authentication Code (HMAC) architecture in Zepp OS provides crucial primitives for verifying data integrity and checking source authenticity.
+
+### Message Digests (Hashing) vs. HMAC
+
+1. **Message Digests (MD5, SHA-1, SHA-256):** These are one-way cryptographic hash functions that ingest variable-length data payloads and produce a unique, fixed-size mathematical fingerprint (checksum). They are deterministic: the exact same input always yields the exact same hash output. They are strictly used to verify that data has not been corrupted or altered randomly.
+2. **HMAC (Hash-based Message Authentication Codes):** HMAC wraps a standard message digest function by blending it with a secret key (`private_key`). This guarantees **authenticity** alongside integrity. It ensures that an attacker cannot swap out data and compute a matching hash, because they lack the physical secret key required to generate a valid HMAC signature token.
+
+### Execution Strategies: One-Shot vs. Streaming
+
+- **One-Shot (`encrypt`):** Best for small data payloads already contained within device memory variables (e.g., short JSON blocks, individual attributes). It completes the initialization, processing, and finishing steps in a single operation.
+- **Streaming (`start` / `update` / `finish`):** Indispensable for large file streaming, chunks downloaded over network sockets, or multi-packet application data buffers. It processes sequential text blocks incrementally, preventing out-of-memory errors on RAM-constrained wearable hardware.
+
+---
 
 ## createCrypto
 
-Create a digest instance. Pass the HMAC key through `private_key`.
+Constructs a standard Message Digest or an authenticated HMAC hashing pipeline context based on the supplied parameters.
 
-| algorithmId        | Description         | API_LEVEL |
-| ------------------ | ------------------- | --------- | --- |
-| `alg.MD5`          | MD5 digest          | `3.0`     |
-| `alg.HMACMD5`      | HMAC-MD5 digest     | `3.0`     |
-| `alg.SHA_256`      | SHA-256 digest      | `3.0`     |
-| `alg.HMAC_SHA_256` | HMAC-SHA-256 digest | `3.0`     |
-| `alg.SHA_1`        | SHA-1 digest        | `3.0`     |
-| `alg.HMAC_SHA_1`   | HMAC-SHA-1 digest   | `3.0`     | .   |
+### Algorithm Constants Reference
 
-### Type
+| algorithmId        | Category           |    Output Size     | Security & Environment Usage                                                                                          | API_LEVEL |
+| :----------------- | :----------------- | :----------------: | :-------------------------------------------------------------------------------------------------------------------- | :-------: |
+| `alg.MD5`          | Message Digest     | 16 Bytes (128-bit) | Cryptographically vulnerable to collision models. Use strictly for performance checks or legacy verification schemas. |   `3.0`   |
+| `alg.HMACMD5`      | Authenticated HMAC | 16 Bytes (128-bit) | Integrates key authenticity over MD5. Avoid for new security designs; ideal for lightweight token checking.           |   `3.0`   |
+| `alg.SHA_1`        | Message Digest     | 20 Bytes (160-bit) | Historically popular legacy standard. Prone to structural attacks; ideal only for backwards compatibility rules.      |   `3.0`   |
+| `alg.HMAC_SHA_1`   | Authenticated HMAC | 20 Bytes (160-bit) | Authenticated wrapper using SHA-1. Used in classic signature handshakes.                                              |   `3.0`   |
+| `alg.SHA_256`      | Message Digest     | 32 Bytes (256-bit) | Secure modern industry baseline standard. Fully recommended for high-security checksums and identity fingerprints.    |   `3.0`   |
+| `alg.HMAC_SHA_256` | Authenticated HMAC | 32 Bytes (256-bit) | Highly secure signature layout. Perfect for mobile-to-watch network verification workflows.                           |   `3.0`   |
+
+### Function Signatures
 
 ```ts
+// Standard One-Way Hash Construction
 function createCrypto(
   algorithmId: typeof alg.MD5 | typeof alg.SHA_256 | typeof alg.SHA_1,
-  option?: DigestOptions,
+  option?: DigestOptions
 ): DigestCrypto | undefined
+
+// Authenticated Keyed HMAC Hashing Construction
 function createCrypto(
   algorithmId: typeof alg.HMACMD5 | typeof alg.HMAC_SHA_256 | typeof alg.HMAC_SHA_1,
-  option: HMACOptions,
+  option: HMACOptions
 ): DigestCrypto | undefined
 ```
 
-### Parameters
+---
 
-#### DigestData
+## Configuration Parameter Scopes
 
-| Type                                                   | Description    |
-| ------------------------------------------------------ | -------------- |
-| <code>number[]&#124;ArrayBuffer&#124;Uint8Array</code> | Data to digest |
+### DigestData
 
-#### DigestOptions
+Binary format container type designed to accept sequential buffers or arrays.
 
-| Property    | Type                             | Required | DefaultValue | Description                                            |
-| ----------- | -------------------------------- | -------- | ------------ | ------------------------------------------------------ |
-| key_encrypt | <code>boolean&#124;number</code> | N        | -            | Whether the key is encrypted again by the hardware key |
+- **Type Constraints:** `number[]` | `ArrayBuffer` | `Uint8Array`
 
-#### HMACOptions
+### DigestOptions
 
-| Property    | Type                             | Required | DefaultValue | Description                                            |
-| ----------- | -------------------------------- | -------- | ------------ | ------------------------------------------------------ |
-| private_key | <code>DigestData</code>          | Y        | -            | Key used by HMAC algorithms                            |
-| key_encrypt | <code>boolean&#124;number</code> | N        | -            | Whether the key is encrypted again by the hardware key |
+Configuration guidelines for standard unkeyed message digests.
 
-## DigestCrypto
+| Property      | Type                  | Required | Default | Technical Description                                                                                              |
+| :------------ | :-------------------- | :------: | :-----: | :----------------------------------------------------------------------------------------------------------------- |
+| `key_encrypt` | `boolean` \| `number` |    No    |   `-`   | Flags if the operation should leverage inner PUF hardware configurations during low-level execution context loads. |
 
-MD5, SHA, and HMAC digest instance supporting one-shot and streaming calculation.
+### HMACOptions
 
-### Methods
+Required runtime structural options for building authenticated key-linked HMAC hashes.
 
-#### encrypt
+| Property      | Type                  | Required | Default | Technical Description                                                                                    |
+| :------------ | :-------------------- | :------: | :-----: | :------------------------------------------------------------------------------------------------------- |
+| `private_key` | `DigestData`          | **Yes**  |   `-`   | The shared secret key payload utilized by the engine to lock the authenticity state of the text hash.    |
+| `key_encrypt` | `boolean` \| `number` |    No    |   `-`   | Specifies if the secret key parameter has already been wrapped by the local device hardware PUF context. |
 
-Calculate a digest in one call
+---
+
+## DigestCrypto Instance Methods
+
+### One-Shot Calculations
+
+#### encrypt()
+
+Executes immediate one-shot processing on an isolated input buffer block.
 
 ```ts
 encrypt(data: createCrypto.DigestData): DigestResult | undefined
 ```
 
-##### DigestResult
+- **Returns:** A populated `DigestResult` mapping schema or `undefined` if computational validation fails.
 
-| Property   | Type                     | Description   |
-| ---------- | ------------------------ | ------------- |
-| md_content | <code>ArrayBuffer</code> | Digest data   |
-| length     | <code>number</code>      | Digest length |
+---
 
-#### start
+### Streaming Operations (Incremental Chunk Ingestion)
 
-Start streaming digest calculation
+#### start()
+
+Initializes the internal calculation state, clearing buffer structures to accept new sequential data streams.
 
 ```ts
 start(): void
 ```
 
-#### update
+#### update()
 
-Append a data chunk
+Appends a sequential raw binary data block segment into the running hash calculation matrix. Can be invoked multiple times sequentially.
 
 ```ts
 update(data: createCrypto.DigestData): void
 ```
 
-#### finish
+#### finish()
 
-Finish streaming calculation and return the digest
+Concludes the incremental hashing loop, flushes internal pads, and produces the finalized signature block payload.
 
 ```ts
 finish(): DigestResult | undefined
 ```
 
-##### DigestResult
+- **Returns:** A `DigestResult` containing the final immutable signature byte representation block or `undefined`.
 
-| Property   | Type                     | Description   |
-| ---------- | ------------------------ | ------------- |
-| md_content | <code>ArrayBuffer</code> | Digest data   |
-| length     | <code>number</code>      | Digest length |
+---
 
-### Example
+### Structural Output Schemas
+
+#### DigestResult
+
+```ts
+interface DigestResult {
+  md_content: ArrayBuffer // The raw resulting binary digest signature array buffer
+  length: number // Total byte length of the produced digest output
+}
+```
+
+---
+
+## Architectural Implementation Examples
+
+import Tabs from '@theme/Tabs'
+import TabItem from '@theme/TabItem'
+
+<Tabs>
+  <TabItem value="md5" label="MD5 One-Shot" default>
+
+Calculate an MD5 digest in a single call. Suitable for small data (e.g., short strings or file checksums).
 
 ```js
 import { alg, createCrypto } from '@zos/crypto'
 
-const digest = createCrypto(alg.HMAC_SHA_256, { private_key: [1, 2, 3] })
+const md5 = createCrypto(alg.MD5)
+if (!md5) throw new Error('Failed to create MD5 instance')
+
+const result = md5.encrypt([65, 66, 67]) // Represents ASCII string "ABC"
+if (result) {
+  console.log(`MD5 digest length: ${result.length} bytes`)
+}
+```
+
+  </TabItem>
+  <TabItem value="sha256" label="SHA-256 One-Shot">
+
+Calculate a SHA-256 digest in a single call. SHA-256 produces a highly secure 32-byte hash fingerprint recommended for verifying application assets.
+
+```js
+import { alg, createCrypto } from '@zos/crypto'
+
+const sha256 = createCrypto(alg.SHA_256)
+if (!sha256) throw new Error('Failed to create SHA-256 instance')
+
+const result = sha256.encrypt(new Uint8Array([0x48, 0x65, 0x6c, 0x6c, 0x6f])) // "Hello"
+if (result) {
+  console.log(`SHA-256 digest length: ${result.length} bytes`)
+}
+```
+
+  </TabItem>
+  <TabItem value="hmac" label="HMAC-SHA256 Authentication">
+
+Generate an HMAC-SHA-256 authentication code using a custom secret key array to prove message origin authenticity.
+
+```js
+import { alg, createCrypto } from '@zos/crypto'
+
+// Provide custom shared key array configuration within options parameters
+const hmac = createCrypto(alg.HMAC_SHA_256, { private_key: [1, 2, 3, 4, 5] })
+if (!hmac) throw new Error('Failed to create HMAC-SHA-256 instance')
+
+const result = hmac.encrypt([65, 66, 67]) // "ABC"
+if (result) {
+  console.log(`HMAC-SHA-256 digest length: ${result.length} bytes`)
+}
+```
+
+  </TabItem>
+  <TabItem value="streaming" label="Streaming Digest for Large Data">
+
+Process large files or heavy incoming streaming segments safely using incremental step boundaries (`start`, `update`, `finish`).
+
+```js
+import { alg, createCrypto } from '@zos/crypto'
+
+const digest = createCrypto(alg.SHA_256)
 if (!digest) throw new Error('Failed to create digest instance')
 
-const oneShot = digest.encrypt([65, 66, 67])
-
+// Begin the streaming pipeline context lifecycle
 digest.start()
-digest.update([65])
-digest.update([66, 67])
-const streamed = digest.finish()
+digest.update([65]) // Stream chunk 1: 'A'
+digest.update([66, 67]) // Stream chunk 2: 'BC'
+digest.update([68, 69, 70]) // Stream chunk 3: 'DEF'
+const result = digest.finish()
+
+if (result) {
+  console.log(`Incremental streaming SHA-256 complete. Output size: ${result.length} bytes`)
+}
 ```
+
+  </TabItem>
+  <TabItem value="hmac-streaming" label="Streaming HMAC-MD5">
+
+Combine secure keyed verification with streaming flows to securely handle large files or segmented data transfers.
+
+```js
+import { alg, createCrypto } from '@zos/crypto'
+
+const hmac = createCrypto(alg.HMACMD5, { private_key: [10, 20, 30] })
+if (!hmac) throw new Error('Failed to create HMAC-MD5 instance')
+
+hmac.start()
+hmac.update([0x48, 0x65]) // Chunk 1: "He"
+hmac.update([0x6c, 0x6c]) // Chunk 2: "ll"
+hmac.update([0x6f]) // Chunk 3: "o"
+const result = hmac.finish()
+
+if (result) {
+  console.log(`Streaming HMAC-MD5 verification code ready. Size: ${result.length} bytes`)
+}
+```
+
+  </TabItem>
+</Tabs>

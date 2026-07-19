@@ -1,14 +1,34 @@
-# AES-CBC
+# AES-CBC API Documentation
 
-## createCrypto
+This document describes the API for the AES-CBC (Advanced Encryption Standard - Cipher Block Chaining) symmetric encryption algorithm.
 
-Create an AES-CBC symmetric encryption instance. Plaintext length must be a multiple of 16 bytes.
+---
 
-| algorithmId   | Description                  | API_LEVEL |
-| ------------- | ---------------------------- | --------- | --- |
-| `alg.AES_CBC` | AES-CBC symmetric encryption | `3.0`     | .   |
+## Overview
 
-### Type
+The AES-CBC module provides methods to create cryptographic instances, generate or reuse symmetric keys, and securely encrypt or decrypt binary data.
+
+### Key Constraints & Requirements
+
+- **Input Alignment:** Plaintext data length **must** be a multiple of 16 bytes (128 bits), matching the AES block size.
+- **Initialization Vector (IV):** Under the hood, the system handles the IV state across sequential operations.
+- **AES-CBC Key Formats:**
+  - **Bit Length:** This API specifically expects `128` bits (16 bytes).
+  - **Key Format:** The key must be passed as an array of numbers, an `ArrayBuffer`, or a `Uint8Array`.
+  - **Structure:** For a 128-bit key, the `Uint8Array` must contain exactly 16 elements, each representing a byte (0-255).
+  - **Example Structure:** `new Uint8Array([0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08, 0x09, 0x0A, 0x0B, 0x0C, 0x0D, 0x0E, 0x0F, 0x10])`
+
+---
+
+## Method: createCrypto
+
+Initializes an AES-CBC symmetric encryption or decryption instance.
+
+| Algorithm ID  | Description                            | Supported API Level |
+| :------------ | :------------------------------------- | :------------------ |
+| `alg.AES_CBC` | AES-CBC symmetric encryption algorithm | `3.0`               |
+
+### TypeScript Definition
 
 ```ts
 function createCrypto(algorithmId: typeof alg.AES_CBC, option: AESOptions): AESCrypto | undefined
@@ -16,103 +36,198 @@ function createCrypto(algorithmId: typeof alg.AES_CBC, option: AESOptions): AESC
 
 ### Parameters
 
-#### AESData
+#### AESData (Type Alias)
 
-| Type                                                   | Description     |
-| ------------------------------------------------------ | --------------- |
-| <code>number[]&#124;ArrayBuffer&#124;Uint8Array</code> | Data to process |
+Represents the raw binary data type accepted by the API.
 
-#### AESOptions
+```ts
+type AESData = number[] | ArrayBuffer | Uint8Array
+```
 
-| Property       | Type                             | Required | DefaultValue | Description                                                  |
-| -------------- | -------------------------------- | -------- | ------------ | ------------------------------------------------------------ |
-| key_bit_length | <code>number</code>              | Y        | -            | Key length in bits; AES-CBC uses 128                         |
-| key_encrypt    | <code>boolean&#124;number</code> | N        | -            | Whether the key is encrypted again by the hardware key       |
-| private_key    | <code>AESData</code>             | N        | -            | Existing private key; use it instead of generating a new key |
+#### AESOptions (Interface)
 
-## AESCrypto
+| Property         | Type      | Required | Default | Description                                                                                                       |
+| :--------------- | :-------- | :------- | :------ | :---------------------------------------------------------------------------------------------------------------- |
+| `key_bit_length` | `number`  | **Yes**  | —       | Key length in bits. For `alg.AES_CBC`, this must be `128`.                                                        |
+| `key_encrypt`    | `boolean  | No       | No      | Specifies if the key should be additionally wrapped/encrypted by the hardware root key (`1` or `true` to enable). |
+| `private_key`    | `AESData` | No       | —       | Existing private key; use it instead of generating a new key                                                      |
 
-AES-CBC symmetric encryption instance.
+---
+
+## Class: AESCrypto
+
+An instance returned by `createCrypto` configured for AES-CBC cryptographic operations.
 
 ### Methods
 
-#### createChiper
+#### 1. createChiper()
 
-Create or return the AES private key; returns `undefined` on failure
+Generates a new internal AES private key or retrieves the active instance key structure.
 
-```ts
-createChiper(): AESKeyResult | undefined
-```
+- **Signature:**
+  ```ts
+  createChiper(): AESKeyResult | undefined
+  ```
+- **Returns:** An `AESKeyResult` object, or `undefined` if key generation fails.
 
-##### AESKeyResult
+##### AESKeyResult (Interface)
 
-| Property           | Type                     | Description        |
-| ------------------ | ------------------------ | ------------------ |
-| private_key_length | <code>number</code>      | Private key length |
-| private_key        | <code>ArrayBuffer</code> | Private key data   |
+| Property             | Type          | Description                                                                      |
+| :------------------- | :------------ | :------------------------------------------------------------------------------- |
+| `private_key_length` | `number`      | The length of the generated private key in bytes (e.g., `16` for a 128-bit key). |
+| `private_key`        | `ArrayBuffer` | The raw cryptographic private key data.                                          |
 
-#### encrypt
+---
 
-Encrypt data whose length is a multiple of 16 bytes
+#### 2. encrypt()
 
-```ts
-encrypt(data: createCrypto.AESData): AESCipherResult | undefined
-```
+Encrypts a block of plaintext data. The input plaintext length **must** be a multiple of 16 bytes.
 
-##### AESCipherResult
+- **Signature:**
+  ```ts
+  encrypt(data: AESData): AESCipherResult | undefined
+  ```
+- **Parameters:** `data` (`AESData`) - Plaintext data matching the block constraint.
+- **Returns:** An `AESCipherResult` object containing the ciphertext, or `undefined` if encryption fails.
 
-| Property | Type                     | Description    |
-| -------- | ------------------------ | -------------- |
-| data     | <code>ArrayBuffer</code> | Encrypted data |
-| length   | <code>number</code>      | Data length    |
+##### AESCipherResult (Interface)
 
-#### decrypt
+| Property | Type          | Description                                                 |
+| :------- | :------------ | :---------------------------------------------------------- |
+| `data`   | `ArrayBuffer` | The output encrypted ciphertext data.                       |
+| `length` | `number`      | The total length of the encrypted ciphertext data in bytes. |
 
-Decrypt AES-CBC data
+---
 
-```ts
-decrypt(data: createCrypto.AESData): AESCipherResult | undefined
-```
+#### 3. decrypt()
 
-##### AESCipherResult
+Decrypts a block of ciphertext data back into the original plaintext.
 
-| Property | Type                     | Description    |
-| -------- | ------------------------ | -------------- |
-| data     | <code>ArrayBuffer</code> | Decrypted data |
-| length   | <code>number</code>      | Data length    |
+- **Signature:**
+  ```ts
+  decrypt(data: AESData): AESCipherResult | undefined
+  ```
+- **Parameters:** `data` (`AESData`) - Ciphertext data to decrypt (must be a multiple of 16 bytes).
+- **Returns:** An `AESCipherResult` object containing the decrypted plaintext, or `undefined` if decryption fails.
 
-### Example
+---
+
+## Examples
+
+import Tabs from '@theme/Tabs'
+import TabItem from '@theme/TabItem'
+
+<Tabs>
+  <TabItem value="generate" label="Generate Key & Encrypt/Decrypt" default>
+
+Generate a new AES-128 key, then encrypt and decrypt a 16-byte block of data.
 
 ```js
 import { alg, createCrypto } from '@zos/crypto'
 
+// 1. Prepare a 16-byte block of plain text (exactly 16 bytes for AES block alignment)
 const plainData = new Uint8Array([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16])
 
+// 2. Initialize the AES-CBC instance configuring it for a 128-bit key length
+// We enable key_encrypt: 1 so the key is securely wrapped by the hardware-level key
 const aes = createCrypto(alg.AES_CBC, {
   key_bit_length: 128,
-  key_encrypt: 1,
+  key_encrypt: 1
 })
-if (!aes) throw new Error('Failed to create AES-CBC instance')
+if (!aes) throw new Error('Failed to instantiate AES-CBC')
 
+// 3. Generate the internal cryptographic key structures
 const keyInfo = aes.createChiper()
-if (!keyInfo) throw new Error('Failed to create AES key')
+if (!keyInfo) throw new Error('Failed to generate AES private key')
+console.log(`Key generated successfully. Length: ${keyInfo.private_key_length} bytes.`)
 
+// 4. Encrypt the plaintext data
 const encrypted = aes.encrypt(plainData)
-if (!encrypted) throw new Error('Failed to encrypt data')
+if (!encrypted) throw new Error('Encryption failed')
+console.log(`Data encrypted successfully. Ciphertext length: ${encrypted.length} bytes.`)
 
+// 5. Decrypt the ciphertext back to verify correctness
 const decrypted = aes.decrypt(encrypted.data)
-if (!decrypted) throw new Error('Failed to decrypt data')
-console.log(new Uint8Array(decrypted.data))
+if (!decrypted) throw new Error('Decryption failed')
 
-// Create another AES-CBC instance with an existing private key
-const existingKey = new Uint8Array(keyInfo.private_key)
+// 6. Output the result as a Uint8Array to inspect the decrypted values
+const decryptedArray = new Uint8Array(decrypted.data)
+console.log('Decrypted Plaintext:', decryptedArray)
+```
+
+  </TabItem>
+  <TabItem value="reuse" label="Reuse Existing Key">
+
+Create an AES-CBC instance using a previously generated private key, avoiding key regeneration.
+
+```js
+import { alg, createCrypto } from '@zos/crypto'
+
+// A valid AES-128 key must be exactly 16 bytes (128 bits) long.
+// Each element represents 1 byte ranging from 0x00 to 0xFF.
+const existingKey = new Uint8Array([
+  0x10, 0x11, 0x12, 0x13, 0x14, 0x15, 0x16, 0x17, 0x18, 0x19, 0x1a, 0x1b, 0x1c, 0x1d, 0x1e, 0x1f
+])
+
+const plainData = new Uint8Array([
+  10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110, 120, 130, 140, 150, 160
+])
+
+// Initialize the AES-CBC instance by passing our custom key into the 'private_key' property
 const aesWithExistingKey = createCrypto(alg.AES_CBC, {
   key_bit_length: 128,
   private_key: existingKey,
-  key_encrypt: 1,
+  key_encrypt: 1
 })
-if (!aesWithExistingKey) throw new Error('Failed to reuse AES key')
+if (!aesWithExistingKey) throw new Error('Failed to initialize AES instance with existing key')
 
-const encryptedAgain = aesWithExistingKey.encrypt(plainData)
-const decryptedAgain = encryptedAgain ? aesWithExistingKey.decrypt(encryptedAgain.data) : undefined
+// Encrypt using the imported key
+const encrypted = aesWithExistingKey.encrypt(plainData)
+if (!encrypted) throw new Error('Encryption failed')
+
+// Decrypt using the same instance configuration
+const decrypted = aesWithExistingKey.decrypt(encrypted.data)
+if (decrypted) {
+  console.log('Successfully decrypted using imported key:', new Uint8Array(decrypted.data))
+}
 ```
+
+  </TabItem>
+  <TabItem value="multi-block" label="Multi-Block Data Encryption">
+
+Encrypt data spanning multiple 16-byte blocks by processing each block sequentially.
+
+```js
+import { alg, createCrypto } from '@zos/crypto'
+
+const aes = createCrypto(alg.AES_CBC, {
+  key_bit_length: 128,
+  key_encrypt: 1
+})
+if (!aes) throw new Error('Failed to initialize multi-block AES instance')
+
+// Trigger key initialization
+aes.createChiper()
+
+// Defining an array of three separate blocks, each exactly 16 bytes long
+const dataBlocks = [
+  new Uint8Array([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]),
+  new Uint8Array([17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32]),
+  new Uint8Array([33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48])
+]
+
+// Loop through each block sequentially to execute the encryption
+for (let i = 0; i < dataBlocks.length; i++) {
+  const encrypted = aes.encrypt(dataBlocks[i])
+  if (encrypted) {
+    console.log(
+      `Block ${i + 1} processed safely. Output Ciphertext Length: ${encrypted.length} bytes.`
+    )
+  } else {
+    console.error(`Failed to encrypt Block ${i + 1}`)
+  }
+}
+```
+
+  </TabItem>
+</Tabs>
